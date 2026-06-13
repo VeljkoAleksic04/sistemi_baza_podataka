@@ -4,13 +4,256 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\AngazovanjaIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\AutoriPublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\CitatiPublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DatasetoviForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAngazovanjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAngazovanjeInstitucijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAutoraPublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAutorstvoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajCitatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajDatasetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajDoktorskuDisertacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajEmailIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajInstitucijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajKljucnuRecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajKnjiguForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajKontaktMailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajKontaktTelefonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajNaucniRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajNaucnuOblastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajObrazovniMaterijalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajPodrzanuPlatformuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajPoglavljeUKnjiziForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajPovezanuPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajPrezentacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajSoftverskiArtefaktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajTehnickiIzvestajForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajTelefonIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajUrednikaKnjigeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajUrednikaPoglavljaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajVerzijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DoktorskeDisertacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\EmailAdreseIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\InstitucijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IstrazivaciForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniAngazovanjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniAngazovanjeInstitucijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniAutoraPublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniAutorstvoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniCitatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniDatasetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniDoktorskuDisertacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniEmailIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniInstitucijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniKljucnuRecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniKnjiguForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniKontaktMailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniKontaktTelefonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniNaucniRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniNaucnuOblastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniObrazovniMaterijalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniPodrzanuPlatformuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniPoglavljeUKnjiziForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniPovezanuPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniPrezentacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniSoftverskiArtefaktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniTehnickiIzvestajForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniTelefonIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniUrednikaKnjigeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniUrednikaPoglavljaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniVerzijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\KljucneReciPublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\KnjigeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\KontaktMailoviInstitucijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\KontaktTelefoniInstitucijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\NaucneOblastiInstitucijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\NaucniRadoviForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\ObrazovniMaterijaliForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PodrzanePlatformeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PoglavljaUKnjiziForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PovezanePublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PrezentacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PublikacijeAutoraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\PublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\SoftverskiArtefaktiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\TehnickiIzvestajiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\TelefoniIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\UredniciKnjigeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\UredniciPoglavljaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\VerzijePublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\ZaposleniIstrazivaciForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
