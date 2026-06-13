@@ -354,7 +354,7 @@ INSERT INTO AUTORSTVO (Id_Publikacije, Id_Autora, Redosled_Autora, Tip_Doprinosa
 INSERT INTO AUTORSTVO (Id_Publikacije, Id_Autora, Redosled_Autora, Tip_Doprinosa, Uloga) VALUES (7, 5, 2, 'Kvantni deo, revizija', 'Koautor');
 
 -- P8: Lazic (10), Petrovic (1) - doktorat
-INSERT INTO AUTORSTVO (Id_Publikacije, Id_Autora, Redosled_Autora, Tip_Doprinosa, Uloga) VALUES (8, 10, 1, 'Istrazivac', 'Doktorand');
+INSERT INTO AUTORSTVO (Id_Publikacije, Id_Autora, Redosled_Autora, Tip_Doprinosa, Uloga) VALUES (8, 10, 1, 'Istrazivaç', 'Doktorand');
 INSERT INTO AUTORSTVO (Id_Publikacije, Id_Autora, Redosled_Autora, Tip_Doprinosa, Uloga) VALUES (8, 1, 2, 'Supervizija', 'Mentor');
 
 -- P9: Vukovic (9), Nikolic (3)
@@ -474,27 +474,27 @@ VALUES (1, 10, DATE '2024-01-10', 'prihvacen', 7);
 -- ------------------------------------------------------------
 -- VRSI_RECENZIJU
 -- ------------------------------------------------------------
--- Runda 1 rada P1 (Id_Runde_Recenzije=1): recenzenti su Jovanovic(2) i Markovic(4)
+-- Runda 1 rada P1 (Id_Runde=1): recenzenti su Jovanovic(2) i Popovic(7)
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (1, 2, 'manja revizija');
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (1, 4, 'prihvati');
 
--- Runda 2 rada P1 (Id_Runde_Recenzije=2)
+-- Runda 2 rada P1 (Id_Runde=2)
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (2, 2, 'prihvati');
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (2, 4, 'prihvati');
 
--- Runda 1 rada P2 (Id_Runde_Recenzije=3)
+-- Runda 1 rada P2 (Id_Runde=3)
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (3, 9, 'manja revizija');
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (3, 2, 'prihvati');
 
--- Runda 2 rada P2 (Id_Runde_Recenzije=4)
+-- Runda 2 rada P2 (Id_Runde=4)
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (4, 9, 'prihvati');
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (4, 2, 'prihvati');
 
--- Runda 1 rada P3 (Id_Runde_Recenzije=5)
+-- Runda 1 rada P3 (Id_Runde=5)
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (5, 7, NULL);
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (5, 9, NULL);
 
--- Runda 1 rada P10 (Id_Runde_Recenzije=6)
+-- Runda 1 rada P10 (Id_Runde=6)
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (6, 2, 'prihvati');
 INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES (6, 8, 'prihvati');
 
@@ -502,27 +502,27 @@ INSERT INTO VRSI_RECENZIJU (Id_Runde_Recenzije, Id_Recenzenta, Preporuka) VALUES
 -- CITIRA
 -- ------------------------------------------------------------
 -- P1 citira P5 (koristili smo korpus za trening)
-INSERT INTO CITIRA (Id_citira, Id_citirana, Tip_citata, Mesto_citiranja, Tekstualni_kontekst)
+INSERT INTO CITIRA (Id_Publikacije, Id_Citata, Tip_Citata, Mesto_Citiranja, Tekstualni_Kontekst)
 VALUES (1, 5, 'direktna referenca', 'Sekcija 3.1 - Podaci', 'Za trening modela koriscen je SrpNLP-Corpus (ref)');
 
 -- P1 citira P6
-INSERT INTO CITIRA (Id_citira, Id_citirana, Tip_citata, Mesto_citiranja, Tekstualni_kontekst)
+INSERT INTO CITIRA (Id_Publikacije, Id_Citata, Tip_Citata, Mesto_Citiranja, Tekstualni_Kontekst)
 VALUES (1, 6, 'poredenje', 'Sekcija 4 - Eksperimenti', 'Poredenje sa SrBERT baznom linijom');
 
 -- P2 citira P9
-INSERT INTO CITIRA (Id_citira, Id_citirana, Tip_citata, Mesto_citiranja, Tekstualni_kontekst)
+INSERT INTO CITIRA (Id_Publikacije, Id_Citata, Tip_Citata, Mesto_Citiranja, Tekstualni_Kontekst)
 VALUES (2, 9, 'kontekstualna referenca', 'Uvod', 'IoT kao kljucna komponenta pametnih gradova');
 
 -- P6 citira P5
-INSERT INTO CITIRA (Id_citira, Id_citirana, Tip_citata, Mesto_citiranja, Tekstualni_kontekst)
+INSERT INTO CITIRA (Id_Publikacije, Id_Citata, Tip_Citata, Mesto_Citiranja, Tekstualni_Kontekst)
 VALUES (6, 5, 'direktna referenca', 'Sekcija 2 - Trening podaci', 'Model je treniran na SrpNLP-Corpus skupu podataka');
 
 -- P7 citira P3
-INSERT INTO CITIRA (Id_citira, Id_citirana, Tip_citata, Mesto_citiranja, Tekstualni_kontekst)
+INSERT INTO CITIRA (Id_Publikacije, Id_Citata, Tip_Citata, Mesto_Citiranja, Tekstualni_Kontekst)
 VALUES (7, 3, 'kontekstualna referenca', 'Sekcija 1 - Uvod', 'Bezbednosni aspekti blockchain sistema');
 
 -- P8 citira P1
-INSERT INTO CITIRA (Id_citira, Id_citirana, Tip_citata, Mesto_citiranja, Tekstualni_kontekst)
+INSERT INTO CITIRA (Id_Publikacije, Id_Citata, Tip_Citata, Mesto_Citiranja, Tekstualni_Kontekst)
 VALUES (8, 1, 'metodoloski uticaj', 'Sekcija 2 - Pregled literature', 'Primena NLP tehnika u industrijskoj dijagnostici');
 
 -- ------------------------------------------------------------

@@ -1,0 +1,81 @@
+-- ============================================================
+-- BRISANJE SVIH TABELA I SEKVENCI
+-- Pokrenuti nakon sto su podaci obrisani (delete_sample_data.sql)
+-- ============================================================
+
+-- Vezne tabele i deca
+DROP TABLE NIZ_OCENA;
+DROP TABLE CITIRA;
+DROP TABLE POVEZAN_SA;
+DROP TABLE VRSI_RECENZIJU;
+DROP TABLE RUNDA_RECENZIJE;
+
+DROP TABLE FAJLOVI;
+DROP TABLE VERZIJA;
+
+DROP TABLE AUTORSTVO;
+DROP TABLE PUBLIKACIJA_KLJUCNE_RECI;
+
+-- Podtipovi publikacije
+DROP TABLE SA_PODRZANE_PLATFORME;
+DROP TABLE SOFTVERSKI_ARTEFAKT;
+DROP TABLE DATASET;
+DROP TABLE DOKTORSKA_DISERTACIJA;
+DROP TABLE PREZENTACIJA;
+DROP TABLE OBRAZOVNI_MATERIJAL;
+DROP TABLE TEHNICKI_IZVESTAJ;
+DROP TABLE POGLAVLJE_UREDNICI;
+DROP TABLE POGLAVLJE_U_KNJIZI;
+DROP TABLE KNJIGA_UREDNICI;
+DROP TABLE KNJIGA;
+DROP TABLE NAUCNI_RAD;
+
+-- Izvori
+DROP TABLE CASOPIS;
+DROP TABLE KONFERENCIJA;
+DROP TABLE IZVOR;
+
+-- Publikacija
+DROP TABLE PUBLIKACIJA;
+
+-- Istrazivac visevrednosni atributi
+DROP TABLE ISTRAZIVAC_EMAIL;
+DROP TABLE ISTRAZIVAC_TELEFONI;
+
+-- Angazovanje
+DROP TABLE ANGAZOVANJE;
+
+-- Institucija visevrednosni atributi
+DROP TABLE INSTITUCIJA_NAUCNE_OBLASTI;
+DROP TABLE INSTITUCIJA_KONTAKT_TEL;
+DROP TABLE INSTITUCIJA_KONTAKT_MAIL;
+
+-- Korenski entiteti
+DROP TABLE ISTRAZIVAC;
+DROP TABLE INSTITUCIJA;
+
+-- ============================================================
+-- BRISANJE SEKVENCI
+-- ============================================================
+DROP SEQUENCE SEQ_INSTITUCIJA;
+DROP SEQUENCE SEQ_ISTRAZIVAC;
+DROP SEQUENCE SEQ_PUBLIKACIJA;
+DROP SEQUENCE SEQ_IZVOR;
+DROP SEQUENCE seq_verzija;
+DROP SEQUENCE seq_runda_recenzije;
+DROP SEQUENCE seq_inst_mail;
+DROP SEQUENCE seq_inst_tel;
+DROP SEQUENCE seq_inst_oblast;
+DROP SEQUENCE seq_istr_tel;
+DROP SEQUENCE seq_istr_email;
+DROP SEQUENCE seq_pub_rec;
+DROP SEQUENCE seq_sa_platforma;
+DROP SEQUENCE seq_fajlovi;
+DROP SEQUENCE seq_knjiga_urednik;
+DROP SEQUENCE seq_poglavlje_urednik;
+DROP SEQUENCE seq_angazovanje
+DROP SEQUENCE seq_autorstvo
+DROP SEQUENCE seq_povezan_sa
+DROP SEQUENCE seq_citira
+DROP SEQUENCE seq_vrsi_recenziju
+DROP SEQUENCE seq_niz_ocena
