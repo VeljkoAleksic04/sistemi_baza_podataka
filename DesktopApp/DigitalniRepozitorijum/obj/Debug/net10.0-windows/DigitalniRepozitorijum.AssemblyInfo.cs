@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigitalniRepozitorijum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+496c129e3a3958713042026ecc9b3c8b6c537c15")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0388a6eff9d5f2773ee0d1d50e81d5bf48ee6de1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigitalniRepozitorijum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigitalniRepozitorijum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
