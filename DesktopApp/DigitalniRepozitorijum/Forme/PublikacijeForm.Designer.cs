@@ -17,241 +17,328 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.groupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-                        this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.DataPropertyName = "Id";
-                        this.colNaslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNaslov.HeaderText = "Naslov";
-            this.colNaslov.Name = "colNaslov";
-            this.colNaslov.DataPropertyName = "Naslov";
-                        this.colJezik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colJezik.HeaderText = "Jezik";
-            this.colJezik.Name = "colJezik";
-            this.colJezik.DataPropertyName = "Jezik";
-                        this.colDatumObjavljivanja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDatumObjavljivanja.HeaderText = "DatumObjavljivanja";
-            this.colDatumObjavljivanja.Name = "colDatumObjavljivanja";
-            this.colDatumObjavljivanja.DataPropertyName = "DatumObjavljivanja";
-                        this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.DataPropertyName = "Status";
-                        this.colVidljivost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVidljivost.HeaderText = "Vidljivost";
-            this.colVidljivost.Name = "colVidljivost";
-            this.colVidljivost.DataPropertyName = "Vidljivost";
-            this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.SuspendLayout();
+            groupBox = new GroupBox();
+            dataGridView = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colNaslov = new DataGridViewTextBoxColumn();
+            colJezik = new DataGridViewTextBoxColumn();
+            colDatumObjavljivanja = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colVidljivost = new DataGridViewTextBoxColumn();
+            btnDodaj = new Button();
+            btnIzmeni = new Button();
+            btnObrisi = new Button();
+            lblPovezano = new Label();
+            btnAutori = new Button();
+            btnVerzije = new Button();
+            btnKljucneReci = new Button();
+            btnCitati = new Button();
+            btnPovezane = new Button();
+            lblTipovi = new Label();
+            btnNaucniRadovi = new Button();
+            btnKnjige = new Button();
+            btnPoglavlja = new Button();
+            btnDoktorske = new Button();
+            btnDatasetovi = new Button();
+            btnSoftverski = new Button();
+            btnObrazovni = new Button();
+            btnPrezentacije = new Button();
+            btnTehnicki = new Button();
+            groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            SuspendLayout();
+            // 
             // groupBox
-            this.groupBox.Controls.Add(this.dataGridView);
-            this.groupBox.Location = new System.Drawing.Point(12, 12);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(690, 556);
-            this.groupBox.TabIndex = 0;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Lista publikacija";
+            // 
+            groupBox.Controls.Add(dataGridView);
+            groupBox.Location = new Point(12, 12);
+            groupBox.Name = "groupBox";
+            groupBox.Size = new Size(690, 556);
+            groupBox.TabIndex = 0;
+            groupBox.TabStop = false;
+            groupBox.Text = "Lista publikacija";
+            // 
             // dataGridView
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colId, this.colNaslov, this.colJezik, this.colDatumObjavljivanja, this.colStatus, this.colVidljivost
-            });
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(684, 534);
-            this.dataGridView.TabIndex = 0;
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.btnDodaj.Location = new System.Drawing.Point(720, 12);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(240, 32);
-            this.btnDodaj.TabIndex = 10;
-            this.btnDodaj.Text = "Dodaj publikaciju";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
-            this.btnIzmeni = new System.Windows.Forms.Button();
-            this.btnIzmeni.Location = new System.Drawing.Point(720, 50);
-            this.btnIzmeni.Name = "btnIzmeni";
-            this.btnIzmeni.Size = new System.Drawing.Size(240, 32);
-            this.btnIzmeni.TabIndex = 10;
-            this.btnIzmeni.Text = "Izmeni publikaciju";
-            this.btnIzmeni.UseVisualStyleBackColor = true;
-            this.btnIzmeni.Click += new System.EventHandler(this.btnIzmeni_Click);
-            this.btnObrisi = new System.Windows.Forms.Button();
-            this.btnObrisi.Location = new System.Drawing.Point(720, 88);
-            this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(240, 32);
-            this.btnObrisi.TabIndex = 10;
-            this.btnObrisi.Text = "Obrisi publikaciju";
-            this.btnObrisi.UseVisualStyleBackColor = true;
-            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
-            this.lblPovezano = new System.Windows.Forms.Label();
-            this.lblPovezano.AutoSize = true;
-            this.lblPovezano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblPovezano.Location = new System.Drawing.Point(720, 126);
-            this.lblPovezano.Name = "lblPovezano";
-            this.lblPovezano.Size = new System.Drawing.Size(200, 13);
-            this.lblPovezano.TabIndex = 100;
-            this.lblPovezano.Text = "Povezani podaci";
-            this.btnAutori = new System.Windows.Forms.Button();
-            this.btnAutori.Location = new System.Drawing.Point(720, 148);
-            this.btnAutori.Name = "btnAutori";
-            this.btnAutori.Size = new System.Drawing.Size(240, 32);
-            this.btnAutori.TabIndex = 10;
-            this.btnAutori.Text = "Autori publikacije";
-            this.btnAutori.UseVisualStyleBackColor = true;
-            this.btnAutori.Click += new System.EventHandler(this.btnAutori_Click);
-            this.btnVerzije = new System.Windows.Forms.Button();
-            this.btnVerzije.Location = new System.Drawing.Point(720, 186);
-            this.btnVerzije.Name = "btnVerzije";
-            this.btnVerzije.Size = new System.Drawing.Size(240, 32);
-            this.btnVerzije.TabIndex = 10;
-            this.btnVerzije.Text = "Verzije publikacije";
-            this.btnVerzije.UseVisualStyleBackColor = true;
-            this.btnVerzije.Click += new System.EventHandler(this.btnVerzije_Click);
-            this.btnKljucneReci = new System.Windows.Forms.Button();
-            this.btnKljucneReci.Location = new System.Drawing.Point(720, 224);
-            this.btnKljucneReci.Name = "btnKljucneReci";
-            this.btnKljucneReci.Size = new System.Drawing.Size(240, 32);
-            this.btnKljucneReci.TabIndex = 10;
-            this.btnKljucneReci.Text = "Ključne reci";
-            this.btnKljucneReci.UseVisualStyleBackColor = true;
-            this.btnKljucneReci.Click += new System.EventHandler(this.btnKljucneReci_Click);
-            this.btnCitati = new System.Windows.Forms.Button();
-            this.btnCitati.Location = new System.Drawing.Point(720, 262);
-            this.btnCitati.Name = "btnCitati";
-            this.btnCitati.Size = new System.Drawing.Size(240, 32);
-            this.btnCitati.TabIndex = 10;
-            this.btnCitati.Text = "Citati";
-            this.btnCitati.UseVisualStyleBackColor = true;
-            this.btnCitati.Click += new System.EventHandler(this.btnCitati_Click);
-            this.btnPovezane = new System.Windows.Forms.Button();
-            this.btnPovezane.Location = new System.Drawing.Point(720, 300);
-            this.btnPovezane.Name = "btnPovezane";
-            this.btnPovezane.Size = new System.Drawing.Size(240, 32);
-            this.btnPovezane.TabIndex = 10;
-            this.btnPovezane.Text = "Povezane publikacije";
-            this.btnPovezane.UseVisualStyleBackColor = true;
-            this.btnPovezane.Click += new System.EventHandler(this.btnPovezane_Click);
-            this.lblTipovi = new System.Windows.Forms.Label();
-            this.lblTipovi.AutoSize = true;
-            this.lblTipovi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblTipovi.Location = new System.Drawing.Point(720, 338);
-            this.lblTipovi.Name = "lblTipovi";
-            this.lblTipovi.Size = new System.Drawing.Size(200, 13);
-            this.lblTipovi.TabIndex = 100;
-            this.lblTipovi.Text = "Tipovi publikacije";
-            this.btnNaucniRadovi = new System.Windows.Forms.Button();
-            this.btnNaucniRadovi.Location = new System.Drawing.Point(720, 360);
-            this.btnNaucniRadovi.Name = "btnNaucniRadovi";
-            this.btnNaucniRadovi.Size = new System.Drawing.Size(240, 32);
-            this.btnNaucniRadovi.TabIndex = 10;
-            this.btnNaucniRadovi.Text = "Naučni radovi";
-            this.btnNaucniRadovi.UseVisualStyleBackColor = true;
-            this.btnNaucniRadovi.Click += new System.EventHandler(this.btnNaucniRadovi_Click);
-            this.btnKnjige = new System.Windows.Forms.Button();
-            this.btnKnjige.Location = new System.Drawing.Point(720, 398);
-            this.btnKnjige.Name = "btnKnjige";
-            this.btnKnjige.Size = new System.Drawing.Size(240, 32);
-            this.btnKnjige.TabIndex = 10;
-            this.btnKnjige.Text = "Knjige";
-            this.btnKnjige.UseVisualStyleBackColor = true;
-            this.btnKnjige.Click += new System.EventHandler(this.btnKnjige_Click);
-            this.btnPoglavlja = new System.Windows.Forms.Button();
-            this.btnPoglavlja.Location = new System.Drawing.Point(720, 436);
-            this.btnPoglavlja.Name = "btnPoglavlja";
-            this.btnPoglavlja.Size = new System.Drawing.Size(240, 32);
-            this.btnPoglavlja.TabIndex = 10;
-            this.btnPoglavlja.Text = "Poglavlja u knjizi";
-            this.btnPoglavlja.UseVisualStyleBackColor = true;
-            this.btnPoglavlja.Click += new System.EventHandler(this.btnPoglavlja_Click);
-            this.btnDoktorske = new System.Windows.Forms.Button();
-            this.btnDoktorske.Location = new System.Drawing.Point(720, 474);
-            this.btnDoktorske.Name = "btnDoktorske";
-            this.btnDoktorske.Size = new System.Drawing.Size(240, 32);
-            this.btnDoktorske.TabIndex = 10;
-            this.btnDoktorske.Text = "Doktorske disertacije";
-            this.btnDoktorske.UseVisualStyleBackColor = true;
-            this.btnDoktorske.Click += new System.EventHandler(this.btnDoktorske_Click);
-            this.btnDatasetovi = new System.Windows.Forms.Button();
-            this.btnDatasetovi.Location = new System.Drawing.Point(720, 512);
-            this.btnDatasetovi.Name = "btnDatasetovi";
-            this.btnDatasetovi.Size = new System.Drawing.Size(240, 32);
-            this.btnDatasetovi.TabIndex = 10;
-            this.btnDatasetovi.Text = "Datasetovi";
-            this.btnDatasetovi.UseVisualStyleBackColor = true;
-            this.btnDatasetovi.Click += new System.EventHandler(this.btnDatasetovi_Click);
-            this.btnSoftverski = new System.Windows.Forms.Button();
-            this.btnSoftverski.Location = new System.Drawing.Point(720, 550);
-            this.btnSoftverski.Name = "btnSoftverski";
-            this.btnSoftverski.Size = new System.Drawing.Size(240, 32);
-            this.btnSoftverski.TabIndex = 10;
-            this.btnSoftverski.Text = "Softverski artefakti";
-            this.btnSoftverski.UseVisualStyleBackColor = true;
-            this.btnSoftverski.Click += new System.EventHandler(this.btnSoftverski_Click);
-            this.btnObrazovni = new System.Windows.Forms.Button();
-            this.btnObrazovni.Location = new System.Drawing.Point(720, 588);
-            this.btnObrazovni.Name = "btnObrazovni";
-            this.btnObrazovni.Size = new System.Drawing.Size(240, 32);
-            this.btnObrazovni.TabIndex = 10;
-            this.btnObrazovni.Text = "Obrazovni materijali";
-            this.btnObrazovni.UseVisualStyleBackColor = true;
-            this.btnObrazovni.Click += new System.EventHandler(this.btnObrazovni_Click);
-            this.btnPrezentacije = new System.Windows.Forms.Button();
-            this.btnPrezentacije.Location = new System.Drawing.Point(720, 626);
-            this.btnPrezentacije.Name = "btnPrezentacije";
-            this.btnPrezentacije.Size = new System.Drawing.Size(240, 32);
-            this.btnPrezentacije.TabIndex = 10;
-            this.btnPrezentacije.Text = "Prezentacije";
-            this.btnPrezentacije.UseVisualStyleBackColor = true;
-            this.btnPrezentacije.Click += new System.EventHandler(this.btnPrezentacije_Click);
-            this.btnTehnicki = new System.Windows.Forms.Button();
-            this.btnTehnicki.Location = new System.Drawing.Point(720, 664);
-            this.btnTehnicki.Name = "btnTehnicki";
-            this.btnTehnicki.Size = new System.Drawing.Size(240, 32);
-            this.btnTehnicki.TabIndex = 10;
-            this.btnTehnicki.Text = "Tehnicki izvestaji";
-            this.btnTehnicki.UseVisualStyleBackColor = true;
-            this.btnTehnicki.Click += new System.EventHandler(this.btnTehnicki_Click);
+            // 
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colId, colNaslov, colJezik, colDatumObjavljivanja, colStatus, colVidljivost });
+            dataGridView.Dock = DockStyle.Fill;
+            dataGridView.Location = new Point(3, 19);
+            dataGridView.MultiSelect = false;
+            dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.Size = new Size(684, 534);
+            dataGridView.TabIndex = 0;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colNaslov
+            // 
+            colNaslov.DataPropertyName = "Naslov";
+            colNaslov.HeaderText = "Naslov";
+            colNaslov.Name = "colNaslov";
+            colNaslov.ReadOnly = true;
+            // 
+            // colJezik
+            // 
+            colJezik.DataPropertyName = "Jezik";
+            colJezik.HeaderText = "Jezik";
+            colJezik.Name = "colJezik";
+            colJezik.ReadOnly = true;
+            // 
+            // colDatumObjavljivanja
+            // 
+            colDatumObjavljivanja.DataPropertyName = "DatumObjavljivanja";
+            colDatumObjavljivanja.HeaderText = "DatumObjavljivanja";
+            colDatumObjavljivanja.Name = "colDatumObjavljivanja";
+            colDatumObjavljivanja.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            colStatus.DataPropertyName = "Status";
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
+            // 
+            // colVidljivost
+            // 
+            colVidljivost.DataPropertyName = "Vidljivost";
+            colVidljivost.HeaderText = "Vidljivost";
+            colVidljivost.Name = "colVidljivost";
+            colVidljivost.ReadOnly = true;
+            // 
+            // btnDodaj
+            // 
+            btnDodaj.Location = new Point(720, 12);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new Size(240, 32);
+            btnDodaj.TabIndex = 10;
+            btnDodaj.Text = "Dodaj publikaciju";
+            btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click;
+            // 
+            // btnIzmeni
+            // 
+            btnIzmeni.Location = new Point(720, 50);
+            btnIzmeni.Name = "btnIzmeni";
+            btnIzmeni.Size = new Size(240, 32);
+            btnIzmeni.TabIndex = 10;
+            btnIzmeni.Text = "Izmeni publikaciju";
+            btnIzmeni.UseVisualStyleBackColor = true;
+            btnIzmeni.Click += btnIzmeni_Click;
+            // 
+            // btnObrisi
+            // 
+            btnObrisi.Location = new Point(720, 88);
+            btnObrisi.Name = "btnObrisi";
+            btnObrisi.Size = new Size(240, 32);
+            btnObrisi.TabIndex = 10;
+            btnObrisi.Text = "Obrisi publikaciju";
+            btnObrisi.UseVisualStyleBackColor = true;
+            btnObrisi.Click += btnObrisi_Click;
+            // 
+            // lblPovezano
+            // 
+            lblPovezano.AutoSize = true;
+            lblPovezano.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            lblPovezano.Location = new Point(720, 126);
+            lblPovezano.Name = "lblPovezano";
+            lblPovezano.Size = new Size(101, 13);
+            lblPovezano.TabIndex = 100;
+            lblPovezano.Text = "Povezani podaci";
+            // 
+            // btnAutori
+            // 
+            btnAutori.Location = new Point(720, 148);
+            btnAutori.Name = "btnAutori";
+            btnAutori.Size = new Size(240, 32);
+            btnAutori.TabIndex = 10;
+            btnAutori.Text = "Autori publikacije";
+            btnAutori.UseVisualStyleBackColor = true;
+            btnAutori.Click += btnAutori_Click;
+            // 
+            // btnVerzije
+            // 
+            btnVerzije.Location = new Point(720, 186);
+            btnVerzije.Name = "btnVerzije";
+            btnVerzije.Size = new Size(240, 32);
+            btnVerzije.TabIndex = 10;
+            btnVerzije.Text = "Verzije publikacije";
+            btnVerzije.UseVisualStyleBackColor = true;
+            btnVerzije.Click += btnVerzije_Click;
+            // 
+            // btnKljucneReci
+            // 
+            btnKljucneReci.Location = new Point(720, 224);
+            btnKljucneReci.Name = "btnKljucneReci";
+            btnKljucneReci.Size = new Size(240, 32);
+            btnKljucneReci.TabIndex = 10;
+            btnKljucneReci.Text = "Ključne reci";
+            btnKljucneReci.UseVisualStyleBackColor = true;
+            btnKljucneReci.Click += btnKljucneReci_Click;
+            // 
+            // btnCitati
+            // 
+            btnCitati.Location = new Point(720, 262);
+            btnCitati.Name = "btnCitati";
+            btnCitati.Size = new Size(240, 32);
+            btnCitati.TabIndex = 10;
+            btnCitati.Text = "Citati";
+            btnCitati.UseVisualStyleBackColor = true;
+            btnCitati.Click += btnCitati_Click;
+            // 
+            // btnPovezane
+            // 
+            btnPovezane.Location = new Point(720, 300);
+            btnPovezane.Name = "btnPovezane";
+            btnPovezane.Size = new Size(240, 32);
+            btnPovezane.TabIndex = 10;
+            btnPovezane.Text = "Povezane publikacije";
+            btnPovezane.UseVisualStyleBackColor = true;
+            btnPovezane.Click += btnPovezane_Click;
+            // 
+            // lblTipovi
+            // 
+            lblTipovi.AutoSize = true;
+            lblTipovi.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            lblTipovi.Location = new Point(720, 338);
+            lblTipovi.Name = "lblTipovi";
+            lblTipovi.Size = new Size(107, 13);
+            lblTipovi.TabIndex = 100;
+            lblTipovi.Text = "Tipovi publikacije";
+            // 
+            // btnNaucniRadovi
+            // 
+            btnNaucniRadovi.Location = new Point(720, 360);
+            btnNaucniRadovi.Name = "btnNaucniRadovi";
+            btnNaucniRadovi.Size = new Size(240, 32);
+            btnNaucniRadovi.TabIndex = 10;
+            btnNaucniRadovi.Text = "Naučni radovi";
+            btnNaucniRadovi.UseVisualStyleBackColor = true;
+            btnNaucniRadovi.Click += btnNaucniRadovi_Click;
+            // 
+            // btnKnjige
+            // 
+            btnKnjige.Location = new Point(720, 398);
+            btnKnjige.Name = "btnKnjige";
+            btnKnjige.Size = new Size(240, 32);
+            btnKnjige.TabIndex = 10;
+            btnKnjige.Text = "Knjige";
+            btnKnjige.UseVisualStyleBackColor = true;
+            btnKnjige.Click += btnKnjige_Click;
+            // 
+            // btnPoglavlja
+            // 
+            btnPoglavlja.Location = new Point(720, 436);
+            btnPoglavlja.Name = "btnPoglavlja";
+            btnPoglavlja.Size = new Size(240, 32);
+            btnPoglavlja.TabIndex = 10;
+            btnPoglavlja.Text = "Poglavlja u knjizi";
+            btnPoglavlja.UseVisualStyleBackColor = true;
+            btnPoglavlja.Click += btnPoglavlja_Click;
+            // 
+            // btnDoktorske
+            // 
+            btnDoktorske.Location = new Point(720, 474);
+            btnDoktorske.Name = "btnDoktorske";
+            btnDoktorske.Size = new Size(240, 32);
+            btnDoktorske.TabIndex = 10;
+            btnDoktorske.Text = "Doktorske disertacije";
+            btnDoktorske.UseVisualStyleBackColor = true;
+            btnDoktorske.Click += btnDoktorske_Click;
+            // 
+            // btnDatasetovi
+            // 
+            btnDatasetovi.Location = new Point(720, 512);
+            btnDatasetovi.Name = "btnDatasetovi";
+            btnDatasetovi.Size = new Size(240, 32);
+            btnDatasetovi.TabIndex = 10;
+            btnDatasetovi.Text = "Datasetovi";
+            btnDatasetovi.UseVisualStyleBackColor = true;
+            btnDatasetovi.Click += btnDatasetovi_Click;
+            // 
+            // btnSoftverski
+            // 
+            btnSoftverski.Location = new Point(720, 550);
+            btnSoftverski.Name = "btnSoftverski";
+            btnSoftverski.Size = new Size(240, 32);
+            btnSoftverski.TabIndex = 10;
+            btnSoftverski.Text = "Softverski artefakti";
+            btnSoftverski.UseVisualStyleBackColor = true;
+            btnSoftverski.Click += btnSoftverski_Click;
+            // 
+            // btnObrazovni
+            // 
+            btnObrazovni.Location = new Point(720, 588);
+            btnObrazovni.Name = "btnObrazovni";
+            btnObrazovni.Size = new Size(240, 32);
+            btnObrazovni.TabIndex = 10;
+            btnObrazovni.Text = "Obrazovni materijali";
+            btnObrazovni.UseVisualStyleBackColor = true;
+            btnObrazovni.Click += btnObrazovni_Click;
+            // 
+            // btnPrezentacije
+            // 
+            btnPrezentacije.Location = new Point(720, 626);
+            btnPrezentacije.Name = "btnPrezentacije";
+            btnPrezentacije.Size = new Size(240, 32);
+            btnPrezentacije.TabIndex = 10;
+            btnPrezentacije.Text = "Prezentacije";
+            btnPrezentacije.UseVisualStyleBackColor = true;
+            btnPrezentacije.Click += btnPrezentacije_Click;
+            // 
+            // btnTehnicki
+            // 
+            btnTehnicki.Location = new Point(720, 664);
+            btnTehnicki.Name = "btnTehnicki";
+            btnTehnicki.Size = new Size(240, 32);
+            btnTehnicki.TabIndex = 10;
+            btnTehnicki.Text = "Tehnicki izvestaji";
+            btnTehnicki.UseVisualStyleBackColor = true;
+            btnTehnicki.Click += btnTehnicki_Click;
+            // 
             // PublikacijeForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 720);
-            this.Controls.Add(this.groupBox);
-            this.Controls.Add(this.btnDodaj);
-            this.Controls.Add(this.btnIzmeni);
-            this.Controls.Add(this.btnObrisi);
-            this.Controls.Add(this.lblPovezano);
-            this.Controls.Add(this.btnAutori);
-            this.Controls.Add(this.btnVerzije);
-            this.Controls.Add(this.btnKljucneReci);
-            this.Controls.Add(this.btnCitati);
-            this.Controls.Add(this.btnPovezane);
-            this.Controls.Add(this.lblTipovi);
-            this.Controls.Add(this.btnNaucniRadovi);
-            this.Controls.Add(this.btnKnjige);
-            this.Controls.Add(this.btnPoglavlja);
-            this.Controls.Add(this.btnDoktorske);
-            this.Controls.Add(this.btnDatasetovi);
-            this.Controls.Add(this.btnSoftverski);
-            this.Controls.Add(this.btnObrazovni);
-            this.Controls.Add(this.btnPrezentacije);
-            this.Controls.Add(this.btnTehnicki);
-            this.Name = "PublikacijeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LISTA PUBLIKACIJA";
-            this.groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(980, 720);
+            Controls.Add(groupBox);
+            Controls.Add(btnDodaj);
+            Controls.Add(btnIzmeni);
+            Controls.Add(btnObrisi);
+            Controls.Add(lblPovezano);
+            Controls.Add(btnAutori);
+            Controls.Add(btnVerzije);
+            Controls.Add(btnKljucneReci);
+            Controls.Add(btnCitati);
+            Controls.Add(btnPovezane);
+            Controls.Add(lblTipovi);
+            Controls.Add(btnNaucniRadovi);
+            Controls.Add(btnKnjige);
+            Controls.Add(btnPoglavlja);
+            Controls.Add(btnDoktorske);
+            Controls.Add(btnDatasetovi);
+            Controls.Add(btnSoftverski);
+            Controls.Add(btnObrazovni);
+            Controls.Add(btnPrezentacije);
+            Controls.Add(btnTehnicki);
+            Name = "PublikacijeForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "LISTA PUBLIKACIJA";
+            Load += PublikacijeForm_Load;
+            groupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

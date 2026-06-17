@@ -1,3 +1,4 @@
+using DigitalniRepozitorijum.Entiteti;
 using System;
 using System.Windows.Forms;
 
@@ -110,6 +111,30 @@ namespace DigitalniRepozitorijum.Forme
         {
             using var form = new TehnickiIzvestajiForm();
             form.ShowDialog();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void PublikacijeForm_Load(object sender, EventArgs e)
+        {
+            pupuniPodacima();
+        }
+
+        public void pupuniPodacima() 
+        {
+            dataGridView.Rows.Clear();
+
+            List<PublikacijaPregled> podaci = DTOManager.vratiSvePublikacije();
+
+            foreach(PublikacijaPregled p in podaci)
+            {
+                dataGridView.Rows.Add(p.Id, p.Naslov, p.Jezik, p.DatumObjavljivanja, p.Status, p.Vidljivost);
+            }
+
+            dataGridView.Refresh();
         }
     }
 }
