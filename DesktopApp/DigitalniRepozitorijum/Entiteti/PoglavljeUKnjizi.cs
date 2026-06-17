@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DigitalniRepozitorijum.Entiteti
 {
-    internal class PoglavljeUKnjizi : Publikacija
+    public class PoglavljeUKnjizi : Publikacija
     {
         public virtual string Izdavac { get; set; }
 
