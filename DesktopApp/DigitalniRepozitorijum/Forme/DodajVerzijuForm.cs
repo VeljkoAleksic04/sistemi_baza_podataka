@@ -4,9 +4,9 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class DodajVerzijuForm : Form
     {
-        private readonly int? _idPublikacije;
+        private readonly int _idPublikacije;
 
-        public DodajVerzijuForm(int? idPublikacije = null)
+        public DodajVerzijuForm(int idPublikacije)
         {
             _idPublikacije = idPublikacije;
             InitializeComponent();
@@ -15,9 +15,25 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            VerzijaBasic vb = new VerzijaBasic();
+            vb.BrojVerzije = Convert.ToInt32(txtBrojVerzije.Text);
+            vb.DatumPostavljanja = dateTimePicker1.Value;
+            vb.OpisIzmene = txtOpisIzmene.Text;
+            vb.OdgovornaOsoba = txtOdgovornaOsoba.Text;
+            vb.Publikacija = DTOManager.vratiPublikaciju((int)_idPublikacije);
+
+            // FAJLOVI???
+
+            DTOManager.dodajVerziju(vb);
+
+            MessageBox.Show("Uspesno ste dodali verziju publikacije!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void DodajVerzijuForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

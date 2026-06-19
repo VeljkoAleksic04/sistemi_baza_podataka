@@ -92,6 +92,20 @@ namespace DigitalniRepozitorijum
                 Publikacija o = s.Load<Publikacija>(id);
                 pb = new PublikacijaBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost, o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
 
+                foreach (Verzija v in o.Verzije)
+                {
+                    pb.Verzije.Add(
+                        new VerzijaBasic(
+                            v.Id,
+                            v.BrojVerzije,
+                            pb, // ili pb ako želiš referencu nazad
+                            v.DatumPostavljanja,
+                            v.OpisIzmene,
+                            v.OdgovornaOsoba
+                        )
+                    );
+                }
+
                 s.Close();
             }
             catch (Exception ex)

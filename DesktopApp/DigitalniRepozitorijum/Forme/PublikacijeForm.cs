@@ -49,7 +49,7 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnVerzije_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new VerzijePublikacijeForm(id.Value);
+            var id = GetSelectedId(); if (id == null) return; using var form = new VerzijePublikacijeForm((int)id.Value);
             form.ShowDialog();
         }
         private void btnKljucneReci_Click(object sender, EventArgs e)

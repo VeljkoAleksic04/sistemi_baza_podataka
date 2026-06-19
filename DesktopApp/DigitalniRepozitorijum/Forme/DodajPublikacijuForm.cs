@@ -17,6 +17,12 @@ namespace DigitalniRepozitorijum.Forme
             MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
+
+        }
+
+        private void DodajPublikacijuForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -48,7 +48,7 @@ namespace DigitalniRepozitorijum
             KljucneReci = new List<PublikacijaKljucnaRecBasic>();
         }
 
-        public PublikacijaBasic(int id, string naslov, string apstrakt, string jezik, string status, string vidljivost, DateTime datumObjavljivanja, DateTime datumKreiranjaZapisa)
+        public PublikacijaBasic(int id, string naslov, string apstrakt, string jezik, string status, string vidljivost, DateTime datumObjavljivanja, DateTime datumKreiranjaZapisa) : this()
         {
             Id = id;
             Naslov = naslov;
@@ -157,7 +157,7 @@ namespace DigitalniRepozitorijum
             Fajlovi = new List<FajlBasic>();
         }
 
-        public VerzijaBasic(int id, int brojVerzije, PublikacijaBasic publikacija, DateTime datumPostavljanja, string opisIzmene, string odgovornaOsoba)
+        public VerzijaBasic(int id, int brojVerzije, PublikacijaBasic publikacija, DateTime datumPostavljanja, string opisIzmene, string odgovornaOsoba) : this()
         {
             Id = id;
             BrojVerzije = brojVerzije;
@@ -193,7 +193,7 @@ namespace DigitalniRepozitorijum
 
         public PublikacijaKljucnaRecBasic() { }
 
-        public PublikacijaKljucnaRecBasic(int id, PublikacijaBasic publikacija, string kljucnaRec)
+        public PublikacijaKljucnaRecBasic(int id, PublikacijaBasic publikacija, string kljucnaRec) : this()
         {
             Id = id;
             Publikacija = publikacija;
