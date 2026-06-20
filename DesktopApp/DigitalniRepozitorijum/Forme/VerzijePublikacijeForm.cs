@@ -37,25 +37,18 @@ namespace DigitalniRepozitorijum.Forme
                 IzmeniVerzijuForm form = new IzmeniVerzijuForm(_idPublikacije, (int)id);
                 if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
             }
-            
+
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            int? id = GetSelectedId();
+            if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                int ?id = GetSelectedId();
-                if (id != null)
-                {
-                    DTOManager.obrisiVerziju((int)id);
-                    MessageBox.Show("Uspesno obrisana verzija!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    popuniPodacima();
-                }
-                else
-                {
-                    MessageBox.Show("Nije izabrana verzija za brisanje!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                DTOManager.obrisiVerziju((int)id);
+                MessageBox.Show("Uspesno obrisana verzija!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                popuniPodacima();
             }
         }
 
@@ -81,7 +74,7 @@ namespace DigitalniRepozitorijum.Forme
             }
             else
             {
-                MessageBox.Show("Nije pronadjen ID publikacije!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nisu pronadjene verzije publikacije!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

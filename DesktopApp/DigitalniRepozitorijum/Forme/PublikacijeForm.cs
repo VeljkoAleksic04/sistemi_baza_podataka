@@ -49,12 +49,12 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnVerzije_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new VerzijePublikacijeForm((int)id.Value);
+            var id = GetSelectedId(); if (id == null) return; using var form = new VerzijePublikacijeForm((int)id);
             form.ShowDialog();
         }
         private void btnKljucneReci_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new KljucneReciPublikacijeForm(id.Value);
+            var id = GetSelectedId(); if (id == null) return; using var form = new KljucneReciPublikacijeForm((int)id);
             form.ShowDialog();
         }
         private void btnCitati_Click(object sender, EventArgs e)

@@ -102,8 +102,18 @@ namespace DigitalniRepozitorijum
                             v.DatumPostavljanja,
                             v.OpisIzmene,
                             v.OdgovornaOsoba
-                        )
-                    );
+                            )
+                        );
+                }
+                foreach (PublikacijaKljucnaRec pkr in o.KljucneReci)
+                {
+                    pb.KljucneReci.Add(
+                        new PublikacijaKljucnaRecBasic(
+                            pkr.Id,
+                            pb,
+                            pkr.KljucnaRec
+                            )
+                        );
                 }
 
                 s.Close();
@@ -278,7 +288,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 PublikacijaKljucnaRec o = new PublikacijaKljucnaRec();
-                o.Publikacija = s.Load<Publikacija>(pkrb.Id);
+                o.Publikacija = s.Load<Publikacija>(pkrb.Publikacija.Id);
                 o.KljucnaRec = pkrb.KljucnaRec;
 
                 s.SaveOrUpdate(o);
@@ -297,7 +307,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 PublikacijaKljucnaRec o = s.Load<PublikacijaKljucnaRec>(pkrb.Id);
-                o.Publikacija = s.Load<Publikacija>(pkrb.Id);
+                o.Publikacija = s.Load<Publikacija>(pkrb.Publikacija.Id);
                 o.KljucnaRec = pkrb.KljucnaRec;
 
                 s.Update(o);

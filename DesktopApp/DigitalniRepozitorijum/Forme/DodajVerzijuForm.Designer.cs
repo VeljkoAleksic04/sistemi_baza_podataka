@@ -103,6 +103,7 @@ namespace DigitalniRepozitorijum.Forme
             btnOdustani.TabIndex = 51;
             btnOdustani.Text = "Odustani";
             btnOdustani.UseVisualStyleBackColor = true;
+            btnOdustani.Click += btnOdustani_Click;
             // 
             // dateTimePicker1
             // 

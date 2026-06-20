@@ -35,5 +35,11 @@ namespace DigitalniRepozitorijum.Forme
         {
 
         }
+
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
     }
 }

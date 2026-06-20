@@ -5,8 +5,8 @@ namespace DigitalniRepozitorijum.Forme
 {
     internal static class FormStilovi
     {
-        public static readonly Color Pozadina = Color.FromArgb(255, 224, 192);
-        public static readonly Color Dugme = Color.FromArgb(255, 192, 128);
+        public static readonly Color Pozadina = Color.FromArgb(245, 245, 245);
+        public static readonly Color Dugme = Color.FromArgb(200, 200, 200);
 
         public static void PrimeniStilListe(Form forma, GroupBox groupBox, params Button[] dugmad)
         {

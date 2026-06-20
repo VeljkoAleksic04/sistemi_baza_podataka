@@ -4,9 +4,9 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class DodajKljucnuRecForm : Form
     {
-        private readonly int? _idPublikacije;
+        private readonly int _idPublikacije;
 
-        public DodajKljucnuRecForm(int? idPublikacije = null)
+        public DodajKljucnuRecForm(int idPublikacije)
         {
             _idPublikacije = idPublikacije;
             InitializeComponent();
@@ -15,8 +15,25 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            PublikacijaKljucnaRecBasic pb = new PublikacijaKljucnaRecBasic();
+            pb.KljucnaRec = txtKljucnaRec.Text;
+            pb.Publikacija = DTOManager.vratiPublikaciju(_idPublikacije);
+
+            DTOManager.dodajPublikacijaKljucnaRec(pb);
+
+            MessageBox.Show("Uspesno ste dodali kljucnu rec!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void DodajKljucnuRecForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
             Close();
         }
     }

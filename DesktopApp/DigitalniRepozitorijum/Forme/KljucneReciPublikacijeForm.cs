@@ -5,9 +5,9 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class KljucneReciPublikacijeForm : Form
     {
-        private readonly int? _idPublikacije;
+        private readonly int _idPublikacije;
 
-        public KljucneReciPublikacijeForm(int? idPublikacije = null)
+        public KljucneReciPublikacijeForm(int idPublikacije)
         {
             _idPublikacije = idPublikacije;
             InitializeComponent();
@@ -26,21 +26,54 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            using var form = new DodajKljucnuRecForm(_idPublikacije);
-            form.ShowDialog();
+            DodajKljucnuRecForm form = new DodajKljucnuRecForm(_idPublikacije);
+            if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniKljucnuRecForm(_idPublikacije);
-            form.ShowDialog();
+            int? id = GetSelectedId();
+            if (id != null)
+            {
+                IzmeniKljucnuRecForm form = new IzmeniKljucnuRecForm(_idPublikacije, (int)id);
+                if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
+            }
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            int? id = GetSelectedId();
+            if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiPublikacijaKljucnaRec((int)id);
+                MessageBox.Show("Uspesno obrisana kljucna rec!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                popuniPodacima();
+            }
+        }
+
+        private void KljucneReciPublikacijeForm_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        public void popuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+
+            IList<PublikacijaKljucnaRecBasic> podaci = DTOManager.vratiPublikaciju(_idPublikacije).KljucneReci;
+
+            if (podaci != null)
+            {
+                foreach (PublikacijaKljucnaRecBasic p in podaci)
+                {
+                    dataGridView.Rows.Add(p.Id, p.KljucnaRec);
+                }
+
+                dataGridView.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Nisu pronadjene kljucne reci publikacije!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
