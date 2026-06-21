@@ -27,6 +27,8 @@ namespace DigitalniRepozitorijum.Forme
             btnDodaj = new Button();
             btnIzmeni = new Button();
             btnObrisi = new Button();
+            btnFajlovi = new Button();
+            lblPovezano = new Label();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -121,11 +123,33 @@ namespace DigitalniRepozitorijum.Forme
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
             // 
+            // btnFajlovi
+            // 
+            btnFajlovi.Location = new Point(720, 155);
+            btnFajlovi.Name = "btnFajlovi";
+            btnFajlovi.Size = new Size(240, 32);
+            btnFajlovi.TabIndex = 11;
+            btnFajlovi.Text = "Prikaži Fajlove";
+            btnFajlovi.UseVisualStyleBackColor = true;
+            btnFajlovi.Click += btnFajlovi_Click;
+            // 
+            // lblPovezano
+            // 
+            lblPovezano.AutoSize = true;
+            lblPovezano.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            lblPovezano.Location = new Point(720, 139);
+            lblPovezano.Name = "lblPovezano";
+            lblPovezano.Size = new Size(101, 13);
+            lblPovezano.TabIndex = 101;
+            lblPovezano.Text = "Povezani podaci";
+            // 
             // VerzijePublikacijeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(980, 580);
+            Controls.Add(lblPovezano);
+            Controls.Add(btnFajlovi);
             Controls.Add(groupBox);
             Controls.Add(btnDodaj);
             Controls.Add(btnIzmeni);
@@ -137,6 +161,7 @@ namespace DigitalniRepozitorijum.Forme
             groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -151,5 +176,7 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
+        private Button btnFajlovi;
+        private Label lblPovezano;
     }
 }

@@ -45,7 +45,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }

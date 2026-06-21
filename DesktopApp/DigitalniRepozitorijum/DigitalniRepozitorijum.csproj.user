@@ -40,6 +40,9 @@
     <Compile Update="Forme\DodajEmailIstrazivacaForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajFajlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajInstitucijuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +109,9 @@
     <Compile Update="Forme\EmailAdreseIstrazivacaForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\FajloviVerzijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\InstitucijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniEmailIstrazivacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniFajlForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniInstitucijuForm.cs">

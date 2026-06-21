@@ -226,6 +226,16 @@ namespace DigitalniRepozitorijum
                 Verzija o = s.Load<Verzija>(id);
                 PublikacijaBasic pb = new PublikacijaBasic(o.Publikacija.Id, o.Publikacija.Naslov, o.Publikacija.Apstrakt, o.Publikacija.Jezik, o.Publikacija.Status, o.Publikacija.Vidljivost, o.Publikacija.DatumObjavljivanja, o.Publikacija.DatumKreiranjaZapisa);
                 vb = new VerzijaBasic(o.Id, o.BrojVerzije, pb, o.DatumPostavljanja, o.OpisIzmene, o.OdgovornaOsoba);
+                foreach (Fajl v in o.Fajlovi)
+                {
+                    vb.Fajlovi.Add(
+                        new FajlBasic(
+                            v.Id,
+                            v.Putanja,
+                            vb
+                            )
+                        );
+                }
 
                 s.Close();
             }
@@ -1053,6 +1063,113 @@ namespace DigitalniRepozitorijum
 
         #endregion
 
+        #region Fajl
+        public static List<FajlPregled> vratiSveFajlove()
+        {
+            List<FajlPregled> fajlovi = new List<FajlPregled>();
 
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Fajl> sviFajlovi = from o in s.Query<Fajl>() select o;
+
+                foreach (Fajl f in sviFajlovi)
+                {
+                    fajlovi.Add(new FajlPregled(f.Id, f.Putanja));
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return fajlovi;
+        }
+        public static void dodajFajl(FajlBasic fb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Fajl f = new Fajl();
+
+                f.Putanja = fb.Putanja;
+                f.Verzija = s.Load<Verzija>(fb.Verzija.Id);
+
+                s.SaveOrUpdate(f);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public static FajlBasic azurirajFajl(FajlBasic fb)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Fajl f = s.Load<Fajl>(fb.Id);
+
+                f.Putanja = fb.Putanja;
+                f.Verzija = s.Load<Verzija>(fb.Verzija.Id);
+
+                s.Update(f);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return fb;
+        }
+        public static FajlBasic vratiFajl(int id)
+        {
+            FajlBasic fb = new FajlBasic();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Fajl f = s.Load<Fajl>(id);
+
+                VerzijaBasic vb = new VerzijaBasic(f.Verzija.Id, f.Verzija.BrojVerzije, vratiPublikaciju(f.Verzija.Publikacija.Id), f.Verzija.DatumPostavljanja, f.Verzija.OpisIzmene, f.Verzija.OdgovornaOsoba);
+                fb = new FajlBasic(f.Id, f.Putanja, vb);
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return fb;
+        }
+        public static void obrisiFajl(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Fajl f = s.Load<Fajl>(id);
+
+                s.Delete(f);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
     }
 }

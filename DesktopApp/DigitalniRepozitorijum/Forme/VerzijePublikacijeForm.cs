@@ -11,7 +11,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             _idPublikacije = idPublikacije;
             InitializeComponent();
-            FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
+            FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnFajlovi);
         }
 
         private int? GetSelectedId()
@@ -77,6 +77,16 @@ namespace DigitalniRepozitorijum.Forme
                 MessageBox.Show("Nisu pronadjene verzije publikacije!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnFajlovi_Click(object sender, EventArgs e)
+        {
+            var id = GetSelectedId();
+            if (id != null)
+            {
+                FajloviVerzijeForm form = new FajloviVerzijeForm((int)id);
+                if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
+            }
         }
     }
 }

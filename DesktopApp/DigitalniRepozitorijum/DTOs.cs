@@ -287,7 +287,20 @@ namespace DigitalniRepozitorijum
         }
     }
 
-    // fajl nema prikaz na formi
+    public class FajlPregled
+    {
+        public int Id;
+        public string Putanja;
+
+
+        public FajlPregled() { }
+
+        public FajlPregled(int id, string putanja)
+        {
+            Id = id;
+            Putanja = putanja;
+        }
+    }
     #endregion
 
 
