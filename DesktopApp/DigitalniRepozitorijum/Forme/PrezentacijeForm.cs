@@ -24,21 +24,55 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            using var form = new DodajPrezentacijuForm();
-            form.ShowDialog();
+            DodajPrezentacijuForm form = new DodajPrezentacijuForm();
+            if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniPrezentacijuForm(id: id.Value);
-            form.ShowDialog();
+            int? id = GetSelectedId();
+            if (id != null)
+            {
+                IzmeniPrezentacijuForm form = new IzmeniPrezentacijuForm((int)id);
+                if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
+            }
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            int? id = GetSelectedId();
+            if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiPrezentaciju((int)id);
+                MessageBox.Show("Uspesno obrisana prezentacija!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                popuniPodacima();
+            }
+        }
+
+        private void PrezentacijeForm_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        public void popuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+
+            IList<PrezentacijaPregled> podaci = DTOManager.vratiSvePrezentacije();
+
+            if (podaci != null)
+            {
+                foreach (PrezentacijaPregled p in podaci)
+                {
+                    dataGridView.Rows.Add(p.Id, p.Naslov, p.DatumObjavljivanja);
+                }
+
+                dataGridView.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Nisu pronadjene prezentacije!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
     }

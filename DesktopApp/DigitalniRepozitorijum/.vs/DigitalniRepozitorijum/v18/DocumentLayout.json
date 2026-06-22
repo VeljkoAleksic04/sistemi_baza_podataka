@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\dodajdoktorskudisertacijuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\dodajdoktorskudisertacijuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\izmeniverzijuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\izmeniverzijuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,74 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DodajDoktorskuDisertacijuForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DodajDoktorskuDisertacijuForm.cs",
+              "RelativeDocumentMoniker": "Forme\\DodajDoktorskuDisertacijuForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DodajDoktorskuDisertacijuForm.cs [Design]",
+              "RelativeToolTip": "Forme\\DodajDoktorskuDisertacijuForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T13:45:29.03Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOs.cs",
+              "RelativeDocumentMoniker": "DTOs.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOs.cs",
+              "RelativeToolTip": "DTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0BAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-21T12:14:36.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DataLayer.cs",
               "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
               "RelativeDocumentMoniker": "DataLayer.cs",
               "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
               "RelativeToolTip": "DataLayer.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCYAAABsAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCYAAAB1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-21T13:00:06.583Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DTOManager.cs",
               "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
               "RelativeDocumentMoniker": "DTOManager.cs",
               "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
               "RelativeToolTip": "DTOManager.cs",
-              "ViewState": "AgIAADwEAAAAAAAAAAAgwFMEAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAANICAAAAAAAAAAAQwCkEAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-21T12:12:45.929Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DTOs.cs",
-              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOs.cs",
-              "RelativeDocumentMoniker": "DTOs.cs",
-              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOs.cs",
-              "RelativeToolTip": "DTOs.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAmwC0BAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T12:14:36.38Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "16eef448-38bd-4cc3-8862-d6c507a0d1eb",
-        "Display": 1,
-        "X": 192,
-        "Y": 107,
-        "Width": 1578,
-        "Height": 787,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IzmeniVerzijuForm.cs",
-              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\IzmeniVerzijuForm.cs",
-              "RelativeDocumentMoniker": "Forme\\IzmeniVerzijuForm.cs",
-              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\IzmeniVerzijuForm.cs",
-              "RelativeToolTip": "Forme\\IzmeniVerzijuForm.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwBwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-21T12:39:03.694Z",
               "EditorCaption": ""
             }
           ]

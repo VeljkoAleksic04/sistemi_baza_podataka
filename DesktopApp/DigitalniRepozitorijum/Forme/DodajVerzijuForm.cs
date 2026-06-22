@@ -22,8 +22,6 @@ namespace DigitalniRepozitorijum.Forme
             vb.OdgovornaOsoba = txtOdgovornaOsoba.Text;
             vb.Publikacija = DTOManager.vratiPublikaciju((int)_idPublikacije);
 
-            // FAJLOVI???
-
             DTOManager.dodajVerziju(vb);
 
             MessageBox.Show("Uspesno ste dodali verziju publikacije!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);

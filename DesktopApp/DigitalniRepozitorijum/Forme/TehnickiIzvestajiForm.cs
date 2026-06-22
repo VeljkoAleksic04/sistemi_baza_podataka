@@ -24,21 +24,54 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            using var form = new DodajTehnickiIzvestajForm();
-            form.ShowDialog();
+            DodajTehnickiIzvestajForm form = new DodajTehnickiIzvestajForm();
+            if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniTehnickiIzvestajForm(id: id.Value);
-            form.ShowDialog();
+            int? id = GetSelectedId();
+            if (id != null)
+            {
+                IzmeniTehnickiIzvestajForm form = new IzmeniTehnickiIzvestajForm((int)id);
+                if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
+            }
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            int? id = GetSelectedId();
+            if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiTehnickiIzvestaj((int)id);
+                MessageBox.Show("Uspesno obrisan tehnicki izvestaj!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                popuniPodacima();
+            }
+        }
+
+        private void TehnickiIzvestajiForm_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        public void popuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+
+            IList<TehnickiIzvestajPregled> podaci = DTOManager.vratiSveTehnickeIzvestaje();
+
+            if (podaci != null)
+            {
+                foreach (TehnickiIzvestajPregled p in podaci)
+                {
+                    dataGridView.Rows.Add(p.Id, p.Naslov, p.Status);
+                }
+
+                dataGridView.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Nisu pronadjeni tehnicki izvestaji!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

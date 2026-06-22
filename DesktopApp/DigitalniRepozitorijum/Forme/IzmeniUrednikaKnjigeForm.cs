@@ -21,5 +21,15 @@ namespace DigitalniRepozitorijum.Forme
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        private void IzmeniUrednikaKnjigeForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
