@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RepozitorijumLibrary/RepozitorijumLibrary.csproj" />
+  <Project Path="WebAplikacija/WebAplikacija.csproj" />
+</Solution>
