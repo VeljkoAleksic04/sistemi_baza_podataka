@@ -70,6 +70,9 @@
     <Compile Update="Forme\DodajObrazovniMaterijalForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajOcenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajPodrzanuPlatformuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +86,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajRunduRecenzijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajSoftverskiArtefaktForm.cs">
@@ -172,6 +178,9 @@
     <Compile Update="Forme\IzmeniObrazovniMaterijalForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniOcenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniPodrzanuPlatformuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +194,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniRunduRecenzijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniSoftverskiArtefaktForm.cs">
@@ -223,6 +235,9 @@
     <Compile Update="Forme\NaucniRadoviForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\NizOcenaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\ObrazovniMaterijaliForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +257,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\PublikacijeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\RecenzentiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\RundeRecenzijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\SoftverskiArtefaktiForm.cs">

@@ -44,6 +44,7 @@ namespace DigitalniRepozitorijum.Forme
             btnObrazovni = new Button();
             btnPrezentacije = new Button();
             btnTehnicki = new Button();
+            btnRecenzije = new Button();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -210,7 +211,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             lblTipovi.AutoSize = true;
             lblTipovi.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            lblTipovi.Location = new Point(720, 338);
+            lblTipovi.Location = new Point(720, 381);
             lblTipovi.Name = "lblTipovi";
             lblTipovi.Size = new Size(107, 13);
             lblTipovi.TabIndex = 100;
@@ -218,7 +219,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnNaucniRadovi
             // 
-            btnNaucniRadovi.Location = new Point(720, 360);
+            btnNaucniRadovi.Location = new Point(720, 403);
             btnNaucniRadovi.Name = "btnNaucniRadovi";
             btnNaucniRadovi.Size = new Size(240, 32);
             btnNaucniRadovi.TabIndex = 10;
@@ -228,7 +229,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnKnjige
             // 
-            btnKnjige.Location = new Point(720, 398);
+            btnKnjige.Location = new Point(720, 441);
             btnKnjige.Name = "btnKnjige";
             btnKnjige.Size = new Size(240, 32);
             btnKnjige.TabIndex = 10;
@@ -238,7 +239,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnPoglavlja
             // 
-            btnPoglavlja.Location = new Point(720, 436);
+            btnPoglavlja.Location = new Point(720, 479);
             btnPoglavlja.Name = "btnPoglavlja";
             btnPoglavlja.Size = new Size(240, 32);
             btnPoglavlja.TabIndex = 10;
@@ -248,7 +249,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnDoktorske
             // 
-            btnDoktorske.Location = new Point(720, 474);
+            btnDoktorske.Location = new Point(720, 517);
             btnDoktorske.Name = "btnDoktorske";
             btnDoktorske.Size = new Size(240, 32);
             btnDoktorske.TabIndex = 10;
@@ -258,7 +259,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnDatasetovi
             // 
-            btnDatasetovi.Location = new Point(720, 512);
+            btnDatasetovi.Location = new Point(720, 555);
             btnDatasetovi.Name = "btnDatasetovi";
             btnDatasetovi.Size = new Size(240, 32);
             btnDatasetovi.TabIndex = 10;
@@ -268,7 +269,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnSoftverski
             // 
-            btnSoftverski.Location = new Point(720, 550);
+            btnSoftverski.Location = new Point(720, 593);
             btnSoftverski.Name = "btnSoftverski";
             btnSoftverski.Size = new Size(240, 32);
             btnSoftverski.TabIndex = 10;
@@ -278,7 +279,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnObrazovni
             // 
-            btnObrazovni.Location = new Point(720, 588);
+            btnObrazovni.Location = new Point(720, 631);
             btnObrazovni.Name = "btnObrazovni";
             btnObrazovni.Size = new Size(240, 32);
             btnObrazovni.TabIndex = 10;
@@ -288,7 +289,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnPrezentacije
             // 
-            btnPrezentacije.Location = new Point(720, 626);
+            btnPrezentacije.Location = new Point(720, 669);
             btnPrezentacije.Name = "btnPrezentacije";
             btnPrezentacije.Size = new Size(240, 32);
             btnPrezentacije.TabIndex = 10;
@@ -298,7 +299,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnTehnicki
             // 
-            btnTehnicki.Location = new Point(720, 664);
+            btnTehnicki.Location = new Point(720, 707);
             btnTehnicki.Name = "btnTehnicki";
             btnTehnicki.Size = new Size(240, 32);
             btnTehnicki.TabIndex = 10;
@@ -306,11 +307,22 @@ namespace DigitalniRepozitorijum.Forme
             btnTehnicki.UseVisualStyleBackColor = true;
             btnTehnicki.Click += btnTehnicki_Click;
             // 
+            // btnRecenzije
+            // 
+            btnRecenzije.Location = new Point(720, 338);
+            btnRecenzije.Name = "btnRecenzije";
+            btnRecenzije.Size = new Size(240, 32);
+            btnRecenzije.TabIndex = 101;
+            btnRecenzije.Text = "Recenzije publikacije";
+            btnRecenzije.UseVisualStyleBackColor = true;
+            btnRecenzije.Click += btnRecenzije_Click;
+            // 
             // PublikacijeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(980, 720);
+            ClientSize = new Size(980, 767);
+            Controls.Add(btnRecenzije);
             Controls.Add(groupBox);
             Controls.Add(btnDodaj);
             Controls.Add(btnIzmeni);
@@ -370,5 +382,6 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Button btnObrazovni;
         private System.Windows.Forms.Button btnPrezentacije;
         private System.Windows.Forms.Button btnTehnicki;
+        private Button btnRecenzije;
     }
 }

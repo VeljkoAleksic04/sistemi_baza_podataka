@@ -15,147 +15,311 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblIme = new System.Windows.Forms.Label();
-            this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(20, 20);
-            this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(120, 15);
-            this.lblIme.TabIndex = 0;
-            this.lblIme.Text = "Ime:";
-            this.txtIme = new System.Windows.Forms.TextBox();
-            this.txtIme.Location = new System.Drawing.Point(160, 17);
-            this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(230, 23);
-            this.txtIme.TabIndex = 1;
-            this.lblPrezime = new System.Windows.Forms.Label();
-            this.lblPrezime.AutoSize = true;
-            this.lblPrezime.Location = new System.Drawing.Point(20, 55);
-            this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(120, 15);
-            this.lblPrezime.TabIndex = 0;
-            this.lblPrezime.Text = "Prezime:";
-            this.txtPrezime = new System.Windows.Forms.TextBox();
-            this.txtPrezime.Location = new System.Drawing.Point(160, 52);
-            this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(230, 23);
-            this.txtPrezime.TabIndex = 1;
-            this.lblDatumRodjenja = new System.Windows.Forms.Label();
-            this.lblDatumRodjenja.AutoSize = true;
-            this.lblDatumRodjenja.Location = new System.Drawing.Point(20, 90);
-            this.lblDatumRodjenja.Name = "lblDatumRodjenja";
-            this.lblDatumRodjenja.Size = new System.Drawing.Size(120, 15);
-            this.lblDatumRodjenja.TabIndex = 0;
-            this.lblDatumRodjenja.Text = "Datum rodjenja:";
-            this.txtDatumRodjenja = new System.Windows.Forms.TextBox();
-            this.txtDatumRodjenja.Location = new System.Drawing.Point(160, 87);
-            this.txtDatumRodjenja.Name = "txtDatumRodjenja";
-            this.txtDatumRodjenja.Size = new System.Drawing.Size(230, 23);
-            this.txtDatumRodjenja.TabIndex = 1;
-            this.lblDrzava = new System.Windows.Forms.Label();
-            this.lblDrzava.AutoSize = true;
-            this.lblDrzava.Location = new System.Drawing.Point(20, 125);
-            this.lblDrzava.Name = "lblDrzava";
-            this.lblDrzava.Size = new System.Drawing.Size(120, 15);
-            this.lblDrzava.TabIndex = 0;
-            this.lblDrzava.Text = "Drzava:";
-            this.txtDrzava = new System.Windows.Forms.TextBox();
-            this.txtDrzava.Location = new System.Drawing.Point(160, 122);
-            this.txtDrzava.Name = "txtDrzava";
-            this.txtDrzava.Size = new System.Drawing.Size(230, 23);
-            this.txtDrzava.TabIndex = 1;
-            this.lblStatusNaloga = new System.Windows.Forms.Label();
-            this.lblStatusNaloga.AutoSize = true;
-            this.lblStatusNaloga.Location = new System.Drawing.Point(20, 160);
-            this.lblStatusNaloga.Name = "lblStatusNaloga";
-            this.lblStatusNaloga.Size = new System.Drawing.Size(120, 15);
-            this.lblStatusNaloga.TabIndex = 0;
-            this.lblStatusNaloga.Text = "Status naloga:";
-            this.txtStatusNaloga = new System.Windows.Forms.TextBox();
-            this.txtStatusNaloga.Location = new System.Drawing.Point(160, 157);
-            this.txtStatusNaloga.Name = "txtStatusNaloga";
-            this.txtStatusNaloga.Size = new System.Drawing.Size(230, 23);
-            this.txtStatusNaloga.TabIndex = 1;
-            this.lblNaucnoZvanje = new System.Windows.Forms.Label();
-            this.lblNaucnoZvanje.AutoSize = true;
-            this.lblNaucnoZvanje.Location = new System.Drawing.Point(20, 195);
-            this.lblNaucnoZvanje.Name = "lblNaucnoZvanje";
-            this.lblNaucnoZvanje.Size = new System.Drawing.Size(120, 15);
-            this.lblNaucnoZvanje.TabIndex = 0;
-            this.lblNaucnoZvanje.Text = "Naucno zvanje:";
-            this.txtNaucnoZvanje = new System.Windows.Forms.TextBox();
-            this.txtNaucnoZvanje.Location = new System.Drawing.Point(160, 192);
-            this.txtNaucnoZvanje.Name = "txtNaucnoZvanje";
-            this.txtNaucnoZvanje.Size = new System.Drawing.Size(230, 23);
-            this.txtNaucnoZvanje.TabIndex = 1;
-            this.lblNaucnaOblast = new System.Windows.Forms.Label();
-            this.lblNaucnaOblast.AutoSize = true;
-            this.lblNaucnaOblast.Location = new System.Drawing.Point(20, 230);
-            this.lblNaucnaOblast.Name = "lblNaucnaOblast";
-            this.lblNaucnaOblast.Size = new System.Drawing.Size(120, 15);
-            this.lblNaucnaOblast.TabIndex = 0;
-            this.lblNaucnaOblast.Text = "Naucna oblast:";
-            this.txtNaucnaOblast = new System.Windows.Forms.TextBox();
-            this.txtNaucnaOblast.Location = new System.Drawing.Point(160, 227);
-            this.txtNaucnaOblast.Name = "txtNaucnaOblast";
-            this.txtNaucnaOblast.Size = new System.Drawing.Size(230, 23);
-            this.txtNaucnaOblast.TabIndex = 1;
-            this.lblORCID = new System.Windows.Forms.Label();
-            this.lblORCID.AutoSize = true;
-            this.lblORCID.Location = new System.Drawing.Point(20, 265);
-            this.lblORCID.Name = "lblORCID";
-            this.lblORCID.Size = new System.Drawing.Size(120, 15);
-            this.lblORCID.TabIndex = 0;
-            this.lblORCID.Text = "ORCID:";
-            this.txtORCID = new System.Windows.Forms.TextBox();
-            this.txtORCID.Location = new System.Drawing.Point(160, 262);
-            this.txtORCID.Name = "txtORCID";
-            this.txtORCID.Size = new System.Drawing.Size(230, 23);
-            this.txtORCID.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 310);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 310);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 350);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblIme);
-            this.Controls.Add(this.txtIme);
-            this.Controls.Add(this.lblPrezime);
-            this.Controls.Add(this.txtPrezime);
-            this.Controls.Add(this.lblDatumRodjenja);
-            this.Controls.Add(this.txtDatumRodjenja);
-            this.Controls.Add(this.lblDrzava);
-            this.Controls.Add(this.txtDrzava);
-            this.Controls.Add(this.lblStatusNaloga);
-            this.Controls.Add(this.txtStatusNaloga);
-            this.Controls.Add(this.lblNaucnoZvanje);
-            this.Controls.Add(this.txtNaucnoZvanje);
-            this.Controls.Add(this.lblNaucnaOblast);
-            this.Controls.Add(this.txtNaucnaOblast);
-            this.Controls.Add(this.lblORCID);
-            this.Controls.Add(this.txtORCID);
-            this.Name = "DodajIstrazivacaForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Dodaj istrazivaca";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblIme = new Label();
+            txtIme = new TextBox();
+            lblPrezime = new Label();
+            txtPrezime = new TextBox();
+            lblDatumRodjenja = new Label();
+            txtDatumRodjenja = new TextBox();
+            lblDrzava = new Label();
+            txtDrzava = new TextBox();
+            lblStatusNaloga = new Label();
+            txtStatusNaloga = new TextBox();
+            lblNaucnoZvanje = new Label();
+            txtNaucnoZvanje = new TextBox();
+            lblNaucnaOblast = new Label();
+            txtNaucnaOblast = new TextBox();
+            lblORCID = new Label();
+            txtORCID = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            cbAutor = new CheckBox();
+            cbAdmin = new CheckBox();
+            label1 = new Label();
+            txtOvlascenja = new TextBox();
+            label2 = new Label();
+            txtSekcija = new TextBox();
+            cbUrednik = new CheckBox();
+            cbRecenzent = new CheckBox();
+            cbRukovodilac = new CheckBox();
+            SuspendLayout();
+            // 
+            // lblIme
+            // 
+            lblIme.AutoSize = true;
+            lblIme.Location = new Point(20, 20);
+            lblIme.Name = "lblIme";
+            lblIme.Size = new Size(30, 15);
+            lblIme.TabIndex = 0;
+            lblIme.Text = "Ime:";
+            // 
+            // txtIme
+            // 
+            txtIme.Location = new Point(160, 17);
+            txtIme.Name = "txtIme";
+            txtIme.Size = new Size(230, 23);
+            txtIme.TabIndex = 1;
+            // 
+            // lblPrezime
+            // 
+            lblPrezime.AutoSize = true;
+            lblPrezime.Location = new Point(20, 55);
+            lblPrezime.Name = "lblPrezime";
+            lblPrezime.Size = new Size(52, 15);
+            lblPrezime.TabIndex = 0;
+            lblPrezime.Text = "Prezime:";
+            // 
+            // txtPrezime
+            // 
+            txtPrezime.Location = new Point(160, 52);
+            txtPrezime.Name = "txtPrezime";
+            txtPrezime.Size = new Size(230, 23);
+            txtPrezime.TabIndex = 1;
+            // 
+            // lblDatumRodjenja
+            // 
+            lblDatumRodjenja.AutoSize = true;
+            lblDatumRodjenja.Location = new Point(20, 90);
+            lblDatumRodjenja.Name = "lblDatumRodjenja";
+            lblDatumRodjenja.Size = new Size(92, 15);
+            lblDatumRodjenja.TabIndex = 0;
+            lblDatumRodjenja.Text = "Datum rodjenja:";
+            // 
+            // txtDatumRodjenja
+            // 
+            txtDatumRodjenja.Location = new Point(160, 87);
+            txtDatumRodjenja.Name = "txtDatumRodjenja";
+            txtDatumRodjenja.Size = new Size(230, 23);
+            txtDatumRodjenja.TabIndex = 1;
+            // 
+            // lblDrzava
+            // 
+            lblDrzava.AutoSize = true;
+            lblDrzava.Location = new Point(20, 125);
+            lblDrzava.Name = "lblDrzava";
+            lblDrzava.Size = new Size(45, 15);
+            lblDrzava.TabIndex = 0;
+            lblDrzava.Text = "Drzava:";
+            // 
+            // txtDrzava
+            // 
+            txtDrzava.Location = new Point(160, 122);
+            txtDrzava.Name = "txtDrzava";
+            txtDrzava.Size = new Size(230, 23);
+            txtDrzava.TabIndex = 1;
+            // 
+            // lblStatusNaloga
+            // 
+            lblStatusNaloga.AutoSize = true;
+            lblStatusNaloga.Location = new Point(20, 160);
+            lblStatusNaloga.Name = "lblStatusNaloga";
+            lblStatusNaloga.Size = new Size(81, 15);
+            lblStatusNaloga.TabIndex = 0;
+            lblStatusNaloga.Text = "Status naloga:";
+            // 
+            // txtStatusNaloga
+            // 
+            txtStatusNaloga.Location = new Point(160, 157);
+            txtStatusNaloga.Name = "txtStatusNaloga";
+            txtStatusNaloga.Size = new Size(230, 23);
+            txtStatusNaloga.TabIndex = 1;
+            // 
+            // lblNaucnoZvanje
+            // 
+            lblNaucnoZvanje.AutoSize = true;
+            lblNaucnoZvanje.Location = new Point(20, 195);
+            lblNaucnoZvanje.Name = "lblNaucnoZvanje";
+            lblNaucnoZvanje.Size = new Size(88, 15);
+            lblNaucnoZvanje.TabIndex = 0;
+            lblNaucnoZvanje.Text = "Naucno zvanje:";
+            // 
+            // txtNaucnoZvanje
+            // 
+            txtNaucnoZvanje.Location = new Point(160, 192);
+            txtNaucnoZvanje.Name = "txtNaucnoZvanje";
+            txtNaucnoZvanje.Size = new Size(230, 23);
+            txtNaucnoZvanje.TabIndex = 1;
+            // 
+            // lblNaucnaOblast
+            // 
+            lblNaucnaOblast.AutoSize = true;
+            lblNaucnaOblast.Location = new Point(20, 230);
+            lblNaucnaOblast.Name = "lblNaucnaOblast";
+            lblNaucnaOblast.Size = new Size(86, 15);
+            lblNaucnaOblast.TabIndex = 0;
+            lblNaucnaOblast.Text = "Naucna oblast:";
+            // 
+            // txtNaucnaOblast
+            // 
+            txtNaucnaOblast.Location = new Point(160, 227);
+            txtNaucnaOblast.Name = "txtNaucnaOblast";
+            txtNaucnaOblast.Size = new Size(230, 23);
+            txtNaucnaOblast.TabIndex = 1;
+            // 
+            // lblORCID
+            // 
+            lblORCID.AutoSize = true;
+            lblORCID.Location = new Point(20, 352);
+            lblORCID.Name = "lblORCID";
+            lblORCID.Size = new Size(45, 15);
+            lblORCID.TabIndex = 0;
+            lblORCID.Text = "ORCID:";
+            // 
+            // txtORCID
+            // 
+            txtORCID.Enabled = false;
+            txtORCID.Location = new Point(160, 349);
+            txtORCID.Name = "txtORCID";
+            txtORCID.Size = new Size(230, 23);
+            txtORCID.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 529);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 529);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // cbAutor
+            // 
+            cbAutor.AutoSize = true;
+            cbAutor.Location = new Point(160, 323);
+            cbAutor.Name = "cbAutor";
+            cbAutor.Size = new Size(56, 19);
+            cbAutor.TabIndex = 52;
+            cbAutor.Text = "Autor";
+            cbAutor.UseVisualStyleBackColor = true;
+            cbAutor.CheckedChanged += cbAutor_CheckedChanged;
+            // 
+            // cbAdmin
+            // 
+            cbAdmin.AutoSize = true;
+            cbAdmin.Location = new Point(160, 388);
+            cbAdmin.Name = "cbAdmin";
+            cbAdmin.Size = new Size(179, 19);
+            cbAdmin.TabIndex = 53;
+            cbAdmin.Text = "Administrator repozitorijuma";
+            cbAdmin.UseVisualStyleBackColor = true;
+            cbAdmin.CheckedChanged += cbAdmin_CheckedChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 416);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 15);
+            label1.TabIndex = 54;
+            label1.Text = "Ovlascenja:";
+            // 
+            // txtOvlascenja
+            // 
+            txtOvlascenja.Enabled = false;
+            txtOvlascenja.Location = new Point(160, 413);
+            txtOvlascenja.Name = "txtOvlascenja";
+            txtOvlascenja.Size = new Size(230, 23);
+            txtOvlascenja.TabIndex = 55;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(20, 484);
+            label2.Name = "label2";
+            label2.Size = new Size(46, 15);
+            label2.TabIndex = 57;
+            label2.Text = "Sekcija:";
+            // 
+            // txtSekcija
+            // 
+            txtSekcija.Enabled = false;
+            txtSekcija.Location = new Point(160, 481);
+            txtSekcija.Name = "txtSekcija";
+            txtSekcija.Size = new Size(230, 23);
+            txtSekcija.TabIndex = 58;
+            // 
+            // cbUrednik
+            // 
+            cbUrednik.AutoSize = true;
+            cbUrednik.Location = new Point(160, 456);
+            cbUrednik.Name = "cbUrednik";
+            cbUrednik.Size = new Size(67, 19);
+            cbUrednik.TabIndex = 56;
+            cbUrednik.Text = "Urednik";
+            cbUrednik.UseVisualStyleBackColor = true;
+            cbUrednik.CheckedChanged += cbUrednik_CheckedChanged;
+            // 
+            // cbRecenzent
+            // 
+            cbRecenzent.AutoSize = true;
+            cbRecenzent.Location = new Point(160, 266);
+            cbRecenzent.Name = "cbRecenzent";
+            cbRecenzent.Size = new Size(80, 19);
+            cbRecenzent.TabIndex = 59;
+            cbRecenzent.Text = "Recenzent";
+            cbRecenzent.UseVisualStyleBackColor = true;
+            // 
+            // cbRukovodilac
+            // 
+            cbRukovodilac.AutoSize = true;
+            cbRukovodilac.Location = new Point(160, 294);
+            cbRukovodilac.Name = "cbRukovodilac";
+            cbRukovodilac.Size = new Size(137, 19);
+            cbRukovodilac.TabIndex = 60;
+            cbRukovodilac.Text = "Rukovodilac projekta";
+            cbRukovodilac.UseVisualStyleBackColor = true;
+            // 
+            // DodajIstrazivacaForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 573);
+            Controls.Add(cbRukovodilac);
+            Controls.Add(cbRecenzent);
+            Controls.Add(label2);
+            Controls.Add(txtSekcija);
+            Controls.Add(cbUrednik);
+            Controls.Add(label1);
+            Controls.Add(txtOvlascenja);
+            Controls.Add(cbAdmin);
+            Controls.Add(cbAutor);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblIme);
+            Controls.Add(txtIme);
+            Controls.Add(lblPrezime);
+            Controls.Add(txtPrezime);
+            Controls.Add(lblDatumRodjenja);
+            Controls.Add(txtDatumRodjenja);
+            Controls.Add(lblDrzava);
+            Controls.Add(txtDrzava);
+            Controls.Add(lblStatusNaloga);
+            Controls.Add(txtStatusNaloga);
+            Controls.Add(lblNaucnoZvanje);
+            Controls.Add(txtNaucnoZvanje);
+            Controls.Add(lblNaucnaOblast);
+            Controls.Add(txtNaucnaOblast);
+            Controls.Add(lblORCID);
+            Controls.Add(txtORCID);
+            Name = "DodajIstrazivacaForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Dodaj istrazivaca";
+            Load += DodajIstrazivacaForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;
@@ -176,5 +340,14 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.TextBox txtNaucnaOblast;
         private System.Windows.Forms.Label lblORCID;
         private System.Windows.Forms.TextBox txtORCID;
+        private CheckBox cbAutor;
+        private CheckBox cbAdmin;
+        private Label label1;
+        private TextBox txtOvlascenja;
+        private Label label2;
+        private TextBox txtSekcija;
+        private CheckBox cbUrednik;
+        private CheckBox cbRecenzent;
+        private CheckBox cbRukovodilac;
     }
 }

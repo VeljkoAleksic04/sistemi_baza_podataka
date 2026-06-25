@@ -123,18 +123,24 @@ namespace DigitalniRepozitorijum.Forme
             pupuniPodacima();
         }
 
-        public void pupuniPodacima() 
+        public void pupuniPodacima()
         {
             dataGridView.Rows.Clear();
 
             List<PublikacijaPregled> podaci = DTOManager.vratiSvePublikacije();
 
-            foreach(PublikacijaPregled p in podaci)
+            foreach (PublikacijaPregled p in podaci)
             {
                 dataGridView.Rows.Add(p.Id, p.Naslov, p.Jezik, p.DatumObjavljivanja, p.Status, p.Vidljivost);
             }
 
             dataGridView.Refresh();
+        }
+
+        private void btnRecenzije_Click(object sender, EventArgs e)
+        {
+            using var form = new RundeRecenzijeForm();
+            form.ShowDialog();
         }
     }
 }

@@ -28,6 +28,8 @@ namespace DigitalniRepozitorijum.Forme
             btnDodaj = new Button();
             btnIzmeni = new Button();
             btnObrisi = new Button();
+            btnIzvor = new Button();
+            richTextBox1 = new RichTextBox();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -56,6 +58,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
             // 
             // colId
             // 
@@ -129,11 +132,32 @@ namespace DigitalniRepozitorijum.Forme
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
             // 
+            // btnIzvor
+            // 
+            btnIzvor.Location = new Point(720, 140);
+            btnIzvor.Name = "btnIzvor";
+            btnIzvor.Size = new Size(240, 32);
+            btnIzvor.TabIndex = 11;
+            btnIzvor.Text = "Podaci o izvoru";
+            btnIzvor.UseVisualStyleBackColor = true;
+            btnIzvor.Click += btnIzvor_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Enabled = false;
+            richTextBox1.Location = new Point(720, 190);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(240, 130);
+            richTextBox1.TabIndex = 12;
+            richTextBox1.Text = "";
+            // 
             // NaucniRadoviForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(980, 580);
+            Controls.Add(richTextBox1);
+            Controls.Add(btnIzvor);
             Controls.Add(groupBox);
             Controls.Add(btnDodaj);
             Controls.Add(btnIzmeni);
@@ -160,5 +184,7 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
+        private Button btnIzvor;
+        private RichTextBox richTextBox1;
     }
 }

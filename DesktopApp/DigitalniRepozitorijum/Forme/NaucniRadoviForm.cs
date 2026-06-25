@@ -52,5 +52,15 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.Rows.Clear();
             // DODATI IMPLEMENTACIJU KADA NAUCNI RAD BUDE DODAT
         }
+
+        private void btnIzvor_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dodati prikaz podataka o izvoru preko messageboxa");
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
