@@ -8,4 +8,10 @@ public class RundaRecenzije
     public virtual int IdUrednika { get; set; }
     public virtual DateTime Datum { get; set; }
     public virtual string? KonacnaOdluka { get; set; }
+    
+    public virtual Publikacija? Publikacija { get; set; }
+    public virtual Istrazivac? Urednik { get; set; }
+    
+    public virtual ICollection<VrsiRecenziju> Recenzije { get; set; } = new List<VrsiRecenziju>();
+
 }

@@ -5,4 +5,5 @@ public class KnjigaUrednici
     public virtual int Id { get; set; }
     public virtual int IdPublikacije { get; set; }
     public virtual string? Urednik { get; set; }
+    public virtual Knjiga? Knjiga { get; set; }
 }
