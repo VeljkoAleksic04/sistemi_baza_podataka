@@ -12,6 +12,7 @@ namespace RepozitorijumLibrary.Entiteti
         internal protected virtual DateTime DatumPostavljanja { get; set; }
         internal protected virtual string OpisIzmene { get; set; }
         internal protected virtual string OdgovornaOsoba { get; set; }
+        
         internal protected virtual IList<Fajl> Fajlovi { get; set; }
 
         internal Verzija()
