@@ -1,0 +1,17 @@
+namespace DigitalniRepozitorijum.Mapiranja;
+using DigitalniRepozitorijum.Entiteti;
+using FluentNHibernate.Mapping;
+
+public class NaucniRadMap : SubclassMap<NaucniRad>
+{
+    public NaucniRadMap()
+    {
+        Map(x => x.DOI, "DOI");
+        Map(x => x.TipRada, "Tip_Rada");
+        Map(x => x.Stranice, "Stranice");
+        Map(x => x.IdIzvora, "Id_Izvora");
+        
+        References(x => x.Izvor, "Id_Izvora")
+            .Not.LazyLoad();
+    }
+}
