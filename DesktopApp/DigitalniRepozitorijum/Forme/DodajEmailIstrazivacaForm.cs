@@ -15,7 +15,19 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Unesite email adresu.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new IstrazivacEmailBasic
+            {
+                Istrazivac = DTOManager.vratiIstrazivaca(_idIstrazivaca.Value),
+                Email = txtEmail.Text
+            };
+
+            DTOManager.dodajEmailIstrazivaca(dto);
             DialogResult = DialogResult.OK;
             Close();
         }

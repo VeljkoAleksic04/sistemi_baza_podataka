@@ -15,7 +15,19 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtTelefon.Text))
+            {
+                MessageBox.Show("Unesite broj telefona.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new IstrazivacTelefonBasic
+            {
+                Istrazivac = DTOManager.vratiIstrazivaca(_idIstrazivaca.Value),
+                Telefon = txtTelefon.Text
+            };
+
+            DTOManager.dodajTelefonIstrazivaca(dto);
             DialogResult = DialogResult.OK;
             Close();
         }

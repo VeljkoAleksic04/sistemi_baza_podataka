@@ -13,9 +13,24 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
+        private void IzmeniInstitucijuForm_Load(object sender, EventArgs e)
+        {
+            if (_id == null) return;
+            var dto = DTOManager.vratiInstituciju(_id.Value);
+            txtNaziv.Text = dto.Naziv;
+            txtAdresa.Text = dto.Adresa;
+        }
+
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtNaziv.Text) || string.IsNullOrWhiteSpace(txtAdresa.Text))
+            {
+                MessageBox.Show("Popunite sva polja.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new InstitucijaBasic(_id.Value, txtNaziv.Text, txtAdresa.Text);
+            DTOManager.azurirajInstituciju(dto);
             DialogResult = DialogResult.OK;
             Close();
         }

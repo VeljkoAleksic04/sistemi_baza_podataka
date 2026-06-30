@@ -15,9 +15,28 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
+        private void IzmeniKontaktTelefonForm_Load(object sender, EventArgs e)
+        {
+            if (_id == null) return;
+            var dto = DTOManager.vratiKontaktTelefon(_id.Value);
+            txtKontaktTel.Text = dto.KontaktTel;
+        }
+
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtKontaktTel.Text))
+            {
+                MessageBox.Show("Unesite kontakt telefon.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new InstitucijaKontaktTelBasic
+            {
+                Id = _id.Value,
+                KontaktTel = txtKontaktTel.Text
+            };
+
+            DTOManager.azurirajKontaktTelefon(dto);
             DialogResult = DialogResult.OK;
             Close();
         }

@@ -1171,5 +1171,899 @@ namespace DigitalniRepozitorijum
         }
 
         #endregion
+
+        public static void dodajInstituciju(InstitucijaBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Institucija o = new Entiteti.Institucija();
+                o.Naziv = dto.Naziv;
+                o.Adresa = dto.Adresa;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška pri dodavanju institucije: " + ex.Message);
+            }
+        }
+
+        public static List<InstitucijaPregled> vratiSveInstitucije()
+        {
+            List<InstitucijaPregled> lista = new List<InstitucijaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                var rezultati = from o in s.Query<Entiteti.Institucija>() select o;
+                foreach (var o in rezultati)
+                    lista.Add(new InstitucijaPregled(o.Id, o.Naziv, o.Adresa));
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static InstitucijaBasic vratiInstituciju(int id)
+        {
+            InstitucijaBasic dto = new InstitucijaBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Institucija o = s.Load<Entiteti.Institucija>(id);
+                dto.Id = o.Id; 
+                dto.Naziv = o.Naziv; 
+                dto.Adresa = o.Adresa;
+
+                foreach (var km in o.KontaktMailovi)
+                    dto.KontaktMailovi.Add(new InstitucijaKontaktMailBasic(km.Id, dto, km.KontaktMail));
+                foreach (var kt in o.KontaktTelefoni)
+                    dto.KontaktTelefoni.Add(new InstitucijaKontaktTelBasic(kt.Id, dto, kt.KontaktTel));
+                foreach (var no in o.NaucneOblasti)
+                    dto.NaucneOblasti.Add(new InstitucijaNaucnaOblastBasic(no.Id, dto, no.NaucnaOblast));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void azurirajInstituciju(InstitucijaBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Institucija o = s.Load<Entiteti.Institucija>(dto.Id);
+                o.Naziv = dto.Naziv;
+                o.Adresa = dto.Adresa;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void obrisiInstituciju(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Institucija o = s.Load<Entiteti.Institucija>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+
+        #region InstitucijaKontaktMail
+
+        public static List<InstitucijaKontaktMailPregled> vratiSveKontaktMailove(int idInstitucije)
+        {
+            List<InstitucijaKontaktMailPregled> lista = new List<InstitucijaKontaktMailPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<InstitucijaKontaktMail> rezultati =
+                    from o in s.Query<InstitucijaKontaktMail>()
+                    where o.Institucija.Id == idInstitucije
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new InstitucijaKontaktMailPregled(o.Id, o.KontaktMail));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajKontaktMail(InstitucijaKontaktMailBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktMail o = new InstitucijaKontaktMail();
+                o.Institucija = s.Load<Institucija>(dto.Institucija.Id);
+                o.KontaktMail = dto.KontaktMail;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajKontaktMail(InstitucijaKontaktMailBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktMail o = s.Load<InstitucijaKontaktMail>(dto.Id);
+                o.KontaktMail = dto.KontaktMail;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static InstitucijaKontaktMailBasic vratiKontaktMail(int id)
+        {
+            InstitucijaKontaktMailBasic dto = new InstitucijaKontaktMailBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktMail o = s.Load<InstitucijaKontaktMail>(id);
+                InstitucijaBasic ib = new InstitucijaBasic(o.Institucija.Id, o.Institucija.Naziv, o.Institucija.Adresa);
+                dto = new InstitucijaKontaktMailBasic(o.Id, ib, o.KontaktMail);
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiKontaktMail(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktMail o = s.Load<InstitucijaKontaktMail>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region InstitucijaKontaktTel
+
+        public static List<InstitucijaKontaktTelPregled> vratiSveKontaktTelefone(int idInstitucije)
+        {
+            List<InstitucijaKontaktTelPregled> lista = new List<InstitucijaKontaktTelPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<InstitucijaKontaktTel> rezultati =
+                    from o in s.Query<InstitucijaKontaktTel>()
+                    where o.Institucija.Id == idInstitucije
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new InstitucijaKontaktTelPregled(o.Id, o.KontaktTel));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajKontaktTelefon(InstitucijaKontaktTelBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktTel o = new InstitucijaKontaktTel();
+                o.Institucija = s.Load<Institucija>(dto.Institucija.Id);
+                o.KontaktTel = dto.KontaktTel;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajKontaktTelefon(InstitucijaKontaktTelBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktTel o = s.Load<InstitucijaKontaktTel>(dto.Id);
+                o.KontaktTel = dto.KontaktTel;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static InstitucijaKontaktTelBasic vratiKontaktTelefon(int id)
+        {
+            InstitucijaKontaktTelBasic dto = new InstitucijaKontaktTelBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktTel o = s.Load<InstitucijaKontaktTel>(id);
+                InstitucijaBasic ib = new InstitucijaBasic(o.Institucija.Id, o.Institucija.Naziv, o.Institucija.Adresa);
+                dto = new InstitucijaKontaktTelBasic(o.Id, ib, o.KontaktTel);
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiKontaktTelefon(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaKontaktTel o = s.Load<InstitucijaKontaktTel>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region InstitucijaNaucnaOblast
+
+        public static List<InstitucijaNaucnaOblastPregled> vratiSveNaucneOblasti(int idInstitucije)
+        {
+            List<InstitucijaNaucnaOblastPregled> lista = new List<InstitucijaNaucnaOblastPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<InstitucijaNaucnaOblast> rezultati =
+                    from o in s.Query<InstitucijaNaucnaOblast>()
+                    where o.Institucija.Id == idInstitucije
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new InstitucijaNaucnaOblastPregled(o.Id, o.NaucnaOblast));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajNaucnuOblast(InstitucijaNaucnaOblastBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaNaucnaOblast o = new InstitucijaNaucnaOblast();
+                o.Institucija = s.Load<Institucija>(dto.Institucija.Id);
+                o.NaucnaOblast = dto.NaucnaOblast;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajNaucnuOblast(InstitucijaNaucnaOblastBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaNaucnaOblast o = s.Load<InstitucijaNaucnaOblast>(dto.Id);
+                o.NaucnaOblast = dto.NaucnaOblast;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static InstitucijaNaucnaOblastBasic vratiNaucnuOblast(int id)
+        {
+            InstitucijaNaucnaOblastBasic dto = new InstitucijaNaucnaOblastBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaNaucnaOblast o = s.Load<InstitucijaNaucnaOblast>(id);
+                InstitucijaBasic ib = new InstitucijaBasic(o.Institucija.Id, o.Institucija.Naziv, o.Institucija.Adresa);
+                dto = new InstitucijaNaucnaOblastBasic(o.Id, ib, o.NaucnaOblast);
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiNaucnuOblast(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                InstitucijaNaucnaOblast o = s.Load<InstitucijaNaucnaOblast>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region Istrazivac
+
+        public static List<IstrazivacPregled> vratiSveIstrazivace()
+        {
+            List<IstrazivacPregled> lista = new List<IstrazivacPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                var rezultati = from o in s.Query<Istrazivac>() select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new IstrazivacPregled(o.Id, o.Ime, o.Prezime,
+                        o.DatumRodjenja, o.Drzava, o.StatusNaloga, o.NaucnoZvanje, o.NaucnaOblast));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajIstrazivaca(IstrazivacBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Istrazivac o = new Istrazivac();
+                o.Ime = dto.Ime;
+                o.Prezime = dto.Prezime;
+                o.DatumRodjenja = dto.DatumRodjenja;
+                o.Drzava = dto.Drzava;
+                o.StatusNaloga = dto.StatusNaloga;
+                o.NaucnoZvanje = dto.NaucnoZvanje;
+                o.NaucnaOblast = dto.NaucnaOblast;
+                o.JeAutor = dto.JeAutor;
+                o.JeRecenzent = dto.JeRecenzent;
+                o.JeUrednik = dto.JeUrednik;
+                o.JeAdmin = dto.JeAdmin;
+                o.JeRukovodilacProjekta = dto.JeRukovodilacProjekta;
+                o.ORCID = dto.ORCID;
+                o.OblastEkspertize = dto.OblastEkspertize;
+                o.UredjivackaSekcija = dto.UredjivackaSekcija;
+                o.AdministratorskaOvlascenja = dto.AdministratorskaOvlascenja;
+
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajIstrazivaca(IstrazivacBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Istrazivac o = s.Load<Istrazivac>(dto.Id);
+                o.Ime = dto.Ime;
+                o.Prezime = dto.Prezime;
+                o.DatumRodjenja = dto.DatumRodjenja;
+                o.Drzava = dto.Drzava;
+                o.StatusNaloga = dto.StatusNaloga;
+                o.NaucnoZvanje = dto.NaucnoZvanje;
+                o.NaucnaOblast = dto.NaucnaOblast;
+                o.JeAutor = dto.JeAutor;
+                o.JeRecenzent = dto.JeRecenzent;
+                o.JeUrednik = dto.JeUrednik;
+                o.JeAdmin = dto.JeAdmin;
+                o.JeRukovodilacProjekta = dto.JeRukovodilacProjekta;
+                o.ORCID = dto.ORCID;
+                o.OblastEkspertize = dto.OblastEkspertize;
+                o.UredjivackaSekcija = dto.UredjivackaSekcija;
+                o.AdministratorskaOvlascenja = dto.AdministratorskaOvlascenja;
+
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static IstrazivacBasic vratiIstrazivaca(int id)
+        {
+            IstrazivacBasic dto = new IstrazivacBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Istrazivac o = s.Load<Istrazivac>(id);
+                dto = new IstrazivacBasic(o.Id, o.Ime, o.Prezime, o.DatumRodjenja,
+                    o.Drzava, o.StatusNaloga, o.NaucnoZvanje, o.NaucnaOblast,
+                    o.JeAutor, o.JeRecenzent, o.JeUrednik, o.JeAdmin, o.JeRukovodilacProjekta,
+                    o.ORCID, o.OblastEkspertize, o.UredjivackaSekcija, o.AdministratorskaOvlascenja);
+
+                foreach (var e in o.Emailovi)
+                    dto.Emailovi.Add(new IstrazivacEmailBasic(e.Id, dto, e.Email));
+                foreach (var t in o.Telefoni)
+                    dto.Telefoni.Add(new IstrazivacTelefonBasic(t.Id, dto, t.Telefon));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiIstrazivaca(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Istrazivac o = s.Load<Istrazivac>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region IstrazivacEmail
+
+        public static List<IstrazivacEmailPregled> vratiSveEmailoveIstrazivaca(int idIstrazivaca)
+        {
+            List<IstrazivacEmailPregled> lista = new List<IstrazivacEmailPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<IstrazivacEmail> rezultati =
+                    from o in s.Query<IstrazivacEmail>()
+                    where o.Istrazivac.Id == idIstrazivaca
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new IstrazivacEmailPregled(o.Id, o.Email));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajEmailIstrazivaca(IstrazivacEmailBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacEmail o = new IstrazivacEmail();
+                o.Istrazivac = s.Load<Istrazivac>(dto.Istrazivac.Id);
+                o.Email = dto.Email;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajEmailIstrazivaca(IstrazivacEmailBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacEmail o = s.Load<IstrazivacEmail>(dto.Id);
+                o.Email = dto.Email;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static IstrazivacEmailBasic vratiEmailIstrazivaca(int id)
+        {
+            IstrazivacEmailBasic dto = new IstrazivacEmailBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacEmail o = s.Load<IstrazivacEmail>(id);
+                IstrazivacBasic ib = new IstrazivacBasic(o.Istrazivac.Id, o.Istrazivac.Ime,
+                    o.Istrazivac.Prezime, o.Istrazivac.DatumRodjenja, o.Istrazivac.Drzava,
+                    o.Istrazivac.StatusNaloga, o.Istrazivac.NaucnoZvanje, o.Istrazivac.NaucnaOblast,
+                    o.Istrazivac.JeAutor, o.Istrazivac.JeRecenzent, o.Istrazivac.JeUrednik,
+                    o.Istrazivac.JeAdmin, o.Istrazivac.JeRukovodilacProjekta,
+                    o.Istrazivac.ORCID, o.Istrazivac.OblastEkspertize,
+                    o.Istrazivac.UredjivackaSekcija, o.Istrazivac.AdministratorskaOvlascenja);
+                dto = new IstrazivacEmailBasic(o.Id, ib, o.Email);
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiEmailIstrazivaca(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacEmail o = s.Load<IstrazivacEmail>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region IstrazivacTelefon
+
+        public static List<IstrazivacTelefonPregled> vratiSveTelefoneIstrazivaca(int idIstrazivaca)
+        {
+            List<IstrazivacTelefonPregled> lista = new List<IstrazivacTelefonPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<IstrazivacTelefon> rezultati =
+                    from o in s.Query<IstrazivacTelefon>()
+                    where o.Istrazivac.Id == idIstrazivaca
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new IstrazivacTelefonPregled(o.Id, o.Telefon));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajTelefonIstrazivaca(IstrazivacTelefonBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacTelefon o = new IstrazivacTelefon();
+                o.Istrazivac = s.Load<Istrazivac>(dto.Istrazivac.Id);
+                o.Telefon = dto.Telefon;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajTelefonIstrazivaca(IstrazivacTelefonBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacTelefon o = s.Load<IstrazivacTelefon>(dto.Id);
+                o.Telefon = dto.Telefon;
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static IstrazivacTelefonBasic vratiTelefonIstrazivaca(int id)
+        {
+            IstrazivacTelefonBasic dto = new IstrazivacTelefonBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacTelefon o = s.Load<IstrazivacTelefon>(id);
+                IstrazivacBasic ib = new IstrazivacBasic(o.Istrazivac.Id, o.Istrazivac.Ime,
+                    o.Istrazivac.Prezime, o.Istrazivac.DatumRodjenja, o.Istrazivac.Drzava,
+                    o.Istrazivac.StatusNaloga, o.Istrazivac.NaucnoZvanje, o.Istrazivac.NaucnaOblast,
+                    o.Istrazivac.JeAutor, o.Istrazivac.JeRecenzent, o.Istrazivac.JeUrednik,
+                    o.Istrazivac.JeAdmin, o.Istrazivac.JeRukovodilacProjekta,
+                    o.Istrazivac.ORCID, o.Istrazivac.OblastEkspertize,
+                    o.Istrazivac.UredjivackaSekcija, o.Istrazivac.AdministratorskaOvlascenja);
+                dto = new IstrazivacTelefonBasic(o.Id, ib, o.Telefon);
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiTelefonIstrazivaca(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IstrazivacTelefon o = s.Load<IstrazivacTelefon>(id);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region Angazovanje
+
+        public static List<AngazovanjePregled> vratiSveAngazovanjaIstrazivaca(int idIstrazivaca)
+        {
+            List<AngazovanjePregled> lista = new List<AngazovanjePregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<Angazovanje> rezultati =
+                    from o in s.Query<Angazovanje>()
+                    where o.Id.Istrazivac.Id == idIstrazivaca
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new AngazovanjePregled(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
+                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime,
+                        o.NazivPozicije, o.DatumPocetka));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static List<AngazovanjePregled> vratiSveAngazovanjaInstitucije(int idInstitucije)
+        {
+            List<AngazovanjePregled> lista = new List<AngazovanjePregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<Angazovanje> rezultati =
+                    from o in s.Query<Angazovanje>()
+                    where o.Id.Institucija.Id == idInstitucije
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new AngazovanjePregled(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
+                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime,
+                        o.NazivPozicije, o.DatumPocetka));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajAngazovanje(AngazovanjeBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Angazovanje o = new Angazovanje();
+                o.Id.Institucija = s.Load<Institucija>(dto.IdInstitucije);
+                o.Id.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
+                o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
+                o.TipAngazovanja = dto.TipAngazovanja;
+                o.NazivPozicije = dto.NazivPozicije;
+                o.DatumPocetka = dto.DatumPocetka;
+                o.DatumZavrsetka = dto.DatumZavrsetka;
+
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajAngazovanje(AngazovanjeBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                AngazovanjeId key = new AngazovanjeId();
+                key.Institucija = s.Load<Institucija>(dto.IdInstitucije);
+                key.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
+
+                Angazovanje o = s.Load<Angazovanje>(key);
+                o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
+                o.TipAngazovanja = dto.TipAngazovanja;
+                o.NazivPozicije = dto.NazivPozicije;
+                o.DatumPocetka = dto.DatumPocetka;
+                o.DatumZavrsetka = dto.DatumZavrsetka;
+
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static AngazovanjeBasic vratiAngazovanje(int idInstitucije, int idIstrazivaca)
+        {
+            AngazovanjeBasic dto = new AngazovanjeBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                AngazovanjeId key = new AngazovanjeId();
+                key.Institucija = s.Load<Institucija>(idInstitucije);
+                key.Istrazivac = s.Load<Istrazivac>(idIstrazivaca);
+
+                Angazovanje o = s.Load<Angazovanje>(key);
+                dto = new AngazovanjeBasic(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
+                    o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime,
+                    o.NazivPozicije, o.DatumPocetka,
+                    o.OrganizacionaJedinica, o.TipAngazovanja, o.DatumZavrsetka);
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiAngazovanje(int idInstitucije, int idIstrazivaca)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                AngazovanjeId key = new AngazovanjeId();
+                key.Institucija = s.Load<Institucija>(idInstitucije);
+                key.Istrazivac = s.Load<Istrazivac>(idIstrazivaca);
+
+                Angazovanje o = s.Load<Angazovanje>(key);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
+
+        #region Autorstvo
+
+        public static List<AutorstvoPregled> vratiSveAutorePublikacije(int idPublikacije)
+        {
+            List<AutorstvoPregled> lista = new List<AutorstvoPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<Autorstvo> rezultati =
+                    from o in s.Query<Autorstvo>()
+                    where o.Id.Publikacija.Id == idPublikacije
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new AutorstvoPregled(o.Id.Publikacija.Id, o.Id.Autor.Id,
+                        o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
+                        o.RedosledAutora));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static List<AutorstvoPregled> vratiSvePublikacijeAutora(int idAutora)
+        {
+            List<AutorstvoPregled> lista = new List<AutorstvoPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<Autorstvo> rezultati =
+                    from o in s.Query<Autorstvo>()
+                    where o.Id.Autor.Id == idAutora
+                    select o;
+
+                foreach (var o in rezultati)
+                    lista.Add(new AutorstvoPregled(o.Id.Publikacija.Id, o.Id.Autor.Id,
+                        o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
+                        o.RedosledAutora));
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return lista;
+        }
+
+        public static void dodajAutorstvo(AutorstvoBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Autorstvo o = new Autorstvo();
+                o.Id.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
+                o.Id.Autor = s.Load<Istrazivac>(dto.IdAutora);
+                o.RedosledAutora = dto.RedosledAutora;
+                o.TipDoprinosa = dto.TipDoprinosa;
+                o.Uloga = dto.Uloga;
+
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static void azurirajAutorstvo(AutorstvoBasic dto)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                AutorstvoId key = new AutorstvoId();
+                key.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
+                key.Autor = s.Load<Istrazivac>(dto.IdAutora);
+
+                Autorstvo o = s.Load<Autorstvo>(key);
+                o.RedosledAutora = dto.RedosledAutora;
+                o.TipDoprinosa = dto.TipDoprinosa;
+                o.Uloga = dto.Uloga;
+
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public static AutorstvoBasic vratiAutorstvo(int idPublikacije, int idAutora)
+        {
+            AutorstvoBasic dto = new AutorstvoBasic();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                AutorstvoId key = new AutorstvoId();
+                key.Publikacija = s.Load<Publikacija>(idPublikacije);
+                key.Autor = s.Load<Istrazivac>(idAutora);
+
+                Autorstvo o = s.Load<Autorstvo>(key);
+                dto = new AutorstvoBasic(o.Id.Publikacija.Id, o.Id.Autor.Id,
+                    o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
+                    o.RedosledAutora, o.TipDoprinosa, o.Uloga);
+
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            return dto;
+        }
+
+        public static void obrisiAutorstvo(int idPublikacije, int idAutora)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                AutorstvoId key = new AutorstvoId();
+                key.Publikacija = s.Load<Publikacija>(idPublikacije);
+                key.Autor = s.Load<Istrazivac>(idAutora);
+
+                Autorstvo o = s.Load<Autorstvo>(key);
+                s.Delete(o);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        #endregion
+
     }
 }

@@ -12,6 +12,18 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnTelefoni, btnEmail, btnAngazovanja, btnPublikacije);
         }
 
+        private void IstrazivaciForm_Load(object sender, EventArgs e)
+        {
+            PopuniPodacima();
+        }
+
+        public void PopuniPodacima()
+        {
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = DTOManager.vratiSveIstrazivace();
+            dataGridView.Columns["Id"].Visible = false;
+        }
+
         private int? GetSelectedId()
         {
             if (dataGridView.SelectedRows.Count == 0)
@@ -25,20 +37,24 @@ namespace DigitalniRepozitorijum.Forme
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             using var form = new DodajIstrazivacaForm();
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+                PopuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniIstrazivacaForm(id: id.Value);
-            form.ShowDialog();
+            var id = GetSelectedId(); if (id == null) return;
+            using var form = new IzmeniIstrazivacaForm(id: id.Value);
+            if (form.ShowDialog() == DialogResult.OK)
+                PopuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            var id = GetSelectedId(); if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiIstrazivaca(id.Value);
+                PopuniPodacima();
             }
         }
         private void btnTelefoni_Click(object sender, EventArgs e)

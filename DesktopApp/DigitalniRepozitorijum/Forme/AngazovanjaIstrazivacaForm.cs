@@ -14,6 +14,25 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
         }
 
+        private void AngazovanjaIstrazivacaForm_Load(object sender, EventArgs e)
+        {
+            PopuniPodacima();
+        }
+
+        public void PopuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+
+            if (_idIstrazivaca == null) return;
+
+            List<AngazovanjePregled> podaci = DTOManager.vratiSveAngazovanjaIstrazivaca(_idIstrazivaca.Value);
+
+            foreach (var p in podaci)
+                dataGridView.Rows.Add(p.IdInstitucije, p.NazivInstitucije, p.NazivPozicije, p.DatumPocetka.ToShortDateString());
+
+            dataGridView.Refresh();
+        }
+
         private int? GetSelectedId()
         {
             if (dataGridView.SelectedRows.Count == 0)
@@ -27,20 +46,24 @@ namespace DigitalniRepozitorijum.Forme
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             using var form = new DodajAngazovanjeForm(_idIstrazivaca);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+                PopuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniAngazovanjeForm(_idIstrazivaca);
-            form.ShowDialog();
+            var idInstitucije = GetSelectedId(); if (idInstitucije == null) return;
+            using var form = new IzmeniAngazovanjeForm(_idIstrazivaca, idInstitucije);
+            if (form.ShowDialog() == DialogResult.OK)
+                PopuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            var idInstitucije = GetSelectedId(); if (idInstitucije == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiAngazovanje(idInstitucije.Value, _idIstrazivaca.Value);
+                PopuniPodacima();
             }
         }
     }

@@ -304,4 +304,331 @@ namespace DigitalniRepozitorijum
     #endregion
 
 
+    public class InstitucijaPregled
+    {
+        public int Id;
+        public string Naziv;
+        public string Adresa;
+
+        public InstitucijaPregled() { }
+        public InstitucijaPregled(int id,string naziv,string adresa)
+        {
+            Id = id;
+            Naziv = naziv;
+            Adresa= adresa;
+        }
+    }
+    
+    public class InstitucijaBasic
+    {
+        public int Id;
+        public string Naziv;
+        public string Adresa;
+
+        public IList<InstitucijaKontaktMailBasic> KontaktMailovi { get; set; }
+        public IList<InstitucijaKontaktTelBasic> KontaktTelefoni { get; set; }
+        public IList<InstitucijaNaucnaOblastBasic> NaucneOblasti { get; set; }
+
+        public InstitucijaBasic()
+        {
+            KontaktMailovi = new List<InstitucijaKontaktMailBasic>();
+            KontaktTelefoni = new List<InstitucijaKontaktTelBasic>();
+            NaucneOblasti = new List<InstitucijaNaucnaOblastBasic>();
+        }
+        public InstitucijaBasic(int id, string naziv, string adresa) : this()
+        {
+            Id = id; Naziv = naziv; Adresa = adresa;
+        }
+    }
+
+    public class InstitucijaKontaktMailPregled
+    {
+        public int Id;
+        public string KontaktMail;
+
+        public InstitucijaKontaktMailPregled() { }
+        public InstitucijaKontaktMailPregled(int id, string kontaktMail)
+        {
+            Id = id;
+            KontaktMail = kontaktMail;
+        }
+    }
+
+    public class InstitucijaKontaktMailBasic
+    {
+        public int Id;
+        public InstitucijaBasic Institucija;
+        public string KontaktMail;
+
+        public InstitucijaKontaktMailBasic() { }
+        public InstitucijaKontaktMailBasic(int id, InstitucijaBasic institucija, string kontaktMail)
+        {
+            Id = id;
+            Institucija = institucija;
+            KontaktMail = kontaktMail;
+        }
+    }
+
+    public class InstitucijaKontaktTelPregled
+    {
+        public int Id;
+        public string KontaktTel;
+
+        public InstitucijaKontaktTelPregled() { }
+        public InstitucijaKontaktTelPregled(int id, string kontaktTel)
+        {
+            Id = id;
+            KontaktTel = kontaktTel;
+        }
+    }
+
+    public class InstitucijaKontaktTelBasic
+    {
+        public int Id;
+        public InstitucijaBasic Institucija;
+        public string KontaktTel;
+
+        public InstitucijaKontaktTelBasic() { }
+        public InstitucijaKontaktTelBasic(int id, InstitucijaBasic institucija, string kontaktTel)
+        {
+            Id = id;
+            Institucija = institucija;
+            KontaktTel = kontaktTel;
+        }
+    }
+
+    public class InstitucijaNaucnaOblastPregled
+    {
+        public int Id;
+        public string NaucnaOblast;
+
+        public InstitucijaNaucnaOblastPregled() { }
+        public InstitucijaNaucnaOblastPregled(int id, string naucnaOblast)
+        {
+            Id = id;
+            NaucnaOblast = naucnaOblast;
+        }
+    }
+
+    public class InstitucijaNaucnaOblastBasic
+    {
+        public int Id;
+        public InstitucijaBasic Institucija;
+        public string NaucnaOblast;
+
+        public InstitucijaNaucnaOblastBasic() { }
+        public InstitucijaNaucnaOblastBasic(int id, InstitucijaBasic institucija, string naucnaOblast)
+        {
+            Id = id;
+            Institucija = institucija;
+            NaucnaOblast = naucnaOblast;
+        }
+    }
+
+    public class IstrazivacPregled
+    {
+        public int Id;
+        public string Ime;
+        public string Prezime;
+        public DateTime DatumRodjenja;
+        public string Drzava;
+        public string StatusNaloga;
+        public string NaucnoZvanje;
+        public string NaucnaOblast;
+
+        public IstrazivacPregled() { }
+        public IstrazivacPregled(int id, string ime, string prezime, DateTime datumRodjenja,
+            string drzava, string statusNaloga, string naucnoZvanje, string naucnaOblast)
+        {
+            Id = id; Ime = ime; Prezime = prezime; DatumRodjenja = datumRodjenja;
+            Drzava = drzava; StatusNaloga = statusNaloga; NaucnoZvanje = naucnoZvanje;
+            NaucnaOblast = naucnaOblast;
+        }
+    }
+
+    public class IstrazivacBasic
+    {
+        public int Id;
+        public string Ime;
+        public string Prezime;
+        public DateTime DatumRodjenja;
+        public string Drzava;
+        public string StatusNaloga;
+        public string NaucnoZvanje;
+        public string NaucnaOblast;
+        public bool JeAutor;
+        public bool JeRecenzent;
+        public bool JeUrednik;
+        public bool JeAdmin;
+        public bool JeRukovodilacProjekta;
+        public string ORCID;
+        public string OblastEkspertize;
+        public string UredjivackaSekcija;
+        public string AdministratorskaOvlascenja;
+
+        public IList<IstrazivacEmailBasic> Emailovi { get; set; }
+        public IList<IstrazivacTelefonBasic> Telefoni { get; set; }
+
+        public IstrazivacBasic()
+        {
+            Emailovi = new List<IstrazivacEmailBasic>();
+            Telefoni = new List<IstrazivacTelefonBasic>();
+        }
+
+        public IstrazivacBasic(int id, string ime, string prezime, DateTime datumRodjenja,
+            string drzava, string statusNaloga, string naucnoZvanje, string naucnaOblast,
+            bool jeAutor, bool jeRecenzent, bool jeUrednik, bool jeAdmin, bool jeRukovodilac,
+            string orcid, string oblastEkspertize, string uredjivackaSekcija, string administratorskaOvlascenja) : this()
+        {
+            Id = id; Ime = ime; Prezime = prezime; DatumRodjenja = datumRodjenja;
+            Drzava = drzava; StatusNaloga = statusNaloga; NaucnoZvanje = naucnoZvanje;
+            NaucnaOblast = naucnaOblast;
+            JeAutor = jeAutor; JeRecenzent = jeRecenzent; JeUrednik = jeUrednik;
+            JeAdmin = jeAdmin; JeRukovodilacProjekta = jeRukovodilac;
+            ORCID = orcid; OblastEkspertize = oblastEkspertize;
+            UredjivackaSekcija = uredjivackaSekcija;
+            AdministratorskaOvlascenja = administratorskaOvlascenja;
+        }
+    }
+
+    public class IstrazivacEmailPregled
+    {
+        public int Id;
+        public string Email;
+
+        public IstrazivacEmailPregled() { }
+        public IstrazivacEmailPregled(int id, string email)
+        {
+            Id = id;
+            Email = email;
+        }
+    }
+
+    public class IstrazivacEmailBasic
+    {
+        public int Id;
+        public IstrazivacBasic Istrazivac;
+        public string Email;
+
+        public IstrazivacEmailBasic() { }
+        public IstrazivacEmailBasic(int id, IstrazivacBasic istrazivac, string email)
+        {
+            Id = id;
+            Istrazivac = istrazivac;
+            Email = email;
+        }
+    }
+
+    public class IstrazivacTelefonPregled
+    {
+        public int Id;
+        public string Telefon;
+
+        public IstrazivacTelefonPregled() { }
+        public IstrazivacTelefonPregled(int id, string telefon)
+        {
+            Id = id;
+            Telefon = telefon;
+        }
+    }
+
+    public class IstrazivacTelefonBasic
+    {
+        public int Id;
+        public IstrazivacBasic Istrazivac;
+        public string Telefon;
+
+        public IstrazivacTelefonBasic() { }
+        public IstrazivacTelefonBasic(int id, IstrazivacBasic istrazivac, string telefon)
+        {
+            Id = id;
+            Istrazivac = istrazivac;
+            Telefon = telefon;
+        }
+    }
+
+    public class AngazovanjePregled
+    {
+        public int IdInstitucije;
+        public int IdIstrazivaca;
+        public string NazivInstitucije;
+        public string ImeIstrazivaca;
+        public string NazivPozicije;
+        public DateTime DatumPocetka;
+
+        public AngazovanjePregled() { }
+        public AngazovanjePregled(int idInstitucije, int idIstrazivaca, string nazivInstitucije,
+            string imeIstrazivaca, string nazivPozicije, DateTime datumPocetka)
+        {
+            IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
+            NazivInstitucije = nazivInstitucije; ImeIstrazivaca = imeIstrazivaca;
+            NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka;
+        }
+    }
+
+    public class AngazovanjeBasic
+    {
+        public int IdInstitucije;
+        public int IdIstrazivaca;
+        public string NazivInstitucije;
+        public string ImeIstrazivaca;
+        public string NazivPozicije;
+        public DateTime DatumPocetka;
+        public string OrganizacionaJedinica;
+        public string TipAngazovanja;
+        public DateTime? DatumZavrsetka;
+
+        public AngazovanjeBasic() { }
+        public AngazovanjeBasic(int idInstitucije, int idIstrazivaca, string nazivInstitucije,
+            string imeIstrazivaca, string nazivPozicije, DateTime datumPocetka,
+            string organizacionaJedinica, string tipAngazovanja, DateTime? datumZavrsetka)
+        {
+            IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
+            NazivInstitucije = nazivInstitucije; ImeIstrazivaca = imeIstrazivaca;
+            NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka;
+            OrganizacionaJedinica = organizacionaJedinica;
+            TipAngazovanja = tipAngazovanja;
+            DatumZavrsetka = datumZavrsetka;
+        }
+    }
+
+    public class AutorstvoPregled
+    {
+        public int IdPublikacije;
+        public int IdAutora;
+        public string NaslovPublikacije;
+        public string ImeAutora;
+        public int RedosledAutora;
+
+        public AutorstvoPregled() { }
+        public AutorstvoPregled(int idPublikacije, int idAutora, string naslovPublikacije,
+            string imeAutora, int redosledAutora)
+        {
+            IdPublikacije = idPublikacije; IdAutora = idAutora;
+            NaslovPublikacije = naslovPublikacije; ImeAutora = imeAutora;
+            RedosledAutora = redosledAutora;
+        }
+    }
+
+    public class AutorstvoBasic
+    {
+        public int IdPublikacije;
+        public int IdAutora;
+        public string NaslovPublikacije;
+        public string ImeAutora;
+        public int RedosledAutora;
+        public string TipDoprinosa;
+        public string Uloga;
+
+        public AutorstvoBasic() { }
+        public AutorstvoBasic(int idPublikacije, int idAutora, string naslovPublikacije,
+            string imeAutora, int redosledAutora, string tipDoprinosa, string uloga)
+        {
+            IdPublikacije = idPublikacije; IdAutora = idAutora;
+            NaslovPublikacije = naslovPublikacije; ImeAutora = imeAutora;
+            RedosledAutora = redosledAutora;
+            TipDoprinosa = tipDoprinosa; Uloga = uloga;
+        }
+    }
+
 }

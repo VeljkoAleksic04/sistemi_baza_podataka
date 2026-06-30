@@ -15,9 +15,28 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
+        private void IzmeniKontaktMailForm_Load(object sender, EventArgs e)
+        {
+            if (_id == null) return;
+            var dto = DTOManager.vratiKontaktMail(_id.Value);
+            txtKontaktMail.Text = dto.KontaktMail;
+        }
+
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtKontaktMail.Text))
+            {
+                MessageBox.Show("Unesite kontakt mail.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new InstitucijaKontaktMailBasic
+            {
+                Id = _id.Value,
+                KontaktMail = txtKontaktMail.Text
+            };
+
+            DTOManager.azurirajKontaktMail(dto);
             DialogResult = DialogResult.OK;
             Close();
         }

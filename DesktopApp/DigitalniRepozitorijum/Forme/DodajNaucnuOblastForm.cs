@@ -15,7 +15,19 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtNaucnaOblast.Text))
+            {
+                MessageBox.Show("Unesite naucnu oblast.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new InstitucijaNaucnaOblastBasic
+            {
+                Institucija = DTOManager.vratiInstituciju(_idInstitucije.Value),
+                NaucnaOblast = txtNaucnaOblast.Text
+            };
+
+            DTOManager.dodajNaucnuOblast(dto);
             DialogResult = DialogResult.OK;
             Close();
         }

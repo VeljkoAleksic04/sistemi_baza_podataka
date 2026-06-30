@@ -16,7 +16,34 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtIme.Text) || string.IsNullOrWhiteSpace(txtPrezime.Text))
+            {
+                MessageBox.Show("Popunite obavezna polja.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new IstrazivacBasic
+            {
+                Ime = txtIme.Text,
+                Prezime = txtPrezime.Text,
+                DatumRodjenja = DateTime.Parse(txtDatumRodjenja.Text),
+                Drzava = txtDrzava.Text,
+                StatusNaloga = txtStatusNaloga.Text,
+                NaucnoZvanje = txtNaucnoZvanje.Text,
+                NaucnaOblast = txtNaucnaOblast.Text,
+                JeAutor = cbAutor.Checked,
+                JeRecenzent = cbRecenzent.Checked,
+                JeUrednik = cbUrednik.Checked,
+                JeAdmin = cbAdmin.Checked,
+                JeRukovodilacProjekta = cbRukovodilac.Checked,
+                ORCID = txtORCID.Text,
+                OblastEkspertize = cbRecenzent.Checked ? txtSekcija.Text : null,
+                UredjivackaSekcija = cbUrednik.Checked ? txtSekcija.Text : null,
+                AdministratorskaOvlascenja = cbAdmin.Checked ? txtOvlascenja.Text : null
+            };
+
+            DTOManager.dodajIstrazivaca(dto);
+            MessageBox.Show("Uspesno ste dodali istrazivaca!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
         }

@@ -14,6 +14,25 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
         }
 
+        private void EmailAdreseIstrazivacaForm_Load(object sender, EventArgs e)
+        {
+            PopuniPodacima();
+        }
+
+        public void PopuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+
+            if (_idIstrazivaca == null) return;
+
+            List<IstrazivacEmailPregled> podaci = DTOManager.vratiSveEmailoveIstrazivaca(_idIstrazivaca.Value);
+
+            foreach (var p in podaci)
+                dataGridView.Rows.Add(p.Id, p.Email);
+
+            dataGridView.Refresh();
+        }
+
         private int? GetSelectedId()
         {
             if (dataGridView.SelectedRows.Count == 0)
@@ -27,20 +46,24 @@ namespace DigitalniRepozitorijum.Forme
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             using var form = new DodajEmailIstrazivacaForm(_idIstrazivaca);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+                PopuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniEmailIstrazivacaForm(_idIstrazivaca);
-            form.ShowDialog();
+            var id = GetSelectedId(); if (id == null) return;
+            using var form = new IzmeniEmailIstrazivacaForm(_idIstrazivaca, id);
+            if (form.ShowDialog() == DialogResult.OK)
+                PopuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            var id = GetSelectedId(); if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiEmailIstrazivaca(id.Value);
+                PopuniPodacima();
             }
         }
     }

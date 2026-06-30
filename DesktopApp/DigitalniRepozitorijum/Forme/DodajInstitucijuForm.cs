@@ -14,7 +14,19 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (string.IsNullOrWhiteSpace(txtNaziv.Text) || string.IsNullOrWhiteSpace(txtAdresa.Text))
+            {
+                MessageBox.Show("Popunite sva polja.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var dto = new InstitucijaBasic
+            {
+                Naziv = txtNaziv.Text,
+                Adresa = txtAdresa.Text
+            };
+
+            DTOManager.dodajInstituciju(dto);
             DialogResult = DialogResult.OK;
             Close();
         }
