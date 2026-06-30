@@ -29,7 +29,8 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniNaucniRadForm(id: id.Value);
+            var id = GetSelectedId(); if (id == null) return; 
+            using var form = new IzmeniNaucniRadForm(id: id.Value);
             form.ShowDialog();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace DigitalniRepozitorijum.Forme
         public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
-            // DODATI IMPLEMENTACIJU KADA NAUCNI RAD BUDE DODAT
+            dataGridView.DataSource = DTOManager.VratiNaucneRadove();
         }
 
         private void btnIzvor_Click(object sender, EventArgs e)
@@ -60,7 +61,12 @@ namespace DigitalniRepozitorijum.Forme
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int? idIzvora = GetSelectedId();
 
+            if (idIzvora == null)
+                MessageBox.Show("Celija nije dobro selektovana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            
         }
     }
 }

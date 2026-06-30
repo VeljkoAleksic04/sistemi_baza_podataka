@@ -2064,6 +2064,54 @@ namespace DigitalniRepozitorijum
         }
 
         #endregion
+        
+        
+        
+        #region NaucniRad
+
+        public static List<NaucniRad> VratiNaucneRadove()
+        {
+            List<NaucniRad> listaNaucnihRadova = new List<NaucniRad>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var naucniRadovi = from n in sesija.Query<NaucniRad>() select n;
+                foreach (var naucniRad in naucniRadovi)
+                {
+                    listaNaucnihRadova.Add(naucniRad);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem naucnih radova iz baze...", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+            }
+            return listaNaucnihRadova;
+        }
+
+        // public static Izvor VratiIzvorPoId(int idIzvora)
+        // {
+        //     
+        // }
+        //
+        #endregion
+        
+        #region Dataset
+        
+        #endregion
+        
+        #region SoftverskiArtefakt
+        
+        #endregion
+        
+        #region Recenzije
+        
+        #endregion
+        
+        #region Citati
+        
+        #endregion
 
     }
 }
