@@ -2075,7 +2075,7 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var naucniRadovi = from n in sesija.Query<NaucniRad>() select n;
+                var naucniRadovi = sesija.Query<NaucniRad>().ToList();
                 foreach (var naucniRad in naucniRadovi)
                 {
                     listaNaucnihRadova.Add(naucniRad);
@@ -2090,11 +2090,23 @@ namespace DigitalniRepozitorijum
             return listaNaucnihRadova;
         }
 
-        // public static Izvor VratiIzvorPoId(int idIzvora)
-        // {
-        //     
-        // }
-        //
+        public static Izvor VratiIzvorPoId(int? idIzvora)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                if (idIzvora == null) throw new Exception("idIzvora nije pronadjen => null je");
+                var izvor = s.Get<Izvor>(idIzvora);
+                
+                return izvor;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        
         #endregion
         
         #region Dataset

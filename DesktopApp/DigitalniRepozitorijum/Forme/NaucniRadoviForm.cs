@@ -1,5 +1,7 @@
 using System;
 using System.Windows.Forms;
+using DigitalniRepozitorijum.Entiteti;
+using FluentNHibernate.Utils;
 
 namespace DigitalniRepozitorijum.Forme
 {
@@ -35,11 +37,23 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            int? id = GetSelectedId();
+            if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var red = dataGridView.SelectedRows[(int)id];
+                NaucniRad nrZaBrisanje = new NaucniRad
+                {
+                    Id = int.Parse(red.Cells[0].Value.ToString()),
+                    Naslov = red.Cells[1].Value.ToString(),
+                    DOI = red.Cells[2].Value.ToString(),
+                    TipRada = red.Cells[3].Value.ToString(),
+                    Stranice = red.Cells[4].Value.ToString(),
+                    IdIzvora = int.Parse(red.Cells[5].Value.ToString())
+                };
+                
+                
             }
         }
 
@@ -65,8 +79,27 @@ namespace DigitalniRepozitorijum.Forme
 
             if (idIzvora == null)
                 MessageBox.Show("Celija nije dobro selektovana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
-            
+
+            var izvor = DTOManager.VratiIzvorPoId(idIzvora);
+
+            string zapis = "";
+
+            if (izvor is Casopis)
+            {
+                zapis = $"[{izvor.Id}]\n" +
+                    $"Naziv: ${(izvor as Casopis).Naziv}\n" +
+                    $"Broj izdanja: {(izvor as Casopis).BrojIzdanja}\n" +
+                    $"Broj sveske: {(izvor as Casopis).BrojSveske}\n" +
+                    $"ISSN: {(izvor as Casopis).ISSN}\n";
+            }
+            else
+            {
+                zapis = $"[{izvor.Id}]\n" +
+                        $"Naziv: ${(izvor as Konferencija).Naziv}\n" +
+                        $"Broj izdanja: {(izvor as Konferencija).ISBN}\n";
+            }
+
+            richTextBox1.Text = zapis;
         }
     }
 }

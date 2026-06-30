@@ -11,7 +11,9 @@ public class NaucniRadMap : SubclassMap<NaucniRad>
         Map(x => x.Stranice, "Stranice");
         Map(x => x.IdIzvora, "Id_Izvora");
         
-        References(x => x.Izvor, "Id_Izvora")
-            .Not.LazyLoad();
+        References(x => x.Izvor)
+            .Column("ID_IZVORA")
+            .Not.Nullable()
+            .Cascade.None();
     }
 }
