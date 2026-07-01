@@ -1,46 +1,107 @@
+using DigitalniRepozitorijum.Entiteti;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
 {
     public partial class UredniciPoglavljaForm : Form
     {
-        private readonly int? _idPublikacije;
+        private int _idPoglavlja;
 
-        public UredniciPoglavljaForm(int? idPublikacije = null)
+        public UredniciPoglavljaForm(int idPoglavlja = 0)
         {
-            _idPublikacije = idPublikacije;
             InitializeComponent();
-            FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
+            _idPoglavlja = idPoglavlja;
+        }
+
+        private void UredniciPoglavljaForm_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        private void popuniPodacima()
+        {
+            try
+            {
+                dataGridViewUrednici.DataSource = null;
+
+                var urednici = DTOManager.VratiUrednikePoglavlja(_idPoglavlja);
+
+                List<dynamic> prikazUrednika = new List<dynamic>();
+                foreach (var urednik in urednici)
+                {
+                    prikazUrednika.Add(new
+                    {
+                        Id = urednik.Id,
+                        IdPublikacije = urednik.IdPublikacije,
+                        Urednik = urednik.Urednik
+                    });
+                }
+
+                dataGridViewUrednici.DataSource = prikazUrednika;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Greska pri ucitavanju urednika", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private int? GetSelectedId()
         {
-            if (dataGridView.SelectedRows.Count == 0)
+            if (dataGridViewUrednici.SelectedRows.Count > 0)
             {
-                MessageBox.Show("Izaberite red iz tabele.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null;
+                return (int)dataGridViewUrednici.SelectedRows[0].Cells["Id"].Value;
             }
-            return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+            return null;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            using var form = new DodajUrednikaPoglavljaForm(_idPublikacije);
-            form.ShowDialog();
+            DodajUrednikaPoglavljaForm forma = new DodajUrednikaPoglavljaForm(_idPoglavlja);
+            if (forma.ShowDialog() == DialogResult.OK)
+            {
+                popuniPodacima();
+            }
         }
+
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniUrednikaPoglavljaForm(_idPublikacije);
-            form.ShowDialog();
+            int? id = GetSelectedId();
+            if (id == null)
+            {
+                MessageBox.Show("Molimo, odaberite urednika za izmenu", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            IzmeniUrednikaPoglavljaForm forma = new IzmeniUrednikaPoglavljaForm(id.Value);
+            if (forma.ShowDialog() == DialogResult.OK)
+            {
+                popuniPodacima();
+            }
         }
+
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
-            var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            int? id = GetSelectedId();
+            if (id == null)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Molimo, odaberite urednika za brisanje", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("Da li ste sigurni da zelite da obrisete ovog urednika?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    DTOManager.ObrisiUrednikaPoglavlja(id);
+                    popuniPodacima();
+                    MessageBox.Show("Urednik je uspesno obrisan", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Greska: {ex.Message}", "Greska pri brisanju", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

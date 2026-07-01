@@ -752,3 +752,24 @@ namespace DigitalniRepozitorijum
     }
     #endregion
 
+
+    #region KnjigaUrednici
+
+    public class KnjigaUredniciDTO
+    {
+        public int Id { get; set; }
+        public int IdPublikacije { get; set; }
+        public string Urednik { get; set; }
+    }
+    #endregion
+
+    #region PoglavljeUrednici
+
+    public class PoglavljeUredniciDTO
+    {
+        public int Id { get; set; }
+        public int IdPublikacije { get; set; }
+        public string Urednik { get; set; }
+    }
+    #endregion
+

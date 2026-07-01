@@ -1,28 +1,52 @@
+using DigitalniRepozitorijum.Entiteti;
+using System;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
 {
     public partial class DodajUrednikaKnjigeForm : Form
     {
-        private readonly int? _idPublikacije;
+        private int _idKnjige;
 
-        public DodajUrednikaKnjigeForm(int? idPublikacije = null)
+        public DodajUrednikaKnjigeForm(int idKnjige)
         {
-            _idPublikacije = idPublikacije;
             InitializeComponent();
-            FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
+            _idKnjige = idKnjige;
         }
 
-        private void btnPotvrdi_Click(object sender, System.EventArgs e)
+        private void btnPotvrdi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
-            Close();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtUrednik.Text))
+                {
+                    MessageBox.Show("Molimo, popunite sve polje", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                KnjigaUrednici noviUrednik = new KnjigaUrednici
+                {
+                    IdPublikacije = _idKnjige,
+                    Urednik = txtUrednik.Text
+                };
+
+                DTOManager.DodajUredikaKnjige(noviUrednik);
+                MessageBox.Show("Urednik je uspesno dodan", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Greska pri dodavanju", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Close();
+            }
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

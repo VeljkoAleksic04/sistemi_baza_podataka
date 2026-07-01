@@ -1,35 +1,66 @@
+using DigitalniRepozitorijum.Entiteti;
+using System;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
 {
     public partial class IzmeniUrednikaPoglavljaForm : Form
     {
-        private readonly int? _idPublikacije;
-        private readonly int? _id;
+        private int _id;
 
-        public IzmeniUrednikaPoglavljaForm(int? idPublikacije = null, int? id = null)
+        public IzmeniUrednikaPoglavljaForm(int id)
         {
-            _idPublikacije = idPublikacije;
-            _id = id;
             InitializeComponent();
-            FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
-        }
-
-        private void btnPotvrdi_Click(object sender, System.EventArgs e)
-        {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void btnOdustani_Click(object sender, EventArgs e)
-        {
-
+            _id = id;
         }
 
         private void IzmeniUrednikaPoglavljaForm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                PoglavljeUrednici urednik = DTOManager.VratiUrednikaPoglavljaPoId(_id);
+                txtUrednik.Text = urednik.Urednik;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Greska pri ucitavanju", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void btnPotvrdi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtUrednik.Text))
+                {
+                    MessageBox.Show("Molimo, popunite sve polje", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                PoglavljeUredniciDTO urednik = new PoglavljeUredniciDTO
+                {
+                    Id = _id,
+                    IdPublikacije = DTOManager.VratiUrednikaPoglavljaPoId(_id).IdPublikacije,
+                    Urednik = txtUrednik.Text
+                };
+
+                DTOManager.IzmeniUrednikaPoglavlja(urednik);
+                MessageBox.Show("Urednik je uspesno izmenjen", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Greska pri izmeni", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -1,28 +1,52 @@
+using DigitalniRepozitorijum.Entiteti;
+using System;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
 {
     public partial class DodajUrednikaPoglavljaForm : Form
     {
-        private readonly int? _idPublikacije;
+        private int _idPoglavlja;
 
-        public DodajUrednikaPoglavljaForm(int? idPublikacije = null)
+        public DodajUrednikaPoglavljaForm(int idPoglavlja)
         {
-            _idPublikacije = idPublikacije;
             InitializeComponent();
-            FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
+            _idPoglavlja = idPoglavlja;
         }
 
-        private void btnPotvrdi_Click(object sender, System.EventArgs e)
+        private void btnPotvrdi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
-            Close();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtUrednik.Text))
+                {
+                    MessageBox.Show("Molimo, popunite sve polje", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                PoglavljeUrednici noviUrednik = new PoglavljeUrednici
+                {
+                    IdPublikacije = _idPoglavlja,
+                    Urednik = txtUrednik.Text
+                };
+
+                DTOManager.DodajUrednikaPoglavlja(noviUrednik);
+                MessageBox.Show("Urednik je uspesno dodan", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Greska pri dodavanju", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Close();
+            }
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

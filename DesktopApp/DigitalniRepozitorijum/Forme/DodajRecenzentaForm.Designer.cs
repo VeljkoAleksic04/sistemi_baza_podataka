@@ -1,6 +1,6 @@
 namespace DigitalniRepozitorijum.Forme
 {
-    partial class DodajUrednikaKnjigeForm
+    partial class DodajRecenzentaForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -15,21 +15,21 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            lblUrednik = new Label();
-            txtUrednik = new TextBox();
+            lblImePrezime = new Label();
+            txtImePrezime = new TextBox();
             btnPotvrdi = new Button();
             btnOdustani = new Button();
             SuspendLayout();
 
-            lblUrednik.AutoSize = true;
-            lblUrednik.Location = new Point(20, 20);
-            lblUrednik.Name = "lblUrednik";
-            lblUrednik.Size = new Size(51, 15);
-            lblUrednik.Text = "Urednik:";
+            lblImePrezime.AutoSize = true;
+            lblImePrezime.Location = new Point(20, 20);
+            lblImePrezime.Name = "lblImePrezime";
+            lblImePrezime.Size = new Size(89, 15);
+            lblImePrezime.Text = "Ime i prezime:";
 
-            txtUrednik.Location = new Point(160, 17);
-            txtUrednik.Name = "txtUrednik";
-            txtUrednik.Size = new Size(230, 23);
+            txtImePrezime.Location = new Point(160, 17);
+            txtImePrezime.Name = "txtImePrezime";
+            txtImePrezime.Size = new Size(230, 23);
 
             btnPotvrdi.Location = new Point(160, 65);
             btnPotvrdi.Name = "btnPotvrdi";
@@ -50,19 +50,19 @@ namespace DigitalniRepozitorijum.Forme
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
             ClientSize = new Size(420, 130);
-            Controls.Add(lblUrednik);
-            Controls.Add(txtUrednik);
+            Controls.Add(lblImePrezime);
+            Controls.Add(txtImePrezime);
             Controls.Add(btnPotvrdi);
             Controls.Add(btnOdustani);
-            Name = "DodajUrednikaKnjigeForm";
-            Text = "Dodaj urednika knjige";
+            Name = "DodajRecenzentaForm";
+            Text = "Dodaj recenzenta";
             ResumeLayout(false);
             PerformLayout();
         }
 
 
-        private Label lblUrednik;
-        private TextBox txtUrednik;
+        private Label lblImePrezime;
+        private TextBox txtImePrezime;
         private Button btnPotvrdi;
         private Button btnOdustani;
     }

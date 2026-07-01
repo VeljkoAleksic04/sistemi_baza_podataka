@@ -2870,6 +2870,241 @@ namespace DigitalniRepozitorijum
 
         #endregion
 
+        #region KnjigaUrednici
+
+        public static List<KnjigaUrednici> VratiUrednikeKnjige(int idKnjige)
+        {
+            List<KnjigaUrednici> listaUrednika = new List<KnjigaUrednici>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var urednici = sesija.Query<KnjigaUrednici>().Where(ku => ku.IdPublikacije == idKnjige).ToList();
+                foreach (var urednik in urednici)
+                {
+                    listaUrednika.Add(urednik);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem urednika knjige iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaUrednika;
+        }
+
+        public static KnjigaUrednici VratiUredikaKnijePoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                KnjigaUrednici ku = s.Get<KnjigaUrednici>(id);
+
+                if (ku == null) throw new Exception("Nije pronadjen urednik knjige...");
+
+                return ku;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju urednika knjige...\n{ex.Message}");
+            }
+        }
+
+        public static bool DodajUredikaKnjige(KnjigaUrednici urednik)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                KnjigaUrednici novi = new KnjigaUrednici
+                {
+                    IdPublikacije = urednik.IdPublikacije,
+                    Urednik = urednik.Urednik
+                };
+
+                s.SaveOrUpdate(novi);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanju urednika knjige...\n{ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static void IzmeniUredikaKnjige(KnjigaUredniciDTO urednik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                KnjigaUrednici kunova = s.Get<KnjigaUrednici>(urednik.Id);
+
+                kunova.IdPublikacije = urednik.IdPublikacije;
+                kunova.Urednik = urednik.Urednik;
+
+                s.SaveOrUpdate(kunova);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni urednika knjige...\n{ex.Message}");
+            }
+        }
+
+        public static bool ObrisiUredikaKnjige(int? uredikaId)
+        {
+            bool status = false;
+            if (uredikaId == null)
+            {
+                return status;
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from KNJIGA_UREDNICI where ID = :id");
+                q.SetParameter("id", uredikaId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
+        #endregion
+
+        #region PoglavljeUrednici
+
+        public static List<PoglavljeUrednici> VratiUrednikePoglavlja(int idPoglavlja)
+        {
+            List<PoglavljeUrednici> listaUrednika = new List<PoglavljeUrednici>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var urednici = sesija.Query<PoglavljeUrednici>().Where(pu => pu.IdPublikacije == idPoglavlja).ToList();
+                foreach (var urednik in urednici)
+                {
+                    listaUrednika.Add(urednik);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem urednika poglavlja iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaUrednika;
+        }
+
+        public static PoglavljeUrednici VratiUrednikaPoglavljaPoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PoglavljeUrednici pu = s.Get<PoglavljeUrednici>(id);
+
+                if (pu == null) throw new Exception("Nije pronadjen urednik poglavlja...");
+
+                return pu;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju urednika poglavlja...\n{ex.Message}");
+            }
+        }
+
+        public static bool DodajUrednikaPoglavlja(PoglavljeUrednici urednik)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                PoglavljeUrednici novi = new PoglavljeUrednici
+                {
+                    IdPublikacije = urednik.IdPublikacije,
+                    Urednik = urednik.Urednik
+                };
+
+                s.SaveOrUpdate(novi);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanju urednika poglavlja...\n{ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static void IzmeniUrednikaPoglavlja(PoglavljeUredniciDTO urednik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PoglavljeUrednici punova = s.Get<PoglavljeUrednici>(urednik.Id);
+
+                punova.IdPublikacije = urednik.IdPublikacije;
+                punova.Urednik = urednik.Urednik;
+
+                s.SaveOrUpdate(punova);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni urednika poglavlja...\n{ex.Message}");
+            }
+        }
+
+        public static bool ObrisiUrednikaPoglavlja(int? uredikaId)
+        {
+            bool status = false;
+            if (uredikaId == null)
+            {
+                return status;
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from POGLAVLJE_UREDNICI where ID = :id");
+                q.SetParameter("id", uredikaId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
+        #endregion
+
+
 
     }
 }
