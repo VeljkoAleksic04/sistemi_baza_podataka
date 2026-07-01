@@ -2090,6 +2090,51 @@ namespace DigitalniRepozitorijum
             return listaNaucnihRadova;
         }
 
+        public static NaucniRad VratiNaucniRadPoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                NaucniRad nr = s.Get<NaucniRad>(id);
+
+                if (nr == null) throw new Exception("Nije pronadjen naucni rad...");
+
+                return nr;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju naucnog rada...\n{ex.Message}");
+            }
+        }
+
+        public static void IzmeniNaucniRad(NaucniRadDTO nr)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                NaucniRad nrnovi = s.Get<NaucniRad>(nr.Id);
+
+                nrnovi.DOI = nr.DOI;
+                nrnovi.IdIzvora = nr.IdIzvora;
+                nrnovi.Stranice = nr.Stranice;
+                nrnovi.TipRada = nr.TipRada;
+                nrnovi.Apstrakt = nr.Apstrakt;
+                nrnovi.DatumKreiranjaZapisa = nr.DatumKreiranja;
+                nrnovi.DatumObjavljivanja = nr.DatumObjavljivanja;
+                nrnovi.Jezik = nr.Jezik;
+                nrnovi.Vidljivost = nr.Vidljivost;
+                nrnovi.Naslov = nr.Naslov;
+                nrnovi.Status = nr.Status;
+                
+                s.SaveOrUpdate(nrnovi);
+                s.Flush();
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni naucnog rada...\n{ex.Message}");
+            }
+        }
         public static Izvor VratiIzvorPoId(int? idIzvora)
         {
             try
@@ -2105,6 +2150,70 @@ namespace DigitalniRepozitorijum
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        public static bool ObrisiNaucniRad(int? radId)
+        {
+            bool status = false;
+            if (radId == null)
+            {
+                return status; 
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from NAUCNI_RAD where ID = :id");
+                q.SetParameter("id", radId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static bool DodajNaucniRad(NaucniRad nr)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                NaucniRad novi = new NaucniRad
+                {
+                    IdIzvora = nr.IdIzvora,
+                    Izvor = s.Load<Izvor>(nr.IdIzvora),
+                    Stranice = nr.Stranice,
+                    TipRada = nr.TipRada,
+                    DOI = nr.DOI,
+                    Apstrakt = nr.Apstrakt,
+                    Vidljivost = nr.Vidljivost,
+                    DatumKreiranjaZapisa = nr.DatumKreiranjaZapisa,
+                    DatumObjavljivanja = nr.DatumObjavljivanja,
+                    Jezik = nr.Jezik,
+                    Naslov = nr.Naslov
+                };
+
+                s.SaveOrUpdate(novi);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanjunaucnog rada...\n{ex.Message}");
+            }
+
+            return status;
         }
         
         #endregion

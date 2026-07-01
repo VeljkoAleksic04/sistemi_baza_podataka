@@ -18,7 +18,7 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)

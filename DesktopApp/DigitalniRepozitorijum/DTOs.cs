@@ -630,5 +630,24 @@ namespace DigitalniRepozitorijum
             TipDoprinosa = tipDoprinosa; Uloga = uloga;
         }
     }
+    
+    #region NaucniRad
+
+    public class NaucniRadDTO
+    {
+        public int Id { get; set; }
+        public string Naslov { get; set; }
+        public string Apstrakt { get; set; }
+        public string Jezik { get; set; }
+        public DateTime DatumObjavljivanja { get; set; }
+        public DateTime DatumKreiranja { get; set; }
+        public string Status { get; set; }
+        public string Vidljivost { get; set; }
+        public string DOI { get; set; }
+        public string TipRada { get; set; }
+        public string Stranice { get; set; }
+        public int IdIzvora { get; set; }
+    }
+    #endregion
 
 }

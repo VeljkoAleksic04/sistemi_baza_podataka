@@ -1,5 +1,6 @@
 using DigitalniRepozitorijum.Utils;
 using System.Windows.Forms;
+using DigitalniRepozitorijum.Entiteti;
 
 namespace DigitalniRepozitorijum.Forme
 {
@@ -17,14 +18,34 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
+            NaucniRad novi = new NaucniRad
+            {
+                Naslov = txtNaslov.Text,
+                Apstrakt = txtApstrakt.Text,
+                Jezik = tbJezik.Text,
+                DatumObjavljivanja = dateObjave.Value,
+                DatumKreiranjaZapisa = dateKreiranja.Value,
+                Status = cmbStatus.SelectedText,
+                Vidljivost = txtVidljivost.Text,
+                DOI = txtDOI.Text,
+                TipRada = txtTipRada.Text,
+                Stranice = txtStranice.Text,
+                IdIzvora = int.Parse(txtIzvor.Text)
+            };
+            var success = DTOManager.DodajNaucniRad(novi);
+            if (success)
+                MessageBox.Show("Uspesno je dodat naucni rad!", "Success", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Greska pri dodavanju Naucnog rada.", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            
             Close();
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

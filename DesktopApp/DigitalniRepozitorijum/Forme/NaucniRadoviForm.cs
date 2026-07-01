@@ -31,8 +31,8 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; 
-            using var form = new IzmeniNaucniRadForm(id: id.Value);
+            var id = int.Parse(dataGridView.SelectedRows[0].Cells[0].Value.ToString()); if (id == null) return; 
+            using var form = new IzmeniNaucniRadForm(id);
             form.ShowDialog();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
@@ -42,18 +42,15 @@ namespace DigitalniRepozitorijum.Forme
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                var red = dataGridView.SelectedRows[(int)id];
-                NaucniRad nrZaBrisanje = new NaucniRad
+                var status = DTOManager.ObrisiNaucniRad(int.Parse(dataGridView.Rows[(int)id].Cells[0].Value.ToString()));
+                if (status)
+                    MessageBox.Show("Uspesno je obrisan naucni rad!!!", "Success", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                else
                 {
-                    Id = int.Parse(red.Cells[0].Value.ToString()),
-                    Naslov = red.Cells[1].Value.ToString(),
-                    DOI = red.Cells[2].Value.ToString(),
-                    TipRada = red.Cells[3].Value.ToString(),
-                    Stranice = red.Cells[4].Value.ToString(),
-                    IdIzvora = int.Parse(red.Cells[5].Value.ToString())
-                };
-                
-                
+                    MessageBox.Show("Nije supelo brisanje...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                popuniPodacima();
             }
         }
 
