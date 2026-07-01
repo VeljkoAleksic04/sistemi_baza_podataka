@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
@@ -28,33 +23,75 @@ namespace DigitalniRepozitorijum.Forme
 
         private void RundeRecenzijeForm_Load(object sender, EventArgs e)
         {
+            popuniPodacima();
+        }
 
+        public void popuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+            dataGridView.DataSource = DTOManager.VratiRundeRecenzijeZaPrikaz();
         }
 
         private void btnUrednik_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Dodati funkciju koja prikazuje ko je urednik recenzije u messageboxu");
-
+            var id = GetSelectedId();
+            if (id == null) return;
+            try
+            {
+                var runda = DTOManager.VratiRunduRecenzijePoId(id.Value);
+                var urednik = DTOManager.VratiIstrazivacaPoId(runda.IdUrednika);
+                string email = "";
+                if (urednik.Emailovi != null && urednik.Emailovi.Count > 0)
+                    email = urednik.Emailovi[0].Email;
+                MessageBox.Show($"Urednik: {urednik.Ime} {urednik.Prezime}\nEmail: {email}", 
+                    "Urednik recenzije", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRecenzenti_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnIzmeni_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnObrisi_Click(object sender, EventArgs e)
-        {
-
+            // TODO: Prikazati recenzente za odabranu rundu
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            using var form = new DodajRunduRecenzijeForm();
+            form.ShowDialog();
+            popuniPodacima();
+        }
 
+        private void btnIzmeni_Click(object sender, EventArgs e)
+        {
+            var id = GetSelectedId();
+            if (id == null) return;
+            using var form = new IzmeniRunduRecenzijeForm(id: id.Value);
+            form.ShowDialog();
+            popuniPodacima();
+        }
+
+        private void btnObrisi_Click(object sender, EventArgs e)
+        {
+            int? id = GetSelectedId();
+            if (id == null) return;
+            var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabranu rundu recenzije?", "Brisanje",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                var status = DTOManager.ObrisiRunduRecenzije(id);
+                if (status)
+                    MessageBox.Show("Uspesno je obrisana runda recenzije!!!", "Success", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Nije uspelo brisanje...", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                popuniPodacima();
+            }
         }
     }
 }

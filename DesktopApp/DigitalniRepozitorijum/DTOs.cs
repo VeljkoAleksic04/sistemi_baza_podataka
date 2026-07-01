@@ -728,3 +728,27 @@ namespace DigitalniRepozitorijum
     #endregion
 
 }
+
+    #region RundeRecenzije
+
+    public class RundaRecenzijePrikazDTO
+    {
+        public int Id { get; set; }
+        public int BrojRunde { get; set; }
+        public int IdPublikacije { get; set; }
+        public int IdUrednika { get; set; }
+        public DateTime Datum { get; set; }
+        public string KonacnaOdluka { get; set; }
+    }
+
+    public class RundaRecenzijeDTO
+    {
+        public int Id { get; set; }
+        public int BrojRunde { get; set; }
+        public int IdPublikacije { get; set; }
+        public int IdUrednika { get; set; }
+        public DateTime Datum { get; set; }
+        public string KonacnaOdluka { get; set; }
+    }
+    #endregion
+

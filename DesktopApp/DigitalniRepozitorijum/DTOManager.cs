@@ -1620,6 +1620,24 @@ namespace DigitalniRepozitorijum
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+
+        public static Istrazivac VratiIstrazivacaPoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Istrazivac i = s.Get<Istrazivac>(id);
+
+                if (i == null) throw new Exception("Nije pronadjen istrazivac...");
+
+                return i;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju istraživača...\n{ex.Message}");
+            }
+        }
+
         #endregion
 
 
@@ -2575,9 +2593,159 @@ namespace DigitalniRepozitorijum
         #endregion
 
         
-        #region Recenzije
-        
+        #region RundeRecenzije
+
+        public static List<RundaRecenzije> VratiRundeRecenzije()
+        {
+            List<RundaRecenzije> listaRundi = new List<RundaRecenzije>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var runde = sesija.Query<RundaRecenzije>().ToList();
+                foreach (var runda in runde)
+                {
+                    listaRundi.Add(runda);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem rundi recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaRundi;
+        }
+
+        public static List<RundaRecenzijePrikazDTO> VratiRundeRecenzijeZaPrikaz()
+        {
+            List<RundaRecenzijePrikazDTO> listaRundi = new List<RundaRecenzijePrikazDTO>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var runde = sesija.Query<RundaRecenzije>().ToList();
+                foreach (var runda in runde)
+                {
+                    RundaRecenzijePrikazDTO obj = new RundaRecenzijePrikazDTO
+                    {
+                        Id = runda.Id,
+                        BrojRunde = runda.BrojRunde,
+                        IdPublikacije = runda.IdPublikacije,
+                        IdUrednika = runda.IdUrednika,
+                        Datum = runda.Datum,
+                        KonacnaOdluka = runda.KonacnaOdluka ?? ""
+                    };
+                    listaRundi.Add(obj);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem rundi recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaRundi;
+        }
+
+        public static RundaRecenzije VratiRunduRecenzijePoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                RundaRecenzije rr = s.Get<RundaRecenzije>(id);
+
+                if (rr == null) throw new Exception("Nije pronadjena runda recenzije...");
+
+                return rr;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju runde recenzije...\n{ex.Message}");
+            }
+        }
+
+        public static bool DodajRunduRecenzije(RundaRecenzije runda)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RundaRecenzije nova = new RundaRecenzije
+                {
+                    BrojRunde = runda.BrojRunde,
+                    IdPublikacije = runda.IdPublikacije,
+                    IdUrednika = runda.IdUrednika,
+                    Datum = runda.Datum,
+                    KonacnaOdluka = runda.KonacnaOdluka
+                };
+
+                s.SaveOrUpdate(nova);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanju runde recenzije...\n{ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static void IzmeniRunduRecenzije(RundaRecenzijeDTO runda)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                RundaRecenzije rrova = s.Get<RundaRecenzije>(runda.Id);
+
+                rrova.BrojRunde = runda.BrojRunde;
+                rrova.IdPublikacije = runda.IdPublikacije;
+                rrova.IdUrednika = runda.IdUrednika;
+                rrova.Datum = runda.Datum;
+                rrova.KonacnaOdluka = runda.KonacnaOdluka;
+
+                s.SaveOrUpdate(rrova);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni runde recenzije...\n{ex.Message}");
+            }
+        }
+
+        public static bool ObrisiRunduRecenzije(int? rundaId)
+        {
+            bool status = false;
+            if (rundaId == null)
+            {
+                return status;
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from RUNDA_RECENZIJE where ID = :id");
+                q.SetParameter("id", rundaId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
         #endregion
+
         
         #region Citati
 
