@@ -1,4 +1,7 @@
+using System;
 using System.Windows.Forms;
+using DigitalniRepozitorijum.Entiteti;
+using DigitalniRepozitorijum.Utils;
 
 namespace DigitalniRepozitorijum.Forme
 {
@@ -15,8 +18,38 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
+            try
+            {
+                Citira novi = new Citira
+                {
+                    IdCitira = (int)_idPublikacije,
+                    IdCitirana = int.Parse(txtCitat.Text),
+                    TipCitata = txtTipCitata.Text,
+                    MestoCitiranja = txtMestoCitiranja.Text
+                };
+
+                bool success = DTOManager.DodajCitat(novi);
+                if (success)
+                {
+                    MessageBox.Show("Uspesno je dodat citat!", "Success", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Dodavanje citata nije uspelo!!!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greska: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Close();
+        }
+
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

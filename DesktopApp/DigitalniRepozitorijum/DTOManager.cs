@@ -2089,6 +2089,36 @@ namespace DigitalniRepozitorijum
             }
             return listaNaucnihRadova;
         }
+        
+        public static List<NaucniRadPrikazDTO> VratiNaucneRadoveZaPrikaz()
+        {
+            List<NaucniRadPrikazDTO> listaNaucnihRadova = new List<NaucniRadPrikazDTO>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var naucniRadovi = sesija.Query<NaucniRad>().ToList();
+                foreach (var naucniRad in naucniRadovi)
+                {
+                    NaucniRadPrikazDTO obj = new NaucniRadPrikazDTO
+                    {
+                        Id = naucniRad.Id,
+                        Naslov = naucniRad.Naslov,
+                        DOI = naucniRad.DOI,
+                        Stranice = naucniRad.Stranice,
+                        TipRada = naucniRad.TipRada,
+                        Izvor = naucniRad.IdIzvora
+                    };
+                    listaNaucnihRadova.Add(obj);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem naucnih radova iz baze...", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+            }
+            return listaNaucnihRadova;
+        }
 
         public static NaucniRad VratiNaucniRadPoId(int id)
         {
@@ -2219,20 +2249,459 @@ namespace DigitalniRepozitorijum
         #endregion
         
         #region Dataset
-        
+
+        public static List<Dataset> VratiDatasetove()
+        {
+            List<Dataset> listaDatasetova = new List<Dataset>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var datasetovi = sesija.Query<Dataset>().ToList();
+                foreach (var dataset in datasetovi)
+                {
+                    listaDatasetova.Add(dataset);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem dataseta iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaDatasetova;
+        }
+
+        public static List<DatasetPrikazDTO> VratiDataseteZaPrikaz()
+        {
+            List<DatasetPrikazDTO> listaDatasetova = new List<DatasetPrikazDTO>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var datasetovi = sesija.Query<Dataset>().ToList();
+                foreach (var dataset in datasetovi)
+                {
+                    DatasetPrikazDTO obj = new DatasetPrikazDTO
+                    {
+                        Id = dataset.Id,
+                        Naslov = dataset.Naslov,
+                        Format = dataset.Format,
+                        BrojZapisa = dataset.BrojZapisa,
+                        Velicina = dataset.Velicina
+                    };
+                    listaDatasetova.Add(obj);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem dataseta iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaDatasetova;
+        }
+
+        public static Dataset VratiDatasetPoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Dataset ds = s.Get<Dataset>(id);
+
+                if (ds == null) throw new Exception("Nije pronadjen dataset...");
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju dataseta...\n{ex.Message}");
+            }
+        }
+
+        public static bool DodajDataset(Dataset dataset)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Dataset novi = new Dataset
+                {
+                    Naslov = dataset.Naslov,
+                    Apstrakt = dataset.Apstrakt,
+                    Jezik = dataset.Jezik,
+                    DatumKreiranjaZapisa = dataset.DatumKreiranjaZapisa,
+                    DatumObjavljivanja = dataset.DatumObjavljivanja,
+                    Status = dataset.Status,
+                    Vidljivost = dataset.Vidljivost,
+                    BrojZapisa = dataset.BrojZapisa,
+                    Velicina = dataset.Velicina,
+                    Format = dataset.Format,
+                    LicencaKoriscenja = dataset.LicencaKoriscenja
+                };
+
+                s.SaveOrUpdate(novi);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanju dataseta...\n{ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static void IzmeniDataset(DatasetDTO dataset)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Dataset dsnovi = s.Get<Dataset>(dataset.Id);
+
+                dsnovi.Naslov = dataset.Naslov;
+                dsnovi.Apstrakt = dataset.Apstrakt;
+                dsnovi.Jezik = dataset.Jezik;
+                dsnovi.DatumKreiranjaZapisa = dataset.DatumKreiranja;
+                dsnovi.DatumObjavljivanja = dataset.DatumObjavljivanja;
+                dsnovi.Status = dataset.Status;
+                dsnovi.Vidljivost = dataset.Vidljivost;
+                dsnovi.BrojZapisa = dataset.BrojZapisa;
+                dsnovi.Velicina = dataset.Velicina;
+                dsnovi.Format = dataset.Format;
+                dsnovi.LicencaKoriscenja = dataset.LicencaKoriscenja;
+
+                s.SaveOrUpdate(dsnovi);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni dataseta...\n{ex.Message}");
+            }
+        }
+
+        public static bool ObrisiDataset(int? datasetId)
+        {
+            bool status = false;
+            if (datasetId == null)
+            {
+                return status;
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from DATASET where ID = :id");
+                q.SetParameter("id", datasetId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
         #endregion
+
         
         #region SoftverskiArtefakt
-        
+
+        public static List<SoftverskiArtefakt> VratiSoftverskiArtefakte()
+        {
+            List<SoftverskiArtefakt> listaArtefakata = new List<SoftverskiArtefakt>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var artefakti = sesija.Query<SoftverskiArtefakt>().ToList();
+                foreach (var artefakt in artefakti)
+                {
+                    listaArtefakata.Add(artefakt);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem softverskih artefakata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaArtefakata;
+        }
+
+        public static List<SoftverskiArtefaktPrikazDTO> VratiSoftverskiArtefakteZaPrikaz()
+        {
+            List<SoftverskiArtefaktPrikazDTO> listaArtefakata = new List<SoftverskiArtefaktPrikazDTO>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var artefakti = sesija.Query<SoftverskiArtefakt>().ToList();
+                foreach (var artefakt in artefakti)
+                {
+                    SoftverskiArtefaktPrikazDTO obj = new SoftverskiArtefaktPrikazDTO
+                    {
+                        Id = artefakt.Id,
+                        Naslov = artefakt.Naslov,
+                        ProgramskiJezik = artefakt.ProgramskiJezik,
+                        LinkKaRepozitorijumu = artefakt.LinkKaRepozitorijumu
+                    };
+                    listaArtefakata.Add(obj);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem softverskih artefakata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaArtefakata;
+        }
+
+        public static SoftverskiArtefakt VratiSoftverskiArtefaktPoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                SoftverskiArtefakt sa = s.Get<SoftverskiArtefakt>(id);
+
+                if (sa == null) throw new Exception("Nije pronadjen softverski artefakt...");
+
+                return sa;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju softverskog artefakta...\n{ex.Message}");
+            }
+        }
+
+        public static bool DodajSoftverskiArtefakt(SoftverskiArtefakt artefakt)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                SoftverskiArtefakt novi = new SoftverskiArtefakt
+                {
+                    Naslov = artefakt.Naslov,
+                    Apstrakt = artefakt.Apstrakt,
+                    Jezik = artefakt.Jezik,
+                    DatumKreiranjaZapisa = artefakt.DatumKreiranjaZapisa,
+                    DatumObjavljivanja = artefakt.DatumObjavljivanja,
+                    Status = artefakt.Status,
+                    Vidljivost = artefakt.Vidljivost,
+                    ProgramskiJezik = artefakt.ProgramskiJezik,
+                    LinkKaRepozitorijumu = artefakt.LinkKaRepozitorijumu,
+                    NacinLicenciranja = artefakt.NacinLicenciranja
+                };
+
+                s.SaveOrUpdate(novi);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanju softverskog artefakta...\n{ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static void IzmeniSoftverskiArtefakt(SoftverskiArtefaktDTO artefakt)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                SoftverskiArtefakt sanova = s.Get<SoftverskiArtefakt>(artefakt.Id);
+
+                sanova.Naslov = artefakt.Naslov;
+                sanova.Apstrakt = artefakt.Apstrakt;
+                sanova.Jezik = artefakt.Jezik;
+                sanova.DatumKreiranjaZapisa = artefakt.DatumKreiranja;
+                sanova.DatumObjavljivanja = artefakt.DatumObjavljivanja;
+                sanova.Status = artefakt.Status;
+                sanova.Vidljivost = artefakt.Vidljivost;
+                sanova.ProgramskiJezik = artefakt.ProgramskiJezik;
+                sanova.LinkKaRepozitorijumu = artefakt.LinkKaRepozitorijumu;
+                sanova.NacinLicenciranja = artefakt.NacinLicenciranja;
+
+                s.SaveOrUpdate(sanova);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni softverskog artefakta...\n{ex.Message}");
+            }
+        }
+
+        public static bool ObrisiSoftverskiArtefakt(int? artefaktId)
+        {
+            bool status = false;
+            if (artefaktId == null)
+            {
+                return status;
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from SOFTVERSKI_ARTEFAKT where ID = :id");
+                q.SetParameter("id", artefaktId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
         #endregion
+
         
         #region Recenzije
         
         #endregion
         
         #region Citati
-        
+
+        public static List<Citira> VratiCitatePoPublikaciji(int idPublikacije)
+        {
+            List<Citira> listaCitata = new List<Citira>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var citati = sesija.Query<Citira>().Where(c => c.IdCitira == idPublikacije).ToList();
+                foreach (var citat in citati)
+                {
+                    listaCitata.Add(citat);
+                }
+
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem citata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaCitata;
+        }
+
+        public static Citira VratiCitatPoId(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Citira c = s.Get<Citira>(id);
+
+                if (c == null) throw new Exception("Nije pronadjen citat...");
+
+                return c;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska u vracanju citata...\n{ex.Message}");
+            }
+        }
+
+        public static bool DodajCitat(Citira citat)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Citira novi = new Citira
+                {
+                    IdCitira = citat.IdCitira,
+                    IdCitirana = citat.IdCitirana,
+                    TipCitata = citat.TipCitata,
+                    MestoCitiranja = citat.MestoCitiranja,
+                    TekstualniKontekst = citat.TekstualniKontekst
+                };
+
+                s.SaveOrUpdate(novi);
+                s.Flush();
+                s.Close();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri dodavanju citata...\n{ex.Message}");
+            }
+
+            return status;
+        }
+
+        public static void IzmeniCitat(CitatDTO citat)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Citira cnova = s.Get<Citira>(citat.Id);
+
+                cnova.IdCitira = citat.IdCitira;
+                cnova.IdCitirana = citat.IdCitirana;
+                cnova.TipCitata = citat.TipCitata;
+                cnova.MestoCitiranja = citat.MestoCitiranja;
+                cnova.TekstualniKontekst = citat.TekstualniKontekst;
+
+                s.SaveOrUpdate(cnova);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Greska pri izmeni citata...\n{ex.Message}");
+            }
+        }
+
+        public static bool ObrisiCitat(int? citatId)
+        {
+            bool status = false;
+            if (citatId == null)
+            {
+                return status;
+            }
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
+
+                var q = s.CreateQuery("delete from CITIRA where ID = :id");
+                q.SetParameter("id", citatId);
+
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
+            }
+
+            return status;
+        }
+
         #endregion
+
 
     }
 }

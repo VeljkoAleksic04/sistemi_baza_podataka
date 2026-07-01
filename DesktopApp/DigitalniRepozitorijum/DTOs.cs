@@ -633,6 +633,16 @@ namespace DigitalniRepozitorijum
     
     #region NaucniRad
 
+    public class NaucniRadPrikazDTO
+    {
+        public int Id { get; set; }
+        public string Naslov { get; set; }
+        public string DOI { get; set; }
+        public string TipRada { get; set; }
+        public string Stranice { get; set; }
+        public int Izvor { get; set; }
+    }
+
     public class NaucniRadDTO
     {
         public int Id { get; set; }
@@ -647,6 +657,73 @@ namespace DigitalniRepozitorijum
         public string TipRada { get; set; }
         public string Stranice { get; set; }
         public int IdIzvora { get; set; }
+    }
+    #endregion
+
+    #region Dataset
+
+    public class DatasetPrikazDTO
+    {
+        public int Id { get; set; }
+        public string Naslov { get; set; }
+        public string Format { get; set; }
+        public int BrojZapisa { get; set; }
+        public int Velicina { get; set; }
+    }
+
+    public class DatasetDTO
+    {
+        public int Id { get; set; }
+        public string Naslov { get; set; }
+        public string Apstrakt { get; set; }
+        public string Jezik { get; set; }
+        public DateTime DatumObjavljivanja { get; set; }
+        public DateTime DatumKreiranja { get; set; }
+        public string Status { get; set; }
+        public string Vidljivost { get; set; }
+        public int BrojZapisa { get; set; }
+        public int Velicina { get; set; }
+        public string Format { get; set; }
+        public string LicencaKoriscenja { get; set; }
+    }
+    #endregion
+
+    #region SoftverskiArtefakt
+
+    public class SoftverskiArtefaktPrikazDTO
+    {
+        public int Id { get; set; }
+        public string Naslov { get; set; }
+        public string ProgramskiJezik { get; set; }
+        public string LinkKaRepozitorijumu { get; set; }
+    }
+
+    public class SoftverskiArtefaktDTO
+    {
+        public int Id { get; set; }
+        public string Naslov { get; set; }
+        public string Apstrakt { get; set; }
+        public string Jezik { get; set; }
+        public DateTime DatumObjavljivanja { get; set; }
+        public DateTime DatumKreiranja { get; set; }
+        public string Status { get; set; }
+        public string Vidljivost { get; set; }
+        public string ProgramskiJezik { get; set; }
+        public string LinkKaRepozitorijumu { get; set; }
+        public string NacinLicenciranja { get; set; }
+    }
+    #endregion
+
+    #region Citiri
+
+    public class CitatDTO
+    {
+        public int Id { get; set; }
+        public int IdCitira { get; set; }
+        public int IdCitirana { get; set; }
+        public string TipCitata { get; set; }
+        public string MestoCitiranja { get; set; }
+        public string TekstualniKontekst { get; set; }
     }
     #endregion
 

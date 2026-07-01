@@ -5,7 +5,6 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class DatasetoviForm : Form
     {
-
         public DatasetoviForm()
         {
             InitializeComponent();
@@ -26,20 +25,48 @@ namespace DigitalniRepozitorijum.Forme
         {
             using var form = new DodajDatasetForm();
             form.ShowDialog();
+            popuniPodacima();
         }
+
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniDatasetForm(id: id.Value);
+            var id = GetSelectedId();
+            if (id == null) return;
+            using var form = new IzmeniDatasetForm(id: id.Value);
             form.ShowDialog();
+            popuniPodacima();
         }
+
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
-            var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            int? id = GetSelectedId();
+            if (id == null) return;
+            var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var status = DTOManager.ObrisiDataset(id);
+                if (status)
+                    MessageBox.Show("Uspesno je obrisan dataset!!!", "Success", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Nije uspelo brisanje...", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                popuniPodacima();
             }
+        }
+
+        private void DatasetoviForm_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        public void popuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+            dataGridView.DataSource = DTOManager.VratiDataseteZaPrikaz();
         }
     }
 }
