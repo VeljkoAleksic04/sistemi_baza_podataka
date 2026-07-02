@@ -62,7 +62,12 @@ namespace DigitalniRepozitorijum.Forme
         public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
-            dataGridView.DataSource = DTOManager.VratiNaucneRadove();
+            List<NaucniRadPregled> podaci = DTOManager.VratiNaucneRadoveZaPrikaz();
+
+            foreach (NaucniRadPregled p in podaci)
+                dataGridView.Rows.Add(p.Id, p.Naslov, p.DOI, p.TipRada, p.Stranice, p.Izvor);
+
+            dataGridView.Refresh();
         }
 
         private void btnIzvor_Click(object sender, EventArgs e)

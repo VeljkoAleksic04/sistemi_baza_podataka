@@ -69,7 +69,15 @@ namespace DigitalniRepozitorijum.Forme
         public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
-            dataGridView.DataSource = DTOManager.VratiCitatePoPublikaciji(_idPublikacije.Value);
+
+            List<CitatBasic> podaci = DTOManager.VratiCitatePoPublikaciji((int)_idPublikacije).ToList();
+
+            foreach (CitatBasic p in podaci)
+            {
+                dataGridView.Rows.Add(p.Id, p.TekstualniKontekst, p.TipCitata, p.MestoCitiranja);
+            }
+
+            dataGridView.Refresh();
         }
     }
 }

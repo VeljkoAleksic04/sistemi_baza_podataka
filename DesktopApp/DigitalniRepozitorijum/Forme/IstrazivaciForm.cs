@@ -12,10 +12,6 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnTelefoni, btnEmail, btnAngazovanja, btnPublikacije);
         }
 
-        private void IstrazivaciForm_Load(object sender, EventArgs e)
-        {
-            PopuniPodacima();
-        }
 
         public void PopuniPodacima()
         {
@@ -88,6 +84,12 @@ namespace DigitalniRepozitorijum.Forme
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+
+        private void IstrazivaciForm_Load_2(object sender, EventArgs e)
+        {
+            PopuniPodacima();
         }
     }
 }

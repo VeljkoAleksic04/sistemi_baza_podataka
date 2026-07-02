@@ -10,7 +10,9 @@ namespace DigitalniRepozitorijum.Mapiranja
     {
         public SoftverskiArtefaktMap()
         {
-            Map(x => x.IdArtefakta, "Id_Publikacije");
+            Table("SOFTVERSKI_ARTEFAKT");
+            KeyColumn("ID_PUBLIKACIJE");
+
             Map(x => x.ProgramskiJezik, "Programski_Jezik");
             Map(x => x.Dokumentacija, "Dokumentacija");
             Map(x => x.LinkKaRepozitorijumu, "Link_Ka_Repozitorijumu");

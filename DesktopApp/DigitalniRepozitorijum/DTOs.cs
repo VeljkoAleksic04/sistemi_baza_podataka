@@ -764,7 +764,7 @@ namespace DigitalniRepozitorijum
 
     #region Citiri
 
-    public class CitatDTO
+    public class CitatBasic
     {
         public int Id { get; set; }
         public int IdCitira { get; set; }
@@ -777,7 +777,7 @@ namespace DigitalniRepozitorijum
 
     #region RundeRecenzije
 
-    public class RundaRecenzijePrikazDTO
+    public class RundaRecenzijePregled
     {
         public int Id { get; set; }
         public int BrojRunde { get; set; }
@@ -787,7 +787,7 @@ namespace DigitalniRepozitorijum
         public string KonacnaOdluka { get; set; }
     }
 
-    public class RundaRecenzijeDTO
+    public class RundaRecenzijeBasic
     {
         public int Id { get; set; }
         public int BrojRunde { get; set; }
@@ -800,7 +800,7 @@ namespace DigitalniRepozitorijum
 
     #region KnjigaUrednici
 
-    public class KnjigaUredniciDTO
+    public class KnjigaUredniciBasic
     {
         public int Id { get; set; }
         public int IdPublikacije { get; set; }
@@ -810,7 +810,7 @@ namespace DigitalniRepozitorijum
 
     #region PoglavljeUrednici
 
-    public class PoglavljeUredniciDTO
+    public class PoglavljeUredniciBasic
     {
         public int Id { get; set; }
         public int IdPublikacije { get; set; }

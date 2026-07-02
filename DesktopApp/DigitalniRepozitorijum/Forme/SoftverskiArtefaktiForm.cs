@@ -66,15 +66,23 @@ namespace DigitalniRepozitorijum.Forme
             form.ShowDialog();
         }
 
-        private void SoftverskiArtefaktiForm_Load(object sender, EventArgs e)
-        {
-            popuniPodacima();
-        }
-
         public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
-            dataGridView.DataSource = DTOManager.VratiSoftverskiArtefakteZaPrikaz();
+
+            List<InstitucijaPregled> podaci = DTOManager.vratiSveInstitucije();
+
+            foreach (InstitucijaPregled p in podaci)
+            {
+                dataGridView.Rows.Add(p.Id, p.Naziv, p.Adresa);
+            }
+
+            dataGridView.Refresh();
+        }
+
+        private void SoftverskiArtefaktiForm_Load_1(object sender, EventArgs e)
+        {
+            popuniPodacima();
         }
     }
 }

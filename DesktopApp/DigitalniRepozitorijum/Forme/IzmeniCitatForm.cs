@@ -22,7 +22,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                CitatDTO citat = new CitatDTO
+                CitatBasic citat = new CitatBasic
                 {
                     Id = (int)_id,
                     IdCitira = _idPublikacije.Value,
@@ -53,7 +53,7 @@ namespace DigitalniRepozitorijum.Forme
             {
                 if (_id.HasValue)
                 {
-                    Citira nadjen = DTOManager.VratiCitatPoId(_id.Value);
+                    CitatBasic nadjen = DTOManager.VratiCitatPoId(_id.Value);
                     txtTipCitata.Text = nadjen.TipCitata;
                     txtMestoCitiranja.Text = nadjen.MestoCitiranja ?? "";
                     txtKontekst.Text = nadjen.TekstualniKontekst ?? "";

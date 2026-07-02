@@ -210,6 +210,7 @@ namespace DigitalniRepozitorijum.Forme
             Name = "IstrazivaciForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LISTA ISTRAZIVACA";
+            Load += IstrazivaciForm_Load_2;
             groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);

@@ -58,15 +58,21 @@ namespace DigitalniRepozitorijum.Forme
             }
         }
 
-        private void DatasetoviForm_Load(object sender, EventArgs e)
-        {
-            popuniPodacima();
-        }
 
         public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
-            dataGridView.DataSource = DTOManager.VratiDataseteZaPrikaz();
+            List<DatasetPregled> podaci = DTOManager.VratiDataseteZaPrikaz();
+
+            foreach (DatasetPregled p in podaci)
+                dataGridView.Rows.Add(p.Id, p.Naslov, p.Format, p.BrojZapisa, p.Velicina);
+
+            dataGridView.Refresh();
+        }
+
+        private void DatasetoviForm_Load_1(object sender, EventArgs e)
+        {
+            popuniPodacima();
         }
     }
 }

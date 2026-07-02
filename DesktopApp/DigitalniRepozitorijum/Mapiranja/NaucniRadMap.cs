@@ -6,6 +6,9 @@ public class NaucniRadMap : SubclassMap<NaucniRad>
 {
     public NaucniRadMap()
     {
+        Table("NAUCNI_RAD");
+        KeyColumn("ID_PUBLIKACIJE");
+
         Map(x => x.DOI, "DOI");
         Map(x => x.TipRada, "Tip_Rada");
         Map(x => x.Stranice, "Stranice");

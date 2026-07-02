@@ -89,8 +89,65 @@ namespace DigitalniRepozitorijum
             {
                 ISession s = DataLayer.GetSession();
 
-                Publikacija o = s.Load<Publikacija>(id);
-                pb = new PublikacijaBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost, o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
+                var o = s.Get<Publikacija>(id);
+
+                switch (o)
+                {
+                    case Knjiga:
+                        pb = new KnjigaBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa,
+                            ((Knjiga)o).Izdavac, ((Knjiga)o).MestoIzdanja);
+                        break;
+
+                    case NaucniRad:
+                        pb = new NaucniRadBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa,
+                            ((NaucniRad)o).DOI, ((NaucniRad)o).TipRada, ((NaucniRad)o).Stranice, ((NaucniRad)o).IdIzvora);
+                        break;
+
+                    case ObrazovniMaterijal:
+                        pb = new ObrazovniMaterijalBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
+                        break;
+
+                    case Prezentacija:
+                        pb = new PrezentacijaBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
+                        break;
+
+                    case PoglavljeUKnjizi:
+                        pb = new PoglavljeUKnjiziBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa,
+                            ((PoglavljeUKnjizi)o).Izdavac, ((PoglavljeUKnjizi)o).MestoIzdanja);
+                        break;
+
+                    case TehnickiIzvestaj:
+                        pb = new TehnickiIzvestajBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
+                        break;
+
+                    case SoftverskiArtefakt:
+                        pb = new SoftverskiArtefaktBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa,
+                            ((SoftverskiArtefakt)o).ProgramskiJezik, ((SoftverskiArtefakt)o).LinkKaRepozitorijumu,
+                            ((SoftverskiArtefakt)o).NacinLicenciranja);
+                        break;
+
+                    case Dataset:
+                        pb = new DatasetBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa,
+                            ((Dataset)o).BrojZapisa, ((Dataset)o).Velicina, ((Dataset)o).Format,
+                            ((Dataset)o).LicencaKoriscenja);
+                        break;
+
+                    case DoktorskaDisertacija:
+                        pb = new DoktorskaDisertacijaBasic(o.Id, o.Naslov, o.Apstrakt, o.Jezik, o.Status, o.Vidljivost,
+                            o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
+                        break;
+                    default:
+                        MessageBox.Show("Nepoznata vrsta publikacije!");
+                        break;
+                }
 
                 foreach (Verzija v in o.Verzije)
                 {
@@ -98,7 +155,7 @@ namespace DigitalniRepozitorijum
                         new VerzijaBasic(
                             v.Id,
                             v.BrojVerzije,
-                            pb, // ili pb ako želiš referencu nazad
+                            pb,
                             v.DatumPostavljanja,
                             v.OpisIzmene,
                             v.OdgovornaOsoba
@@ -2616,16 +2673,16 @@ namespace DigitalniRepozitorijum
             return listaRundi;
         }
 
-        public static List<RundaRecenzijePrikazDTO> VratiRundeRecenzijeZaPrikaz()
+        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz()
         {
-            List<RundaRecenzijePrikazDTO> listaRundi = new List<RundaRecenzijePrikazDTO>();
+            List<RundaRecenzijePregled> listaRundi = new List<RundaRecenzijePregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
                 var runde = sesija.Query<RundaRecenzije>().ToList();
                 foreach (var runda in runde)
                 {
-                    RundaRecenzijePrikazDTO obj = new RundaRecenzijePrikazDTO
+                    RundaRecenzijePregled obj = new RundaRecenzijePregled
                     {
                         Id = runda.Id,
                         BrojRunde = runda.BrojRunde,
@@ -2693,7 +2750,7 @@ namespace DigitalniRepozitorijum
             return status;
         }
 
-        public static void IzmeniRunduRecenzije(RundaRecenzijeDTO runda)
+        public static void IzmeniRunduRecenzije(RundaRecenzijeBasic runda)
         {
             try
             {
@@ -2749,13 +2806,13 @@ namespace DigitalniRepozitorijum
         
         #region Citati
 
-        public static List<Citira> VratiCitatePoPublikaciji(int idPublikacije)
+        public static List<CitatBasic> VratiCitatePoPublikaciji(int idPublikacije)
         {
-            List<Citira> listaCitata = new List<Citira>();
+            List<CitatBasic> listaCitata = new List<CitatBasic>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var citati = sesija.Query<Citira>().Where(c => c.IdCitira == idPublikacije).ToList();
+                var citati = sesija.Query<CitatBasic>().Where(c => c.IdCitira == idPublikacije).ToList();
                 foreach (var citat in citati)
                 {
                     listaCitata.Add(citat);
@@ -2770,12 +2827,12 @@ namespace DigitalniRepozitorijum
             return listaCitata;
         }
 
-        public static Citira VratiCitatPoId(int id)
+        public static CitatBasic VratiCitatPoId(int id)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
-                Citira c = s.Get<Citira>(id);
+                CitatBasic c = s.Get<CitatBasic>(id);
 
                 if (c == null) throw new Exception("Nije pronadjen citat...");
 
@@ -2787,14 +2844,14 @@ namespace DigitalniRepozitorijum
             }
         }
 
-        public static bool DodajCitat(Citira citat)
+        public static bool DodajCitat(CitatBasic citat)
         {
             bool status = false;
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                Citira novi = new Citira
+                CitatBasic novi = new CitatBasic
                 {
                     IdCitira = citat.IdCitira,
                     IdCitirana = citat.IdCitirana,
@@ -2817,12 +2874,12 @@ namespace DigitalniRepozitorijum
             return status;
         }
 
-        public static void IzmeniCitat(CitatDTO citat)
+        public static void IzmeniCitat(CitatBasic citat)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
-                Citira cnova = s.Get<Citira>(citat.Id);
+                CitatBasic cnova = s.Get<CitatBasic>(citat.Id);
 
                 cnova.IdCitira = citat.IdCitira;
                 cnova.IdCitirana = citat.IdCitirana;
@@ -2937,7 +2994,7 @@ namespace DigitalniRepozitorijum
             return status;
         }
 
-        public static void IzmeniUredikaKnjige(KnjigaUredniciDTO urednik)
+        public static void IzmeniUredikaKnjige(KnjigaUredniciBasic urednik)
         {
             try
             {
@@ -3054,7 +3111,7 @@ namespace DigitalniRepozitorijum
             return status;
         }
 
-        public static void IzmeniUrednikaPoglavlja(PoglavljeUredniciDTO urednik)
+        public static void IzmeniUrednikaPoglavlja(PoglavljeUredniciBasic urednik)
         {
             try
             {

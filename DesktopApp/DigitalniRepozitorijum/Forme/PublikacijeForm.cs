@@ -33,8 +33,9 @@ namespace DigitalniRepozitorijum.Forme
             int? id = GetSelectedId();
             if (id == null) return;
 
-            PublikacijaBasic pb = DTOManager.vratiPublikaciju((int)id);
-            switch(pb)
+            var pb = DTOManager.vratiPublikaciju((int)id);
+   
+            switch (pb)
             {
                 case KnjigaBasic:
                     IzmeniKnjiguForm form1 = new IzmeniKnjiguForm((int)id);
@@ -42,43 +43,47 @@ namespace DigitalniRepozitorijum.Forme
                     break;
 
                 case NaucniRadBasic:
-                    IzmeniKnjiguForm form2 = new IzmeniKnjiguForm((int)id);
+                    IzmeniNaucniRadForm form2 = new IzmeniNaucniRadForm((int)id);
                     if (form2.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case ObrazovniMaterijalBasic:
-                    IzmeniKnjiguForm form3 = new IzmeniKnjiguForm((int)id);
+                    IzmeniObrazovniMaterijalForm form3 = new IzmeniObrazovniMaterijalForm((int)id);
                     if (form3.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case PrezentacijaBasic:
-                    IzmeniKnjiguForm form4 = new IzmeniKnjiguForm((int)id);
+                    IzmeniPrezentacijuForm form4 = new IzmeniPrezentacijuForm((int)id);
                     if (form4.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case PoglavljeUKnjiziBasic:
-                    IzmeniKnjiguForm form5 = new IzmeniKnjiguForm((int)id);
+                    IzmeniPoglavljeUKnjiziForm form5 = new IzmeniPoglavljeUKnjiziForm((int)id);
                     if (form5.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case TehnickiIzvestajBasic:
-                    IzmeniKnjiguForm form6 = new IzmeniKnjiguForm((int)id);
+                    IzmeniTehnickiIzvestajForm form6 = new IzmeniTehnickiIzvestajForm((int)id);
                     if (form6.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case SoftverskiArtefaktBasic:
-                    IzmeniKnjiguForm form7 = new IzmeniKnjiguForm((int)id);
+                    IzmeniSoftverskiArtefaktForm form7 = new IzmeniSoftverskiArtefaktForm((int)id);
                     if (form7.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case DatasetBasic:
-                    IzmeniKnjiguForm form8 = new IzmeniKnjiguForm((int)id);
+                    IzmeniDatasetForm form8 = new IzmeniDatasetForm((int)id);
                     if (form8.ShowDialog() == DialogResult.OK) popuniPodacima();
                     break;
 
                 case DoktorskaDisertacijaBasic:
-                    IzmeniKnjiguForm form9 = new IzmeniKnjiguForm((int)id);
+                    IzmeniDoktorskuDisertacijuForm form9 = new IzmeniDoktorskuDisertacijuForm((int)id);
                     if (form9.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                default:
+                    MessageBox.Show("Nepoznata vrsta publikacije!");
                     break;
             }
 

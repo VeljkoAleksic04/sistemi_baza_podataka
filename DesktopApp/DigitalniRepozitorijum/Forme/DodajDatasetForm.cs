@@ -61,7 +61,6 @@ namespace DigitalniRepozitorijum.Forme
 
         private void DodajDatasetForm_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Popunite sva tekstualna polja kako bi se dataset kreirao!", "Info", MessageBoxButtons.OK, 0);
         }
     }
 }

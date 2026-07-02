@@ -20,7 +20,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                Citira novi = new Citira
+                CitatBasic novi = new CitatBasic
                 {
                     IdCitira = (int)_idPublikacije,
                     IdCitirana = int.Parse(txtCitat.Text),
@@ -51,6 +51,11 @@ namespace DigitalniRepozitorijum.Forme
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajCitatForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

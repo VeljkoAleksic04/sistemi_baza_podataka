@@ -37,7 +37,7 @@ namespace DigitalniRepozitorijum.Forme
                     return;
                 }
 
-                KnjigaUredniciDTO urednik = new KnjigaUredniciDTO
+                KnjigaUredniciBasic urednik = new KnjigaUredniciBasic
                 {
                     Id = _id,
                     IdPublikacije = DTOManager.VratiUredikaKnijePoId(_id).IdPublikacije,

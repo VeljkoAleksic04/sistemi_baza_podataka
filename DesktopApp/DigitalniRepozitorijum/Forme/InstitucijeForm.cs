@@ -12,16 +12,15 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnKontaktTelefoni, btnKontaktMailovi, btnNaucneOblasti, btnZaposleni);
         }
 
-        private void InstitucijeForm_Load(object sender, EventArgs e)
-        {
-            PopuniPodacima();
-        }
-
         public void PopuniPodacima()
         {
-            dataGridView.DataSource = null;
-            dataGridView.DataSource = DTOManager.vratiSveInstitucije();
-            dataGridView.Columns["Id"].Visible = false;
+            dataGridView.Rows.Clear();
+            List<InstitucijaPregled> podaci = DTOManager.vratiSveInstitucije();
+
+            foreach (InstitucijaPregled p in podaci)
+                dataGridView.Rows.Add(p.Id, p.Naziv, p.Adresa);
+
+            dataGridView.Refresh();
         }
 
         private int? GetSelectedId()
@@ -76,6 +75,11 @@ namespace DigitalniRepozitorijum.Forme
         {
             var id = GetSelectedId(); if (id == null) return; using var form = new ZaposleniIstrazivaciForm(id.Value);
             form.ShowDialog();
+        }
+
+        private void InstitucijeForm_Load_1(object sender, EventArgs e)
+        {
+            PopuniPodacima();
         }
     }
 }

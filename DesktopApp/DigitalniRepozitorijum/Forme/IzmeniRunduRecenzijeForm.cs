@@ -20,7 +20,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                RundaRecenzijeDTO runda = new RundaRecenzijeDTO
+                RundaRecenzijeBasic runda = new RundaRecenzijeBasic
                 {
                     Id = (int)_id,
                     BrojRunde = (int)numBrojRunde.Value,
