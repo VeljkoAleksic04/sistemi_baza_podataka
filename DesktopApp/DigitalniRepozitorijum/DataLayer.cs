@@ -45,8 +45,13 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return null;
+                Exception e = ex;
+                while (e != null)
+                {
+                    MessageBox.Show(e.ToString());
+                    e = e.InnerException;
+                }
+                throw;
             }
         }
     }

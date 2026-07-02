@@ -19,9 +19,16 @@ namespace DigitalniRepozitorijum.Forme
 
         public void PopuniPodacima()
         {
-            dataGridView.DataSource = null;
-            dataGridView.DataSource = DTOManager.vratiSveIstrazivace();
-            dataGridView.Columns["Id"].Visible = false;
+            dataGridView.Rows.Clear();
+
+            List<IstrazivacPregled> podaci = DTOManager.vratiSveIstrazivace();
+
+            foreach (IstrazivacPregled p in podaci)
+            {
+                dataGridView.Rows.Add(p.Id, p.Ime, p.Prezime, p.NaucnoZvanje, p.NaucnaOblast, p.StatusNaloga);
+            }
+
+            dataGridView.Refresh();
         }
 
         private int? GetSelectedId()
@@ -76,6 +83,11 @@ namespace DigitalniRepozitorijum.Forme
         {
             var id = GetSelectedId(); if (id == null) return; using var form = new PublikacijeAutoraForm(id.Value);
             form.ShowDialog();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

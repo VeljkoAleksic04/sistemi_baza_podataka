@@ -88,6 +88,9 @@
     <Compile Update="Forme\DodajPublikacijuForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajRecenzentaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajRunduRecenzijeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +197,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniPublikacijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniRecenzentaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniRunduRecenzijeForm.cs">

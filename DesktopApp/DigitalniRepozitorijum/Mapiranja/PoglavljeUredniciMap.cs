@@ -8,7 +8,6 @@ public class PoglavljeUredniciMap : ClassMap<PoglavljeUrednici>
     {
         Id(x => x.Id, "Id_Poglavlje_Urednik");
         
-        Map(x => x.IdPublikacije, "Id_Publikacije");
         Map(x => x.Urednik, "Urednik");
         
         References(x => x.PoglavljeUKnjizi, "Id_Publikacije")

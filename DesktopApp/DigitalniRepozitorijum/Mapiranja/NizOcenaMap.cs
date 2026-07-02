@@ -8,11 +8,15 @@ public class NizOcenaMap : ClassMap<NizOcena>
     {
         Id(x => x.Id, "Id_Ocene");
         
-        Map(x => x.IdRundeRecenzije, "Id_Runde_Recenzije");
-        Map(x => x.IdRecenzenta, "Id_recenzenta");
         Map(x => x.Kriterijum, "Kriterijum");
         Map(x => x.Ocena, "Ocena");
-        
+
+
+        References(x => x.RundaRecenzije, "ID_RUNDE_RECENZIJE")
+            .Cascade.None();
+
+        References(x => x.Recenzent, "ID_RECENZENTA")
+            .Cascade.None();
         // Samo mapa unazad ka VrsiRecenziju
         References(x => x.VrsiRecenziju)
             .Not.LazyLoad();

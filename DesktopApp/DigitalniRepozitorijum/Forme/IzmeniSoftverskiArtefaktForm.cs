@@ -22,13 +22,13 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                SoftverskiArtefaktDTO artefakt = new SoftverskiArtefaktDTO
+                SoftverskiArtefaktBasic artefakt = new SoftverskiArtefaktBasic
                 {
                     Id = (int)_id,
                     Naslov = txtNaslov.Text,
                     Apstrakt = txtApstrakt.Text,
                     Jezik = tbJezik.Text,
-                    DatumKreiranja = dateKreiranja.Value,
+                    DatumKreiranjaZapisa = dateKreiranja.Value,
                     DatumObjavljivanja = dateObjave.Value,
                     Status = cmbStatus.SelectedItem.ToString(),
                     Vidljivost = txtVidljivost.Text,

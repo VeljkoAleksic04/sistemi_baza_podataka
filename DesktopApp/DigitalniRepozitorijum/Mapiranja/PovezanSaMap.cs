@@ -8,8 +8,6 @@ public class PovezanSaMap : ClassMap<PovezanSa>
     {
         Id(x => x.Id, "Id_povezan");
         
-        Map(x => x.IdPublikacije1, "Id_publikacije_1");
-        Map(x => x.IdPublikacije2, "Id_publikacije_2");
         Map(x => x.TipPovezanosti, "Tip_povezanosti");
         
         References(x => x.Publikacija1, "Id_publikacije_1")

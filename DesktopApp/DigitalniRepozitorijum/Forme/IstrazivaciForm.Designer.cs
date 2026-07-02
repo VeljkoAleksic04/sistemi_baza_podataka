@@ -17,146 +17,203 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.groupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-                        this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.DataPropertyName = "Id";
-                        this.colIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIme.HeaderText = "Ime";
-            this.colIme.Name = "colIme";
-            this.colIme.DataPropertyName = "Ime";
-                        this.colPrezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrezime.HeaderText = "Prezime";
-            this.colPrezime.Name = "colPrezime";
-            this.colPrezime.DataPropertyName = "Prezime";
-                        this.colDrzava = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDrzava.HeaderText = "Drzava";
-            this.colDrzava.Name = "colDrzava";
-            this.colDrzava.DataPropertyName = "Drzava";
-                        this.colNaucnoZvanje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNaucnoZvanje.HeaderText = "NaucnoZvanje";
-            this.colNaucnoZvanje.Name = "colNaucnoZvanje";
-            this.colNaucnoZvanje.DataPropertyName = "NaucnoZvanje";
-                        this.colNaucnaOblast = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNaucnaOblast.HeaderText = "NaucnaOblast";
-            this.colNaucnaOblast.Name = "colNaucnaOblast";
-            this.colNaucnaOblast.DataPropertyName = "NaucnaOblast";
-                        this.colStatusNaloga = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatusNaloga.HeaderText = "StatusNaloga";
-            this.colStatusNaloga.Name = "colStatusNaloga";
-            this.colStatusNaloga.DataPropertyName = "StatusNaloga";
-            this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.SuspendLayout();
+            groupBox = new GroupBox();
+            dataGridView = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colIme = new DataGridViewTextBoxColumn();
+            colPrezime = new DataGridViewTextBoxColumn();
+            colDrzava = new DataGridViewTextBoxColumn();
+            colNaucnoZvanje = new DataGridViewTextBoxColumn();
+            colNaucnaOblast = new DataGridViewTextBoxColumn();
+            colStatusNaloga = new DataGridViewTextBoxColumn();
+            btnDodaj = new Button();
+            btnIzmeni = new Button();
+            btnObrisi = new Button();
+            lblPovezano = new Label();
+            btnTelefoni = new Button();
+            btnEmail = new Button();
+            btnAngazovanja = new Button();
+            btnPublikacije = new Button();
+            groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            SuspendLayout();
+            // 
             // groupBox
-            this.groupBox.Controls.Add(this.dataGridView);
-            this.groupBox.Location = new System.Drawing.Point(12, 12);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(690, 556);
-            this.groupBox.TabIndex = 0;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Lista istrazivaca";
+            // 
+            groupBox.Controls.Add(dataGridView);
+            groupBox.Location = new Point(12, 12);
+            groupBox.Name = "groupBox";
+            groupBox.Size = new Size(690, 556);
+            groupBox.TabIndex = 0;
+            groupBox.TabStop = false;
+            groupBox.Text = "Lista istrazivaca";
+            // 
             // dataGridView
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colId, this.colIme, this.colPrezime, this.colDrzava, this.colNaucnoZvanje, this.colNaucnaOblast, this.colStatusNaloga
-            });
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(684, 534);
-            this.dataGridView.TabIndex = 0;
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.btnDodaj.Location = new System.Drawing.Point(720, 12);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(240, 32);
-            this.btnDodaj.TabIndex = 10;
-            this.btnDodaj.Text = "Dodaj istrazivaca";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
-            this.btnIzmeni = new System.Windows.Forms.Button();
-            this.btnIzmeni.Location = new System.Drawing.Point(720, 50);
-            this.btnIzmeni.Name = "btnIzmeni";
-            this.btnIzmeni.Size = new System.Drawing.Size(240, 32);
-            this.btnIzmeni.TabIndex = 10;
-            this.btnIzmeni.Text = "Izmeni istrazivaca";
-            this.btnIzmeni.UseVisualStyleBackColor = true;
-            this.btnIzmeni.Click += new System.EventHandler(this.btnIzmeni_Click);
-            this.btnObrisi = new System.Windows.Forms.Button();
-            this.btnObrisi.Location = new System.Drawing.Point(720, 88);
-            this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(240, 32);
-            this.btnObrisi.TabIndex = 10;
-            this.btnObrisi.Text = "Obrisi istrazivaca";
-            this.btnObrisi.UseVisualStyleBackColor = true;
-            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
-            this.lblPovezano = new System.Windows.Forms.Label();
-            this.lblPovezano.AutoSize = true;
-            this.lblPovezano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblPovezano.Location = new System.Drawing.Point(720, 126);
-            this.lblPovezano.Name = "lblPovezano";
-            this.lblPovezano.Size = new System.Drawing.Size(200, 13);
-            this.lblPovezano.TabIndex = 100;
-            this.lblPovezano.Text = "Povezani podaci";
-            this.btnTelefoni = new System.Windows.Forms.Button();
-            this.btnTelefoni.Location = new System.Drawing.Point(720, 148);
-            this.btnTelefoni.Name = "btnTelefoni";
-            this.btnTelefoni.Size = new System.Drawing.Size(240, 32);
-            this.btnTelefoni.TabIndex = 10;
-            this.btnTelefoni.Text = "Telefoni";
-            this.btnTelefoni.UseVisualStyleBackColor = true;
-            this.btnTelefoni.Click += new System.EventHandler(this.btnTelefoni_Click);
-            this.btnEmail = new System.Windows.Forms.Button();
-            this.btnEmail.Location = new System.Drawing.Point(720, 186);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(240, 32);
-            this.btnEmail.TabIndex = 10;
-            this.btnEmail.Text = "Email adrese";
-            this.btnEmail.UseVisualStyleBackColor = true;
-            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
-            this.btnAngazovanja = new System.Windows.Forms.Button();
-            this.btnAngazovanja.Location = new System.Drawing.Point(720, 224);
-            this.btnAngazovanja.Name = "btnAngazovanja";
-            this.btnAngazovanja.Size = new System.Drawing.Size(240, 32);
-            this.btnAngazovanja.TabIndex = 10;
-            this.btnAngazovanja.Text = "Angazovanja";
-            this.btnAngazovanja.UseVisualStyleBackColor = true;
-            this.btnAngazovanja.Click += new System.EventHandler(this.btnAngazovanja_Click);
-            this.btnPublikacije = new System.Windows.Forms.Button();
-            this.btnPublikacije.Location = new System.Drawing.Point(720, 262);
-            this.btnPublikacije.Name = "btnPublikacije";
-            this.btnPublikacije.Size = new System.Drawing.Size(240, 32);
-            this.btnPublikacije.TabIndex = 10;
-            this.btnPublikacije.Text = "Publikacije autora";
-            this.btnPublikacije.UseVisualStyleBackColor = true;
-            this.btnPublikacije.Click += new System.EventHandler(this.btnPublikacije_Click);
+            // 
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colId, colIme, colPrezime, colDrzava, colNaucnoZvanje, colNaucnaOblast, colStatusNaloga });
+            dataGridView.Dock = DockStyle.Fill;
+            dataGridView.Location = new Point(3, 19);
+            dataGridView.MultiSelect = false;
+            dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.Size = new Size(684, 534);
+            dataGridView.TabIndex = 0;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colIme
+            // 
+            colIme.DataPropertyName = "Ime";
+            colIme.HeaderText = "Ime";
+            colIme.Name = "colIme";
+            colIme.ReadOnly = true;
+            // 
+            // colPrezime
+            // 
+            colPrezime.DataPropertyName = "Prezime";
+            colPrezime.HeaderText = "Prezime";
+            colPrezime.Name = "colPrezime";
+            colPrezime.ReadOnly = true;
+            // 
+            // colDrzava
+            // 
+            colDrzava.DataPropertyName = "Drzava";
+            colDrzava.HeaderText = "Drzava";
+            colDrzava.Name = "colDrzava";
+            colDrzava.ReadOnly = true;
+            // 
+            // colNaucnoZvanje
+            // 
+            colNaucnoZvanje.DataPropertyName = "NaucnoZvanje";
+            colNaucnoZvanje.HeaderText = "NaucnoZvanje";
+            colNaucnoZvanje.Name = "colNaucnoZvanje";
+            colNaucnoZvanje.ReadOnly = true;
+            // 
+            // colNaucnaOblast
+            // 
+            colNaucnaOblast.DataPropertyName = "NaucnaOblast";
+            colNaucnaOblast.HeaderText = "NaucnaOblast";
+            colNaucnaOblast.Name = "colNaucnaOblast";
+            colNaucnaOblast.ReadOnly = true;
+            // 
+            // colStatusNaloga
+            // 
+            colStatusNaloga.DataPropertyName = "StatusNaloga";
+            colStatusNaloga.HeaderText = "StatusNaloga";
+            colStatusNaloga.Name = "colStatusNaloga";
+            colStatusNaloga.ReadOnly = true;
+            // 
+            // btnDodaj
+            // 
+            btnDodaj.Location = new Point(720, 12);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new Size(240, 32);
+            btnDodaj.TabIndex = 10;
+            btnDodaj.Text = "Dodaj istrazivaca";
+            btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click;
+            // 
+            // btnIzmeni
+            // 
+            btnIzmeni.Location = new Point(720, 50);
+            btnIzmeni.Name = "btnIzmeni";
+            btnIzmeni.Size = new Size(240, 32);
+            btnIzmeni.TabIndex = 10;
+            btnIzmeni.Text = "Izmeni istrazivaca";
+            btnIzmeni.UseVisualStyleBackColor = true;
+            btnIzmeni.Click += btnIzmeni_Click;
+            // 
+            // btnObrisi
+            // 
+            btnObrisi.Location = new Point(720, 88);
+            btnObrisi.Name = "btnObrisi";
+            btnObrisi.Size = new Size(240, 32);
+            btnObrisi.TabIndex = 10;
+            btnObrisi.Text = "Obrisi istrazivaca";
+            btnObrisi.UseVisualStyleBackColor = true;
+            btnObrisi.Click += btnObrisi_Click;
+            // 
+            // lblPovezano
+            // 
+            lblPovezano.AutoSize = true;
+            lblPovezano.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            lblPovezano.Location = new Point(720, 126);
+            lblPovezano.Name = "lblPovezano";
+            lblPovezano.Size = new Size(101, 13);
+            lblPovezano.TabIndex = 100;
+            lblPovezano.Text = "Povezani podaci";
+            // 
+            // btnTelefoni
+            // 
+            btnTelefoni.Location = new Point(720, 148);
+            btnTelefoni.Name = "btnTelefoni";
+            btnTelefoni.Size = new Size(240, 32);
+            btnTelefoni.TabIndex = 10;
+            btnTelefoni.Text = "Telefoni";
+            btnTelefoni.UseVisualStyleBackColor = true;
+            btnTelefoni.Click += btnTelefoni_Click;
+            // 
+            // btnEmail
+            // 
+            btnEmail.Location = new Point(720, 186);
+            btnEmail.Name = "btnEmail";
+            btnEmail.Size = new Size(240, 32);
+            btnEmail.TabIndex = 10;
+            btnEmail.Text = "Email adrese";
+            btnEmail.UseVisualStyleBackColor = true;
+            btnEmail.Click += btnEmail_Click;
+            // 
+            // btnAngazovanja
+            // 
+            btnAngazovanja.Location = new Point(720, 224);
+            btnAngazovanja.Name = "btnAngazovanja";
+            btnAngazovanja.Size = new Size(240, 32);
+            btnAngazovanja.TabIndex = 10;
+            btnAngazovanja.Text = "Angazovanja";
+            btnAngazovanja.UseVisualStyleBackColor = true;
+            btnAngazovanja.Click += btnAngazovanja_Click;
+            // 
+            // btnPublikacije
+            // 
+            btnPublikacije.Location = new Point(720, 262);
+            btnPublikacije.Name = "btnPublikacije";
+            btnPublikacije.Size = new Size(240, 32);
+            btnPublikacije.TabIndex = 10;
+            btnPublikacije.Text = "Publikacije autora";
+            btnPublikacije.UseVisualStyleBackColor = true;
+            btnPublikacije.Click += btnPublikacije_Click;
+            // 
             // IstrazivaciForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 580);
-            this.Controls.Add(this.groupBox);
-            this.Controls.Add(this.btnDodaj);
-            this.Controls.Add(this.btnIzmeni);
-            this.Controls.Add(this.btnObrisi);
-            this.Controls.Add(this.lblPovezano);
-            this.Controls.Add(this.btnTelefoni);
-            this.Controls.Add(this.btnEmail);
-            this.Controls.Add(this.btnAngazovanja);
-            this.Controls.Add(this.btnPublikacije);
-            this.Name = "IstrazivaciForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LISTA ISTRAZIVACA";
-            this.groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(980, 580);
+            Controls.Add(groupBox);
+            Controls.Add(btnDodaj);
+            Controls.Add(btnIzmeni);
+            Controls.Add(btnObrisi);
+            Controls.Add(lblPovezano);
+            Controls.Add(btnTelefoni);
+            Controls.Add(btnEmail);
+            Controls.Add(btnAngazovanja);
+            Controls.Add(btnPublikacije);
+            Name = "IstrazivaciForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "LISTA ISTRAZIVACA";
+            groupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -40,9 +40,9 @@ namespace DigitalniRepozitorijum
         public DateTime DatumKreiranjaZapisa;
 
         public IList<VerzijaBasic> Verzije { get; set; }
-        public IList<PublikacijaKljucnaRecBasic> KljucneReci {  get; set; }
+        public IList<PublikacijaKljucnaRecBasic> KljucneReci { get; set; }
 
-        public PublikacijaBasic() 
+        public PublikacijaBasic()
         {
             Verzije = new List<VerzijaBasic>();
             KljucneReci = new List<PublikacijaKljucnaRecBasic>();
@@ -311,14 +311,14 @@ namespace DigitalniRepozitorijum
         public string Adresa;
 
         public InstitucijaPregled() { }
-        public InstitucijaPregled(int id,string naziv,string adresa)
+        public InstitucijaPregled(int id, string naziv, string adresa)
         {
             Id = id;
             Naziv = naziv;
-            Adresa= adresa;
+            Adresa = adresa;
         }
     }
-    
+
     public class InstitucijaBasic
     {
         public int Id;
@@ -630,88 +630,136 @@ namespace DigitalniRepozitorijum
             TipDoprinosa = tipDoprinosa; Uloga = uloga;
         }
     }
-    
+
     #region NaucniRad
 
-    public class NaucniRadPrikazDTO
+    public class NaucniRadPregled : PublikacijaPregled
     {
-        public int Id { get; set; }
-        public string Naslov { get; set; }
-        public string DOI { get; set; }
-        public string TipRada { get; set; }
-        public string Stranice { get; set; }
-        public int Izvor { get; set; }
+        public string DOI;
+        public string TipRada;
+        public string Stranice;
+        public int Izvor;
+
+        public NaucniRadPregled() { }
+
+        public NaucniRadPregled(int id, string naslov, string jezik, string status, string vidljivost,
+            DateTime datumObjavljivanja, string doi, string tipRada, string stranice, int izvor)
+            : base(id, naslov, jezik, status, vidljivost, datumObjavljivanja)
+        {
+            DOI = doi;
+            TipRada = tipRada;
+            Stranice = stranice;
+            Izvor = izvor;
+        }
     }
 
-    public class NaucniRadDTO
+    public class NaucniRadBasic : PublikacijaBasic
     {
-        public int Id { get; set; }
-        public string Naslov { get; set; }
-        public string Apstrakt { get; set; }
-        public string Jezik { get; set; }
-        public DateTime DatumObjavljivanja { get; set; }
-        public DateTime DatumKreiranja { get; set; }
-        public string Status { get; set; }
-        public string Vidljivost { get; set; }
-        public string DOI { get; set; }
-        public string TipRada { get; set; }
-        public string Stranice { get; set; }
-        public int IdIzvora { get; set; }
+        public string DOI;
+        public string TipRada;
+        public string Stranice;
+        public int IdIzvora;
+
+        public NaucniRadBasic() { }
+
+        public NaucniRadBasic(int id, string naslov, string apstrakt, string jezik, string status,
+            string vidljivost, DateTime datumObjavljivanja, DateTime datumKreiranjaZapisa,
+            string doi, string tipRada, string stranice, int idIzvora)
+            : base(id, naslov, apstrakt, jezik, status, vidljivost, datumObjavljivanja, datumKreiranjaZapisa)
+        {
+            DOI = doi;
+            TipRada = tipRada;
+            Stranice = stranice;
+            IdIzvora = idIzvora;
+        }
     }
+
     #endregion
+
 
     #region Dataset
 
-    public class DatasetPrikazDTO
+    public class DatasetPregled : PublikacijaPregled
     {
-        public int Id { get; set; }
-        public string Naslov { get; set; }
-        public string Format { get; set; }
-        public int BrojZapisa { get; set; }
-        public int Velicina { get; set; }
+        public string Format;
+        public int BrojZapisa;
+        public int Velicina;
+
+        public DatasetPregled() { }
+
+        public DatasetPregled(int id, string naslov, string jezik, string status, string vidljivost,
+            DateTime datumObjavljivanja, string format, int brojZapisa, int velicina)
+            : base(id, naslov, jezik, status, vidljivost, datumObjavljivanja)
+        {
+            Format = format;
+            BrojZapisa = brojZapisa;
+            Velicina = velicina;
+        }
     }
 
-    public class DatasetDTO
+    public class DatasetBasic : PublikacijaBasic
     {
-        public int Id { get; set; }
-        public string Naslov { get; set; }
-        public string Apstrakt { get; set; }
-        public string Jezik { get; set; }
-        public DateTime DatumObjavljivanja { get; set; }
-        public DateTime DatumKreiranja { get; set; }
-        public string Status { get; set; }
-        public string Vidljivost { get; set; }
-        public int BrojZapisa { get; set; }
-        public int Velicina { get; set; }
-        public string Format { get; set; }
-        public string LicencaKoriscenja { get; set; }
+        public int BrojZapisa;
+        public int Velicina;
+        public string Format;
+        public string LicencaKoriscenja;
+
+        public DatasetBasic() { }
+
+        public DatasetBasic(int id, string naslov, string apstrakt, string jezik, string status,
+            string vidljivost, DateTime datumObjavljivanja, DateTime datumKreiranjaZapisa,
+            int brojZapisa, int velicina, string format, string licencaKoriscenja)
+            : base(id, naslov, apstrakt, jezik, status, vidljivost, datumObjavljivanja, datumKreiranjaZapisa)
+        {
+            BrojZapisa = brojZapisa;
+            Velicina = velicina;
+            Format = format;
+            LicencaKoriscenja = licencaKoriscenja;
+        }
     }
+
     #endregion
+
 
     #region SoftverskiArtefakt
 
-    public class SoftverskiArtefaktPrikazDTO
+    public class SoftverskiArtefaktPregled : PublikacijaPregled
     {
-        public int Id { get; set; }
-        public string Naslov { get; set; }
-        public string ProgramskiJezik { get; set; }
-        public string LinkKaRepozitorijumu { get; set; }
+        public string ProgramskiJezik;
+        public string LinkKaRepozitorijumu;
+
+        public SoftverskiArtefaktPregled() { }
+
+        public SoftverskiArtefaktPregled(int id, string naslov, string jezik, string status,
+            string vidljivost, DateTime datumObjavljivanja,
+            string programskiJezik, string linkKaRepozitorijumu)
+            : base(id, naslov, jezik, status, vidljivost, datumObjavljivanja)
+        {
+            ProgramskiJezik = programskiJezik;
+            LinkKaRepozitorijumu = linkKaRepozitorijumu;
+        }
     }
 
-    public class SoftverskiArtefaktDTO
+    public class SoftverskiArtefaktBasic : PublikacijaBasic
     {
-        public int Id { get; set; }
-        public string Naslov { get; set; }
-        public string Apstrakt { get; set; }
-        public string Jezik { get; set; }
-        public DateTime DatumObjavljivanja { get; set; }
-        public DateTime DatumKreiranja { get; set; }
-        public string Status { get; set; }
-        public string Vidljivost { get; set; }
-        public string ProgramskiJezik { get; set; }
-        public string LinkKaRepozitorijumu { get; set; }
-        public string NacinLicenciranja { get; set; }
+        public string ProgramskiJezik;
+        public string LinkKaRepozitorijumu;
+        public string NacinLicenciranja;
+
+        public SoftverskiArtefaktBasic() { }
+
+        public SoftverskiArtefaktBasic(int id, string naslov, string apstrakt, string jezik,
+            string status, string vidljivost, DateTime datumObjavljivanja,
+            DateTime datumKreiranjaZapisa, string programskiJezik,
+            string linkKaRepozitorijumu, string nacinLicenciranja)
+            : base(id, naslov, apstrakt, jezik, status, vidljivost, datumObjavljivanja, datumKreiranjaZapisa)
+        {
+            ProgramskiJezik = programskiJezik;
+            LinkKaRepozitorijumu = linkKaRepozitorijumu;
+            NacinLicenciranja = nacinLicenciranja;
+        }
     }
+
     #endregion
 
     #region Citiri
@@ -726,8 +774,6 @@ namespace DigitalniRepozitorijum
         public string TekstualniKontekst { get; set; }
     }
     #endregion
-
-}
 
     #region RundeRecenzije
 
@@ -752,7 +798,6 @@ namespace DigitalniRepozitorijum
     }
     #endregion
 
-
     #region KnjigaUrednici
 
     public class KnjigaUredniciDTO
@@ -773,3 +818,4 @@ namespace DigitalniRepozitorijum
     }
     #endregion
 
+}

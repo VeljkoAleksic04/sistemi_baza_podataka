@@ -15,179 +15,156 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            lblNaslov = new Label();
-            txtNaslov = new TextBox();
-            lblApstrakt = new Label();
-            txtApstrakt = new TextBox();
-            lblJezik = new Label();
-            txtJezik = new TextBox();
-            lblDatumObjavljivanja = new Label();
-            txtDatumObjavljivanja = new TextBox();
-            lblDatumKreiranja = new Label();
-            txtDatumKreiranja = new TextBox();
-            lblStatus = new Label();
-            txtStatus = new TextBox();
-            lblVidljivost = new Label();
-            txtVidljivost = new TextBox();
-            btnPotvrdi = new Button();
             btnOdustani = new Button();
+            btnNaucniRad = new Button();
+            btnPrezentacija = new Button();
+            btnKnjiga = new Button();
+            btnObrazovni = new Button();
+            btnPoglavlje = new Button();
+            btnTehnicki = new Button();
+            btnSoftverski = new Button();
+            btnDataset = new Button();
+            btnDoktorska = new Button();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // lblNaslov
-            // 
-            lblNaslov.AutoSize = true;
-            lblNaslov.Location = new Point(20, 20);
-            lblNaslov.Name = "lblNaslov";
-            lblNaslov.Size = new Size(46, 15);
-            lblNaslov.TabIndex = 0;
-            lblNaslov.Text = "Naslov:";
-            // 
-            // txtNaslov
-            // 
-            txtNaslov.Location = new Point(160, 17);
-            txtNaslov.Name = "txtNaslov";
-            txtNaslov.Size = new Size(230, 23);
-            txtNaslov.TabIndex = 1;
-            // 
-            // lblApstrakt
-            // 
-            lblApstrakt.AutoSize = true;
-            lblApstrakt.Location = new Point(20, 55);
-            lblApstrakt.Name = "lblApstrakt";
-            lblApstrakt.Size = new Size(54, 15);
-            lblApstrakt.TabIndex = 0;
-            lblApstrakt.Text = "Apstrakt:";
-            // 
-            // txtApstrakt
-            // 
-            txtApstrakt.Location = new Point(160, 52);
-            txtApstrakt.Name = "txtApstrakt";
-            txtApstrakt.Size = new Size(230, 23);
-            txtApstrakt.TabIndex = 1;
-            // 
-            // lblJezik
-            // 
-            lblJezik.AutoSize = true;
-            lblJezik.Location = new Point(20, 90);
-            lblJezik.Name = "lblJezik";
-            lblJezik.Size = new Size(34, 15);
-            lblJezik.TabIndex = 0;
-            lblJezik.Text = "Jezik:";
-            // 
-            // txtJezik
-            // 
-            txtJezik.Location = new Point(160, 87);
-            txtJezik.Name = "txtJezik";
-            txtJezik.Size = new Size(230, 23);
-            txtJezik.TabIndex = 1;
-            // 
-            // lblDatumObjavljivanja
-            // 
-            lblDatumObjavljivanja.AutoSize = true;
-            lblDatumObjavljivanja.Location = new Point(20, 125);
-            lblDatumObjavljivanja.Name = "lblDatumObjavljivanja";
-            lblDatumObjavljivanja.Size = new Size(115, 15);
-            lblDatumObjavljivanja.TabIndex = 0;
-            lblDatumObjavljivanja.Text = "Datum objavljivanja:";
-            // 
-            // txtDatumObjavljivanja
-            // 
-            txtDatumObjavljivanja.Location = new Point(160, 122);
-            txtDatumObjavljivanja.Name = "txtDatumObjavljivanja";
-            txtDatumObjavljivanja.Size = new Size(230, 23);
-            txtDatumObjavljivanja.TabIndex = 1;
-            // 
-            // lblDatumKreiranja
-            // 
-            lblDatumKreiranja.AutoSize = true;
-            lblDatumKreiranja.Location = new Point(20, 160);
-            lblDatumKreiranja.Name = "lblDatumKreiranja";
-            lblDatumKreiranja.Size = new Size(94, 15);
-            lblDatumKreiranja.TabIndex = 0;
-            lblDatumKreiranja.Text = "Datum kreiranja:";
-            // 
-            // txtDatumKreiranja
-            // 
-            txtDatumKreiranja.Location = new Point(160, 157);
-            txtDatumKreiranja.Name = "txtDatumKreiranja";
-            txtDatumKreiranja.Size = new Size(230, 23);
-            txtDatumKreiranja.TabIndex = 1;
-            // 
-            // lblStatus
-            // 
-            lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(20, 195);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(42, 15);
-            lblStatus.TabIndex = 0;
-            lblStatus.Text = "Status:";
-            // 
-            // txtStatus
-            // 
-            txtStatus.Location = new Point(160, 192);
-            txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(230, 23);
-            txtStatus.TabIndex = 1;
-            // 
-            // lblVidljivost
-            // 
-            lblVidljivost.AutoSize = true;
-            lblVidljivost.Location = new Point(20, 230);
-            lblVidljivost.Name = "lblVidljivost";
-            lblVidljivost.Size = new Size(58, 15);
-            lblVidljivost.TabIndex = 0;
-            lblVidljivost.Text = "Vidljivost:";
-            // 
-            // txtVidljivost
-            // 
-            txtVidljivost.Location = new Point(160, 227);
-            txtVidljivost.Name = "txtVidljivost";
-            txtVidljivost.Size = new Size(230, 23);
-            txtVidljivost.TabIndex = 1;
-            // 
-            // btnPotvrdi
-            // 
-            btnPotvrdi.Location = new Point(160, 275);
-            btnPotvrdi.Name = "btnPotvrdi";
-            btnPotvrdi.Size = new Size(110, 32);
-            btnPotvrdi.TabIndex = 50;
-            btnPotvrdi.Text = "Potvrdi";
-            btnPotvrdi.UseVisualStyleBackColor = true;
-            btnPotvrdi.Click += btnPotvrdi_Click;
             // 
             // btnOdustani
             // 
             btnOdustani.DialogResult = DialogResult.Cancel;
-            btnOdustani.Location = new Point(280, 275);
+            btnOdustani.Location = new Point(360, 276);
             btnOdustani.Name = "btnOdustani";
             btnOdustani.Size = new Size(110, 32);
             btnOdustani.TabIndex = 51;
             btnOdustani.Text = "Odustani";
             btnOdustani.UseVisualStyleBackColor = true;
+            btnOdustani.Click += btnOdustani_Click;
+            // 
+            // btnNaucniRad
+            // 
+            btnNaucniRad.DialogResult = DialogResult.Cancel;
+            btnNaucniRad.Location = new Point(12, 44);
+            btnNaucniRad.Name = "btnNaucniRad";
+            btnNaucniRad.Size = new Size(113, 45);
+            btnNaucniRad.TabIndex = 52;
+            btnNaucniRad.Text = "Naucni Rad";
+            btnNaucniRad.UseVisualStyleBackColor = true;
+            btnNaucniRad.Click += btnNaucniRad_Click;
+            // 
+            // btnPrezentacija
+            // 
+            btnPrezentacija.DialogResult = DialogResult.Cancel;
+            btnPrezentacija.Location = new Point(360, 44);
+            btnPrezentacija.Name = "btnPrezentacija";
+            btnPrezentacija.Size = new Size(113, 45);
+            btnPrezentacija.TabIndex = 53;
+            btnPrezentacija.Text = "Prezentacija";
+            btnPrezentacija.UseVisualStyleBackColor = true;
+            btnPrezentacija.Click += btnPrezentacija_Click;
+            // 
+            // btnKnjiga
+            // 
+            btnKnjiga.DialogResult = DialogResult.Cancel;
+            btnKnjiga.Location = new Point(244, 44);
+            btnKnjiga.Name = "btnKnjiga";
+            btnKnjiga.Size = new Size(113, 45);
+            btnKnjiga.TabIndex = 54;
+            btnKnjiga.Text = "Knjiga";
+            btnKnjiga.UseVisualStyleBackColor = true;
+            btnKnjiga.Click += btnKnjiga_Click;
+            // 
+            // btnObrazovni
+            // 
+            btnObrazovni.DialogResult = DialogResult.Cancel;
+            btnObrazovni.Location = new Point(128, 44);
+            btnObrazovni.Name = "btnObrazovni";
+            btnObrazovni.Size = new Size(113, 45);
+            btnObrazovni.TabIndex = 55;
+            btnObrazovni.Text = "Obrazovni Materijal";
+            btnObrazovni.UseVisualStyleBackColor = true;
+            btnObrazovni.Click += btnObrazovni_Click;
+            // 
+            // btnPoglavlje
+            // 
+            btnPoglavlje.DialogResult = DialogResult.Cancel;
+            btnPoglavlje.Location = new Point(12, 96);
+            btnPoglavlje.Name = "btnPoglavlje";
+            btnPoglavlje.Size = new Size(113, 45);
+            btnPoglavlje.TabIndex = 56;
+            btnPoglavlje.Text = "Poglavlje u Knjizi";
+            btnPoglavlje.UseVisualStyleBackColor = true;
+            btnPoglavlje.Click += btnPoglavlje_Click;
+            // 
+            // btnTehnicki
+            // 
+            btnTehnicki.DialogResult = DialogResult.Cancel;
+            btnTehnicki.Location = new Point(128, 96);
+            btnTehnicki.Name = "btnTehnicki";
+            btnTehnicki.Size = new Size(113, 45);
+            btnTehnicki.TabIndex = 57;
+            btnTehnicki.Text = "Tehnicki Izvestaj";
+            btnTehnicki.UseVisualStyleBackColor = true;
+            btnTehnicki.Click += btnTehnicki_Click;
+            // 
+            // btnSoftverski
+            // 
+            btnSoftverski.DialogResult = DialogResult.Cancel;
+            btnSoftverski.Location = new Point(244, 96);
+            btnSoftverski.Name = "btnSoftverski";
+            btnSoftverski.Size = new Size(113, 45);
+            btnSoftverski.TabIndex = 58;
+            btnSoftverski.Text = "Softverski Artefakt";
+            btnSoftverski.UseVisualStyleBackColor = true;
+            btnSoftverski.Click += btnSoftverski_Click;
+            // 
+            // btnDataset
+            // 
+            btnDataset.DialogResult = DialogResult.Cancel;
+            btnDataset.Location = new Point(360, 96);
+            btnDataset.Name = "btnDataset";
+            btnDataset.Size = new Size(113, 45);
+            btnDataset.TabIndex = 59;
+            btnDataset.Text = "Dataset";
+            btnDataset.UseVisualStyleBackColor = true;
+            btnDataset.Click += btnDataset_Click;
+            // 
+            // btnDoktorska
+            // 
+            btnDoktorska.DialogResult = DialogResult.Cancel;
+            btnDoktorska.Location = new Point(12, 146);
+            btnDoktorska.Name = "btnDoktorska";
+            btnDoktorska.Size = new Size(113, 45);
+            btnDoktorska.TabIndex = 60;
+            btnDoktorska.Text = "Doktorska Disertacija";
+            btnDoktorska.UseVisualStyleBackColor = true;
+            btnDoktorska.Click += btnDoktorska_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(182, 21);
+            label1.TabIndex = 61;
+            label1.Text = "Odaberite tip publikacije:";
             // 
             // DodajPublikacijuForm
             // 
-            AcceptButton = btnPotvrdi;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
-            ClientSize = new Size(420, 320);
+            ClientSize = new Size(484, 320);
+            Controls.Add(label1);
+            Controls.Add(btnDoktorska);
+            Controls.Add(btnDataset);
+            Controls.Add(btnSoftverski);
+            Controls.Add(btnTehnicki);
+            Controls.Add(btnPoglavlje);
+            Controls.Add(btnObrazovni);
+            Controls.Add(btnKnjiga);
+            Controls.Add(btnPrezentacija);
+            Controls.Add(btnNaucniRad);
             Controls.Add(btnOdustani);
-            Controls.Add(btnPotvrdi);
-            Controls.Add(lblNaslov);
-            Controls.Add(txtNaslov);
-            Controls.Add(lblApstrakt);
-            Controls.Add(txtApstrakt);
-            Controls.Add(lblJezik);
-            Controls.Add(txtJezik);
-            Controls.Add(lblDatumObjavljivanja);
-            Controls.Add(txtDatumObjavljivanja);
-            Controls.Add(lblDatumKreiranja);
-            Controls.Add(txtDatumKreiranja);
-            Controls.Add(lblStatus);
-            Controls.Add(txtStatus);
-            Controls.Add(lblVidljivost);
-            Controls.Add(txtVidljivost);
             Name = "DodajPublikacijuForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Dodaj publikaciju";
@@ -195,22 +172,16 @@ namespace DigitalniRepozitorijum.Forme
             ResumeLayout(false);
             PerformLayout();
         }
-
-        private System.Windows.Forms.Button btnPotvrdi;
         private System.Windows.Forms.Button btnOdustani;
-        private System.Windows.Forms.Label lblNaslov;
-        private System.Windows.Forms.TextBox txtNaslov;
-        private System.Windows.Forms.Label lblApstrakt;
-        private System.Windows.Forms.TextBox txtApstrakt;
-        private System.Windows.Forms.Label lblJezik;
-        private System.Windows.Forms.TextBox txtJezik;
-        private System.Windows.Forms.Label lblDatumObjavljivanja;
-        private System.Windows.Forms.TextBox txtDatumObjavljivanja;
-        private System.Windows.Forms.Label lblDatumKreiranja;
-        private System.Windows.Forms.TextBox txtDatumKreiranja;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.Label lblVidljivost;
-        private System.Windows.Forms.TextBox txtVidljivost;
+        private Button btnNaucniRad;
+        private Button btnPrezentacija;
+        private Button btnKnjiga;
+        private Button btnObrazovni;
+        private Button btnPoglavlje;
+        private Button btnTehnicki;
+        private Button btnSoftverski;
+        private Button btnDataset;
+        private Button btnDoktorska;
+        private Label label1;
     }
 }

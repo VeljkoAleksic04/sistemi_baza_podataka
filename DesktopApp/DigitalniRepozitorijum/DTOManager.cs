@@ -2108,16 +2108,16 @@ namespace DigitalniRepozitorijum
             return listaNaucnihRadova;
         }
         
-        public static List<NaucniRadPrikazDTO> VratiNaucneRadoveZaPrikaz()
+        public static List<NaucniRadPregled> VratiNaucneRadoveZaPrikaz()
         {
-            List<NaucniRadPrikazDTO> listaNaucnihRadova = new List<NaucniRadPrikazDTO>();
+            List<NaucniRadPregled> listaNaucnihRadova = new List<NaucniRadPregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
                 var naucniRadovi = sesija.Query<NaucniRad>().ToList();
                 foreach (var naucniRad in naucniRadovi)
                 {
-                    NaucniRadPrikazDTO obj = new NaucniRadPrikazDTO
+                    NaucniRadPregled obj = new NaucniRadPregled
                     {
                         Id = naucniRad.Id,
                         Naslov = naucniRad.Naslov,
@@ -2155,7 +2155,7 @@ namespace DigitalniRepozitorijum
             }
         }
 
-        public static void IzmeniNaucniRad(NaucniRadDTO nr)
+        public static void IzmeniNaucniRad(NaucniRadBasic nr)
         {
             try
             {
@@ -2167,7 +2167,7 @@ namespace DigitalniRepozitorijum
                 nrnovi.Stranice = nr.Stranice;
                 nrnovi.TipRada = nr.TipRada;
                 nrnovi.Apstrakt = nr.Apstrakt;
-                nrnovi.DatumKreiranjaZapisa = nr.DatumKreiranja;
+                nrnovi.DatumKreiranjaZapisa = nr.DatumKreiranjaZapisa;
                 nrnovi.DatumObjavljivanja = nr.DatumObjavljivanja;
                 nrnovi.Jezik = nr.Jezik;
                 nrnovi.Vidljivost = nr.Vidljivost;
@@ -2289,16 +2289,16 @@ namespace DigitalniRepozitorijum
             return listaDatasetova;
         }
 
-        public static List<DatasetPrikazDTO> VratiDataseteZaPrikaz()
+        public static List<DatasetPregled> VratiDataseteZaPrikaz()
         {
-            List<DatasetPrikazDTO> listaDatasetova = new List<DatasetPrikazDTO>();
+            List<DatasetPregled> listaDatasetova = new List<DatasetPregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
                 var datasetovi = sesija.Query<Dataset>().ToList();
                 foreach (var dataset in datasetovi)
                 {
-                    DatasetPrikazDTO obj = new DatasetPrikazDTO
+                    DatasetPregled obj = new DatasetPregled
                     {
                         Id = dataset.Id,
                         Naslov = dataset.Naslov,
@@ -2371,7 +2371,7 @@ namespace DigitalniRepozitorijum
             return status;
         }
 
-        public static void IzmeniDataset(DatasetDTO dataset)
+        public static void IzmeniDataset(DatasetBasic dataset)
         {
             try
             {
@@ -2381,7 +2381,7 @@ namespace DigitalniRepozitorijum
                 dsnovi.Naslov = dataset.Naslov;
                 dsnovi.Apstrakt = dataset.Apstrakt;
                 dsnovi.Jezik = dataset.Jezik;
-                dsnovi.DatumKreiranjaZapisa = dataset.DatumKreiranja;
+                dsnovi.DatumKreiranjaZapisa = dataset.DatumKreiranjaZapisa;
                 dsnovi.DatumObjavljivanja = dataset.DatumObjavljivanja;
                 dsnovi.Status = dataset.Status;
                 dsnovi.Vidljivost = dataset.Vidljivost;
@@ -2454,16 +2454,16 @@ namespace DigitalniRepozitorijum
             return listaArtefakata;
         }
 
-        public static List<SoftverskiArtefaktPrikazDTO> VratiSoftverskiArtefakteZaPrikaz()
+        public static List<SoftverskiArtefaktPregled> VratiSoftverskiArtefakteZaPrikaz()
         {
-            List<SoftverskiArtefaktPrikazDTO> listaArtefakata = new List<SoftverskiArtefaktPrikazDTO>();
+            List<SoftverskiArtefaktPregled> listaArtefakata = new List<SoftverskiArtefaktPregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
                 var artefakti = sesija.Query<SoftverskiArtefakt>().ToList();
                 foreach (var artefakt in artefakti)
                 {
-                    SoftverskiArtefaktPrikazDTO obj = new SoftverskiArtefaktPrikazDTO
+                    SoftverskiArtefaktPregled obj = new SoftverskiArtefaktPregled
                     {
                         Id = artefakt.Id,
                         Naslov = artefakt.Naslov,
@@ -2534,7 +2534,7 @@ namespace DigitalniRepozitorijum
             return status;
         }
 
-        public static void IzmeniSoftverskiArtefakt(SoftverskiArtefaktDTO artefakt)
+        public static void IzmeniSoftverskiArtefakt(SoftverskiArtefaktBasic artefakt)
         {
             try
             {
@@ -2544,7 +2544,7 @@ namespace DigitalniRepozitorijum
                 sanova.Naslov = artefakt.Naslov;
                 sanova.Apstrakt = artefakt.Apstrakt;
                 sanova.Jezik = artefakt.Jezik;
-                sanova.DatumKreiranjaZapisa = artefakt.DatumKreiranja;
+                sanova.DatumKreiranjaZapisa = artefakt.DatumKreiranjaZapisa;
                 sanova.DatumObjavljivanja = artefakt.DatumObjavljivanja;
                 sanova.Status = artefakt.Status;
                 sanova.Vidljivost = artefakt.Vidljivost;

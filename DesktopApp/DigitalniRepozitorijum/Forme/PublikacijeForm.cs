@@ -10,7 +10,7 @@ namespace DigitalniRepozitorijum.Forme
         public PublikacijeForm()
         {
             InitializeComponent();
-            FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnAutori, btnVerzije, btnKljucneReci, btnCitati, btnPovezane, btnNaucniRadovi, btnKnjige, btnPoglavlja, btnDoktorske, btnDatasetovi, btnSoftverski, btnObrazovni, btnPrezentacije, btnTehnicki);
+            FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnAutori, btnVerzije, btnKljucneReci, btnCitati, btnPovezane, btnNaucniRadovi, btnKnjige, btnPoglavlja, btnDoktorske, btnDatasetovi, btnSoftverski, btnObrazovni, btnPrezentacije, btnTehnicki, btnRecenzije);
         }
 
         private int? GetSelectedId()
@@ -25,21 +25,74 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            using var form = new DodajPublikacijuForm();
-            form.ShowDialog();
+            DodajPublikacijuForm form = new DodajPublikacijuForm();
+            if (form.ShowDialog() == DialogResult.OK) popuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniPublikacijuForm(id: id.Value);
-            form.ShowDialog();
+            int? id = GetSelectedId();
+            if (id == null) return;
+
+            PublikacijaBasic pb = DTOManager.vratiPublikaciju((int)id);
+            switch(pb)
+            {
+                case KnjigaBasic:
+                    IzmeniKnjiguForm form1 = new IzmeniKnjiguForm((int)id);
+                    if (form1.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case NaucniRadBasic:
+                    IzmeniKnjiguForm form2 = new IzmeniKnjiguForm((int)id);
+                    if (form2.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case ObrazovniMaterijalBasic:
+                    IzmeniKnjiguForm form3 = new IzmeniKnjiguForm((int)id);
+                    if (form3.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case PrezentacijaBasic:
+                    IzmeniKnjiguForm form4 = new IzmeniKnjiguForm((int)id);
+                    if (form4.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case PoglavljeUKnjiziBasic:
+                    IzmeniKnjiguForm form5 = new IzmeniKnjiguForm((int)id);
+                    if (form5.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case TehnickiIzvestajBasic:
+                    IzmeniKnjiguForm form6 = new IzmeniKnjiguForm((int)id);
+                    if (form6.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case SoftverskiArtefaktBasic:
+                    IzmeniKnjiguForm form7 = new IzmeniKnjiguForm((int)id);
+                    if (form7.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case DatasetBasic:
+                    IzmeniKnjiguForm form8 = new IzmeniKnjiguForm((int)id);
+                    if (form8.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+
+                case DoktorskaDisertacijaBasic:
+                    IzmeniKnjiguForm form9 = new IzmeniKnjiguForm((int)id);
+                    if (form9.ShowDialog() == DialogResult.OK) popuniPodacima();
+                    break;
+            }
+
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (GetSelectedId() == null) return;
+            int? id = GetSelectedId();
+            if (id == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.obrisiPublikaciju((int)id);
+                MessageBox.Show("Uspesno obrisaa publikacija!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                popuniPodacima();
             }
         }
         private void btnAutori_Click(object sender, EventArgs e)
@@ -120,10 +173,10 @@ namespace DigitalniRepozitorijum.Forme
 
         private void PublikacijeForm_Load(object sender, EventArgs e)
         {
-            pupuniPodacima();
+            popuniPodacima();
         }
 
-        public void pupuniPodacima()
+        public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
 

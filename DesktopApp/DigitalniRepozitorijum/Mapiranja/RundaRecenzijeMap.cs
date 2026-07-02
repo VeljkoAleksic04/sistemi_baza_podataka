@@ -9,8 +9,6 @@ public class RundaRecenzijeMap : ClassMap<RundaRecenzije>
         Id(x => x.Id, "Id_Runde_Recenzije");
         
         Map(x => x.BrojRunde, "Broj_Runde");
-        Map(x => x.IdPublikacije, "Id_Publikacije");
-        Map(x => x.IdUrednika, "Id_Urednika");
         Map(x => x.Datum, "Datum");
         Map(x => x.KonacnaOdluka, "Konacna_Odluka");
         

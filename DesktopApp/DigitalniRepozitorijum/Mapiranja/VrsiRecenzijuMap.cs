@@ -7,8 +7,6 @@ public class VrsiRecenzijuMap : ClassMap<VrsiRecenziju>
     public VrsiRecenzijuMap()
     {
         Id(x => x.Id, "Id_Recenzije");
-        Map(x => x.IdRundeRecenzije, "Id_Runde_Recenzije");
-        Map(x => x.IdRecenzenta, "Id_recenzenta");
         Map(x => x.Preporuka, "Preporuka");
         
         References(x => x.RundaRecenzije, "Id_Runde_Recenzije")
