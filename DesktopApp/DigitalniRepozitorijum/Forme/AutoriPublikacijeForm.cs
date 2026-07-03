@@ -14,10 +14,7 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
         }
 
-        private void AutoriPublikacijeForm_Load(object sender, EventArgs e)
-        {
-            PopuniPodacima();
-        }
+
 
         public void PopuniPodacima()
         {
@@ -65,6 +62,12 @@ namespace DigitalniRepozitorijum.Forme
                 DTOManager.obrisiAutorstvo(_idPublikacije.Value, idAutora.Value);
                 PopuniPodacima();
             }
+        }
+
+        private void AutoriPublikacijeForm_Load_1(object sender, EventArgs e)
+        {
+            PopuniPodacima();
+
         }
     }
 }

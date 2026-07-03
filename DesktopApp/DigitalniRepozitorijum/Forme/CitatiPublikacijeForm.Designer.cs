@@ -19,13 +19,13 @@ namespace DigitalniRepozitorijum.Forme
         {
             groupBox = new GroupBox();
             dataGridView = new DataGridView();
-            btnDodaj = new Button();
-            btnIzmeni = new Button();
-            btnObrisi = new Button();
             colIdCitata = new DataGridViewTextBoxColumn();
             colTekst = new DataGridViewTextBoxColumn();
             colTipCitata = new DataGridViewTextBoxColumn();
             colMestoCitiranja = new DataGridViewTextBoxColumn();
+            btnDodaj = new Button();
+            btnIzmeni = new Button();
+            btnObrisi = new Button();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -54,6 +54,34 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
+            // 
+            // colIdCitata
+            // 
+            colIdCitata.DataPropertyName = "IdCitata";
+            colIdCitata.HeaderText = "IdCitata";
+            colIdCitata.Name = "colIdCitata";
+            colIdCitata.ReadOnly = true;
+            // 
+            // colTekst
+            // 
+            colTekst.DataPropertyName = "Tekst";
+            colTekst.HeaderText = "TekstualniKontekst";
+            colTekst.Name = "colTekst";
+            colTekst.ReadOnly = true;
+            // 
+            // colTipCitata
+            // 
+            colTipCitata.DataPropertyName = "TipCitata";
+            colTipCitata.HeaderText = "TipCitata";
+            colTipCitata.Name = "colTipCitata";
+            colTipCitata.ReadOnly = true;
+            // 
+            // colMestoCitiranja
+            // 
+            colMestoCitiranja.DataPropertyName = "MestoCitiranja";
+            colMestoCitiranja.HeaderText = "MestoCitiranja";
+            colMestoCitiranja.Name = "colMestoCitiranja";
+            colMestoCitiranja.ReadOnly = true;
             // 
             // btnDodaj
             // 
@@ -85,34 +113,6 @@ namespace DigitalniRepozitorijum.Forme
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
             // 
-            // colIdCitata
-            // 
-            colIdCitata.DataPropertyName = "IdCitata";
-            colIdCitata.HeaderText = "IdCitata";
-            colIdCitata.Name = "colIdCitata";
-            colIdCitata.ReadOnly = true;
-            // 
-            // colTekst
-            // 
-            colTekst.DataPropertyName = "Tekst";
-            colTekst.HeaderText = "TekstualniKontekst";
-            colTekst.Name = "colTekst";
-            colTekst.ReadOnly = true;
-            // 
-            // colTipCitata
-            // 
-            colTipCitata.DataPropertyName = "TipCitata";
-            colTipCitata.HeaderText = "TipCitata";
-            colTipCitata.Name = "colTipCitata";
-            colTipCitata.ReadOnly = true;
-            // 
-            // colMestoCitiranja
-            // 
-            colMestoCitiranja.DataPropertyName = "MestoCitiranja";
-            colMestoCitiranja.HeaderText = "MestoCitiranja";
-            colMestoCitiranja.Name = "colMestoCitiranja";
-            colMestoCitiranja.ReadOnly = true;
-            // 
             // CitatiPublikacijeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -125,6 +125,7 @@ namespace DigitalniRepozitorijum.Forme
             Name = "CitatiPublikacijeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CITATI";
+            Load += CitatiPublikacijeForm_Load_1;
             groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);

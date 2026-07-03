@@ -14,11 +14,6 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
         }
 
-        private void ZaposleniIstrazivaciForm_Load(object sender, EventArgs e)
-        {
-            PopuniPodacima();
-        }
-
         public void PopuniPodacima()
         {
             dataGridView.Rows.Clear();
@@ -65,6 +60,12 @@ namespace DigitalniRepozitorijum.Forme
                 DTOManager.obrisiAngazovanje(_idInstitucije.Value, idIstrazivaca.Value);
                 PopuniPodacima();
             }
+        }
+
+        private void ZaposleniIstrazivaciForm_Load_1(object sender, EventArgs e)
+        {
+            PopuniPodacima();
+
         }
     }
 }

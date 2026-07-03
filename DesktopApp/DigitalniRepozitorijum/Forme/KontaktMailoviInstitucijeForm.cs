@@ -14,10 +14,6 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi);
         }
 
-        private void KontaktMailoviInstitucijeForm_Load(object sender, EventArgs e)
-        {
-            PopuniPodacima();
-        }
 
         public void PopuniPodacima()
         {
@@ -65,6 +61,11 @@ namespace DigitalniRepozitorijum.Forme
                 DTOManager.obrisiKontaktMail(id.Value);
                 PopuniPodacima();
             }
+        }
+
+        private void KontaktMailoviInstitucijeForm_Load_1(object sender, EventArgs e)
+        {
+            PopuniPodacima();
         }
     }
 }

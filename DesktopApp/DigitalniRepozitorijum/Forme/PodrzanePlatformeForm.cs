@@ -43,5 +43,22 @@ namespace DigitalniRepozitorijum.Forme
                 MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void PodrzanePlatformeForm_Load(object sender, EventArgs e)
+        {
+            popuniPodacima();
+        }
+
+        public void popuniPodacima()
+        {
+            dataGridView.Rows.Clear();
+
+                
+
+            dataGridView.Refresh();
+        }
+
+
+
     }
 }

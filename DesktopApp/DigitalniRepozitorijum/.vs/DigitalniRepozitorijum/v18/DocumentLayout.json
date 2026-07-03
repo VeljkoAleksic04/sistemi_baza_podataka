@@ -3,28 +3,216 @@
   "WorkspaceRootPath": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\zaposleniistrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\zaposleniistrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\zaposleniistrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\zaposleniistrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\verzijepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\verzijepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\verzijepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\verzijepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\urednicipoglavljaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\urednicipoglavljaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\urednicipoglavljaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\urednicipoglavljaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\uredniciknjigeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\uredniciknjigeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\uredniciknjigeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\uredniciknjigeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\telefoniistrazivacaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\telefoniistrazivacaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\telefoniistrazivacaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\telefoniistrazivacaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\tehnickiizvestajiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\tehnickiizvestajiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\tehnickiizvestajiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\tehnickiizvestajiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\recenzentiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\recenzentiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\recenzentiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\recenzentiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\publikacijeautoraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeautoraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\publikacijeautoraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeautoraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\prezentacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\prezentacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\prezentacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\prezentacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\poglavljauknjiziform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\poglavljauknjiziform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\poglavljauknjiziform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\poglavljauknjiziform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\obrazovnimaterijaliform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\obrazovnimaterijaliform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\obrazovnimaterijaliform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\obrazovnimaterijaliform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\nizocenaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\nizocenaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\nizocenaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\nizocenaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucneoblastiinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucneoblastiinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucneoblastiinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucneoblastiinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\kontakttelefoniinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\kontakttelefoniinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\kontakttelefoniinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\kontakttelefoniinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\kontaktmailoviinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\kontaktmailoviinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\kontaktmailoviinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\kontaktmailoviinstitucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\knjigeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\knjigeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\kljucnerecipublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\kljucnerecipublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\kljucnerecipublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\kljucnerecipublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\istrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\istrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\istrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\istrazivaciform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\institucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\institucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\institucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\institucijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\fajloviverzijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\fajloviverzijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\fajloviverzijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\fajloviverzijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\emailadreseistrazivacaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\emailadreseistrazivacaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\doktorskedisertacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\doktorskedisertacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\doktorskedisertacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\doktorskedisertacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\entiteti\\knjiga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:entiteti\\knjiga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\entiteti\\publikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:entiteti\\publikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +226,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 16,
               "Title": "PublikacijeForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeForm.cs",
               "RelativeDocumentMoniker": "Forme\\PublikacijeForm.cs",
@@ -55,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 52,
               "Title": "PublikacijeForm.cs",
               "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeForm.cs",
               "RelativeDocumentMoniker": "Forme\\PublikacijeForm.cs",
@@ -64,38 +252,635 @@
               "ViewState": "AgIAABkAAAAAAAAAAAAuwCcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-02T11:44:20.563Z",
-              "IsPinned": true,
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ZaposleniIstrazivaciForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ZaposleniIstrazivaciForm.cs",
+              "RelativeDocumentMoniker": "Forme\\ZaposleniIstrazivaciForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ZaposleniIstrazivaciForm.cs",
+              "RelativeToolTip": "Forme\\ZaposleniIstrazivaciForm.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwDwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:13:10.691Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Publikacija.cs",
-              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Entiteti\\Publikacija.cs",
-              "RelativeDocumentMoniker": "Entiteti\\Publikacija.cs",
-              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Entiteti\\Publikacija.cs",
-              "RelativeToolTip": "Entiteti\\Publikacija.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "VerzijePublikacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\VerzijePublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\VerzijePublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\VerzijePublikacijeForm.cs",
+              "RelativeToolTip": "Forme\\VerzijePublikacijeForm.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAvwDgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T16:50:24.685Z",
+              "WhenOpened": "2026-07-03T14:13:07.698Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Knjiga.cs",
-              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Entiteti\\Knjiga.cs",
-              "RelativeDocumentMoniker": "Entiteti\\Knjiga.cs",
-              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Entiteti\\Knjiga.cs",
-              "RelativeToolTip": "Entiteti\\Knjiga.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA4AAAAAAAAAA==",
+              "Title": "VerzijePublikacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\VerzijePublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\VerzijePublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\VerzijePublikacijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\VerzijePublikacijeForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T16:49:31.331Z",
+              "WhenOpened": "2026-07-03T14:13:05.586Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ZaposleniIstrazivaciForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ZaposleniIstrazivaciForm.cs",
+              "RelativeDocumentMoniker": "Forme\\ZaposleniIstrazivaciForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ZaposleniIstrazivaciForm.cs [Design]",
+              "RelativeToolTip": "Forme\\ZaposleniIstrazivaciForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:13:04.231Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UredniciPoglavljaForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciPoglavljaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\UredniciPoglavljaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciPoglavljaForm.cs",
+              "RelativeToolTip": "Forme\\UredniciPoglavljaForm.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAIAzwBMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:13:01.469Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UredniciPoglavljaForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciPoglavljaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\UredniciPoglavljaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciPoglavljaForm.cs [Design]",
+              "RelativeToolTip": "Forme\\UredniciPoglavljaForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:58.837Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "UredniciKnjigeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciKnjigeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\UredniciKnjigeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciKnjigeForm.cs",
+              "RelativeToolTip": "Forme\\UredniciKnjigeForm.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAEwBMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:55.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UredniciKnjigeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciKnjigeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\UredniciKnjigeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\UredniciKnjigeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\UredniciKnjigeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:54.697Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TelefoniIstrazivacaForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TelefoniIstrazivacaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\TelefoniIstrazivacaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TelefoniIstrazivacaForm.cs",
+              "RelativeToolTip": "Forme\\TelefoniIstrazivacaForm.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:45.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TelefoniIstrazivacaForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TelefoniIstrazivacaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\TelefoniIstrazivacaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TelefoniIstrazivacaForm.cs [Design]",
+              "RelativeToolTip": "Forme\\TelefoniIstrazivacaForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:44.074Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TehnickiIzvestajiForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TehnickiIzvestajiForm.cs",
+              "RelativeDocumentMoniker": "Forme\\TehnickiIzvestajiForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TehnickiIzvestajiForm.cs",
+              "RelativeToolTip": "Forme\\TehnickiIzvestajiForm.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAvwDUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:41.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TehnickiIzvestajiForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TehnickiIzvestajiForm.cs",
+              "RelativeDocumentMoniker": "Forme\\TehnickiIzvestajiForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\TehnickiIzvestajiForm.cs [Design]",
+              "RelativeToolTip": "Forme\\TehnickiIzvestajiForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:40.932Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SoftverskiArtefaktiForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs",
+              "RelativeDocumentMoniker": "Forme\\SoftverskiArtefaktiForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs",
+              "RelativeToolTip": "Forme\\SoftverskiArtefaktiForm.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAewFQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:38.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SoftverskiArtefaktiForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs",
+              "RelativeDocumentMoniker": "Forme\\SoftverskiArtefaktiForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs [Design]",
+              "RelativeToolTip": "Forme\\SoftverskiArtefaktiForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:12:37.554Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RecenzentiForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\RecenzentiForm.cs",
+              "RelativeDocumentMoniker": "Forme\\RecenzentiForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\RecenzentiForm.cs",
+              "RelativeToolTip": "Forme\\RecenzentiForm.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA5wBEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:11:24.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RecenzentiForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\RecenzentiForm.cs",
+              "RelativeDocumentMoniker": "Forme\\RecenzentiForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\RecenzentiForm.cs [Design]",
+              "RelativeToolTip": "Forme\\RecenzentiForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:11:23.622Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PublikacijeAutoraForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeAutoraForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PublikacijeAutoraForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeAutoraForm.cs",
+              "RelativeToolTip": "Forme\\PublikacijeAutoraForm.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:11:10.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "PublikacijeAutoraForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeAutoraForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PublikacijeAutoraForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeAutoraForm.cs [Design]",
+              "RelativeToolTip": "Forme\\PublikacijeAutoraForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:11:09.117Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PrezentacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PrezentacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PrezentacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PrezentacijeForm.cs",
+              "RelativeToolTip": "Forme\\PrezentacijeForm.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAvwDUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:11:05.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PrezentacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PrezentacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PrezentacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PrezentacijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\PrezentacijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:11:00.257Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PovezanePublikacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PovezanePublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs",
+              "RelativeToolTip": "Forme\\PovezanePublikacijeForm.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:10:45.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PovezanePublikacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PovezanePublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\PovezanePublikacijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:10:44.355Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PoglavljaUKnjiziForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PoglavljaUKnjiziForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PoglavljaUKnjiziForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PoglavljaUKnjiziForm.cs",
+              "RelativeToolTip": "Forme\\PoglavljaUKnjiziForm.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAvwDoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:10:40.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PoglavljaUKnjiziForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PoglavljaUKnjiziForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PoglavljaUKnjiziForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PoglavljaUKnjiziForm.cs [Design]",
+              "RelativeToolTip": "Forme\\PoglavljaUKnjiziForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:10:39.326Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "PodrzanePlatformeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PodrzanePlatformeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs",
+              "RelativeToolTip": "Forme\\PodrzanePlatformeForm.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAmwDcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:09:26.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ObrazovniMaterijaliForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ObrazovniMaterijaliForm.cs",
+              "RelativeDocumentMoniker": "Forme\\ObrazovniMaterijaliForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ObrazovniMaterijaliForm.cs",
+              "RelativeToolTip": "Forme\\ObrazovniMaterijaliForm.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAcwDUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:09:13.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ObrazovniMaterijaliForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ObrazovniMaterijaliForm.cs",
+              "RelativeDocumentMoniker": "Forme\\ObrazovniMaterijaliForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\ObrazovniMaterijaliForm.cs [Design]",
+              "RelativeToolTip": "Forme\\ObrazovniMaterijaliForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:09:12.496Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PodrzanePlatformeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PodrzanePlatformeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\PodrzanePlatformeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:09:08.034Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "NizOcenaForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NizOcenaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NizOcenaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NizOcenaForm.cs",
+              "RelativeToolTip": "Forme\\NizOcenaForm.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:09:00.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "NizOcenaForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NizOcenaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NizOcenaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NizOcenaForm.cs [Design]",
+              "RelativeToolTip": "Forme\\NizOcenaForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:59.647Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "NaucniRadoviForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucniRadoviForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeToolTip": "Forme\\NaucniRadoviForm.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAlwDoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:48.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "NaucniRadoviForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucniRadoviForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs [Design]",
+              "RelativeToolTip": "Forme\\NaucniRadoviForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:47.643Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "NaucneOblastiInstitucijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucneOblastiInstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucneOblastiInstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucneOblastiInstitucijeForm.cs",
+              "RelativeToolTip": "Forme\\NaucneOblastiInstitucijeForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:40.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "NaucneOblastiInstitucijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucneOblastiInstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucneOblastiInstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucneOblastiInstitucijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\NaucneOblastiInstitucijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:39.218Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "KontaktTelefoniInstitucijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktTelefoniInstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KontaktTelefoniInstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktTelefoniInstitucijeForm.cs",
+              "RelativeToolTip": "Forme\\KontaktTelefoniInstitucijeForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:28.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "KontaktTelefoniInstitucijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktTelefoniInstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KontaktTelefoniInstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktTelefoniInstitucijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\KontaktTelefoniInstitucijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:27.7Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "KontaktMailoviInstitucijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktMailoviInstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KontaktMailoviInstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktMailoviInstitucijeForm.cs",
+              "RelativeToolTip": "Forme\\KontaktMailoviInstitucijeForm.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAhwEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:06.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "KontaktMailoviInstitucijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktMailoviInstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KontaktMailoviInstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KontaktMailoviInstitucijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\KontaktMailoviInstitucijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:05.098Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "KnjigeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KnjigeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KnjigeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KnjigeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\KnjigeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:04.447Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "KljucneReciPublikacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KljucneReciPublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KljucneReciPublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KljucneReciPublikacijeForm.cs",
+              "RelativeToolTip": "Forme\\KljucneReciPublikacijeForm.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAvwDcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:02.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "KljucneReciPublikacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KljucneReciPublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\KljucneReciPublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\KljucneReciPublikacijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\KljucneReciPublikacijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:08:00.187Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IstrazivaciForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\IstrazivaciForm.cs",
+              "RelativeDocumentMoniker": "Forme\\IstrazivaciForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\IstrazivaciForm.cs",
+              "RelativeToolTip": "Forme\\IstrazivaciForm.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAArwFsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:51.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IstrazivaciForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\IstrazivaciForm.cs",
+              "RelativeDocumentMoniker": "Forme\\IstrazivaciForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\IstrazivaciForm.cs [Design]",
+              "RelativeToolTip": "Forme\\IstrazivaciForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:51.005Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "InstitucijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\InstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\InstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\InstitucijeForm.cs",
+              "RelativeToolTip": "Forme\\InstitucijeForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAArwFEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:46.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "InstitucijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\InstitucijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\InstitucijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\InstitucijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\InstitucijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:45.097Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "FajloviVerzijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\FajloviVerzijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\FajloviVerzijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\FajloviVerzijeForm.cs",
+              "RelativeToolTip": "Forme\\FajloviVerzijeForm.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAvwCYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:41.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "FajloviVerzijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\FajloviVerzijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\FajloviVerzijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\FajloviVerzijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\FajloviVerzijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:40.858Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "EmailAdreseIstrazivacaForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\EmailAdreseIstrazivacaForm.cs",
+              "RelativeDocumentMoniker": "Forme\\EmailAdreseIstrazivacaForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\EmailAdreseIstrazivacaForm.cs [Design]",
+              "RelativeToolTip": "Forme\\EmailAdreseIstrazivacaForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:22.929Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "DoktorskeDisertacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DoktorskeDisertacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\DoktorskeDisertacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DoktorskeDisertacijeForm.cs",
+              "RelativeToolTip": "Forme\\DoktorskeDisertacijeForm.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAvwDUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:07:17.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "DoktorskeDisertacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DoktorskeDisertacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\DoktorskeDisertacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DoktorskeDisertacijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\DoktorskeDisertacijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T14:06:57.93Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
               "Title": "DTOs.cs",
               "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOs.cs",
               "RelativeDocumentMoniker": "DTOs.cs",
@@ -103,25 +888,11 @@
               "RelativeToolTip": "DTOs.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAADMBAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T16:44:02.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-02T16:44:02.049Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DTOManager.cs",
-              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
-              "RelativeDocumentMoniker": "DTOManager.cs",
-              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
-              "RelativeToolTip": "DTOManager.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAYwJYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-02T16:43:56.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 51,
               "Title": "DataLayer.cs",
               "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
               "RelativeDocumentMoniker": "DataLayer.cs",

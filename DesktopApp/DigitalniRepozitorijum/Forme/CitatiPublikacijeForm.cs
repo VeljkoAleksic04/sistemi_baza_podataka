@@ -61,10 +61,6 @@ namespace DigitalniRepozitorijum.Forme
             }
         }
 
-        private void CitatiPublikacijeForm_Load(object sender, EventArgs e)
-        {
-            popuniPodacima();
-        }
 
         public void popuniPodacima()
         {
@@ -78,6 +74,12 @@ namespace DigitalniRepozitorijum.Forme
             }
 
             dataGridView.Refresh();
+        }
+
+        private void CitatiPublikacijeForm_Load_1(object sender, EventArgs e)
+        {
+            popuniPodacima();
+
         }
     }
 }

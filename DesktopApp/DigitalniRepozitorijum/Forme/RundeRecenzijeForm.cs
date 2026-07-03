@@ -29,8 +29,17 @@ namespace DigitalniRepozitorijum.Forme
         public void popuniPodacima()
         {
             dataGridView.Rows.Clear();
-            dataGridView.DataSource = DTOManager.VratiRundeRecenzijeZaPrikaz();
+
+            List<RundaRecenzijePregled> podaci = DTOManager.VratiRundeRecenzijeZaPrikaz();
+
+            foreach (RundaRecenzijePregled p in podaci)
+            {
+                dataGridView.Rows.Add(p.Id, p.BrojRunde, p.Datum, p.KonacnaOdluka);
+            }
+
+            dataGridView.Refresh();
         }
+
 
         private void btnUrednik_Click(object sender, EventArgs e)
         {
@@ -43,7 +52,7 @@ namespace DigitalniRepozitorijum.Forme
                 string email = "";
                 if (urednik.Emailovi != null && urednik.Emailovi.Count > 0)
                     email = urednik.Emailovi[0].Email;
-                MessageBox.Show($"Urednik: {urednik.Ime} {urednik.Prezime}\nEmail: {email}", 
+                MessageBox.Show($"Urednik: {urednik.Ime} {urednik.Prezime}\nEmail: {email}",
                     "Urednik recenzije", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
