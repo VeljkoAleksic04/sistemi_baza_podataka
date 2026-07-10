@@ -6,6 +6,8 @@ public class VrsiRecenzijuMap : ClassMap<VrsiRecenziju>
 {
     public VrsiRecenzijuMap()
     {
+        Table("VRSI_RECENZIJU");
+
         Id(x => x.Id, "Id_Recenzije");
         Map(x => x.Preporuka, "Preporuka");
         

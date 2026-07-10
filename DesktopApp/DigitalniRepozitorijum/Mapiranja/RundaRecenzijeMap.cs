@@ -6,6 +6,8 @@ public class RundaRecenzijeMap : ClassMap<RundaRecenzije>
 {
     public RundaRecenzijeMap()
     {
+        Table("RUNDA_RECENZIJE");
+
         Id(x => x.Id, "Id_Runde_Recenzije");
         
         Map(x => x.BrojRunde, "Broj_Runde");

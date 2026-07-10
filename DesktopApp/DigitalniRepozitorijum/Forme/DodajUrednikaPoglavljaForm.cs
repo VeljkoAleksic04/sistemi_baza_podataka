@@ -26,7 +26,9 @@ namespace DigitalniRepozitorijum.Forme
 
                 PoglavljeUrednici noviUrednik = new PoglavljeUrednici
                 {
-                    IdPublikacije = _idPoglavlja,
+                    PoglavljeUKnjizi = new PoglavljeUKnjizi {
+                        Id = _idPoglavlja 
+                    },
                     Urednik = txtUrednik.Text
                 };
 

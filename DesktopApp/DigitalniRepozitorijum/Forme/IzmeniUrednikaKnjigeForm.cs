@@ -7,6 +7,7 @@ namespace DigitalniRepozitorijum.Forme
     public partial class IzmeniUrednikaKnjigeForm : Form
     {
         private int _id;
+        KnjigaUrednici u = new KnjigaUrednici();
 
         public IzmeniUrednikaKnjigeForm(int id)
         {
@@ -18,8 +19,8 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                KnjigaUrednici urednik = DTOManager.VratiUredikaKnijePoId(_id);
-                txtUrednik.Text = urednik.Urednik;
+                u = DTOManager.VratiUredikaKnijePoId(_id);
+                txtUrednik.Text = u.Urednik ?? "";
             }
             catch (Exception ex)
             {
@@ -40,7 +41,6 @@ namespace DigitalniRepozitorijum.Forme
                 KnjigaUredniciBasic urednik = new KnjigaUredniciBasic
                 {
                     Id = _id,
-                    IdPublikacije = DTOManager.VratiUredikaKnijePoId(_id).IdPublikacije,
                     Urednik = txtUrednik.Text
                 };
 

@@ -28,13 +28,17 @@ namespace DigitalniRepozitorijum.Forme
 
                 var urednici = DTOManager.VratiUrednikePoglavlja(_idPoglavlja);
 
+                colId.DataPropertyName = "Id";
+                colIdPublikacije.DataPropertyName = "IdPublikacije";
+                colUrednik.DataPropertyName = "Urednik";
+
                 List<dynamic> prikazUrednika = new List<dynamic>();
                 foreach (var urednik in urednici)
                 {
                     prikazUrednika.Add(new
                     {
                         Id = urednik.Id,
-                        IdPublikacije = urednik.IdPublikacije,
+                        IdPublikacije = urednik.PoglavljeUKnjizi?.Id ?? _idPoglavlja,
                         Urednik = urednik.Urednik
                     });
                 }
@@ -51,7 +55,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             if (dataGridViewUrednici.SelectedRows.Count > 0)
             {
-                return (int)dataGridViewUrednici.SelectedRows[0].Cells["Id"].Value;
+                return (int)dataGridViewUrednici.SelectedRows[0].Cells["colId"].Value;
             }
             return null;
         }

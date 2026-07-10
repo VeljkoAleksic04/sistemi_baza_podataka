@@ -1,4 +1,5 @@
 using DigitalniRepozitorijum.Entiteti;
+using NHibernate.Proxy;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -28,13 +29,17 @@ namespace DigitalniRepozitorijum.Forme
 
                 var urednici = DTOManager.VratiUrednikeKnjige(_idKnjige);
 
+                colId.DataPropertyName = "Id";
+                colIdPublikacije.DataPropertyName = "IdPublikacije";
+                colUrednik.DataPropertyName = "Urednik";
+
                 List<dynamic> prikazUrednika = new List<dynamic>();
                 foreach (var urednik in urednici)
                 {
                     prikazUrednika.Add(new
                     {
                         Id = urednik.Id,
-                        IdPublikacije = urednik.IdPublikacije,
+                        IdPublikacije = urednik.Knjiga?.Id ?? _idKnjige,
                         Urednik = urednik.Urednik
                     });
                 }
@@ -51,7 +56,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             if (dataGridViewUrednici.SelectedRows.Count > 0)
             {
-                return (int)dataGridViewUrednici.SelectedRows[0].Cells["Id"].Value;
+                return (int)dataGridViewUrednici.SelectedRows[0].Cells["colId"].Value;
             }
             return null;
         }

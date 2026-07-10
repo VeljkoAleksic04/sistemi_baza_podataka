@@ -5,6 +5,8 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class RundeRecenzijeForm : Form
     {
+        private int idPublikacije;
+
         public RundeRecenzijeForm()
         {
             InitializeComponent();
@@ -48,7 +50,14 @@ namespace DigitalniRepozitorijum.Forme
             try
             {
                 var runda = DTOManager.VratiRunduRecenzijePoId(id.Value);
-                var urednik = DTOManager.VratiIstrazivacaPoId(runda.IdUrednika);
+                var urednikId = runda.Urednik?.Id ?? runda.IdUrednika;
+                if (urednikId == 0)
+                {
+                    MessageBox.Show("Runda nema dodeljenog urednika.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var urednik = DTOManager.VratiIstrazivacaPoId(urednikId);
                 string email = "";
                 if (urednik.Emailovi != null && urednik.Emailovi.Count > 0)
                     email = urednik.Emailovi[0].Email;

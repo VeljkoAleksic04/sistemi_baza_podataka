@@ -265,6 +265,11 @@ namespace DigitalniRepozitorijum
             Izdavac = izdavac;
             MestoIzdanja = mestoIzdanja;
         }
+
+        public static implicit operator KnjigaBasic(Knjiga v)
+        {
+            throw new NotImplementedException();
+        }
     }
     #endregion
 
@@ -803,8 +808,8 @@ namespace DigitalniRepozitorijum
     public class KnjigaUredniciBasic
     {
         public int Id { get; set; }
-        public int IdPublikacije { get; set; }
-        public string Urednik { get; set; }
+        public KnjigaBasic? Knjiga { get; set; }
+        public string? Urednik { get; set; }
     }
     #endregion
 
@@ -813,8 +818,8 @@ namespace DigitalniRepozitorijum
     public class PoglavljeUredniciBasic
     {
         public int Id { get; set; }
-        public int IdPublikacije { get; set; }
-        public string Urednik { get; set; }
+        public PoglavljeUKnjiziBasic? PoglavljeUKnjizi { get; set; }
+        public string? Urednik { get; set; }
     }
     #endregion
 

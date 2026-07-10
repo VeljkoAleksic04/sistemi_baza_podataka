@@ -2686,8 +2686,8 @@ namespace DigitalniRepozitorijum
                     {
                         Id = runda.Id,
                         BrojRunde = runda.BrojRunde,
-                        IdPublikacije = runda.IdPublikacije,
-                        IdUrednika = runda.IdUrednika,
+                        IdPublikacije = runda.Publikacija?.Id ?? runda.IdPublikacije,
+                        IdUrednika = runda.Urednik?.Id ?? runda.IdUrednika,
                         Datum = runda.Datum,
                         KonacnaOdluka = runda.KonacnaOdluka ?? ""
                     };
@@ -2785,7 +2785,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from RUNDA_RECENZIJE where ID = :id");
+                var q = s.CreateQuery("delete from RundaRecenzije where Id = :id");
                 q.SetParameter("id", rundaId);
 
                 q.ExecuteUpdate();
@@ -2935,7 +2935,7 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var urednici = sesija.Query<KnjigaUrednici>().Where(ku => ku.IdPublikacije == idKnjige).ToList();
+                var urednici = sesija.Query<KnjigaUrednici>().Where(ku => ku.Knjiga.Id == idKnjige).ToList();
                 foreach (var urednik in urednici)
                 {
                     listaUrednika.Add(urednik);
@@ -2976,7 +2976,7 @@ namespace DigitalniRepozitorijum
 
                 KnjigaUrednici novi = new KnjigaUrednici
                 {
-                    IdPublikacije = urednik.IdPublikacije,
+                    Knjiga = urednik.Knjiga,
                     Urednik = urednik.Urednik
                 };
 
@@ -3001,7 +3001,6 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 KnjigaUrednici kunova = s.Get<KnjigaUrednici>(urednik.Id);
 
-                kunova.IdPublikacije = urednik.IdPublikacije;
                 kunova.Urednik = urednik.Urednik;
 
                 s.SaveOrUpdate(kunova);
@@ -3026,7 +3025,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from KNJIGA_UREDNICI where ID = :id");
+                var q = s.CreateQuery("delete from KNJIGA_UREDNICI where Id = :id");
                 q.SetParameter("id", uredikaId);
 
                 q.ExecuteUpdate();
@@ -3052,7 +3051,7 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var urednici = sesija.Query<PoglavljeUrednici>().Where(pu => pu.IdPublikacije == idPoglavlja).ToList();
+                var urednici = sesija.Query<PoglavljeUrednici>().Where(pu => pu.PoglavljeUKnjizi.Id == idPoglavlja).ToList();
                 foreach (var urednik in urednici)
                 {
                     listaUrednika.Add(urednik);
@@ -3093,7 +3092,7 @@ namespace DigitalniRepozitorijum
 
                 PoglavljeUrednici novi = new PoglavljeUrednici
                 {
-                    IdPublikacije = urednik.IdPublikacije,
+                    PoglavljeUKnjizi = urednik.PoglavljeUKnjizi,
                     Urednik = urednik.Urednik
                 };
 
@@ -3118,7 +3117,6 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 PoglavljeUrednici punova = s.Get<PoglavljeUrednici>(urednik.Id);
 
-                punova.IdPublikacije = urednik.IdPublikacije;
                 punova.Urednik = urednik.Urednik;
 
                 s.SaveOrUpdate(punova);
@@ -3143,7 +3141,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from POGLAVLJE_UREDNICI where ID = :id");
+                var q = s.CreateQuery("delete from POGLAVLJE_UREDNICI where Id = :id");
                 q.SetParameter("id", uredikaId);
 
                 q.ExecuteUpdate();

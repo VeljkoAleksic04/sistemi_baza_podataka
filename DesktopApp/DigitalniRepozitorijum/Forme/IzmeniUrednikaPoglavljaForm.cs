@@ -19,7 +19,7 @@ namespace DigitalniRepozitorijum.Forme
             try
             {
                 PoglavljeUrednici urednik = DTOManager.VratiUrednikaPoglavljaPoId(_id);
-                txtUrednik.Text = urednik.Urednik;
+                txtUrednik.Text = urednik.Urednik ?? "";
             }
             catch (Exception ex)
             {
@@ -40,7 +40,6 @@ namespace DigitalniRepozitorijum.Forme
                 PoglavljeUredniciBasic urednik = new PoglavljeUredniciBasic
                 {
                     Id = _id,
-                    IdPublikacije = DTOManager.VratiUrednikaPoglavljaPoId(_id).IdPublikacije,
                     Urednik = txtUrednik.Text
                 };
 

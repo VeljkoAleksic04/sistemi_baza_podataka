@@ -26,7 +26,10 @@ namespace DigitalniRepozitorijum.Forme
 
                 KnjigaUrednici noviUrednik = new KnjigaUrednici
                 {
-                    IdPublikacije = _idKnjige,
+                    Knjiga = new Knjiga
+                    {
+                        Id = _idKnjige
+                    },
                     Urednik = txtUrednik.Text
                 };
 

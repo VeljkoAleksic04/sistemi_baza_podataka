@@ -6,6 +6,8 @@ public class KnjigaUredniciMap : ClassMap<KnjigaUrednici>
 {
     public KnjigaUredniciMap()
     {
+        Table("KNJIGA_UREDNICI");
+
         Id(x => x.Id, "Id_Knjiga_Urednik");
         
         Map(x => x.Urednik, "Urednik");
