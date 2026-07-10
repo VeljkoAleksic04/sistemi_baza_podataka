@@ -73,9 +73,9 @@ DROP SEQUENCE seq_sa_platforma;
 DROP SEQUENCE seq_fajlovi;
 DROP SEQUENCE seq_knjiga_urednik;
 DROP SEQUENCE seq_poglavlje_urednik;
-DROP SEQUENCE seq_angazovanje
-DROP SEQUENCE seq_autorstvo
-DROP SEQUENCE seq_povezan_sa
-DROP SEQUENCE seq_citira
-DROP SEQUENCE seq_vrsi_recenziju
-DROP SEQUENCE seq_niz_ocena
+DROP SEQUENCE seq_angazovanje;
+DROP SEQUENCE seq_autorstvo;
+DROP SEQUENCE seq_povezan_sa;
+DROP SEQUENCE seq_citira;
+DROP SEQUENCE seq_vrsi_recenziju;
+DROP SEQUENCE seq_niz_ocena;
