@@ -15,63 +15,85 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblNaziv = new System.Windows.Forms.Label();
-            this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(20, 20);
-            this.lblNaziv.Name = "lblNaziv";
-            this.lblNaziv.Size = new System.Drawing.Size(120, 15);
-            this.lblNaziv.TabIndex = 0;
-            this.lblNaziv.Text = "Naziv:";
-            this.txtNaziv = new System.Windows.Forms.TextBox();
-            this.txtNaziv.Location = new System.Drawing.Point(160, 17);
-            this.txtNaziv.Name = "txtNaziv";
-            this.txtNaziv.Size = new System.Drawing.Size(230, 23);
-            this.txtNaziv.TabIndex = 1;
-            this.lblAdresa = new System.Windows.Forms.Label();
-            this.lblAdresa.AutoSize = true;
-            this.lblAdresa.Location = new System.Drawing.Point(20, 55);
-            this.lblAdresa.Name = "lblAdresa";
-            this.lblAdresa.Size = new System.Drawing.Size(120, 15);
-            this.lblAdresa.TabIndex = 0;
-            this.lblAdresa.Text = "Adresa:";
-            this.txtAdresa = new System.Windows.Forms.TextBox();
-            this.txtAdresa.Location = new System.Drawing.Point(160, 52);
-            this.txtAdresa.Name = "txtAdresa";
-            this.txtAdresa.Size = new System.Drawing.Size(230, 23);
-            this.txtAdresa.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 100);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 100);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 180);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblNaziv);
-            this.Controls.Add(this.txtNaziv);
-            this.Controls.Add(this.lblAdresa);
-            this.Controls.Add(this.txtAdresa);
-            this.Name = "IzmeniInstitucijuForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Izmeni instituciju";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblNaziv = new Label();
+            txtNaziv = new TextBox();
+            lblAdresa = new Label();
+            txtAdresa = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            SuspendLayout();
+            // 
+            // lblNaziv
+            // 
+            lblNaziv.AutoSize = true;
+            lblNaziv.Location = new Point(20, 20);
+            lblNaziv.Name = "lblNaziv";
+            lblNaziv.Size = new Size(39, 15);
+            lblNaziv.TabIndex = 0;
+            lblNaziv.Text = "Naziv:";
+            // 
+            // txtNaziv
+            // 
+            txtNaziv.Location = new Point(160, 17);
+            txtNaziv.Name = "txtNaziv";
+            txtNaziv.Size = new Size(230, 23);
+            txtNaziv.TabIndex = 1;
+            // 
+            // lblAdresa
+            // 
+            lblAdresa.AutoSize = true;
+            lblAdresa.Location = new Point(20, 55);
+            lblAdresa.Name = "lblAdresa";
+            lblAdresa.Size = new Size(46, 15);
+            lblAdresa.TabIndex = 0;
+            lblAdresa.Text = "Adresa:";
+            // 
+            // txtAdresa
+            // 
+            txtAdresa.Location = new Point(160, 52);
+            txtAdresa.Name = "txtAdresa";
+            txtAdresa.Size = new Size(230, 23);
+            txtAdresa.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 100);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 100);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // IzmeniInstitucijuForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 180);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblNaziv);
+            Controls.Add(txtNaziv);
+            Controls.Add(lblAdresa);
+            Controls.Add(txtAdresa);
+            Name = "IzmeniInstitucijuForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Izmeni instituciju";
+            Load += IzmeniInstitucijuForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;

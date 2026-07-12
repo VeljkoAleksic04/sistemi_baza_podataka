@@ -141,7 +141,7 @@ namespace DigitalniRepozitorijum.Forme
             Name = "AutoriPublikacijeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AUTORI PUBLIKACIJE";
-            Load += AutoriPublikacijeForm_Load_1;
+            Load += AutoriPublikacijeForm_Load;
             groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);

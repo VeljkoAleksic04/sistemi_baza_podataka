@@ -15,119 +15,164 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblNaslov = new System.Windows.Forms.Label();
-            this.lblNaslov.AutoSize = true;
-            this.lblNaslov.Location = new System.Drawing.Point(20, 20);
-            this.lblNaslov.Name = "lblNaslov";
-            this.lblNaslov.Size = new System.Drawing.Size(120, 15);
-            this.lblNaslov.TabIndex = 0;
-            this.lblNaslov.Text = "Naslov:";
-            this.txtNaslov = new System.Windows.Forms.TextBox();
-            this.txtNaslov.Location = new System.Drawing.Point(160, 17);
-            this.txtNaslov.Name = "txtNaslov";
-            this.txtNaslov.Size = new System.Drawing.Size(230, 23);
-            this.txtNaslov.TabIndex = 1;
-            this.lblApstrakt = new System.Windows.Forms.Label();
-            this.lblApstrakt.AutoSize = true;
-            this.lblApstrakt.Location = new System.Drawing.Point(20, 55);
-            this.lblApstrakt.Name = "lblApstrakt";
-            this.lblApstrakt.Size = new System.Drawing.Size(120, 15);
-            this.lblApstrakt.TabIndex = 0;
-            this.lblApstrakt.Text = "Apstrakt:";
-            this.txtApstrakt = new System.Windows.Forms.TextBox();
-            this.txtApstrakt.Location = new System.Drawing.Point(160, 52);
-            this.txtApstrakt.Name = "txtApstrakt";
-            this.txtApstrakt.Size = new System.Drawing.Size(230, 23);
-            this.txtApstrakt.TabIndex = 1;
-            this.lblJezik = new System.Windows.Forms.Label();
-            this.lblJezik.AutoSize = true;
-            this.lblJezik.Location = new System.Drawing.Point(20, 90);
-            this.lblJezik.Name = "lblJezik";
-            this.lblJezik.Size = new System.Drawing.Size(120, 15);
-            this.lblJezik.TabIndex = 0;
-            this.lblJezik.Text = "Jezik:";
-            this.txtJezik = new System.Windows.Forms.TextBox();
-            this.txtJezik.Location = new System.Drawing.Point(160, 87);
-            this.txtJezik.Name = "txtJezik";
-            this.txtJezik.Size = new System.Drawing.Size(230, 23);
-            this.txtJezik.TabIndex = 1;
-            this.lblDatumObjavljivanja = new System.Windows.Forms.Label();
-            this.lblDatumObjavljivanja.AutoSize = true;
-            this.lblDatumObjavljivanja.Location = new System.Drawing.Point(20, 125);
-            this.lblDatumObjavljivanja.Name = "lblDatumObjavljivanja";
-            this.lblDatumObjavljivanja.Size = new System.Drawing.Size(120, 15);
-            this.lblDatumObjavljivanja.TabIndex = 0;
-            this.lblDatumObjavljivanja.Text = "Datum objavljivanja:";
-            this.txtDatumObjavljivanja = new System.Windows.Forms.TextBox();
-            this.txtDatumObjavljivanja.Location = new System.Drawing.Point(160, 122);
-            this.txtDatumObjavljivanja.Name = "txtDatumObjavljivanja";
-            this.txtDatumObjavljivanja.Size = new System.Drawing.Size(230, 23);
-            this.txtDatumObjavljivanja.TabIndex = 1;
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(20, 160);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(120, 15);
-            this.lblStatus.TabIndex = 0;
-            this.lblStatus.Text = "Status:";
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.txtStatus.Location = new System.Drawing.Point(160, 157);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(230, 23);
-            this.txtStatus.TabIndex = 1;
-            this.lblVidljivost = new System.Windows.Forms.Label();
-            this.lblVidljivost.AutoSize = true;
-            this.lblVidljivost.Location = new System.Drawing.Point(20, 195);
-            this.lblVidljivost.Name = "lblVidljivost";
-            this.lblVidljivost.Size = new System.Drawing.Size(120, 15);
-            this.lblVidljivost.TabIndex = 0;
-            this.lblVidljivost.Text = "Vidljivost:";
-            this.txtVidljivost = new System.Windows.Forms.TextBox();
-            this.txtVidljivost.Location = new System.Drawing.Point(160, 192);
-            this.txtVidljivost.Name = "txtVidljivost";
-            this.txtVidljivost.Size = new System.Drawing.Size(230, 23);
-            this.txtVidljivost.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 240);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 240);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 290);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblNaslov);
-            this.Controls.Add(this.txtNaslov);
-            this.Controls.Add(this.lblApstrakt);
-            this.Controls.Add(this.txtApstrakt);
-            this.Controls.Add(this.lblJezik);
-            this.Controls.Add(this.txtJezik);
-            this.Controls.Add(this.lblDatumObjavljivanja);
-            this.Controls.Add(this.txtDatumObjavljivanja);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.lblVidljivost);
-            this.Controls.Add(this.txtVidljivost);
-            this.Name = "IzmeniPublikacijuForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Izmeni publikaciju";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblNaslov = new Label();
+            txtNaslov = new TextBox();
+            lblApstrakt = new Label();
+            txtApstrakt = new TextBox();
+            lblJezik = new Label();
+            txtJezik = new TextBox();
+            lblDatumObjavljivanja = new Label();
+            txtDatumObjavljivanja = new TextBox();
+            lblStatus = new Label();
+            txtStatus = new TextBox();
+            lblVidljivost = new Label();
+            txtVidljivost = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            SuspendLayout();
+            // 
+            // lblNaslov
+            // 
+            lblNaslov.AutoSize = true;
+            lblNaslov.Location = new Point(20, 20);
+            lblNaslov.Name = "lblNaslov";
+            lblNaslov.Size = new Size(46, 15);
+            lblNaslov.TabIndex = 0;
+            lblNaslov.Text = "Naslov:";
+            // 
+            // txtNaslov
+            // 
+            txtNaslov.Location = new Point(160, 17);
+            txtNaslov.Name = "txtNaslov";
+            txtNaslov.Size = new Size(230, 23);
+            txtNaslov.TabIndex = 1;
+            // 
+            // lblApstrakt
+            // 
+            lblApstrakt.AutoSize = true;
+            lblApstrakt.Location = new Point(20, 55);
+            lblApstrakt.Name = "lblApstrakt";
+            lblApstrakt.Size = new Size(54, 15);
+            lblApstrakt.TabIndex = 0;
+            lblApstrakt.Text = "Apstrakt:";
+            // 
+            // txtApstrakt
+            // 
+            txtApstrakt.Location = new Point(160, 52);
+            txtApstrakt.Name = "txtApstrakt";
+            txtApstrakt.Size = new Size(230, 23);
+            txtApstrakt.TabIndex = 1;
+            // 
+            // lblJezik
+            // 
+            lblJezik.AutoSize = true;
+            lblJezik.Location = new Point(20, 90);
+            lblJezik.Name = "lblJezik";
+            lblJezik.Size = new Size(34, 15);
+            lblJezik.TabIndex = 0;
+            lblJezik.Text = "Jezik:";
+            // 
+            // txtJezik
+            // 
+            txtJezik.Location = new Point(160, 87);
+            txtJezik.Name = "txtJezik";
+            txtJezik.Size = new Size(230, 23);
+            txtJezik.TabIndex = 1;
+            // 
+            // lblDatumObjavljivanja
+            // 
+            lblDatumObjavljivanja.AutoSize = true;
+            lblDatumObjavljivanja.Location = new Point(20, 125);
+            lblDatumObjavljivanja.Name = "lblDatumObjavljivanja";
+            lblDatumObjavljivanja.Size = new Size(115, 15);
+            lblDatumObjavljivanja.TabIndex = 0;
+            lblDatumObjavljivanja.Text = "Datum objavljivanja:";
+            // 
+            // txtDatumObjavljivanja
+            // 
+            txtDatumObjavljivanja.Location = new Point(160, 122);
+            txtDatumObjavljivanja.Name = "txtDatumObjavljivanja";
+            txtDatumObjavljivanja.Size = new Size(230, 23);
+            txtDatumObjavljivanja.TabIndex = 1;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(20, 160);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(42, 15);
+            lblStatus.TabIndex = 0;
+            lblStatus.Text = "Status:";
+            // 
+            // txtStatus
+            // 
+            txtStatus.Location = new Point(160, 157);
+            txtStatus.Name = "txtStatus";
+            txtStatus.Size = new Size(230, 23);
+            txtStatus.TabIndex = 1;
+            // 
+            // lblVidljivost
+            // 
+            lblVidljivost.AutoSize = true;
+            lblVidljivost.Location = new Point(20, 195);
+            lblVidljivost.Name = "lblVidljivost";
+            lblVidljivost.Size = new Size(58, 15);
+            lblVidljivost.TabIndex = 0;
+            lblVidljivost.Text = "Vidljivost:";
+            // 
+            // txtVidljivost
+            // 
+            txtVidljivost.Location = new Point(160, 192);
+            txtVidljivost.Name = "txtVidljivost";
+            txtVidljivost.Size = new Size(230, 23);
+            txtVidljivost.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 240);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 240);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // IzmeniPublikacijuForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 290);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblNaslov);
+            Controls.Add(txtNaslov);
+            Controls.Add(lblApstrakt);
+            Controls.Add(txtApstrakt);
+            Controls.Add(lblJezik);
+            Controls.Add(txtJezik);
+            Controls.Add(lblDatumObjavljivanja);
+            Controls.Add(txtDatumObjavljivanja);
+            Controls.Add(lblStatus);
+            Controls.Add(txtStatus);
+            Controls.Add(lblVidljivost);
+            Controls.Add(txtVidljivost);
+            Name = "IzmeniPublikacijuForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Izmeni publikaciju";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;

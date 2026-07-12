@@ -46,7 +46,8 @@ namespace DigitalniRepozitorijum.Forme
 
         private void PovezanePublikacijeForm_Load(object sender, EventArgs e)
         {
-
+            var povezanePublikacije = DTOManager.VratiPovezanePublikacije(_idPublikacije.Value);
+            dataGridView.DataSource = povezanePublikacije;
         }
     }
 }

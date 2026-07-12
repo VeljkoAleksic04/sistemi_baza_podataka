@@ -15,49 +15,65 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblTelefon = new System.Windows.Forms.Label();
-            this.lblTelefon.AutoSize = true;
-            this.lblTelefon.Location = new System.Drawing.Point(20, 20);
-            this.lblTelefon.Name = "lblTelefon";
-            this.lblTelefon.Size = new System.Drawing.Size(120, 15);
-            this.lblTelefon.TabIndex = 0;
-            this.lblTelefon.Text = "Telefon:";
-            this.txtTelefon = new System.Windows.Forms.TextBox();
-            this.txtTelefon.Location = new System.Drawing.Point(160, 17);
-            this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(230, 23);
-            this.txtTelefon.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 65);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 65);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 175);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblTelefon);
-            this.Controls.Add(this.txtTelefon);
-            this.Name = "IzmeniTelefonIstrazivacaForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Izmeni telefon";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblTelefon = new Label();
+            txtTelefon = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            SuspendLayout();
+            // 
+            // lblTelefon
+            // 
+            lblTelefon.AutoSize = true;
+            lblTelefon.Location = new Point(20, 20);
+            lblTelefon.Name = "lblTelefon";
+            lblTelefon.Size = new Size(48, 15);
+            lblTelefon.TabIndex = 0;
+            lblTelefon.Text = "Telefon:";
+            // 
+            // txtTelefon
+            // 
+            txtTelefon.Location = new Point(160, 17);
+            txtTelefon.Name = "txtTelefon";
+            txtTelefon.Size = new Size(230, 23);
+            txtTelefon.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 65);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 65);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // IzmeniTelefonIstrazivacaForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 175);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblTelefon);
+            Controls.Add(txtTelefon);
+            Name = "IzmeniTelefonIstrazivacaForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Izmeni telefon";
+            Load += IzmeniTelefonIstrazivacaForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;

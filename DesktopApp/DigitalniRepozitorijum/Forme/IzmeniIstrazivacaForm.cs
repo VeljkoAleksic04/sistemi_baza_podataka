@@ -13,19 +13,10 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
-        private void IzmeniIstrazivacaForm_Load(object sender, EventArgs e)
-        {
-            if (_id == null) return;
-            var dto = DTOManager.vratiIstrazivaca(_id.Value);
-            txtIme.Text = dto.Ime;
-            txtPrezime.Text = dto.Prezime;
-            txtDatumRodjenja.Text = dto.DatumRodjenja.ToShortDateString();
-            txtDrzava.Text = dto.Drzava;
-            txtStatusNaloga.Text = dto.StatusNaloga;
-            txtNaucnoZvanje.Text = dto.NaucnoZvanje;
-            txtNaucnaOblast.Text = dto.NaucnaOblast;
-            txtORCID.Text = dto.ORCID;
-        }
+        //private void IzmeniIstrazivacaForm_Load(object sender, EventArgs e)
+        //{
+            
+        //}
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
@@ -62,6 +53,20 @@ namespace DigitalniRepozitorijum.Forme
             MessageBox.Show("Uspesno ste azurirali istrazivaca!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void IzmeniIstrazivacaForm_Load_1(object sender, EventArgs e)
+        {
+            if (_id == null) return;
+            var dto = DTOManager.vratiIstrazivaca(_id.Value);
+            txtIme.Text = dto.Ime;
+            txtPrezime.Text = dto.Prezime;
+            txtDatumRodjenja.Text = dto.DatumRodjenja.ToShortDateString();
+            txtDrzava.Text = dto.Drzava;
+            txtStatusNaloga.Text = dto.StatusNaloga;
+            txtNaucnoZvanje.Text = dto.NaucnoZvanje;
+            txtNaucnaOblast.Text = dto.NaucnaOblast;
+            txtORCID.Text = dto.ORCID;
         }
     }
 }

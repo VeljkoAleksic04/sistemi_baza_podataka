@@ -75,11 +75,9 @@ namespace DigitalniRepozitorijum.Forme
 
             dataGridView.Refresh();
         }
-
-        private void CitatiPublikacijeForm_Load_1(object sender, EventArgs e)
+        private void CitatiPublikacijeForm_Load(object sender, EventArgs e)
         {
             popuniPodacima();
-
         }
     }
 }

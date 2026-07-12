@@ -200,6 +200,31 @@ namespace DigitalniRepozitorijum
             }
         }
 
+        public static List<PovezanSaPregled> VratiPovezanePublikacije(int idPublikacije1)
+        {
+            List<PovezanSaPregled> povezanePublikacije = new List<PovezanSaPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<PovezanSa> svePovezanePublikacije = from o in s.Query<PovezanSa>() where o.Publikacija1.Id == idPublikacije1 select o;
+                foreach (PovezanSa p in svePovezanePublikacije)
+                {
+                    povezanePublikacije.Add(new PovezanSaPregled
+                    {
+                        IdPublikacije2 = p.IdPublikacije2,
+                        Naslov = p.Publikacija1.Naslov,
+                        TipPovezanosti = p.TipPovezanosti
+                    });
+                }
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return povezanePublikacije;
+        }
+
         #endregion
 
 
@@ -1889,7 +1914,7 @@ namespace DigitalniRepozitorijum
 
                 foreach (var o in rezultati)
                     lista.Add(new AngazovanjePregled(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
-                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime,
+                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime, "",
                         o.NazivPozicije, o.DatumPocetka));
 
                 s.Close();
@@ -1911,7 +1936,7 @@ namespace DigitalniRepozitorijum
 
                 foreach (var o in rezultati)
                     lista.Add(new AngazovanjePregled(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
-                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime,
+                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime, o.TipAngazovanja,
                         o.NazivPozicije, o.DatumPocetka));
 
                 s.Close();
@@ -2012,9 +2037,9 @@ namespace DigitalniRepozitorijum
 
         #region Autorstvo
 
-        public static List<AutorstvoPregled> vratiSveAutorePublikacije(int idPublikacije)
+        public static List<AutorstvoBasic> vratiSveAutorePublikacije(int idPublikacije)
         {
-            List<AutorstvoPregled> lista = new List<AutorstvoPregled>();
+            List<AutorstvoBasic> lista = new List<AutorstvoBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -2024,9 +2049,9 @@ namespace DigitalniRepozitorijum
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AutorstvoPregled(o.Id.Publikacija.Id, o.Id.Autor.Id,
+                    lista.Add(new AutorstvoBasic(o.Id.Publikacija.Id, o.Id.Autor.Id,
                         o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
-                        o.RedosledAutora));
+                        o.RedosledAutora, o.TipDoprinosa, o.Uloga));
 
                 s.Close();
             }
@@ -2812,10 +2837,19 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var citati = sesija.Query<CitatBasic>().Where(c => c.IdCitira == idPublikacije).ToList();
+                var citati = sesija.Query<Citira>().Where(c => c.IdCitira == idPublikacije).ToList();
                 foreach (var citat in citati)
                 {
-                    listaCitata.Add(citat);
+                    CitatBasic cb = new CitatBasic
+                    {
+                        Id = citat.Id,
+                        IdCitira = citat.IdCitira,
+                        IdCitirana = citat.IdCitirana,
+                        MestoCitiranja = citat.MestoCitiranja,
+                        TekstualniKontekst = citat.TekstualniKontekst,
+                        TipCitata = citat.TipCitata
+                    };
+                    listaCitata.Add(cb);
                 }
 
                 sesija.Close();
@@ -2832,11 +2866,21 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                CitatBasic c = s.Get<CitatBasic>(id);
+                Citira c = s.Get<Citira>(id);
 
                 if (c == null) throw new Exception("Nije pronadjen citat...");
 
-                return c;
+                CitatBasic cb = new CitatBasic
+                {
+                    Id = c.Id,
+                    IdCitira = c.IdCitira,
+                    IdCitirana = c.IdCitirana,
+                    MestoCitiranja = c.MestoCitiranja,
+                    TekstualniKontekst = c.TekstualniKontekst,
+                    TipCitata = c.TipCitata
+                };
+
+                return cb;
             }
             catch (Exception ex)
             {

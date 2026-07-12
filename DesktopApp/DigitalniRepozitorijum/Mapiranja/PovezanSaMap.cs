@@ -6,6 +6,8 @@ public class PovezanSaMap : ClassMap<PovezanSa>
 {
     public PovezanSaMap() 
     {
+        Table("POVEZAN_SA");
+
         Id(x => x.Id, "Id_povezan");
         
         Map(x => x.TipPovezanosti, "Tip_povezanosti");

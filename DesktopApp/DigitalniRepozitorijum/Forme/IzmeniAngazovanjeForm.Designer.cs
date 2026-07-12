@@ -15,105 +15,145 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblOrganizacionaJedinica = new System.Windows.Forms.Label();
-            this.lblOrganizacionaJedinica.AutoSize = true;
-            this.lblOrganizacionaJedinica.Location = new System.Drawing.Point(20, 20);
-            this.lblOrganizacionaJedinica.Name = "lblOrganizacionaJedinica";
-            this.lblOrganizacionaJedinica.Size = new System.Drawing.Size(120, 15);
-            this.lblOrganizacionaJedinica.TabIndex = 0;
-            this.lblOrganizacionaJedinica.Text = "Org. jedinica:";
-            this.txtOrganizacionaJedinica = new System.Windows.Forms.TextBox();
-            this.txtOrganizacionaJedinica.Location = new System.Drawing.Point(160, 17);
-            this.txtOrganizacionaJedinica.Name = "txtOrganizacionaJedinica";
-            this.txtOrganizacionaJedinica.Size = new System.Drawing.Size(230, 23);
-            this.txtOrganizacionaJedinica.TabIndex = 1;
-            this.lblTipAngazovanja = new System.Windows.Forms.Label();
-            this.lblTipAngazovanja.AutoSize = true;
-            this.lblTipAngazovanja.Location = new System.Drawing.Point(20, 55);
-            this.lblTipAngazovanja.Name = "lblTipAngazovanja";
-            this.lblTipAngazovanja.Size = new System.Drawing.Size(120, 15);
-            this.lblTipAngazovanja.TabIndex = 0;
-            this.lblTipAngazovanja.Text = "Tip:";
-            this.txtTipAngazovanja = new System.Windows.Forms.TextBox();
-            this.txtTipAngazovanja.Location = new System.Drawing.Point(160, 52);
-            this.txtTipAngazovanja.Name = "txtTipAngazovanja";
-            this.txtTipAngazovanja.Size = new System.Drawing.Size(230, 23);
-            this.txtTipAngazovanja.TabIndex = 1;
-            this.lblNazivPozicije = new System.Windows.Forms.Label();
-            this.lblNazivPozicije.AutoSize = true;
-            this.lblNazivPozicije.Location = new System.Drawing.Point(20, 90);
-            this.lblNazivPozicije.Name = "lblNazivPozicije";
-            this.lblNazivPozicije.Size = new System.Drawing.Size(120, 15);
-            this.lblNazivPozicije.TabIndex = 0;
-            this.lblNazivPozicije.Text = "Pozicija:";
-            this.txtNazivPozicije = new System.Windows.Forms.TextBox();
-            this.txtNazivPozicije.Location = new System.Drawing.Point(160, 87);
-            this.txtNazivPozicije.Name = "txtNazivPozicije";
-            this.txtNazivPozicije.Size = new System.Drawing.Size(230, 23);
-            this.txtNazivPozicije.TabIndex = 1;
-            this.lblDatumPocetka = new System.Windows.Forms.Label();
-            this.lblDatumPocetka.AutoSize = true;
-            this.lblDatumPocetka.Location = new System.Drawing.Point(20, 125);
-            this.lblDatumPocetka.Name = "lblDatumPocetka";
-            this.lblDatumPocetka.Size = new System.Drawing.Size(120, 15);
-            this.lblDatumPocetka.TabIndex = 0;
-            this.lblDatumPocetka.Text = "Datum pocetka:";
-            this.txtDatumPocetka = new System.Windows.Forms.TextBox();
-            this.txtDatumPocetka.Location = new System.Drawing.Point(160, 122);
-            this.txtDatumPocetka.Name = "txtDatumPocetka";
-            this.txtDatumPocetka.Size = new System.Drawing.Size(230, 23);
-            this.txtDatumPocetka.TabIndex = 1;
-            this.lblDatumZavrsetka = new System.Windows.Forms.Label();
-            this.lblDatumZavrsetka.AutoSize = true;
-            this.lblDatumZavrsetka.Location = new System.Drawing.Point(20, 160);
-            this.lblDatumZavrsetka.Name = "lblDatumZavrsetka";
-            this.lblDatumZavrsetka.Size = new System.Drawing.Size(120, 15);
-            this.lblDatumZavrsetka.TabIndex = 0;
-            this.lblDatumZavrsetka.Text = "Datum zavrsetka:";
-            this.txtDatumZavrsetka = new System.Windows.Forms.TextBox();
-            this.txtDatumZavrsetka.Location = new System.Drawing.Point(160, 157);
-            this.txtDatumZavrsetka.Name = "txtDatumZavrsetka";
-            this.txtDatumZavrsetka.Size = new System.Drawing.Size(230, 23);
-            this.txtDatumZavrsetka.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 205);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 205);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 315);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblOrganizacionaJedinica);
-            this.Controls.Add(this.txtOrganizacionaJedinica);
-            this.Controls.Add(this.lblTipAngazovanja);
-            this.Controls.Add(this.txtTipAngazovanja);
-            this.Controls.Add(this.lblNazivPozicije);
-            this.Controls.Add(this.txtNazivPozicije);
-            this.Controls.Add(this.lblDatumPocetka);
-            this.Controls.Add(this.txtDatumPocetka);
-            this.Controls.Add(this.lblDatumZavrsetka);
-            this.Controls.Add(this.txtDatumZavrsetka);
-            this.Name = "IzmeniAngazovanjeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Izmeni angazovanje";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblOrganizacionaJedinica = new Label();
+            txtOrganizacionaJedinica = new TextBox();
+            lblTipAngazovanja = new Label();
+            txtTipAngazovanja = new TextBox();
+            lblNazivPozicije = new Label();
+            txtNazivPozicije = new TextBox();
+            lblDatumPocetka = new Label();
+            txtDatumPocetka = new TextBox();
+            lblDatumZavrsetka = new Label();
+            txtDatumZavrsetka = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            SuspendLayout();
+            // 
+            // lblOrganizacionaJedinica
+            // 
+            lblOrganizacionaJedinica.AutoSize = true;
+            lblOrganizacionaJedinica.Location = new Point(20, 20);
+            lblOrganizacionaJedinica.Name = "lblOrganizacionaJedinica";
+            lblOrganizacionaJedinica.Size = new Size(77, 15);
+            lblOrganizacionaJedinica.TabIndex = 0;
+            lblOrganizacionaJedinica.Text = "Org. jedinica:";
+            // 
+            // txtOrganizacionaJedinica
+            // 
+            txtOrganizacionaJedinica.Location = new Point(160, 17);
+            txtOrganizacionaJedinica.Name = "txtOrganizacionaJedinica";
+            txtOrganizacionaJedinica.Size = new Size(230, 23);
+            txtOrganizacionaJedinica.TabIndex = 1;
+            // 
+            // lblTipAngazovanja
+            // 
+            lblTipAngazovanja.AutoSize = true;
+            lblTipAngazovanja.Location = new Point(20, 55);
+            lblTipAngazovanja.Name = "lblTipAngazovanja";
+            lblTipAngazovanja.Size = new Size(26, 15);
+            lblTipAngazovanja.TabIndex = 0;
+            lblTipAngazovanja.Text = "Tip:";
+            // 
+            // txtTipAngazovanja
+            // 
+            txtTipAngazovanja.Location = new Point(160, 52);
+            txtTipAngazovanja.Name = "txtTipAngazovanja";
+            txtTipAngazovanja.Size = new Size(230, 23);
+            txtTipAngazovanja.TabIndex = 1;
+            // 
+            // lblNazivPozicije
+            // 
+            lblNazivPozicije.AutoSize = true;
+            lblNazivPozicije.Location = new Point(20, 90);
+            lblNazivPozicije.Name = "lblNazivPozicije";
+            lblNazivPozicije.Size = new Size(50, 15);
+            lblNazivPozicije.TabIndex = 0;
+            lblNazivPozicije.Text = "Pozicija:";
+            // 
+            // txtNazivPozicije
+            // 
+            txtNazivPozicije.Location = new Point(160, 87);
+            txtNazivPozicije.Name = "txtNazivPozicije";
+            txtNazivPozicije.Size = new Size(230, 23);
+            txtNazivPozicije.TabIndex = 1;
+            // 
+            // lblDatumPocetka
+            // 
+            lblDatumPocetka.AutoSize = true;
+            lblDatumPocetka.Location = new Point(20, 125);
+            lblDatumPocetka.Name = "lblDatumPocetka";
+            lblDatumPocetka.Size = new Size(91, 15);
+            lblDatumPocetka.TabIndex = 0;
+            lblDatumPocetka.Text = "Datum pocetka:";
+            // 
+            // txtDatumPocetka
+            // 
+            txtDatumPocetka.Location = new Point(160, 122);
+            txtDatumPocetka.Name = "txtDatumPocetka";
+            txtDatumPocetka.Size = new Size(230, 23);
+            txtDatumPocetka.TabIndex = 1;
+            // 
+            // lblDatumZavrsetka
+            // 
+            lblDatumZavrsetka.AutoSize = true;
+            lblDatumZavrsetka.Location = new Point(20, 160);
+            lblDatumZavrsetka.Name = "lblDatumZavrsetka";
+            lblDatumZavrsetka.Size = new Size(97, 15);
+            lblDatumZavrsetka.TabIndex = 0;
+            lblDatumZavrsetka.Text = "Datum zavrsetka:";
+            // 
+            // txtDatumZavrsetka
+            // 
+            txtDatumZavrsetka.Location = new Point(160, 157);
+            txtDatumZavrsetka.Name = "txtDatumZavrsetka";
+            txtDatumZavrsetka.Size = new Size(230, 23);
+            txtDatumZavrsetka.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 205);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 205);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // IzmeniAngazovanjeForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 315);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblOrganizacionaJedinica);
+            Controls.Add(txtOrganizacionaJedinica);
+            Controls.Add(lblTipAngazovanja);
+            Controls.Add(txtTipAngazovanja);
+            Controls.Add(lblNazivPozicije);
+            Controls.Add(txtNazivPozicije);
+            Controls.Add(lblDatumPocetka);
+            Controls.Add(txtDatumPocetka);
+            Controls.Add(lblDatumZavrsetka);
+            Controls.Add(txtDatumZavrsetka);
+            Name = "IzmeniAngazovanjeForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Izmeni angazovanje";
+            Load += IzmeniAngazovanjeForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;

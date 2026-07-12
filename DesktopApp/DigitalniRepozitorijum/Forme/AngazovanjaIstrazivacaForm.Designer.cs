@@ -149,7 +149,7 @@ namespace DigitalniRepozitorijum.Forme
             Name = "AngazovanjaIstrazivacaForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ANGAZOVANJA";
-            Load += AngazovanjaIstrazivacaForm_Load_1;
+            Load += AngazovanjaIstrazivacaForm_Load;
             groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);

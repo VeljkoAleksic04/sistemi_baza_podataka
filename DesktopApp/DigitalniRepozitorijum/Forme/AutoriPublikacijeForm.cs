@@ -22,10 +22,10 @@ namespace DigitalniRepozitorijum.Forme
 
             if (_idPublikacije == null) return;
 
-            List<AutorstvoPregled> podaci = DTOManager.vratiSveAutorePublikacije(_idPublikacije.Value);
+            List<AutorstvoBasic> podaci = DTOManager.vratiSveAutorePublikacije(_idPublikacije.Value);
 
             foreach (var p in podaci)
-                dataGridView.Rows.Add(p.IdAutora, p.ImeAutora, p.RedosledAutora);
+                dataGridView.Rows.Add(p.IdAutora, p.ImeAutora.Split(" ")[0], p.ImeAutora.Split(" ")[1], p.RedosledAutora, p.TipDoprinosa, p.Uloga);
 
             dataGridView.Refresh();
         }
@@ -64,10 +64,9 @@ namespace DigitalniRepozitorijum.Forme
             }
         }
 
-        private void AutoriPublikacijeForm_Load_1(object sender, EventArgs e)
+        private void AutoriPublikacijeForm_Load(object sender, EventArgs e)
         {
             PopuniPodacima();
-
         }
     }
 }

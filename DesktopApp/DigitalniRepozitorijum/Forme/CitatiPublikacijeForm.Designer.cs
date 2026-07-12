@@ -125,7 +125,7 @@ namespace DigitalniRepozitorijum.Forme
             Name = "CitatiPublikacijeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CITATI";
-            Load += CitatiPublikacijeForm_Load_1;
+            Load += CitatiPublikacijeForm_Load;
             groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);

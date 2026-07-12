@@ -28,6 +28,19 @@ namespace DigitalniRepozitorijum
             DatumObjavljivanja = datumObjavljivanja;
         }
     }
+    public class PovezanSaPregled
+    {
+        public int IdPublikacije2;
+        public string Naslov;
+        public string TipPovezanosti;
+        public PovezanSaPregled() { }
+        public PovezanSaPregled(int idPublikacije2, string naslov, string tipPovezanosti)
+        {
+            IdPublikacije2 = idPublikacije2;
+            Naslov = naslov;
+            TipPovezanosti = tipPovezanosti;
+        }
+    }
     public class PublikacijaBasic
     {
         public int Id;
@@ -558,16 +571,17 @@ namespace DigitalniRepozitorijum
         public int IdIstrazivaca;
         public string NazivInstitucije;
         public string ImeIstrazivaca;
+        public string? TipAngazovanja;
         public string NazivPozicije;
         public DateTime DatumPocetka;
 
         public AngazovanjePregled() { }
         public AngazovanjePregled(int idInstitucije, int idIstrazivaca, string nazivInstitucije,
-            string imeIstrazivaca, string nazivPozicije, DateTime datumPocetka)
+            string imeIstrazivaca, string tipAngazovanja, string nazivPozicije, DateTime datumPocetka)
         {
             IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
             NazivInstitucije = nazivInstitucije; ImeIstrazivaca = imeIstrazivaca;
-            NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka;
+            TipAngazovanja = tipAngazovanja;  NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka;
         }
     }
 

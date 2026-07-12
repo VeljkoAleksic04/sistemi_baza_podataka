@@ -61,7 +61,7 @@ namespace DigitalniRepozitorijum.Forme
             txtApstrakt.Text = nadjen.Apstrakt;
             tbJezik.Text = nadjen.Jezik;
             dateKreiranja.Value = nadjen.DatumKreiranjaZapisa;
-            dateObjave.Value = nadjen.DatumObjavljivanja;
+            dateObjave.Value = nadjen.DatumObjavljivanja == DateTime.MinValue ? dateObjave.MinDate : nadjen.DatumObjavljivanja;
             cmbStatus.SelectedItem = nadjen.Status;
             txtVidljivost.Text = nadjen.Vidljivost;
             txtDOI.Text = nadjen.DOI;

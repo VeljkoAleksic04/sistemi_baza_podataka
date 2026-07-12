@@ -15,14 +15,10 @@ namespace DigitalniRepozitorijum.Forme
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
-        private void IzmeniAutoraPublikacijeForm_Load(object sender, EventArgs e)
-        {
-            if (_idPublikacije == null || _idAutora == null) return;
-            var dto = DTOManager.vratiAutorstvo(_idPublikacije.Value, _idAutora.Value);
-            txtRedosled.Text = dto.RedosledAutora.ToString();
-            txtTipDoprinosa.Text = dto.TipDoprinosa;
-            txtUloga.Text = dto.Uloga;
-        }
+        //private void IzmeniAutoraPublikacijeForm_Load(object sender, EventArgs e)
+        //{
+            
+        //}
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
@@ -38,6 +34,15 @@ namespace DigitalniRepozitorijum.Forme
             DTOManager.azurirajAutorstvo(dto);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void IzmeniAutoraPublikacijeForm_Load_1(object sender, EventArgs e)
+        {
+            if (_idPublikacije == null || _idAutora == null) return;
+            var dto = DTOManager.vratiAutorstvo(_idPublikacije.Value, _idAutora.Value);
+            txtRedosled.Text = dto.RedosledAutora.ToString();
+            txtTipDoprinosa.Text = dto.TipDoprinosa;
+            txtUloga.Text = dto.Uloga;
         }
     }
 }
