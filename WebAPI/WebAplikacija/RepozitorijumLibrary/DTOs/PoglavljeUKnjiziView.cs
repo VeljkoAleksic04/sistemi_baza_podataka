@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RepozitorijumLibrary.DTOs
 {
-    internal class PoglavljeUKnjiziView : PublikacijaView
+    public class PoglavljeUKnjiziView : PublikacijaView
     {
         public string? Izdavac { get; set; }
         public string? MestoIzdanja { get; set; }

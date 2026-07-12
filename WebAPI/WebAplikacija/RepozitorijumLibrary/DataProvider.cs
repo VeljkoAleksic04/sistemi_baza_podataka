@@ -184,6 +184,42 @@ public static class DataProvider
     #endregion
 
     #region Knjiga
+    public static Result<List<KnjigaView>, ErrorMessage> VratiSveKnjige()
+    {
+        ISession? s = null;
+
+        List<KnjigaView> knjige = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+            {
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            }
+
+            IEnumerable<Knjiga> sveKnjige = from o in s.Query<Knjiga>()
+                                            select o;
+
+            foreach (Knjiga k in sveKnjige)
+            {
+                knjige.Add(new KnjigaView(k));
+            }
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve knjige.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return knjige;
+    }
+
     public async static Task<Result<bool, ErrorMessage>> ObrisiKnjiguAsync(int id)
     {
         ISession? s = null;
@@ -336,6 +372,43 @@ public static class DataProvider
     #endregion
 
     #region DoktorskaDisertacija
+    public static Result<List<DoktorskaDisertacijaView>, ErrorMessage> VratiSveDoktorskeDisertacije()
+    {
+        ISession? s = null;
+
+        List<DoktorskaDisertacijaView> disertacije = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+            {
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            }
+
+            IEnumerable<DoktorskaDisertacija> sveDisertacije =
+                from o in s.Query<DoktorskaDisertacija>()
+                select o;
+
+            foreach (DoktorskaDisertacija d in sveDisertacije)
+            {
+                disertacije.Add(new DoktorskaDisertacijaView(d));
+            }
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve doktorske disertacije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return disertacije;
+    }
+
     public static Result<bool, ErrorMessage> ObrisiDoktorskuDisertaciju(int id)
     {
         ISession? s = null;
@@ -470,6 +543,43 @@ public static class DataProvider
     #endregion
 
     #region ObrazovniMaterijal
+    public static Result<List<ObrazovniMaterijalView>, ErrorMessage> VratiSveObrazovneMaterijale()
+    {
+        ISession? s = null;
+
+        List<ObrazovniMaterijalView> materijali = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+            {
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            }
+
+            IEnumerable<ObrazovniMaterijal> sviMaterijali =
+                from o in s.Query<ObrazovniMaterijal>()
+                select o;
+
+            foreach (ObrazovniMaterijal m in sviMaterijali)
+            {
+                materijali.Add(new ObrazovniMaterijalView(m));
+            }
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve obrazovne materijale.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return materijali;
+    }
+
     public static Result<bool, ErrorMessage> ObrisiObrazovniMaterijal(int id)
     {
         try
@@ -597,6 +707,43 @@ public static class DataProvider
     #endregion
 
     #region Prezentacija
+    public static Result<List<PrezentacijaView>, ErrorMessage> VratiSvePrezentacije()
+    {
+        ISession? s = null;
+
+        List<PrezentacijaView> prezentacije = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+            {
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            }
+
+            IEnumerable<Prezentacija> svePrezentacije =
+                from o in s.Query<Prezentacija>()
+                select o;
+
+            foreach (Prezentacija p in svePrezentacije)
+            {
+                prezentacije.Add(new PrezentacijaView(p));
+            }
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve prezentacije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return prezentacije;
+    }
+
     public static Result<bool, ErrorMessage> ObrisiPrezentaciju(int id)
     {
         ISession? s = null;
@@ -731,6 +878,42 @@ public static class DataProvider
     #endregion
 
     #region TehnickiIzvestaj
+    public static Result<List<TehnickiIzvestajView>, ErrorMessage> VratiSveTehnickeIzvestaje()
+    {
+        ISession? s = null;
+
+        List<TehnickiIzvestajView> izvestaji = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+            {
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            }
+
+            IEnumerable<TehnickiIzvestaj> sviIzvestaji =
+                from o in s.Query<TehnickiIzvestaj>()
+                select o;
+
+            foreach (TehnickiIzvestaj t in sviIzvestaji)
+            {
+                izvestaji.Add(new TehnickiIzvestajView(t));
+            }
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve tehničke izveštaje.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return izvestaji;
+    }
     public static Result<bool, ErrorMessage> ObrisiTehnickiIzvestaj(int id)
     {
         try
@@ -858,7 +1041,44 @@ public static class DataProvider
     #endregion
 
     #region PoglavljeUKnjizi
-    internal static Result<bool, ErrorMessage> ObrisiPoglavljeUKnjizi(int id)
+    public static Result<List<PoglavljeUKnjiziView>, ErrorMessage> VratiSvaPoglavljaUKnjizi()
+    {
+        ISession? s = null;
+
+        List<PoglavljeUKnjiziView> poglavlja = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+            {
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            }
+
+            IEnumerable<PoglavljeUKnjizi> svaPoglavlja =
+                from o in s.Query<PoglavljeUKnjizi>()
+                select o;
+
+            foreach (PoglavljeUKnjizi p in svaPoglavlja)
+            {
+                poglavlja.Add(new PoglavljeUKnjiziView(p));
+            }
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sva poglavlja u knjizi.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return poglavlja;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiPoglavljeUKnjizi(int id)
     {
         try
         {
@@ -883,7 +1103,7 @@ public static class DataProvider
         return true;
     }
 
-    internal static Result<PoglavljeUKnjiziView, ErrorMessage> VratiPoglavljeUKnjizi(int id)
+    public static Result<PoglavljeUKnjiziView, ErrorMessage> VratiPoglavljeUKnjizi(int id)
     {
         PoglavljeUKnjiziView o = new();
 
@@ -919,7 +1139,7 @@ public static class DataProvider
         return o;
     }
 
-    internal static Result<bool, ErrorMessage> IzmeniPoglavljeUKnjizi(PoglavljeUKnjiziView poglavlje)
+    public static Result<bool, ErrorMessage> IzmeniPoglavljeUKnjizi(PoglavljeUKnjiziView poglavlje)
     {
         try
         {
@@ -954,7 +1174,7 @@ public static class DataProvider
         return true;
     }
 
-    internal static Result<bool, ErrorMessage> SacuvajPoglavljeUKnjizi(PoglavljeUKnjiziView poglavlje)
+    public static Result<bool, ErrorMessage> SacuvajPoglavljeUKnjizi(PoglavljeUKnjiziView poglavlje)
     {
         try
         {
@@ -1539,7 +1759,7 @@ public static class DataProvider
         return true;
     }
 
-    public async static Task<Result<bool, ErrorMessage>> SacuvajKljucnuRecAsync(PublikacijaKljucnaRecView p)
+    public async static Task<Result<bool, ErrorMessage>> SacuvajKljucnuRecAsync(PublikacijaKljucnaRecView p, int publikacijaId)
     {
         ISession? s = null;
 
@@ -1552,9 +1772,11 @@ public static class DataProvider
                 return "Nemoguće otvoriti sesiju.".ToError(403);
             }
 
+            Publikacija pub = await s.LoadAsync<Publikacija>(publikacijaId);
+
             PublikacijaKljucnaRec a = new()
             {
-                Publikacija = await s.LoadAsync<Publikacija>(p.Publikacija?.Id),
+                Publikacija = pub,
                 KljucnaRec = p.KljucnaRec
             };
 
