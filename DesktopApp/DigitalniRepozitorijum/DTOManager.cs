@@ -1,4 +1,5 @@
 ﻿using DigitalniRepozitorijum.Entiteti;
+using FluentNHibernate.Conventions;
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -2294,7 +2295,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from NAUCNI_RAD where ID = :id");
+                var q = s.CreateQuery("delete from NaucniRad where ID = :id");
                 q.SetParameter("id", radId);
 
                 q.ExecuteUpdate();
@@ -2489,12 +2490,13 @@ namespace DigitalniRepozitorijum
             {
                 return status;
             }
+           
             try
             {
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from DATASET where ID = :id");
+                var q = s.CreateQuery("delete from Dataset where ID = :id");
                 q.SetParameter("id", datasetId);
 
                 q.ExecuteUpdate();
@@ -2656,7 +2658,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from SOFTVERSKI_ARTEFAKT where ID = :id");
+                var q = s.CreateQuery("delete from SoftverskiArtefakt where ID = :id");
                 q.SetParameter("id", artefaktId);
 
                 q.ExecuteUpdate();
@@ -2837,14 +2839,14 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var citati = sesija.Query<Citira>().Where(c => c.IdCitira == idPublikacije).ToList();
+                var citati = sesija.Query<Citira>().Where(c => c.PubCitira.Id == idPublikacije).ToList();
                 foreach (var citat in citati)
                 {
                     CitatBasic cb = new CitatBasic
                     {
                         Id = citat.Id,
-                        IdCitira = citat.IdCitira,
-                        IdCitirana = citat.IdCitirana,
+                        PubCitira = new PublikacijaBasic(citat.PubCitira.Id, citat.PubCitira.Naslov, citat.PubCitira.Apstrakt, citat.PubCitira.Jezik, citat.PubCitira.Status, citat.PubCitira.Vidljivost, citat.PubCitira.DatumObjavljivanja, citat.PubCitira.DatumKreiranjaZapisa),
+                        PubCitirana = new PublikacijaBasic(citat.PubCitirana.Id, citat.PubCitirana.Naslov, citat.PubCitirana.Apstrakt, citat.PubCitirana.Jezik, citat.PubCitirana.Status, citat.PubCitirana.Vidljivost, citat.PubCitirana.DatumObjavljivanja, citat.PubCitirana.DatumKreiranjaZapisa),
                         MestoCitiranja = citat.MestoCitiranja,
                         TekstualniKontekst = citat.TekstualniKontekst,
                         TipCitata = citat.TipCitata
@@ -2873,8 +2875,8 @@ namespace DigitalniRepozitorijum
                 CitatBasic cb = new CitatBasic
                 {
                     Id = c.Id,
-                    IdCitira = c.IdCitira,
-                    IdCitirana = c.IdCitirana,
+                    PubCitira = new PublikacijaBasic(c.PubCitira.Id, c.PubCitira.Naslov, c.PubCitira.Apstrakt, c.PubCitira.Jezik, c.PubCitira.Status, c.PubCitira.Vidljivost, c.PubCitira.DatumObjavljivanja, c.PubCitira.DatumKreiranjaZapisa),
+                    PubCitirana = new PublikacijaBasic(c.PubCitirana.Id, c.PubCitirana.Naslov, c.PubCitirana.Apstrakt, c.PubCitirana.Jezik, c.PubCitirana.Status, c.PubCitirana.Vidljivost, c.PubCitirana.DatumObjavljivanja, c.PubCitirana.DatumKreiranjaZapisa),
                     MestoCitiranja = c.MestoCitiranja,
                     TekstualniKontekst = c.TekstualniKontekst,
                     TipCitata = c.TipCitata
@@ -2897,8 +2899,8 @@ namespace DigitalniRepozitorijum
 
                 CitatBasic novi = new CitatBasic
                 {
-                    IdCitira = citat.IdCitira,
-                    IdCitirana = citat.IdCitirana,
+                    PubCitira = citat.PubCitira,
+                    PubCitirana = citat.PubCitirana,
                     TipCitata = citat.TipCitata,
                     MestoCitiranja = citat.MestoCitiranja,
                     TekstualniKontekst = citat.TekstualniKontekst
@@ -2925,8 +2927,8 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 CitatBasic cnova = s.Get<CitatBasic>(citat.Id);
 
-                cnova.IdCitira = citat.IdCitira;
-                cnova.IdCitirana = citat.IdCitirana;
+                cnova.PubCitira = citat.PubCitira;
+                cnova.PubCitirana = citat.PubCitirana;
                 cnova.TipCitata = citat.TipCitata;
                 cnova.MestoCitiranja = citat.MestoCitiranja;
                 cnova.TekstualniKontekst = citat.TekstualniKontekst;
@@ -2953,7 +2955,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from CITIRA where ID = :id");
+                var q = s.CreateQuery("delete from Citira where ID = :id");
                 q.SetParameter("id", citatId);
 
                 q.ExecuteUpdate();
@@ -3069,7 +3071,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from KNJIGA_UREDNICI where Id = :id");
+                var q = s.CreateQuery("delete from KnjigaUrednici where Id = :id");
                 q.SetParameter("id", uredikaId);
 
                 q.ExecuteUpdate();
@@ -3185,7 +3187,7 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from POGLAVLJE_UREDNICI where Id = :id");
+                var q = s.CreateQuery("delete from PoglavljeUrednici where Id = :id");
                 q.SetParameter("id", uredikaId);
 
                 q.ExecuteUpdate();

@@ -19,14 +19,14 @@ namespace DigitalniRepozitorijum.Forme
         {
             groupBox = new GroupBox();
             dataGridView = new DataGridView();
-            colId = new DataGridViewTextBoxColumn();
-            colNaslov = new DataGridViewTextBoxColumn();
-            colProgramskiJezik = new DataGridViewTextBoxColumn();
-            colNacinLicenciranja = new DataGridViewTextBoxColumn();
             btnDodaj = new Button();
             btnIzmeni = new Button();
             btnObrisi = new Button();
             btnExtra = new Button();
+            colId = new DataGridViewTextBoxColumn();
+            colNaslov = new DataGridViewTextBoxColumn();
+            colProgramskiJezik = new DataGridViewTextBoxColumn();
+            colRepo = new DataGridViewTextBoxColumn();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -46,7 +46,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colId, colNaslov, colProgramskiJezik, colNacinLicenciranja });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colId, colNaslov, colProgramskiJezik, colRepo });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(3, 19);
             dataGridView.MultiSelect = false;
@@ -55,34 +55,6 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
-            // 
-            // colId
-            // 
-            colId.DataPropertyName = "Id";
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colNaslov
-            // 
-            colNaslov.DataPropertyName = "Naslov";
-            colNaslov.HeaderText = "Naslov";
-            colNaslov.Name = "colNaslov";
-            colNaslov.ReadOnly = true;
-            // 
-            // colProgramskiJezik
-            // 
-            colProgramskiJezik.DataPropertyName = "ProgramskiJezik";
-            colProgramskiJezik.HeaderText = "ProgramskiJezik";
-            colProgramskiJezik.Name = "colProgramskiJezik";
-            colProgramskiJezik.ReadOnly = true;
-            // 
-            // colNacinLicenciranja
-            // 
-            colNacinLicenciranja.DataPropertyName = "NacinLicenciranja";
-            colNacinLicenciranja.HeaderText = "NacinLicenciranja";
-            colNacinLicenciranja.Name = "colNacinLicenciranja";
-            colNacinLicenciranja.ReadOnly = true;
             // 
             // btnDodaj
             // 
@@ -124,6 +96,34 @@ namespace DigitalniRepozitorijum.Forme
             btnExtra.UseVisualStyleBackColor = true;
             btnExtra.Click += btnExtra_Click;
             // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colNaslov
+            // 
+            colNaslov.DataPropertyName = "Naslov";
+            colNaslov.HeaderText = "Naslov";
+            colNaslov.Name = "colNaslov";
+            colNaslov.ReadOnly = true;
+            // 
+            // colProgramskiJezik
+            // 
+            colProgramskiJezik.DataPropertyName = "ProgramskiJezik";
+            colProgramskiJezik.HeaderText = "ProgramskiJezik";
+            colProgramskiJezik.Name = "colProgramskiJezik";
+            colProgramskiJezik.ReadOnly = true;
+            // 
+            // colRepo
+            // 
+            colRepo.DataPropertyName = "NacinLicenciranja";
+            colRepo.HeaderText = "Link";
+            colRepo.Name = "colRepo";
+            colRepo.ReadOnly = true;
+            // 
             // SoftverskiArtefaktiForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -147,13 +147,13 @@ namespace DigitalniRepozitorijum.Forme
 
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNaslov;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProgramskiJezik;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNacinLicenciranja;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnExtra;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colNaslov;
+        private DataGridViewTextBoxColumn colProgramskiJezik;
+        private DataGridViewTextBoxColumn colRepo;
     }
 }

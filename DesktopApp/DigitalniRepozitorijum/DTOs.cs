@@ -16,6 +16,9 @@ namespace DigitalniRepozitorijum
         public string Vidljivost;
         public DateTime DatumObjavljivanja;
 
+        public int ID { get { return Id; } }
+        public string NASLOV { get { return Naslov; } }
+
         public PublikacijaPregled() { }
 
         public PublikacijaPregled(int id, string naslov, string jezik, string status, string vidljivost, DateTime datumObjavljivanja)
@@ -454,6 +457,13 @@ namespace DigitalniRepozitorijum
         public string NaucnoZvanje;
         public string NaucnaOblast;
 
+
+        public int ID { get { return Id; } }
+        public string PunoIme // za ispis u ComboBox-u
+        {
+            get { return $"{Ime} {Prezime}"; }
+        }
+
         public IstrazivacPregled() { }
         public IstrazivacPregled(int id, string ime, string prezime, DateTime datumRodjenja,
             string drzava, string statusNaloga, string naucnoZvanje, string naucnaOblast)
@@ -786,8 +796,8 @@ namespace DigitalniRepozitorijum
     public class CitatBasic
     {
         public int Id { get; set; }
-        public int IdCitira { get; set; }
-        public int IdCitirana { get; set; }
+        public PublikacijaBasic PubCitira { get; set; }
+        public PublikacijaBasic PubCitirana { get; set; }
         public string TipCitata { get; set; }
         public string MestoCitiranja { get; set; }
         public string TekstualniKontekst { get; set; }

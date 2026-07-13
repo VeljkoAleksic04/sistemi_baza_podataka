@@ -8,12 +8,15 @@ namespace DigitalniRepozitorijum.Forme
     public partial class IzmeniCitatForm : Form
     {
         private readonly int? _idPublikacije;
-        private readonly int? _id;
+        private readonly int? _idPubCitat;
+        private readonly int? _idCitata;
 
-        public IzmeniCitatForm(int? idPublikacije = null, int? id = null)
+        public IzmeniCitatForm(int? idPublikacije = null, int? idPubCitat = null, int? idCitata = null)
         {
             _idPublikacije = idPublikacije;
-            _id = id;
+            _idPubCitat = idPubCitat;
+            _idCitata = idCitata;
+
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
@@ -22,11 +25,14 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
+                PublikacijaBasic pubCitira = DTOManager.vratiPublikaciju(_idPublikacije.Value);
+                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(_idPubCitat.Value);
+
                 CitatBasic citat = new CitatBasic
                 {
-                    Id = (int)_id,
-                    IdCitira = _idPublikacije.Value,
-                    IdCitirana = int.Parse(txtTipCitata.Text),
+                    Id = (int)_idCitata,
+                    PubCitira = pubCitira,
+                    PubCitirana = pubCitirana,
                     TipCitata = txtTipCitata.Text,
                     MestoCitiranja = txtMestoCitiranja.Text,
                     TekstualniKontekst = txtKontekst.Text
@@ -51,9 +57,9 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                if (_id.HasValue)
+                if (_idPubCitat.HasValue)
                 {
-                    CitatBasic nadjen = DTOManager.VratiCitatPoId(_id.Value);
+                    CitatBasic nadjen = DTOManager.VratiCitatPoId(_idPubCitat.Value);
                     txtTipCitata.Text = nadjen.TipCitata;
                     txtMestoCitiranja.Text = nadjen.MestoCitiranja ?? "";
                     txtKontekst.Text = nadjen.TekstualniKontekst ?? "";

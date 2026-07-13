@@ -19,14 +19,12 @@ namespace DigitalniRepozitorijum.Forme
         {
             groupBox = new GroupBox();
             dataGridView = new DataGridView();
-            colIdPublikacije = new DataGridViewTextBoxColumn();
-            colNaslov = new DataGridViewTextBoxColumn();
-            colRedosled = new DataGridViewTextBoxColumn();
-            colTipDoprinosa = new DataGridViewTextBoxColumn();
-            colUloga = new DataGridViewTextBoxColumn();
             btnDodaj = new Button();
             btnIzmeni = new Button();
             btnObrisi = new Button();
+            colIdPublikacije = new DataGridViewTextBoxColumn();
+            colNaslov = new DataGridViewTextBoxColumn();
+            colRedosled = new DataGridViewTextBoxColumn();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -46,7 +44,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colIdPublikacije, colNaslov, colRedosled, colTipDoprinosa, colUloga });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colIdPublikacije, colNaslov, colRedosled });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(3, 19);
             dataGridView.MultiSelect = false;
@@ -55,41 +53,6 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
-            // 
-            // colIdPublikacije
-            // 
-            colIdPublikacije.DataPropertyName = "IdPublikacije";
-            colIdPublikacije.HeaderText = "IdPublikacije";
-            colIdPublikacije.Name = "colIdPublikacije";
-            colIdPublikacije.ReadOnly = true;
-            // 
-            // colNaslov
-            // 
-            colNaslov.DataPropertyName = "Naslov";
-            colNaslov.HeaderText = "Naslov";
-            colNaslov.Name = "colNaslov";
-            colNaslov.ReadOnly = true;
-            // 
-            // colRedosled
-            // 
-            colRedosled.DataPropertyName = "Redosled";
-            colRedosled.HeaderText = "Redosled";
-            colRedosled.Name = "colRedosled";
-            colRedosled.ReadOnly = true;
-            // 
-            // colTipDoprinosa
-            // 
-            colTipDoprinosa.DataPropertyName = "TipDoprinosa";
-            colTipDoprinosa.HeaderText = "TipDoprinosa";
-            colTipDoprinosa.Name = "colTipDoprinosa";
-            colTipDoprinosa.ReadOnly = true;
-            // 
-            // colUloga
-            // 
-            colUloga.DataPropertyName = "Uloga";
-            colUloga.HeaderText = "Uloga";
-            colUloga.Name = "colUloga";
-            colUloga.ReadOnly = true;
             // 
             // btnDodaj
             // 
@@ -121,6 +84,27 @@ namespace DigitalniRepozitorijum.Forme
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
             // 
+            // colIdPublikacije
+            // 
+            colIdPublikacije.DataPropertyName = "IdPublikacije";
+            colIdPublikacije.HeaderText = "IdPublikacije";
+            colIdPublikacije.Name = "colIdPublikacije";
+            colIdPublikacije.ReadOnly = true;
+            // 
+            // colNaslov
+            // 
+            colNaslov.DataPropertyName = "Naslov";
+            colNaslov.HeaderText = "Naslov";
+            colNaslov.Name = "colNaslov";
+            colNaslov.ReadOnly = true;
+            // 
+            // colRedosled
+            // 
+            colRedosled.DataPropertyName = "Redosled";
+            colRedosled.HeaderText = "Redosled";
+            colRedosled.Name = "colRedosled";
+            colRedosled.ReadOnly = true;
+            // 
             // PublikacijeAutoraForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -143,13 +127,11 @@ namespace DigitalniRepozitorijum.Forme
 
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdPublikacije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNaslov;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRedosled;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipDoprinosa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUloga;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
+        private DataGridViewTextBoxColumn colIdPublikacije;
+        private DataGridViewTextBoxColumn colNaslov;
+        private DataGridViewTextBoxColumn colRedosled;
     }
 }

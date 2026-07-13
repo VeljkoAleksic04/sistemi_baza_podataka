@@ -30,7 +30,7 @@ namespace DigitalniRepozitorijum.Forme
             lblTipCitata.AutoSize = true;
             lblTipCitata.Location = new Point(20, 20);
             lblTipCitata.Name = "lblTipCitata";
-            lblTipCitata.Size = new Size(58, 15);
+            lblTipCitata.Size = new Size(59, 15);
             lblTipCitata.TabIndex = 0;
             lblTipCitata.Text = "Tip citata:";
             // 
@@ -62,7 +62,7 @@ namespace DigitalniRepozitorijum.Forme
             lblKontekst.AutoSize = true;
             lblKontekst.Location = new Point(20, 90);
             lblKontekst.Name = "lblKontekst";
-            lblKontekst.Size = new Size(110, 15);
+            lblKontekst.Size = new Size(111, 15);
             lblKontekst.TabIndex = 0;
             lblKontekst.Text = "Tekstualni kontekst:";
             // 
@@ -75,7 +75,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnPotvrdi
             // 
-            btnPotvrdi.Location = new Point(160, 135);
+            btnPotvrdi.Location = new Point(164, 135);
             btnPotvrdi.Name = "btnPotvrdi";
             btnPotvrdi.Size = new Size(110, 32);
             btnPotvrdi.TabIndex = 50;

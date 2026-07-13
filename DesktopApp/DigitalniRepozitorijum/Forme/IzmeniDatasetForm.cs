@@ -32,8 +32,8 @@ namespace DigitalniRepozitorijum.Forme
                     DatumObjavljivanja = dateObjave.Value,
                     Status = cmbStatus.SelectedItem.ToString(),
                     Vidljivost = txtVidljivost.Text,
-                    BrojZapisa = int.Parse(txtBrojZapisa.Text),
-                    Velicina = int.Parse(txtVelicina.Text),
+                    BrojZapisa = (int)numVelicina.Value,
+                    Velicina = (int)numVelicina.Value,
                     Format = txtFormat.Text,
                     LicencaKoriscenja = txtLicenca.Text
                 };
@@ -65,8 +65,8 @@ namespace DigitalniRepozitorijum.Forme
                 dateObjave.Value = nadjen.DatumObjavljivanja;
                 cmbStatus.SelectedItem = nadjen.Status;
                 txtVidljivost.Text = nadjen.Vidljivost;
-                txtBrojZapisa.Text = nadjen.BrojZapisa.ToString();
-                txtVelicina.Text = nadjen.Velicina.ToString();
+                numBrZapisa.Value = nadjen.BrojZapisa;
+                numVelicina.Value = nadjen.Velicina;
                 txtFormat.Text = nadjen.Format ?? "";
                 txtLicenca.Text = nadjen.LicencaKoriscenja ?? "";
             }

@@ -7,7 +7,7 @@ namespace DigitalniRepozitorijum.Forme
     {
         private readonly int? _idPublikacije;
 
-        public CitatiPublikacijeForm(int? idPublikacije = null)
+        public CitatiPublikacijeForm(int? idPublikacije = null, int? idPubCitata = null)
         {
             _idPublikacije = idPublikacije;
             InitializeComponent();
@@ -22,6 +22,16 @@ namespace DigitalniRepozitorijum.Forme
                 return null;
             }
             return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+        }
+
+        private int? GetSelectedIdCitata()
+        {
+            if (dataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Izaberite red iz tabele.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+            return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[1].Value);
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

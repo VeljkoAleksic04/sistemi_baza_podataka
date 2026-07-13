@@ -18,9 +18,7 @@ namespace DigitalniRepozitorijum.Forme
             lblFormat = new Label();
             txtFormat = new TextBox();
             lblBrojZapisa = new Label();
-            txtBrojZapisa = new TextBox();
             lblVelicina = new Label();
-            txtVelicina = new TextBox();
             lblLicenca = new Label();
             txtLicenca = new TextBox();
             btnPotvrdi = new Button();
@@ -39,6 +37,10 @@ namespace DigitalniRepozitorijum.Forme
             lblStatus = new Label();
             lblVidljivost = new Label();
             txtVidljivost = new TextBox();
+            numBrZapisa = new NumericUpDown();
+            numVelicina = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numBrZapisa).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numVelicina).BeginInit();
             SuspendLayout();
             // 
             // lblFormat
@@ -66,13 +68,6 @@ namespace DigitalniRepozitorijum.Forme
             lblBrojZapisa.TabIndex = 0;
             lblBrojZapisa.Text = "Broj zapisa:";
             // 
-            // txtBrojZapisa
-            // 
-            txtBrojZapisa.Location = new Point(160, 294);
-            txtBrojZapisa.Name = "txtBrojZapisa";
-            txtBrojZapisa.Size = new Size(230, 23);
-            txtBrojZapisa.TabIndex = 1;
-            // 
             // lblVelicina
             // 
             lblVelicina.AutoSize = true;
@@ -81,13 +76,6 @@ namespace DigitalniRepozitorijum.Forme
             lblVelicina.Size = new Size(50, 15);
             lblVelicina.TabIndex = 0;
             lblVelicina.Text = "Velicina:";
-            // 
-            // txtVelicina
-            // 
-            txtVelicina.Location = new Point(160, 329);
-            txtVelicina.Name = "txtVelicina";
-            txtVelicina.Size = new Size(230, 23);
-            txtVelicina.TabIndex = 1;
             // 
             // lblLicenca
             // 
@@ -239,6 +227,20 @@ namespace DigitalniRepozitorijum.Forme
             txtVidljivost.Size = new Size(230, 23);
             txtVidljivost.TabIndex = 93;
             // 
+            // numBrZapisa
+            // 
+            numBrZapisa.Location = new Point(160, 295);
+            numBrZapisa.Name = "numBrZapisa";
+            numBrZapisa.Size = new Size(230, 23);
+            numBrZapisa.TabIndex = 98;
+            // 
+            // numVelicina
+            // 
+            numVelicina.Location = new Point(160, 330);
+            numVelicina.Name = "numVelicina";
+            numVelicina.Size = new Size(230, 23);
+            numVelicina.TabIndex = 99;
+            // 
             // DodajDatasetForm
             // 
             AcceptButton = btnPotvrdi;
@@ -246,6 +248,8 @@ namespace DigitalniRepozitorijum.Forme
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
             ClientSize = new Size(420, 470);
+            Controls.Add(numVelicina);
+            Controls.Add(numBrZapisa);
             Controls.Add(tbJezik);
             Controls.Add(dateKreiranja);
             Controls.Add(dateObjave);
@@ -265,15 +269,15 @@ namespace DigitalniRepozitorijum.Forme
             Controls.Add(lblFormat);
             Controls.Add(txtFormat);
             Controls.Add(lblBrojZapisa);
-            Controls.Add(txtBrojZapisa);
             Controls.Add(lblVelicina);
-            Controls.Add(txtVelicina);
             Controls.Add(lblLicenca);
             Controls.Add(txtLicenca);
             Name = "DodajDatasetForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Dodaj dataset";
             Load += DodajDatasetForm_Load;
+            ((System.ComponentModel.ISupportInitialize)numBrZapisa).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numVelicina).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,9 +287,7 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Label lblFormat;
         private System.Windows.Forms.TextBox txtFormat;
         private System.Windows.Forms.Label lblBrojZapisa;
-        private System.Windows.Forms.TextBox txtBrojZapisa;
         private System.Windows.Forms.Label lblVelicina;
-        private System.Windows.Forms.TextBox txtVelicina;
         private System.Windows.Forms.Label lblLicenca;
         private System.Windows.Forms.TextBox txtLicenca;
         private TextBox tbJezik;
@@ -302,5 +304,7 @@ namespace DigitalniRepozitorijum.Forme
         private Label lblStatus;
         private Label lblVidljivost;
         private TextBox txtVidljivost;
+        private NumericUpDown numBrZapisa;
+        private NumericUpDown numVelicina;
     }
 }
