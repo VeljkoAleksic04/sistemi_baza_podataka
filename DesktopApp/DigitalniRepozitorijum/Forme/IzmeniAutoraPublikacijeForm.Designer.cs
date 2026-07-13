@@ -16,13 +16,14 @@ namespace DigitalniRepozitorijum.Forme
         private void InitializeComponent()
         {
             lblRedosled = new Label();
-            txtRedosled = new TextBox();
             lblTipDoprinosa = new Label();
             txtTipDoprinosa = new TextBox();
             lblUloga = new Label();
             txtUloga = new TextBox();
             btnPotvrdi = new Button();
             btnOdustani = new Button();
+            numRedosled = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numRedosled).BeginInit();
             SuspendLayout();
             // 
             // lblRedosled
@@ -34,19 +35,12 @@ namespace DigitalniRepozitorijum.Forme
             lblRedosled.TabIndex = 0;
             lblRedosled.Text = "Redosled:";
             // 
-            // txtRedosled
-            // 
-            txtRedosled.Location = new Point(160, 17);
-            txtRedosled.Name = "txtRedosled";
-            txtRedosled.Size = new Size(230, 23);
-            txtRedosled.TabIndex = 1;
-            // 
             // lblTipDoprinosa
             // 
             lblTipDoprinosa.AutoSize = true;
             lblTipDoprinosa.Location = new Point(20, 55);
             lblTipDoprinosa.Name = "lblTipDoprinosa";
-            lblTipDoprinosa.Size = new Size(82, 15);
+            lblTipDoprinosa.Size = new Size(83, 15);
             lblTipDoprinosa.TabIndex = 0;
             lblTipDoprinosa.Text = "Tip doprinosa:";
             // 
@@ -93,6 +87,13 @@ namespace DigitalniRepozitorijum.Forme
             btnOdustani.Text = "Odustani";
             btnOdustani.UseVisualStyleBackColor = true;
             // 
+            // numRedosled
+            // 
+            numRedosled.Location = new Point(160, 18);
+            numRedosled.Name = "numRedosled";
+            numRedosled.Size = new Size(230, 23);
+            numRedosled.TabIndex = 54;
+            // 
             // IzmeniAutoraPublikacijeForm
             // 
             AcceptButton = btnPotvrdi;
@@ -100,10 +101,10 @@ namespace DigitalniRepozitorijum.Forme
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
             ClientSize = new Size(420, 245);
+            Controls.Add(numRedosled);
             Controls.Add(btnOdustani);
             Controls.Add(btnPotvrdi);
             Controls.Add(lblRedosled);
-            Controls.Add(txtRedosled);
             Controls.Add(lblTipDoprinosa);
             Controls.Add(txtTipDoprinosa);
             Controls.Add(lblUloga);
@@ -112,6 +113,7 @@ namespace DigitalniRepozitorijum.Forme
             StartPosition = FormStartPosition.CenterParent;
             Text = "Izmeni autora";
             Load += IzmeniAutoraPublikacijeForm_Load_1;
+            ((System.ComponentModel.ISupportInitialize)numRedosled).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,10 +121,10 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Button btnPotvrdi;
         private System.Windows.Forms.Button btnOdustani;
         private System.Windows.Forms.Label lblRedosled;
-        private System.Windows.Forms.TextBox txtRedosled;
         private System.Windows.Forms.Label lblTipDoprinosa;
         private System.Windows.Forms.TextBox txtTipDoprinosa;
         private System.Windows.Forms.Label lblUloga;
         private System.Windows.Forms.TextBox txtUloga;
+        private NumericUpDown numRedosled;
     }
 }

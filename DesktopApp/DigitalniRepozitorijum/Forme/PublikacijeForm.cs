@@ -132,46 +132,55 @@ namespace DigitalniRepozitorijum.Forme
         {
             using var form = new NaucniRadoviForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnKnjige_Click(object sender, EventArgs e)
         {
             using var form = new KnjigeForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnPoglavlja_Click(object sender, EventArgs e)
         {
             using var form = new PoglavljaUKnjiziForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnDoktorske_Click(object sender, EventArgs e)
         {
             using var form = new DoktorskeDisertacijeForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnDatasetovi_Click(object sender, EventArgs e)
         {
             using var form = new DatasetoviForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnSoftverski_Click(object sender, EventArgs e)
         {
             using var form = new SoftverskiArtefaktiForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnObrazovni_Click(object sender, EventArgs e)
         {
             using var form = new ObrazovniMaterijaliForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnPrezentacije_Click(object sender, EventArgs e)
         {
             using var form = new PrezentacijeForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnTehnicki_Click(object sender, EventArgs e)
         {
             using var form = new TehnickiIzvestajiForm();
             form.ShowDialog();
+            popuniPodacima();
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

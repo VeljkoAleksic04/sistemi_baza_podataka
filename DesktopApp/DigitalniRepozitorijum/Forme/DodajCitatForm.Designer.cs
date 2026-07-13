@@ -16,13 +16,13 @@ namespace DigitalniRepozitorijum.Forme
         private void InitializeComponent()
         {
             lblCitat = new Label();
-            txtCitat = new TextBox();
             lblTipCitata = new Label();
             txtTipCitata = new TextBox();
             lblMestoCitiranja = new Label();
             txtMestoCitiranja = new TextBox();
             btnPotvrdi = new Button();
             btnOdustani = new Button();
+            cmbPublikacije = new ComboBox();
             SuspendLayout();
             // 
             // lblCitat
@@ -33,13 +33,6 @@ namespace DigitalniRepozitorijum.Forme
             lblCitat.Size = new Size(93, 15);
             lblCitat.TabIndex = 0;
             lblCitat.Text = "Publikacija citat:";
-            // 
-            // txtCitat
-            // 
-            txtCitat.Location = new Point(160, 17);
-            txtCitat.Name = "txtCitat";
-            txtCitat.Size = new Size(230, 23);
-            txtCitat.TabIndex = 1;
             // 
             // lblTipCitata
             // 
@@ -93,6 +86,14 @@ namespace DigitalniRepozitorijum.Forme
             btnOdustani.Text = "Odustani";
             btnOdustani.UseVisualStyleBackColor = true;
             // 
+            // cmbPublikacije
+            // 
+            cmbPublikacije.FormattingEnabled = true;
+            cmbPublikacije.Location = new Point(160, 17);
+            cmbPublikacije.Name = "cmbPublikacije";
+            cmbPublikacije.Size = new Size(230, 23);
+            cmbPublikacije.TabIndex = 52;
+            // 
             // DodajCitatForm
             // 
             AcceptButton = btnPotvrdi;
@@ -100,10 +101,10 @@ namespace DigitalniRepozitorijum.Forme
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
             ClientSize = new Size(420, 245);
+            Controls.Add(cmbPublikacije);
             Controls.Add(btnOdustani);
             Controls.Add(btnPotvrdi);
             Controls.Add(lblCitat);
-            Controls.Add(txtCitat);
             Controls.Add(lblTipCitata);
             Controls.Add(txtTipCitata);
             Controls.Add(lblMestoCitiranja);
@@ -119,10 +120,10 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Button btnPotvrdi;
         private System.Windows.Forms.Button btnOdustani;
         private System.Windows.Forms.Label lblCitat;
-        private System.Windows.Forms.TextBox txtCitat;
         private System.Windows.Forms.Label lblTipCitata;
         private System.Windows.Forms.TextBox txtTipCitata;
         private System.Windows.Forms.Label lblMestoCitiranja;
         private System.Windows.Forms.TextBox txtMestoCitiranja;
+        private ComboBox cmbPublikacije;
     }
 }

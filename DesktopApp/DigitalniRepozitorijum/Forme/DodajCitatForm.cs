@@ -8,10 +8,12 @@ namespace DigitalniRepozitorijum.Forme
     public partial class DodajCitatForm : Form
     {
         private readonly int? _idPublikacije;
+        private readonly int? _idPubCitat;
 
-        public DodajCitatForm(int? idPublikacije = null)
+        public DodajCitatForm(int? idPublikacije = null, int? idPubCitat = null)
         {
             _idPublikacije = idPublikacije;
+            _idPubCitat = idPubCitat;
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
@@ -20,10 +22,13 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
+                PublikacijaBasic pubCitira = DTOManager.vratiPublikaciju(_idPublikacije.Value);
+                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(_idPubCitat.Value);
+
                 CitatBasic novi = new CitatBasic
                 {
-                    IdCitira = (int)_idPublikacije,
-                    IdCitirana = int.Parse(txtCitat.Text),
+                    PubCitira = pubCitira,
+                    PubCitirana = pubCitirana,
                     TipCitata = txtTipCitata.Text,
                     MestoCitiranja = txtMestoCitiranja.Text
                 };
@@ -55,7 +60,16 @@ namespace DigitalniRepozitorijum.Forme
 
         private void DodajCitatForm_Load(object sender, EventArgs e)
         {
+            UcitajPublikacije();
+        }
 
+        private void UcitajPublikacije()
+        {
+            var publikacije = DTOManager.vratiSvePublikacije();
+
+            cmbPublikacije.DataSource = publikacije;
+            cmbPublikacije.DisplayMember = "NASLOV";
+            cmbPublikacije.ValueMember = "ID";
         }
     }
 }

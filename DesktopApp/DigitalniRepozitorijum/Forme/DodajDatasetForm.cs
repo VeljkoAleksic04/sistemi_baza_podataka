@@ -28,8 +28,8 @@ namespace DigitalniRepozitorijum.Forme
                     DatumKreiranjaZapisa = dateKreiranja.Value,
                     Status = cmbStatus.SelectedItem.ToString(),
                     Vidljivost = txtVidljivost.Text,
-                    BrojZapisa = int.Parse(txtBrojZapisa.Text),
-                    Velicina = int.Parse(txtVelicina.Text),
+                    BrojZapisa = (int)numBrZapisa.Value,
+                    Velicina = (int)numVelicina.Value,
                     Format = txtFormat.Text,
                     LicencaKoriscenja = txtLicenca.Text
                 };

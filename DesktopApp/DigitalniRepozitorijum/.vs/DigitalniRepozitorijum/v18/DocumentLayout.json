@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\",
+  "WorkspaceRootPath": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,6 +22,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\dodajrundurecenzijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\dodajrundurecenzijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+=======
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\iv\\desktop\\faks\\sistemi baza\\projekat\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\publikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+>>>>>>> 38ccfef97f7aaa143edb701bda380c3f24c09b00
     }
   ],
   "DocumentGroupContainers": [
@@ -30,10 +51,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "DataLayer.cs",
               "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
@@ -43,11 +65,36 @@
               "ViewState": "AgIAABEAAAAAAAAAAAASwCYAAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-13T19:20:04.867Z",
+=======
+              "DocumentIndex": 3,
+              "Title": "DataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
+              "RelativeDocumentMoniker": "DataLayer.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
+              "RelativeToolTip": "DataLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T16:08:42.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NaucniRadoviForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucniRadoviForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeToolTip": "Forme\\NaucniRadoviForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwBwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T16:07:09.868Z",
+>>>>>>> 38ccfef97f7aaa143edb701bda380c3f24c09b00
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< HEAD
               "Title": "RundeRecenzijeForm.cs",
               "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\RundeRecenzijeForm.cs",
               "RelativeDocumentMoniker": "Forme\\RundeRecenzijeForm.cs",
@@ -81,11 +128,34 @@
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwB4AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-13T18:59:37.292Z",
+=======
+              "Title": "NaucniRadoviForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucniRadoviForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs [Design]",
+              "RelativeToolTip": "Forme\\NaucniRadoviForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T16:06:51.924Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PublikacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeForm.cs",
+              "RelativeToolTip": "Forme\\PublikacijeForm.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAgwL8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T16:06:22.44Z",
+>>>>>>> 38ccfef97f7aaa143edb701bda380c3f24c09b00
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+<<<<<<< HEAD
               "Title": "DodajRunduRecenzijeForm.cs [Design]",
               "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DodajRunduRecenzijeForm.cs",
               "RelativeDocumentMoniker": "Forme\\DodajRunduRecenzijeForm.cs",
@@ -93,6 +163,15 @@
               "RelativeToolTip": "Forme\\DodajRunduRecenzijeForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-13T18:59:35.195Z",
+=======
+              "Title": "PublikacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Iv\\Desktop\\Faks\\Sistemi Baza\\Projekat\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PublikacijeForm.cs [Design]",
+              "RelativeToolTip": "Forme\\PublikacijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T16:06:08.923Z",
+>>>>>>> 38ccfef97f7aaa143edb701bda380c3f24c09b00
               "EditorCaption": " [Design]"
             }
           ]

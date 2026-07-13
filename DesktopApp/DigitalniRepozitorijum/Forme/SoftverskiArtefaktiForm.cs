@@ -70,11 +70,11 @@ namespace DigitalniRepozitorijum.Forme
         {
             dataGridView.Rows.Clear();
 
-            List<InstitucijaPregled> podaci = DTOManager.vratiSveInstitucije();
+            List<SoftverskiArtefaktPregled> podaci = DTOManager.VratiSoftverskiArtefakteZaPrikaz();
 
-            foreach (InstitucijaPregled p in podaci)
+            foreach (SoftverskiArtefaktPregled p in podaci)
             {
-                dataGridView.Rows.Add(p.Id, p.Naziv, p.Adresa);
+                dataGridView.Rows.Add(p.Id, p.Naslov, p.ProgramskiJezik, p.LinkKaRepozitorijumu);
             }
 
             dataGridView.Refresh();
