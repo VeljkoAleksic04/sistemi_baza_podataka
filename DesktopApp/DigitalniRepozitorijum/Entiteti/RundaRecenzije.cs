@@ -12,6 +12,6 @@ public class RundaRecenzije
     public virtual Publikacija? Publikacija { get; set; }
     public virtual Istrazivac? Urednik { get; set; }
     
-    public virtual ICollection<VrsiRecenziju> Recenzije { get; set; } = new List<VrsiRecenziju>();
+    public virtual IList<VrsiRecenziju> Recenzije { get; set; } = new List<VrsiRecenziju>();
 
 }

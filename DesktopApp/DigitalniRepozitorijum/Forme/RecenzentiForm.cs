@@ -8,9 +8,11 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class RecenzentiForm : Form
     {
-        public RecenzentiForm()
+        private int _idRundeRecenzije;
+        public RecenzentiForm(int idRundeRecenzije)
         {
             InitializeComponent();
+            _idRundeRecenzije = idRundeRecenzije;
         }
 
         private void RecenzentiForm_Load(object sender, EventArgs e)
@@ -25,25 +27,39 @@ namespace DigitalniRepozitorijum.Forme
                 dataGridView.DataSource = null;
 
                 ISession sesija = DataLayer.GetSession();
-                var recenzenti = sesija.Query<Istrazivac>().Where(i => i.JeRecenzent == true).ToList();
+                var rundaRecenzije = sesija.Get<RundaRecenzije>(_idRundeRecenzije);
+
+                var recenzije = rundaRecenzije.Recenzije;
 
                 List<dynamic> prikazRecenzenata = new List<dynamic>();
-                foreach (var recenzent in recenzenti)
+                foreach (var recenzija in recenzije)
                 {
+                    var runda = sesija.Get<RundaRecenzije>(_idRundeRecenzije);
                     prikazRecenzenata.Add(new
                     {
-                        Id = recenzent.Id,
-                        Recenzent = $"{recenzent.Ime} {recenzent.Prezime}",
-                        Preporuka = ""
+                        Id = recenzija.Recenzent!.Id,
+                        Recenzent = $"{recenzija.Recenzent!.Ime} {recenzija.Recenzent.Prezime}",
+                        Preporuka = recenzija.Preporuka ?? "N/A"
                     });
                 }
 
-                dataGridView.DataSource = prikazRecenzenata;
+                dataGridView.Rows.Clear();
+
+                foreach(var row in prikazRecenzenata)
+                {
+                    dataGridView.Rows.Add(row.Id, row.Recenzent, row.Preporuka);
+                }
+
+                dataGridView.Refresh();
+
+
                 sesija.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greska: {ex.Message}", "Greska pri ucitavanju recenzenata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var poruka = ex.InnerException?.Message ?? ex.Message;
+                MessageBox.Show($"Greska: {poruka}\n\nStack: {ex.InnerException?.StackTrace}",
+                    "Greska pri ucitavanju recenzenata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -115,7 +131,8 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnNizOcena_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ova funkcionalnost će biti dostupna u budućoj verziji", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var forma = new NizOcenaForm(_idRundeRecenzije, (int)GetSelectedId());
+            forma.ShowDialog();
         }
     }
 }

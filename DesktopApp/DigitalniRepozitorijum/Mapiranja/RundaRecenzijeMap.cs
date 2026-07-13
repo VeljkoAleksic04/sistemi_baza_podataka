@@ -18,8 +18,10 @@ public class RundaRecenzijeMap : ClassMap<RundaRecenzije>
             .Not.LazyLoad();
         References(x => x.Urednik, "Id_Urednika")
             .Not.LazyLoad();
+
         HasMany(x => x.Recenzije)
-            .Cascade.All()
-            .KeyColumn("Id_Runde_Recenzije");
+            .KeyColumn("ID_RUNDE_RECENZIJE")
+            .Cascade.AllDeleteOrphan()
+            .Inverse(); // typical for bidirectional relationship
     }
 }

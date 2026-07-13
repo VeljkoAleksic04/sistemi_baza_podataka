@@ -6,8 +6,10 @@ public class NizOcenaMap : ClassMap<NizOcena>
 {
     public NizOcenaMap()
     {
-        Id(x => x.Id, "Id_Ocene");
-        
+        Table("NIZ_OCENA");
+
+        Id(x => x.Id).Column("ID_OCENE").GeneratedBy.Sequence("seq_niz_ocena");
+
         Map(x => x.Kriterijum, "Kriterijum");
         Map(x => x.Ocena, "Ocena");
 
@@ -17,9 +19,9 @@ public class NizOcenaMap : ClassMap<NizOcena>
 
         References(x => x.Recenzent, "ID_RECENZENTA")
             .Cascade.None();
-        // Samo mapa unazad ka VrsiRecenziju
-        References(x => x.VrsiRecenziju)
-            .Not.LazyLoad();
 
+        //References(x => x.VrsiRecenziju, "ID_RECENZIJE")  // једна колона директно ка Id_Recenzije
+        //    .Cascade.None()
+        //    .Not.LazyLoad();
     }
 }

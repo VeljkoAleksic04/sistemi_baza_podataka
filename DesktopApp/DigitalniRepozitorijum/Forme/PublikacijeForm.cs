@@ -123,7 +123,10 @@ namespace DigitalniRepozitorijum.Forme
         private void btnPovezane_Click(object sender, EventArgs e)
         {
             var id = GetSelectedId(); if (id == null) return; using var form = new PovezanePublikacijeForm(id.Value);
-            form.ShowDialog();
+            bool ima = DTOManager.VratiPovezanePublikacije((int)id).Any();
+            if(ima)
+                form.ShowDialog();
+            else MessageBox.Show("Nema povezanih publikacija za izabranu publikaciju!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnNaucniRadovi_Click(object sender, EventArgs e)
         {
@@ -197,8 +200,14 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnRecenzije_Click(object sender, EventArgs e)
         {
-            using var form = new RundeRecenzijeForm();
-            form.ShowDialog();
+            bool ima = DTOManager.VratiRundeRecenzijeZaPrikaz((int)GetSelectedId()).Any();
+
+            if (ima)
+            {
+                using var form = new RundeRecenzijeForm((int)GetSelectedId());
+                form.ShowDialog();
+            }
+            else MessageBox.Show("Nema rundi recenzije za izabranu publikaciju!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

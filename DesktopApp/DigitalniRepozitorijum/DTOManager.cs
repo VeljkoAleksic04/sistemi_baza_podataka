@@ -2698,13 +2698,15 @@ namespace DigitalniRepozitorijum
             return listaRundi;
         }
 
-        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz()
+        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz(int idPublikacije)
         {
             List<RundaRecenzijePregled> listaRundi = new List<RundaRecenzijePregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var runde = sesija.Query<RundaRecenzije>().ToList();
+                var runde = sesija.Query<RundaRecenzije>()
+                    .Where(r => r.Publikacija.Id == idPublikacije)
+                    .ToList();
                 foreach (var runda in runde)
                 {
                     RundaRecenzijePregled obj = new RundaRecenzijePregled
@@ -2761,6 +2763,13 @@ namespace DigitalniRepozitorijum
                     KonacnaOdluka = runda.KonacnaOdluka
                 };
 
+                if (runda.IdPublikacije != 0)
+                    nova.Publikacija = s.Load<Publikacija>(runda.IdPublikacije);
+
+                if (runda.IdUrednika != 0)
+                    nova.Urednik = s.Load<Istrazivac>(runda.IdUrednika);
+
+
                 s.SaveOrUpdate(nova);
                 s.Flush();
                 s.Close();
@@ -2810,25 +2819,62 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from RundaRecenzije where Id = :id");
-                q.SetParameter("id", rundaId);
+                var runda = s.Get<RundaRecenzije>(rundaId);
+                if (runda != null)
+                {
+                    // assuming runda.VrsteRecenziju is the collection of child entities
+                    foreach (var child in runda.Recenzije.ToList())
+                        s.Delete(child);
 
-                q.ExecuteUpdate();
+                    s.Delete(runda);
+                }
+
                 tx.Commit();
 
                 status = true;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Poruka exceptiona: {ex.Message}");
+                throw new Exception($"Poruka exceptiona: {ex.Message}", ex);
             }
 
             return status;
         }
 
+        public static List<IstrazivacPregled> VratiIstrazivacaRundeRecenzije(int idRunde)
+        {
+            List<IstrazivacPregled> listaIstrazivaca = new List<IstrazivacPregled>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var recenzenti = sesija.Query<RundaRecenzije>().Where(rr => rr.Id == idRunde).ToList();
+                foreach (var recenzent in recenzenti)
+                {
+                    IstrazivacPregled ip = new IstrazivacPregled
+                    {
+                        Id = recenzent.IdUrednika,
+                        Ime = recenzent.Urednik!.Ime,
+                        Prezime = recenzent.Urednik.Prezime,
+                        DatumRodjenja = recenzent.Urednik.DatumRodjenja,
+                        Drzava = recenzent.Urednik.Drzava,
+                        NaucnaOblast = recenzent.Urednik.NaucnaOblast,
+                        NaucnoZvanje = recenzent.Urednik.NaucnoZvanje,
+                        StatusNaloga = recenzent.Urednik.StatusNaloga
+                    };
+                    listaIstrazivaca.Add(ip);
+                }
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem istrazivaca runde recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaIstrazivaca;
+        }
+
         #endregion
 
-        
+
         #region Citati
 
         public static List<CitatBasic> VratiCitatePoPublikaciji(int idPublikacije)
