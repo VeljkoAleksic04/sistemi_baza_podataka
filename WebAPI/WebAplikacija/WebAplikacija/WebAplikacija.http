@@ -1,6 +1,465 @@
 @WebAplikacija_HostAddress = http://localhost:5044
 
-GET {{WebAplikacija_HostAddress}}/weatherforecast/
+########################################################
+################### PUBLIKACIJA ########################
+########################################################
+
+###
+GET {{host}}/Publikacija/PreuzmiPublikacije
 Accept: application/json
 
 ###
+
+GET {{host}}/Publikacija/PreuzmiPublikaciju/1
+Accept: application/json
+
+###
+
+POST {{host}}/Publikacija/DodajPublikaciju
+Content-Type: application/json
+
+{
+  "naslov": "Uvod u vestacku inteligenciju",
+  "apstrakt": "Osnovni pojmovi AI.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2025-06-15T00:00:00",
+  "datumKreiranjaZapisa": "2025-06-15T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna"
+}
+
+###
+
+PUT {{host}}/Publikacija/PromeniPublikaciju
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Uvod u AI - drugo izdanje",
+  "apstrakt": "Azuriran apstrakt.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2025-06-15T00:00:00",
+  "datumKreiranjaZapisa": "2025-06-15T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna"
+}
+
+###
+
+DELETE {{host}}/Publikacija/IzbrisiPublikaciju/1
+
+########################################################
+################### KLJUCNE RECI #######################
+########################################################
+
+###
+
+# Dodaj kljucnu rec publikaciji
+POST {{host}}/Publikacija/DodajKljucnuRec/1
+Content-Type: application/json
+
+{
+  "kljucnaRec": "AI"
+}
+
+###
+
+# Dodaj jos jednu kljucnu rec
+POST {{host}}/Publikacija/DodajKljucnuRec/1
+Content-Type: application/json
+
+{
+  "kljucnaRec": "Machine Learning"
+}
+
+###
+
+# Preuzmi sve kljucne reci publikacije
+GET {{host}}/Publikacija/PreuzmiKljucneReci/1
+Accept: application/json
+
+###
+
+# Obrisi kljucnu rec
+DELETE {{host}}/Publikacija/IzbrisiKljucnuRec/1
+
+########################################################
+##################### VERZIJA ##########################
+########################################################
+
+###
+GET {{host}}/Verzija/PreuzmiVerzije
+Accept: application/json
+
+###
+
+GET {{host}}/Verzija/PreuzmiVerziju/1
+Accept: application/json
+
+###
+
+POST {{host}}/Verzija/DodajVerziju/1
+Content-Type: application/json
+
+{
+  "brojVerzije": 1,
+  "datumPostavljanja": "2026-07-13T00:00:00",
+  "opisIzmene": "Prva verzija publikacije.",
+  "odgovornaOsoba": "Marko Markovic"
+}
+
+###
+
+POST {{host}}/Verzija/DodajVerziju/1
+Content-Type: application/json
+
+{
+  "brojVerzije": 2,
+  "datumPostavljanja": "2026-08-01T00:00:00",
+  "opisIzmene": "Ispravljene greske.",
+  "odgovornaOsoba": "Petar Petrovic"
+}
+
+###
+
+PUT {{host}}/Verzija/PromeniVerziju
+Content-Type: application/json
+
+{
+  "id": 1,
+  "brojVerzije": 2,
+  "datumPostavljanja": "2026-07-15T00:00:00",
+  "opisIzmene": "Azuriran opis izmene.",
+  "odgovornaOsoba": "Petar Petrovic"
+}
+
+###
+
+DELETE {{host}}/Verzija/IzbrisiVerziju/1
+
+########################################################
+###################### FAJLOVI #########################
+########################################################
+
+###
+
+POST {{host}}/Verzija/DodajFajl/1
+Content-Type: application/json
+
+{
+  "putanja": "C:\\Publikacije\\AI\\verzija1.pdf"
+}
+
+###
+
+POST {{host}}/Verzija/DodajFajl/1
+Content-Type: application/json
+
+{
+  "putanja": "C:\\Publikacije\\AI\\prilog.zip"
+}
+
+###
+
+GET {{host}}/Verzija/PreuzmiFajlove/1
+Accept: application/json
+
+###
+
+DELETE {{host}}/Verzija/IzbrisiFajl/1
+
+########################################################
+###################### KNJIGA ##########################
+########################################################
+
+###
+GET {{host}}/Knjiga/PreuzmiKnjige
+Accept: application/json
+
+###
+
+GET {{host}}/Knjiga/PreuzmiKnjigu/1
+Accept: application/json
+
+###
+
+POST {{host}}/Knjiga/DodajKnjigu
+Content-Type: application/json
+
+{
+  "naslov": "Programiranje u C#",
+  "apstrakt": "Knjiga o programiranju u C#.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2024-05-20T00:00:00",
+  "datumKreiranjaZapisa": "2024-05-20T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna",
+  "izdavac": "ETF Izdavastvo",
+  "mestoIzdanja": "Beograd"
+}
+
+###
+
+PUT {{host}}/Knjiga/PromeniKnjigu
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Programiranje u C# - drugo izdanje",
+  "apstrakt": "Azurirano izdanje.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2024-05-20T00:00:00",
+  "datumKreiranjaZapisa": "2024-05-20T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna",
+  "izdavac": "ETF Izdavastvo",
+  "mestoIzdanja": "Nis"
+}
+
+###
+
+DELETE {{host}}/Knjiga/IzbrisiKnjigu/1
+
+########################################################
+##################### POGLAVLJE ########################
+########################################################
+
+###
+GET {{host}}/Poglavlje/PreuzmiPoglavlja
+Accept: application/json
+
+###
+
+GET {{host}}/Poglavlje/PreuzmiPoglavlje/1
+Accept: application/json
+
+###
+
+POST {{host}}/Poglavlje/DodajPoglavlje
+Content-Type: application/json
+
+{
+  "naslov": "Osnove objektnog programiranja",
+  "apstrakt": "Prvo poglavlje knjige.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2024-05-20T00:00:00",
+  "datumKreiranjaZapisa": "2024-05-20T00:00:00",
+  "status": "Objavljeno",
+  "vidljivost": "Javna",
+  "izdavac": "ETF Izdavastvo",
+  "mestoIzdanja": "Beograd"
+}
+
+###
+
+PUT {{host}}/Poglavlje/PromeniPoglavlje
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Napredne osnove objektnog programiranja",
+  "apstrakt": "Azurirano poglavlje.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2024-05-20T00:00:00",
+  "datumKreiranjaZapisa": "2024-05-20T00:00:00",
+  "status": "Objavljeno",
+  "vidljivost": "Javna",
+  "izdavac": "ETF Izdavastvo",
+  "mestoIzdanja": "Nis"
+}
+
+###
+
+DELETE {{host}}/Poglavlje/IzbrisiPoglavlje/1
+
+########################################################
+################ DOKTORSKA DISERTACIJA #################
+########################################################
+
+###
+GET {{host}}/Doktorska/PreuzmiDoktorskeDisertacije
+Accept: application/json
+
+###
+
+GET {{host}}/Doktorska/PreuzmiDoktorskuDisertaciju/1
+Accept: application/json
+
+###
+
+POST {{host}}/Doktorska/DodajDoktorskuDisertaciju
+Content-Type: application/json
+
+{
+  "naslov": "Primena vestacke inteligencije",
+  "apstrakt": "Doktorska disertacija iz oblasti AI.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2026-01-15T00:00:00",
+  "datumKreiranjaZapisa": "2026-01-15T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna"
+}
+
+###
+
+PUT {{host}}/Doktorska/PromeniDoktorskuDisertaciju
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Primena AI u medicini",
+  "apstrakt": "Azurirana verzija.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2026-01-15T00:00:00",
+  "datumKreiranjaZapisa": "2026-01-15T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna"
+}
+
+###
+
+DELETE {{host}}/Doktorska/IzbrisiDoktorskuDisertaciju/1
+
+########################################################
+################ OBRAZOVNI MATERIJAL ###################
+########################################################
+
+###
+GET {{host}}/Obrazovni/PreuzmiObrazovneMaterijale
+Accept: application/json
+
+###
+
+GET {{host}}/Obrazovni/PreuzmiObrazovniMaterijal/1
+Accept: application/json
+
+###
+
+POST {{host}}/Obrazovni/DodajObrazovniMaterijal
+Content-Type: application/json
+
+{
+  "naslov": "Materijal za ASP.NET",
+  "apstrakt": "Vezbe i predavanja.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2025-10-01T00:00:00",
+  "datumKreiranjaZapisa": "2025-10-01T00:00:00",
+  "status": "Aktivan",
+  "vidljivost": "Javna"
+}
+
+###
+
+PUT {{host}}/Obrazovni/PromeniObrazovniMaterijal
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Materijal za ASP.NET Core",
+  "apstrakt": "Azurirani materijal.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2025-10-01T00:00:00",
+  "datumKreiranjaZapisa": "2025-10-01T00:00:00",
+  "status": "Aktivan",
+  "vidljivost": "Javna"
+}
+
+###
+
+DELETE {{host}}/Obrazovni/IzbrisiObrazovniMaterijal/1
+
+########################################################
+################### PREZENTACIJA #######################
+########################################################
+
+###
+GET {{host}}/Prezentacija/PreuzmiPrezentacije
+Accept: application/json
+
+###
+
+GET {{host}}/Prezentacija/PreuzmiPrezentaciju/1
+Accept: application/json
+
+###
+
+POST {{host}}/Prezentacija/DodajPrezentaciju
+Content-Type: application/json
+
+{
+  "naslov": "Uvod u baze podataka",
+  "apstrakt": "PowerPoint prezentacija.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2025-03-10T00:00:00",
+  "datumKreiranjaZapisa": "2025-03-10T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna"
+}
+
+###
+
+PUT {{host}}/Prezentacija/PromeniPrezentaciju
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Napredne baze podataka",
+  "apstrakt": "Azurirana prezentacija.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2025-03-10T00:00:00",
+  "datumKreiranjaZapisa": "2025-03-10T00:00:00",
+  "status": "Objavljena",
+  "vidljivost": "Javna"
+}
+
+###
+
+DELETE {{host}}/Prezentacija/IzbrisiPrezentaciju/1
+
+########################################################
+################## TEHNICKI IZVESTAJ ###################
+########################################################
+
+###
+GET {{host}}/Tehnicki/PreuzmiTehnickeIzvestaje
+Accept: application/json
+
+###
+
+GET {{host}}/Tehnicki/PreuzmiTehnickiIzvestaj/1
+Accept: application/json
+
+###
+
+POST {{host}}/Tehnicki/DodajTehnickiIzvestaj
+Content-Type: application/json
+
+{
+  "naslov": "Izvestaj o testiranju",
+  "apstrakt": "Rezultati testiranja sistema.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2026-02-20T00:00:00",
+  "datumKreiranjaZapisa": "2026-02-20T00:00:00",
+  "status": "Zavrsen",
+  "vidljivost": "Interna"
+}
+
+###
+
+PUT {{host}}/Tehnicki/PromeniTehnickiIzvestaj
+Content-Type: application/json
+
+{
+  "id": 1,
+  "naslov": "Konacni izvestaj o testiranju",
+  "apstrakt": "Azurirani rezultati testiranja.",
+  "jezik": "Srpski",
+  "datumObjavljivanja": "2026-02-20T00:00:00",
+  "datumKreiranjaZapisa": "2026-02-20T00:00:00",
+  "status": "Zavrsen",
+  "vidljivost": "Interna"
+}
+
+###
+
+DELETE {{host}}/Tehnicki/IzbrisiTehnickiIzvestaj/1

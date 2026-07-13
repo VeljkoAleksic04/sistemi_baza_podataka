@@ -99,7 +99,7 @@ namespace WebAplikacija.Controllers
         }
 
         // Visevrednosni atributi
-        [HttpPost("DodajKljucnuRec/{publikacijaId")]
+        [HttpPost("DodajKljucnuRec/{publikacijaId}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
