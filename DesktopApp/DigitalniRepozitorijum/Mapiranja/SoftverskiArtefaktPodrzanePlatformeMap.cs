@@ -6,10 +6,11 @@ public class SoftverskiArtefaktPodrzanePlatformeMap : ClassMap<SoftverskiArtefak
 {
     public SoftverskiArtefaktPodrzanePlatformeMap()
     {
-        Id(x => x.Id, "Id_SA_Platforma");
-        
+        Table("SA_PODRZANE_PLATFORME");
+        Id(x => x.Id, "Id_SA_Platforma").GeneratedBy.TriggerIdentity();
+
         Map(x => x.PodrzanaPlatforma, "Podrzana_Platforma");
-        
+
         References(x => x.SoftverskiArtefakt, "Id_Publikacije")
             .Not.LazyLoad();
     }

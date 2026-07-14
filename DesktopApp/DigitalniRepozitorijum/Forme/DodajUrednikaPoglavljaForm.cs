@@ -1,4 +1,5 @@
 using DigitalniRepozitorijum.Entiteti;
+using NHibernate;
 using System;
 using System.Windows.Forms;
 
@@ -24,11 +25,11 @@ namespace DigitalniRepozitorijum.Forme
                     return;
                 }
 
+                ISession session = DataLayer.GetSession();
+
                 PoglavljeUrednici noviUrednik = new PoglavljeUrednici
                 {
-                    PoglavljeUKnjizi = new PoglavljeUKnjizi {
-                        Id = _idPoglavlja 
-                    },
+                    PoglavljeUKnjizi = session.Load<PoglavljeUKnjizi>(_idPoglavlja),
                     Urednik = txtUrednik.Text
                 };
 

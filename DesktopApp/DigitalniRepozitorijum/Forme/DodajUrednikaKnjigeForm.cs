@@ -1,4 +1,5 @@
 using DigitalniRepozitorijum.Entiteti;
+using NHibernate;
 using System;
 using System.Windows.Forms;
 
@@ -24,12 +25,11 @@ namespace DigitalniRepozitorijum.Forme
                     return;
                 }
 
+                ISession session = DataLayer.GetSession();
+
                 KnjigaUrednici noviUrednik = new KnjigaUrednici
                 {
-                    Knjiga = new Knjiga
-                    {
-                        Id = _idKnjige
-                    },
+                    Knjiga = session.Load<Knjiga>(_idKnjige),
                     Urednik = txtUrednik.Text
                 };
 
@@ -50,6 +50,11 @@ namespace DigitalniRepozitorijum.Forme
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DodajUrednikaKnjigeForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

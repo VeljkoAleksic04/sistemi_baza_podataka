@@ -21,16 +21,17 @@ namespace DigitalniRepozitorijum.Forme
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
             try
-            {
+            { 
                 PublikacijaBasic pubCitira = DTOManager.vratiPublikaciju(_idPublikacije.Value);
-                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(_idPubCitat.Value);
+                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(int.Parse(cmbPublikacije.SelectedValue.ToString()));
 
                 CitatBasic novi = new CitatBasic
                 {
                     PubCitira = pubCitira,
                     PubCitirana = pubCitirana,
                     TipCitata = txtTipCitata.Text,
-                    MestoCitiranja = txtMestoCitiranja.Text
+                    MestoCitiranja = txtMestoCitiranja.Text,
+                    TekstualniKontekst = txtKontekst.Text
                 };
 
                 bool success = DTOManager.DodajCitat(novi);
@@ -67,9 +68,9 @@ namespace DigitalniRepozitorijum.Forme
         {
             var publikacije = DTOManager.vratiSvePublikacije();
 
+            cmbPublikacije.DisplayMember = "Naslov";
+            cmbPublikacije.ValueMember = "Id";
             cmbPublikacije.DataSource = publikacije;
-            cmbPublikacije.DisplayMember = "NASLOV";
-            cmbPublikacije.ValueMember = "ID";
         }
     }
 }

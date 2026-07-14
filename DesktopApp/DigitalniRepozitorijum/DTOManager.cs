@@ -1,4 +1,5 @@
 ﻿using DigitalniRepozitorijum.Entiteti;
+using DigitalniRepozitorijum.Utils;
 using FluentNHibernate.Conventions;
 using NHibernate;
 using System;
@@ -2207,7 +2208,7 @@ namespace DigitalniRepozitorijum
                         DOI = naucniRad.DOI,
                         Stranice = naucniRad.Stranice,
                         TipRada = naucniRad.TipRada,
-                        Izvor = naucniRad.IdIzvora
+                        Izvor = naucniRad.Izvor?.Id ?? 0
                     };
                     listaNaucnihRadova.Add(obj);
                 }
@@ -2246,7 +2247,6 @@ namespace DigitalniRepozitorijum
                 NaucniRad nrnovi = s.Get<NaucniRad>(nr.Id);
 
                 nrnovi.DOI = nr.DOI;
-                nrnovi.IdIzvora = nr.IdIzvora;
                 nrnovi.Stranice = nr.Stranice;
                 nrnovi.TipRada = nr.TipRada;
                 nrnovi.Apstrakt = nr.Apstrakt;
@@ -2256,8 +2256,8 @@ namespace DigitalniRepozitorijum
                 nrnovi.Vidljivost = nr.Vidljivost;
                 nrnovi.Naslov = nr.Naslov;
                 nrnovi.Status = nr.Status;
-                
-                s.SaveOrUpdate(nrnovi);
+                nrnovi.Izvor = s.Load<Izvor>(nr.IdIzvora);
+
                 s.Flush();
                 s.Close();
             }
@@ -2293,13 +2293,10 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from NaucniRad where ID = :id");
-                q.SetParameter("id", radId);
-
-                q.ExecuteUpdate();
-                tx.Commit();
+                s.Delete(s.Load<NaucniRad>(radId));
+                s.Flush();
+                s.Close();
 
                 status = true;
             }
@@ -2330,7 +2327,8 @@ namespace DigitalniRepozitorijum
                     DatumKreiranjaZapisa = nr.DatumKreiranjaZapisa,
                     DatumObjavljivanja = nr.DatumObjavljivanja,
                     Jezik = nr.Jezik,
-                    Naslov = nr.Naslov
+                    Naslov = nr.Naslov,
+                    Status = nr.Status ?? Konstante.StatusiPublikacije[0]
                 };
 
                 s.SaveOrUpdate(novi);
@@ -2341,7 +2339,15 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                throw new Exception($"Greska pri dodavanjunaucnog rada...\n{ex.Message}");
+                var inner = ex.InnerException;
+                var innerInfo = inner != null
+                    ? $"INNER: {inner.GetType().FullName}\n{inner.Message}\n{inner.StackTrace}"
+                    : "(nema inner exception)";
+                throw new Exception(
+                    $"Greska pri dodavanju naucnog rada...\n" +
+                    $"EX: {ex.GetType().FullName}\n{ex.Message}\n" +
+                    innerInfo,
+                    ex);  // <-- prosleđuj originalni exception kao inner
             }
 
             return status;
@@ -2494,13 +2500,10 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from Dataset where ID = :id");
-                q.SetParameter("id", datasetId);
-
-                q.ExecuteUpdate();
-                tx.Commit();
+                s.Delete(s.Load<Dataset>(datasetId));
+                s.Flush();
+                s.Close();
 
                 status = true;
             }
@@ -2656,13 +2659,10 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
-
-                var q = s.CreateQuery("delete from SoftverskiArtefakt where ID = :id");
-                q.SetParameter("id", artefaktId);
-
-                q.ExecuteUpdate();
-                tx.Commit();
+               
+                s.Delete(s.Load<SoftverskiArtefakt>(artefaktId));
+                s.Flush();
+                s.Close();
 
                 status = true;
             }
@@ -2673,10 +2673,30 @@ namespace DigitalniRepozitorijum
 
             return status;
         }
+        public static void DodajPodrzanuPlatformu(int idPublikacije, string nazivPlatforme)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
 
+                SoftverskiArtefaktPodrzanePlatforme sapp = new SoftverskiArtefaktPodrzanePlatforme
+                {
+                    IdPublikacije = idPublikacije,
+                    PodrzanaPlatforma = nazivPlatforme
+                };
+
+                session.SaveOrUpdate(sapp);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Dogodila se greska pri dodavanju nove platforme softverskog artefakta..." + ex.Message + "\n" + ex.InnerException);
+            }
+        }
         #endregion
 
-        
+
         #region RundeRecenzije
 
         public static List<RundaRecenzije> VratiRundeRecenzije()
@@ -2943,10 +2963,10 @@ namespace DigitalniRepozitorijum
             {
                 ISession s = DataLayer.GetSession();
 
-                CitatBasic novi = new CitatBasic
+                Citira novi = new Citira
                 {
-                    PubCitira = citat.PubCitira,
-                    PubCitirana = citat.PubCitirana,
+                    PubCitira = s.Load<Publikacija>(citat.PubCitira.Id),
+                    PubCitirana = s.Load<Publikacija>(citat.PubCitirana.Id),
                     TipCitata = citat.TipCitata,
                     MestoCitiranja = citat.MestoCitiranja,
                     TekstualniKontekst = citat.TekstualniKontekst
@@ -2999,13 +3019,10 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
-
-                var q = s.CreateQuery("delete from Citira where ID = :id");
-                q.SetParameter("id", citatId);
-
-                q.ExecuteUpdate();
-                tx.Commit();
+                
+                s.Delete(s.Load<Citira>(citatId));
+                s.Flush();
+                s.Close();
 
                 status = true;
             }
@@ -3248,6 +3265,8 @@ namespace DigitalniRepozitorijum
 
             return status;
         }
+
+        
 
         #endregion
 

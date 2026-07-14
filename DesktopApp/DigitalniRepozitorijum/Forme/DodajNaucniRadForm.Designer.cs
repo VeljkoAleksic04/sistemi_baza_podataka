@@ -62,7 +62,7 @@ namespace DigitalniRepozitorijum.Forme
             lblTipRada.AutoSize = true;
             lblTipRada.Location = new Point(20, 293);
             lblTipRada.Name = "lblTipRada";
-            lblTipRada.Size = new Size(53, 15);
+            lblTipRada.Size = new Size(52, 15);
             lblTipRada.TabIndex = 0;
             lblTipRada.Text = "Tip rada:";
             // 
@@ -154,6 +154,7 @@ namespace DigitalniRepozitorijum.Forme
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(230, 23);
             cmbStatus.TabIndex = 108;
+            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
             // lblNaslov
             // 
