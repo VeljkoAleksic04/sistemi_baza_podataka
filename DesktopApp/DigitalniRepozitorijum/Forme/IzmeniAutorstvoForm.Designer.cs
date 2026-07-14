@@ -70,6 +70,7 @@ namespace DigitalniRepozitorijum.Forme
             this.btnOdustani.UseVisualStyleBackColor = true;
             this.AcceptButton = this.btnPotvrdi;
             this.CancelButton = this.btnOdustani;
+            this.Load += new System.EventHandler(this.IzmeniAutorstvoForm_Load);
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 245);

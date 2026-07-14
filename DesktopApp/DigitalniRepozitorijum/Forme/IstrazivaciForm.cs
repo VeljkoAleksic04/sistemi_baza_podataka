@@ -21,7 +21,7 @@ namespace DigitalniRepozitorijum.Forme
 
             foreach (IstrazivacPregled p in podaci)
             {
-                dataGridView.Rows.Add(p.Id, p.Ime, p.Prezime, p.NaucnoZvanje, p.NaucnaOblast, p.StatusNaloga);
+                dataGridView.Rows.Add(p.Id, p.Ime, p.Prezime, p.Drzava, p.NaucnoZvanje, p.NaucnaOblast, p.StatusNaloga);
             }
 
             dataGridView.Refresh();

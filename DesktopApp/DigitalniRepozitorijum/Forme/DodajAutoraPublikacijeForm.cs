@@ -15,11 +15,11 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(txtRedosled.Text))
-            //{
-            //    MessageBox.Show("Popunite obavezna polja (ID autora i redosled).", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            if (cmbAutor.SelectedValue == null || numRedosled.Value == 0)
+            {
+                MessageBox.Show("Popunite obavezna polja (autor i redosled).", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             var dto = new AutorstvoBasic
             {
@@ -35,7 +35,7 @@ namespace DigitalniRepozitorijum.Forme
             Close();
         }
 
-        private void DodajAutoraPublikacijeForm_Load(object sender, EventArgs e)
+        private void DodajAutoraPublikacijeForm_Load(object sender, System.EventArgs e)
         {
             UcitajAutore();
         }

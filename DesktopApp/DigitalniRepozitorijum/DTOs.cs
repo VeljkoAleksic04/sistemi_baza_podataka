@@ -16,9 +16,6 @@ namespace DigitalniRepozitorijum
         public string Vidljivost;
         public DateTime DatumObjavljivanja;
 
-        public int ID { get { return Id; } }
-        public string NASLOV { get { return Naslov; } }
-
         public PublikacijaPregled() { }
 
         public PublikacijaPregled(int id, string naslov, string jezik, string status, string vidljivost, DateTime datumObjavljivanja)
@@ -457,12 +454,7 @@ namespace DigitalniRepozitorijum
         public string NaucnoZvanje;
         public string NaucnaOblast;
 
-
-        public int ID { get { return Id; } }
-        public string PunoIme // za ispis u ComboBox-u
-        {
-            get { return $"{Ime} {Prezime}"; }
-        }
+        public string PunoIme => $"{Ime} {Prezime}";
 
         public IstrazivacPregled() { }
         public IstrazivacPregled(int id, string ime, string prezime, DateTime datumRodjenja,
@@ -577,26 +569,33 @@ namespace DigitalniRepozitorijum
 
     public class AngazovanjePregled
     {
+        public int Id;
         public int IdInstitucije;
-        public int IdIstrazivaca;
         public string NazivInstitucije;
         public string ImeIstrazivaca;
-        public string? TipAngazovanja;
+        public string OrganizacionaJedinica;
+        public string TipAngazovanja;
         public string NazivPozicije;
         public DateTime DatumPocetka;
+        public DateTime? DatumZavrsetka;
 
         public AngazovanjePregled() { }
-        public AngazovanjePregled(int idInstitucije, int idIstrazivaca, string nazivInstitucije,
-            string imeIstrazivaca, string tipAngazovanja, string nazivPozicije, DateTime datumPocetka)
+        public AngazovanjePregled(int id, int idInstitucije, string nazivInstitucije,
+            string imeIstrazivaca, string organizacionaJedinica,
+            string tipAngazovanja, string nazivPozicije, DateTime datumPocetka,
+            DateTime? datumZavrsetka)
         {
-            IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
+            Id = id; IdInstitucije = idInstitucije;
             NazivInstitucije = nazivInstitucije; ImeIstrazivaca = imeIstrazivaca;
-            TipAngazovanja = tipAngazovanja;  NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka;
+            OrganizacionaJedinica = organizacionaJedinica;
+            TipAngazovanja = tipAngazovanja;  NazivPozicije = nazivPozicije;
+            DatumPocetka = datumPocetka; DatumZavrsetka = datumZavrsetka;
         }
     }
 
     public class AngazovanjeBasic
     {
+        public int Id;
         public int IdInstitucije;
         public int IdIstrazivaca;
         public string NazivInstitucije;
@@ -608,11 +607,11 @@ namespace DigitalniRepozitorijum
         public DateTime? DatumZavrsetka;
 
         public AngazovanjeBasic() { }
-        public AngazovanjeBasic(int idInstitucije, int idIstrazivaca, string nazivInstitucije,
+        public AngazovanjeBasic(int id, int idInstitucije, int idIstrazivaca, string nazivInstitucije,
             string imeIstrazivaca, string nazivPozicije, DateTime datumPocetka,
             string organizacionaJedinica, string tipAngazovanja, DateTime? datumZavrsetka)
         {
-            IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
+            Id = id; IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
             NazivInstitucije = nazivInstitucije; ImeIstrazivaca = imeIstrazivaca;
             NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka;
             OrganizacionaJedinica = organizacionaJedinica;
@@ -623,17 +622,16 @@ namespace DigitalniRepozitorijum
 
     public class AutorstvoPregled
     {
-        public int IdPublikacije;
-        public int IdAutora;
+        public int Id;
         public string NaslovPublikacije;
         public string ImeAutora;
         public int RedosledAutora;
 
         public AutorstvoPregled() { }
-        public AutorstvoPregled(int idPublikacije, int idAutora, string naslovPublikacije,
+        public AutorstvoPregled(int id, string naslovPublikacije,
             string imeAutora, int redosledAutora)
         {
-            IdPublikacije = idPublikacije; IdAutora = idAutora;
+            Id = id;
             NaslovPublikacije = naslovPublikacije; ImeAutora = imeAutora;
             RedosledAutora = redosledAutora;
         }
@@ -641,6 +639,7 @@ namespace DigitalniRepozitorijum
 
     public class AutorstvoBasic
     {
+        public int Id;
         public int IdPublikacije;
         public int IdAutora;
         public string NaslovPublikacije;
@@ -650,10 +649,10 @@ namespace DigitalniRepozitorijum
         public string Uloga;
 
         public AutorstvoBasic() { }
-        public AutorstvoBasic(int idPublikacije, int idAutora, string naslovPublikacije,
+        public AutorstvoBasic(int id, int idPublikacije, int idAutora, string naslovPublikacije,
             string imeAutora, int redosledAutora, string tipDoprinosa, string uloga)
         {
-            IdPublikacije = idPublikacije; IdAutora = idAutora;
+            Id = id; IdPublikacije = idPublikacije; IdAutora = idAutora;
             NaslovPublikacije = naslovPublikacije; ImeAutora = imeAutora;
             RedosledAutora = redosledAutora;
             TipDoprinosa = tipDoprinosa; Uloga = uloga;
@@ -796,8 +795,8 @@ namespace DigitalniRepozitorijum
     public class CitatBasic
     {
         public int Id { get; set; }
-        public PublikacijaBasic PubCitira { get; set; }
-        public PublikacijaBasic PubCitirana { get; set; }
+        public int IdCitira { get; set; }
+        public int IdCitirana { get; set; }
         public string TipCitata { get; set; }
         public string MestoCitiranja { get; set; }
         public string TekstualniKontekst { get; set; }

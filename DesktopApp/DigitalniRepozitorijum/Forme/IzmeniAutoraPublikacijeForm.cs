@@ -4,28 +4,24 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class IzmeniAutoraPublikacijeForm : Form
     {
-        private readonly int? _idPublikacije;
-        private readonly int? _idAutora;
+        private readonly int? _idAutorstva;
 
-        public IzmeniAutoraPublikacijeForm(int? idPublikacije = null, int? idAutora = null)
+        public IzmeniAutoraPublikacijeForm(int? idAutorstva = null)
         {
-            _idPublikacije = idPublikacije;
-            _idAutora = idAutora;
+            _idAutorstva = idAutorstva;
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
-        //private void IzmeniAutoraPublikacijeForm_Load(object sender, EventArgs e)
-        //{
-            
-        //}
-
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
+            var postojeci = DTOManager.vratiAutorstvo(_idAutorstva.Value);
+
             var dto = new AutorstvoBasic
             {
-                IdPublikacije = _idPublikacije.Value,
-                IdAutora = _idAutora.Value,
+                Id = _idAutorstva.Value,
+                IdPublikacije = postojeci.IdPublikacije,
+                IdAutora = postojeci.IdAutora,
                 RedosledAutora = (int)numRedosled.Value,
                 TipDoprinosa = txtTipDoprinosa.Text,
                 Uloga = txtUloga.Text
@@ -36,10 +32,10 @@ namespace DigitalniRepozitorijum.Forme
             Close();
         }
 
-        private void IzmeniAutoraPublikacijeForm_Load_1(object sender, EventArgs e)
+        private void IzmeniAutoraPublikacijeForm_Load_1(object sender, System.EventArgs e)
         {
-            if (_idPublikacije == null || _idAutora == null) return;
-            var dto = DTOManager.vratiAutorstvo(_idPublikacije.Value, _idAutora.Value);
+            if (_idAutorstva == null) return;
+            var dto = DTOManager.vratiAutorstvo(_idAutorstva.Value);
             numRedosled.Value = dto.RedosledAutora;
             txtTipDoprinosa.Text = dto.TipDoprinosa;
             txtUloga.Text = dto.Uloga;

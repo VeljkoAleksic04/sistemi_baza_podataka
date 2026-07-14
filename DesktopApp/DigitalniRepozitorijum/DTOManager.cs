@@ -1,5 +1,4 @@
-﻿using DigitalniRepozitorijum.Entiteti;
-using FluentNHibernate.Conventions;
+using DigitalniRepozitorijum.Entiteti;
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,16 @@ namespace DigitalniRepozitorijum
 {
     public class DTOManager
     {
+        public static bool SuppressDialogs = false;
+        public static readonly List<string> ErrorLog = new List<string>();
+
+        private static void LogError(Exception ex)
+        {
+            ErrorLog.Add(ex.Message);
+            if (!SuppressDialogs)
+                MessageBox.Show(ex.Message);
+        }
+
         #region Publikacija
         public static List<PublikacijaPregled> vratiSvePublikacije()
         {
@@ -28,7 +37,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return publikacije;
@@ -54,7 +63,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static PublikacijaBasic azurirajPublikaciju(PublikacijaBasic p)
@@ -78,7 +87,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return p;
@@ -146,7 +155,7 @@ namespace DigitalniRepozitorijum
                             o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
                         break;
                     default:
-                        MessageBox.Show("Nepoznata vrsta publikacije!");
+                        LogError(new Exception("Nepoznata vrsta publikacije!"));
                         break;
                 }
 
@@ -178,7 +187,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return pb;
@@ -197,7 +206,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
@@ -221,13 +230,12 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
             return povezanePublikacije;
         }
 
         #endregion
-
 
         #region Verzija
         public static List<VerzijaPregled> vratiSveVerzije()
@@ -248,7 +256,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return verzije;
@@ -272,7 +280,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static VerzijaBasic azurirajVerziju(VerzijaBasic vb)
@@ -294,7 +302,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return vb;
@@ -324,7 +332,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return vb;
@@ -343,12 +351,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region PublikacijaKljucnaRec
         public static List<PublikacijaKljucnaRecPregled> vratiSvePublikacijaKljucnaRec()
@@ -369,7 +376,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return publikacijaKljucneReci;
@@ -390,7 +397,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static PublikacijaKljucnaRecBasic azurirajPublikacijaKljucnaRec(PublikacijaKljucnaRecBasic pkrb)
@@ -409,7 +416,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return pkrb;
@@ -429,7 +436,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return pkrb;
@@ -448,12 +455,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region Knjiga
         public static List<KnjigaPregled> vratiSveKnjige()
@@ -474,7 +480,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return knjige;
@@ -502,7 +508,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static KnjigaBasic azurirajKnjigu(KnjigaBasic kb)
@@ -528,7 +534,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return kb;
@@ -547,7 +553,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return kb;
@@ -566,12 +572,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region PoglavljeUKnjizi
         public static List<PoglavljeUKnjiziPregled> vratiSvePoglavljaUKnjizi()
@@ -592,7 +597,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return poglavljaUKnjizi;
@@ -620,7 +625,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static PoglavljeUKnjiziBasic azurirajPoglavljeUKnjizi(PoglavljeUKnjiziBasic pb)
@@ -646,7 +651,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return pb;
@@ -665,7 +670,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return pb;
@@ -684,12 +689,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region DoktorskaDisertacija
         public static List<DoktorskaDisertacijaPregled> vratiSveDoktorskeDisertacije()
@@ -710,7 +714,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return doktorskeDisertacije;
@@ -736,7 +740,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static DoktorskaDisertacijaBasic azurirajDoktorskuDisertaciju(DoktorskaDisertacijaBasic db)
@@ -760,7 +764,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return db;
@@ -779,7 +783,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return db;
@@ -798,12 +802,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region ObrazovniMaterijal
         public static List<ObrazovniMaterijalPregled> vratiSveObrazovneMaterijale()
@@ -824,7 +827,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return obrazovniMaterijali;
@@ -850,7 +853,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static ObrazovniMaterijalBasic azurirajObrazovniMaterijal(ObrazovniMaterijalBasic ob)
@@ -874,7 +877,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return ob;
@@ -893,7 +896,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return ob;
@@ -912,12 +915,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region Prezentacija
         public static List<PrezentacijaPregled> vratiSvePrezentacije()
@@ -938,7 +940,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return prezentacije;
@@ -964,7 +966,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static PrezentacijaBasic azurirajPrezentaciju(PrezentacijaBasic p)
@@ -988,7 +990,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return p;
@@ -1007,7 +1009,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return pb;
@@ -1026,12 +1028,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
         #endregion
-
 
         #region TehnickiIzvestaj
         public static List<TehnickiIzvestajPregled> vratiSveTehnickeIzvestaje()
@@ -1052,7 +1053,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return tehnickiIzvestaji;
@@ -1078,7 +1079,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static TehnickiIzvestajBasic azurirajTehnickiIzvestaj(TehnickiIzvestajBasic tb)
@@ -1102,7 +1103,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return tb;
@@ -1121,7 +1122,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return tb;
@@ -1140,7 +1141,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
@@ -1166,7 +1167,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return fajlovi;
@@ -1188,7 +1189,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
         public static FajlBasic azurirajFajl(FajlBasic fb)
@@ -1208,7 +1209,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return fb;
@@ -1230,7 +1231,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
 
             return fb;
@@ -1249,7 +1250,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+LogError(ex);
             }
         }
 
@@ -1263,13 +1264,13 @@ namespace DigitalniRepozitorijum
                 Entiteti.Institucija o = new Entiteti.Institucija();
                 o.Naziv = dto.Naziv;
                 o.Adresa = dto.Adresa;
-                s.SaveOrUpdate(o);
+s.SaveOrUpdate(o);
                 s.Flush();
-                s.Close();
+s.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri dodavanju institucije: " + ex.Message);
+LogError(ex);
             }
         }
 
@@ -1284,7 +1285,7 @@ namespace DigitalniRepozitorijum
                     lista.Add(new InstitucijaPregled(o.Id, o.Naziv, o.Adresa));
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1308,7 +1309,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1320,11 +1321,11 @@ namespace DigitalniRepozitorijum
                 Entiteti.Institucija o = s.Load<Entiteti.Institucija>(dto.Id);
                 o.Naziv = dto.Naziv;
                 o.Adresa = dto.Adresa;
-                s.SaveOrUpdate(o);
+s.SaveOrUpdate(o);
                 s.Flush();
-                s.Close();
+s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void obrisiInstituciju(int id)
@@ -1337,10 +1338,10 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
-
+        
         #region InstitucijaKontaktMail
 
         public static List<InstitucijaKontaktMailPregled> vratiSveKontaktMailove(int idInstitucije)
@@ -1359,7 +1360,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1368,14 +1369,14 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                InstitucijaKontaktMail o = new InstitucijaKontaktMail();
+InstitucijaKontaktMail o = new InstitucijaKontaktMail();
                 o.Institucija = s.Load<Institucija>(dto.Institucija.Id);
                 o.KontaktMail = dto.KontaktMail;
                 s.SaveOrUpdate(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajKontaktMail(InstitucijaKontaktMailBasic dto)
@@ -1389,7 +1390,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static InstitucijaKontaktMailBasic vratiKontaktMail(int id)
@@ -1403,7 +1404,7 @@ namespace DigitalniRepozitorijum
                 dto = new InstitucijaKontaktMailBasic(o.Id, ib, o.KontaktMail);
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1413,15 +1414,14 @@ namespace DigitalniRepozitorijum
             {
                 ISession s = DataLayer.GetSession();
                 InstitucijaKontaktMail o = s.Load<InstitucijaKontaktMail>(id);
-                s.Delete(o);
+s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
-
 
         #region InstitucijaKontaktTel
 
@@ -1441,7 +1441,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1457,7 +1457,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajKontaktTelefon(InstitucijaKontaktTelBasic dto)
@@ -1471,7 +1471,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static InstitucijaKontaktTelBasic vratiKontaktTelefon(int id)
@@ -1485,7 +1485,7 @@ namespace DigitalniRepozitorijum
                 dto = new InstitucijaKontaktTelBasic(o.Id, ib, o.KontaktTel);
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1499,11 +1499,10 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
-
 
         #region InstitucijaNaucnaOblast
 
@@ -1523,7 +1522,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1539,7 +1538,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajNaucnuOblast(InstitucijaNaucnaOblastBasic dto)
@@ -1553,7 +1552,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static InstitucijaNaucnaOblastBasic vratiNaucnuOblast(int id)
@@ -1567,7 +1566,7 @@ namespace DigitalniRepozitorijum
                 dto = new InstitucijaNaucnaOblastBasic(o.Id, ib, o.NaucnaOblast);
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1581,11 +1580,10 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
-
 
         #region Istrazivac
 
@@ -1603,7 +1601,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1634,7 +1632,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajIstrazivaca(IstrazivacBasic dto)
@@ -1664,7 +1662,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static IstrazivacBasic vratiIstrazivaca(int id)
@@ -1686,7 +1684,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1700,9 +1698,8 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
-
 
         public static Istrazivac VratiIstrazivacaPoId(int id)
         {
@@ -1717,12 +1714,11 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                throw new Exception($"Greska u vracanju istraživača...\n{ex.Message}");
+                throw new Exception($"Greska u vracanju istra�ivaca...\n{ex.Message}");
             }
         }
 
         #endregion
-
 
         #region IstrazivacEmail
 
@@ -1742,7 +1738,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1758,7 +1754,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajEmailIstrazivaca(IstrazivacEmailBasic dto)
@@ -1772,7 +1768,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static IstrazivacEmailBasic vratiEmailIstrazivaca(int id)
@@ -1792,7 +1788,7 @@ namespace DigitalniRepozitorijum
                 dto = new IstrazivacEmailBasic(o.Id, ib, o.Email);
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1806,11 +1802,10 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
-
 
         #region IstrazivacTelefon
 
@@ -1830,7 +1825,7 @@ namespace DigitalniRepozitorijum
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1846,7 +1841,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajTelefonIstrazivaca(IstrazivacTelefonBasic dto)
@@ -1860,7 +1855,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static IstrazivacTelefonBasic vratiTelefonIstrazivaca(int id)
@@ -1880,7 +1875,7 @@ namespace DigitalniRepozitorijum
                 dto = new IstrazivacTelefonBasic(o.Id, ib, o.Telefon);
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
@@ -1894,11 +1889,10 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
-
 
         #region Angazovanje
 
@@ -1910,17 +1904,18 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Angazovanje> rezultati =
                     from o in s.Query<Angazovanje>()
-                    where o.Id.Istrazivac.Id == idIstrazivaca
+                    where o.Istrazivac.Id == idIstrazivaca
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AngazovanjePregled(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
-                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime, "",
-                        o.NazivPozicije, o.DatumPocetka));
+                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id,
+                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime,
+                        o.OrganizacionaJedinica, o.TipAngazovanja,
+                        o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1932,17 +1927,18 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Angazovanje> rezultati =
                     from o in s.Query<Angazovanje>()
-                    where o.Id.Institucija.Id == idInstitucije
+                    where o.Institucija.Id == idInstitucije
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AngazovanjePregled(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
-                        o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime, o.TipAngazovanja,
-                        o.NazivPozicije, o.DatumPocetka));
+                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id,
+                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime,
+                        o.OrganizacionaJedinica, o.TipAngazovanja,
+                        o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -1953,19 +1949,18 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 Angazovanje o = new Angazovanje();
-                o.Id.Institucija = s.Load<Institucija>(dto.IdInstitucije);
-                o.Id.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
+                o.Institucija = s.Load<Institucija>(dto.IdInstitucije);
+                o.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
                 o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
                 o.TipAngazovanja = dto.TipAngazovanja;
                 o.NazivPozicije = dto.NazivPozicije;
                 o.DatumPocetka = dto.DatumPocetka;
                 o.DatumZavrsetka = dto.DatumZavrsetka;
-
-                s.SaveOrUpdate(o);
+s.SaveOrUpdate(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajAngazovanje(AngazovanjeBasic dto)
@@ -1974,11 +1969,9 @@ namespace DigitalniRepozitorijum
             {
                 ISession s = DataLayer.GetSession();
 
-                AngazovanjeId key = new AngazovanjeId();
-                key.Institucija = s.Load<Institucija>(dto.IdInstitucije);
-                key.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
-
-                Angazovanje o = s.Load<Angazovanje>(key);
+                Angazovanje o = s.Load<Angazovanje>(dto.Id);
+                o.Institucija = s.Load<Institucija>(dto.IdInstitucije);
+                o.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
                 o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
                 o.TipAngazovanja = dto.TipAngazovanja;
                 o.NazivPozicije = dto.NazivPozicije;
@@ -1989,52 +1982,44 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
-        public static AngazovanjeBasic vratiAngazovanje(int idInstitucije, int idIstrazivaca)
+        public static AngazovanjeBasic vratiAngazovanje(int id)
         {
             AngazovanjeBasic dto = new AngazovanjeBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                AngazovanjeId key = new AngazovanjeId();
-                key.Institucija = s.Load<Institucija>(idInstitucije);
-                key.Istrazivac = s.Load<Istrazivac>(idIstrazivaca);
-
-                Angazovanje o = s.Load<Angazovanje>(key);
-                dto = new AngazovanjeBasic(o.Id.Institucija.Id, o.Id.Istrazivac.Id,
-                    o.Id.Institucija.Naziv, o.Id.Istrazivac.Ime + " " + o.Id.Istrazivac.Prezime,
+                Angazovanje o = s.Load<Angazovanje>(id);
+                dto = new AngazovanjeBasic(o.Id,
+                    o.Institucija.Id, o.Istrazivac.Id,
+                    o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime,
                     o.NazivPozicije, o.DatumPocetka,
                     o.OrganizacionaJedinica, o.TipAngazovanja, o.DatumZavrsetka);
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
-        public static void obrisiAngazovanje(int idInstitucije, int idIstrazivaca)
+        public static void obrisiAngazovanje(int id)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                AngazovanjeId key = new AngazovanjeId();
-                key.Institucija = s.Load<Institucija>(idInstitucije);
-                key.Istrazivac = s.Load<Istrazivac>(idIstrazivaca);
-
-                Angazovanje o = s.Load<Angazovanje>(key);
+                Angazovanje o = s.Load<Angazovanje>(id);
                 s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
-
 
         #region Autorstvo
 
@@ -2046,39 +2031,39 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Autorstvo> rezultati =
                     from o in s.Query<Autorstvo>()
-                    where o.Id.Publikacija.Id == idPublikacije
+                    where o.Publikacija.Id == idPublikacije
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AutorstvoBasic(o.Id.Publikacija.Id, o.Id.Autor.Id,
-                        o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
+                    lista.Add(new AutorstvoBasic(o.Id, o.Publikacija.Id, o.Autor.Id,
+                        o.Publikacija.Naslov, o.Autor.Ime + " " + o.Autor.Prezime,
                         o.RedosledAutora, o.TipDoprinosa, o.Uloga));
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
-        public static List<AutorstvoPregled> vratiSvePublikacijeAutora(int idAutora)
+        public static List<AutorstvoBasic> vratiSvePublikacijeAutora(int idAutora)
         {
-            List<AutorstvoPregled> lista = new List<AutorstvoPregled>();
+            List<AutorstvoBasic> lista = new List<AutorstvoBasic>();
             try
             {
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Autorstvo> rezultati =
                     from o in s.Query<Autorstvo>()
-                    where o.Id.Autor.Id == idAutora
+                    where o.Autor.Id == idAutora
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AutorstvoPregled(o.Id.Publikacija.Id, o.Id.Autor.Id,
-                        o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
-                        o.RedosledAutora));
+                    lista.Add(new AutorstvoBasic(o.Id, o.Publikacija.Id, o.Autor.Id,
+                        o.Publikacija.Naslov, o.Autor.Ime + " " + o.Autor.Prezime,
+                        o.RedosledAutora, o.TipDoprinosa, o.Uloga));
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return lista;
         }
 
@@ -2089,8 +2074,8 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 Autorstvo o = new Autorstvo();
-                o.Id.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
-                o.Id.Autor = s.Load<Istrazivac>(dto.IdAutora);
+                o.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
+                o.Autor = s.Load<Istrazivac>(dto.IdAutora);
                 o.RedosledAutora = dto.RedosledAutora;
                 o.TipDoprinosa = dto.TipDoprinosa;
                 o.Uloga = dto.Uloga;
@@ -2099,7 +2084,7 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         public static void azurirajAutorstvo(AutorstvoBasic dto)
@@ -2108,11 +2093,9 @@ namespace DigitalniRepozitorijum
             {
                 ISession s = DataLayer.GetSession();
 
-                AutorstvoId key = new AutorstvoId();
-                key.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
-                key.Autor = s.Load<Istrazivac>(dto.IdAutora);
-
-                Autorstvo o = s.Load<Autorstvo>(key);
+                Autorstvo o = s.Load<Autorstvo>(dto.Id);
+                o.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
+                o.Autor = s.Load<Istrazivac>(dto.IdAutora);
                 o.RedosledAutora = dto.RedosledAutora;
                 o.TipDoprinosa = dto.TipDoprinosa;
                 o.Uloga = dto.Uloga;
@@ -2121,47 +2104,39 @@ namespace DigitalniRepozitorijum
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
-        public static AutorstvoBasic vratiAutorstvo(int idPublikacije, int idAutora)
+        public static AutorstvoBasic vratiAutorstvo(int id)
         {
             AutorstvoBasic dto = new AutorstvoBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                AutorstvoId key = new AutorstvoId();
-                key.Publikacija = s.Load<Publikacija>(idPublikacije);
-                key.Autor = s.Load<Istrazivac>(idAutora);
-
-                Autorstvo o = s.Load<Autorstvo>(key);
-                dto = new AutorstvoBasic(o.Id.Publikacija.Id, o.Id.Autor.Id,
-                    o.Id.Publikacija.Naslov, o.Id.Autor.Ime + " " + o.Id.Autor.Prezime,
+                Autorstvo o = s.Load<Autorstvo>(id);
+                dto = new AutorstvoBasic(o.Id, o.Publikacija.Id, o.Autor.Id,
+                    o.Publikacija.Naslov, o.Autor.Ime + " " + o.Autor.Prezime,
                     o.RedosledAutora, o.TipDoprinosa, o.Uloga);
 
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
             return dto;
         }
 
-        public static void obrisiAutorstvo(int idPublikacije, int idAutora)
+        public static void obrisiAutorstvo(int id)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                AutorstvoId key = new AutorstvoId();
-                key.Publikacija = s.Load<Publikacija>(idPublikacije);
-                key.Autor = s.Load<Istrazivac>(idAutora);
-
-                Autorstvo o = s.Load<Autorstvo>(key);
+                Autorstvo o = s.Load<Autorstvo>(id);
                 s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { LogError(ex); }
         }
 
         #endregion
@@ -2186,7 +2161,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem naucnih radova iz baze...", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaNaucnihRadova;
         }
@@ -2216,7 +2191,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem naucnih radova iz baze...", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaNaucnihRadova;
         }
@@ -2293,15 +2268,11 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from NaucniRad where ID = :id");
+                var q = s.CreateQuery("delete from NAUCNI_RAD where ID = :id");
                 q.SetParameter("id", radId);
 
-                q.ExecuteUpdate();
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
@@ -2367,7 +2338,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem dataseta iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaDatasetova;
         }
@@ -2396,7 +2367,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem dataseta iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaDatasetova;
         }
@@ -2490,19 +2461,14 @@ namespace DigitalniRepozitorijum
             {
                 return status;
             }
-           
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from Dataset where ID = :id");
+                var q = s.CreateQuery("delete from DATASET where ID = :id");
                 q.SetParameter("id", datasetId);
 
-                q.ExecuteUpdate();
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
@@ -2533,7 +2499,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem softverskih artefakata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaArtefakata;
         }
@@ -2561,7 +2527,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem softverskih artefakata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaArtefakata;
         }
@@ -2656,15 +2622,11 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from SoftverskiArtefakt where ID = :id");
+                var q = s.CreateQuery("delete from SOFTVERSKI_ARTEFAKT where ID = :id");
                 q.SetParameter("id", artefaktId);
 
-                q.ExecuteUpdate();
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
@@ -2695,20 +2657,18 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem rundi recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaRundi;
         }
 
-        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz(int idPublikacije)
+        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz()
         {
             List<RundaRecenzijePregled> listaRundi = new List<RundaRecenzijePregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var runde = sesija.Query<RundaRecenzije>()
-                    .Where(r => r.Publikacija.Id == idPublikacije)
-                    .ToList();
+                var runde = sesija.Query<RundaRecenzije>().ToList();
                 foreach (var runda in runde)
                 {
                     RundaRecenzijePregled obj = new RundaRecenzijePregled
@@ -2727,7 +2687,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem rundi recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaRundi;
         }
@@ -2764,13 +2724,6 @@ namespace DigitalniRepozitorijum
                     Datum = runda.Datum,
                     KonacnaOdluka = runda.KonacnaOdluka
                 };
-
-                if (runda.IdPublikacije != 0)
-                    nova.Publikacija = s.Load<Publikacija>(runda.IdPublikacije);
-
-                if (runda.IdUrednika != 0)
-                    nova.Urednik = s.Load<Istrazivac>(runda.IdUrednika);
-
 
                 s.SaveOrUpdate(nova);
                 s.Flush();
@@ -2819,64 +2772,23 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var runda = s.Get<RundaRecenzije>(rundaId);
-                if (runda != null)
-                {
-                    // assuming runda.VrsteRecenziju is the collection of child entities
-                    foreach (var child in runda.Recenzije.ToList())
-                        s.Delete(child);
+                var q = s.CreateQuery("delete from RundaRecenzije where Id = :id");
+                q.SetParameter("id", rundaId);
 
-                    s.Delete(runda);
-                }
-
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Poruka exceptiona: {ex.Message}", ex);
+                throw new Exception($"Poruka exceptiona: {ex.Message}");
             }
 
             return status;
         }
 
-        public static List<IstrazivacPregled> VratiIstrazivacaRundeRecenzije(int idRunde)
-        {
-            List<IstrazivacPregled> listaIstrazivaca = new List<IstrazivacPregled>();
-            try
-            {
-                ISession sesija = DataLayer.GetSession();
-                var recenzenti = sesija.Query<RundaRecenzije>().Where(rr => rr.Id == idRunde).ToList();
-                foreach (var recenzent in recenzenti)
-                {
-                    IstrazivacPregled ip = new IstrazivacPregled
-                    {
-                        Id = recenzent.IdUrednika,
-                        Ime = recenzent.Urednik!.Ime,
-                        Prezime = recenzent.Urednik.Prezime,
-                        DatumRodjenja = recenzent.Urednik.DatumRodjenja,
-                        Drzava = recenzent.Urednik.Drzava,
-                        NaucnaOblast = recenzent.Urednik.NaucnaOblast,
-                        NaucnoZvanje = recenzent.Urednik.NaucnoZvanje,
-                        StatusNaloga = recenzent.Urednik.StatusNaloga
-                    };
-                    listaIstrazivaca.Add(ip);
-                }
-                sesija.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem istrazivaca runde recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return listaIstrazivaca;
-        }
-
         #endregion
 
-
+        
         #region Citati
 
         public static List<CitatBasic> VratiCitatePoPublikaciji(int idPublikacije)
@@ -2885,14 +2797,14 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var citati = sesija.Query<Citira>().Where(c => c.PubCitira.Id == idPublikacije).ToList();
+                var citati = sesija.Query<Citira>().Where(c => c.IdCitira == idPublikacije).ToList();
                 foreach (var citat in citati)
                 {
                     CitatBasic cb = new CitatBasic
                     {
                         Id = citat.Id,
-                        PubCitira = new PublikacijaBasic(citat.PubCitira.Id, citat.PubCitira.Naslov, citat.PubCitira.Apstrakt, citat.PubCitira.Jezik, citat.PubCitira.Status, citat.PubCitira.Vidljivost, citat.PubCitira.DatumObjavljivanja, citat.PubCitira.DatumKreiranjaZapisa),
-                        PubCitirana = new PublikacijaBasic(citat.PubCitirana.Id, citat.PubCitirana.Naslov, citat.PubCitirana.Apstrakt, citat.PubCitirana.Jezik, citat.PubCitirana.Status, citat.PubCitirana.Vidljivost, citat.PubCitirana.DatumObjavljivanja, citat.PubCitirana.DatumKreiranjaZapisa),
+                        IdCitira = citat.IdCitira,
+                        IdCitirana = citat.IdCitirana,
                         MestoCitiranja = citat.MestoCitiranja,
                         TekstualniKontekst = citat.TekstualniKontekst,
                         TipCitata = citat.TipCitata
@@ -2904,7 +2816,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem citata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaCitata;
         }
@@ -2921,8 +2833,8 @@ namespace DigitalniRepozitorijum
                 CitatBasic cb = new CitatBasic
                 {
                     Id = c.Id,
-                    PubCitira = new PublikacijaBasic(c.PubCitira.Id, c.PubCitira.Naslov, c.PubCitira.Apstrakt, c.PubCitira.Jezik, c.PubCitira.Status, c.PubCitira.Vidljivost, c.PubCitira.DatumObjavljivanja, c.PubCitira.DatumKreiranjaZapisa),
-                    PubCitirana = new PublikacijaBasic(c.PubCitirana.Id, c.PubCitirana.Naslov, c.PubCitirana.Apstrakt, c.PubCitirana.Jezik, c.PubCitirana.Status, c.PubCitirana.Vidljivost, c.PubCitirana.DatumObjavljivanja, c.PubCitirana.DatumKreiranjaZapisa),
+                    IdCitira = c.IdCitira,
+                    IdCitirana = c.IdCitirana,
                     MestoCitiranja = c.MestoCitiranja,
                     TekstualniKontekst = c.TekstualniKontekst,
                     TipCitata = c.TipCitata
@@ -2945,8 +2857,8 @@ namespace DigitalniRepozitorijum
 
                 CitatBasic novi = new CitatBasic
                 {
-                    PubCitira = citat.PubCitira,
-                    PubCitirana = citat.PubCitirana,
+                    IdCitira = citat.IdCitira,
+                    IdCitirana = citat.IdCitirana,
                     TipCitata = citat.TipCitata,
                     MestoCitiranja = citat.MestoCitiranja,
                     TekstualniKontekst = citat.TekstualniKontekst
@@ -2973,8 +2885,8 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
                 CitatBasic cnova = s.Get<CitatBasic>(citat.Id);
 
-                cnova.PubCitira = citat.PubCitira;
-                cnova.PubCitirana = citat.PubCitirana;
+                cnova.IdCitira = citat.IdCitira;
+                cnova.IdCitirana = citat.IdCitirana;
                 cnova.TipCitata = citat.TipCitata;
                 cnova.MestoCitiranja = citat.MestoCitiranja;
                 cnova.TekstualniKontekst = citat.TekstualniKontekst;
@@ -2999,15 +2911,11 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from Citira where ID = :id");
+                var q = s.CreateQuery("delete from CITIRA where ID = :id");
                 q.SetParameter("id", citatId);
 
-                q.ExecuteUpdate();
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
@@ -3037,7 +2945,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem urednika knjige iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaUrednika;
         }
@@ -3115,15 +3023,11 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from KnjigaUrednici where Id = :id");
+                var q = s.CreateQuery("delete from KNJIGA_UREDNICI where Id = :id");
                 q.SetParameter("id", uredikaId);
 
-                q.ExecuteUpdate();
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
@@ -3153,7 +3057,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem urednika poglavlja iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+LogError(ex);
             }
             return listaUrednika;
         }
@@ -3231,15 +3135,11 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from PoglavljeUrednici where Id = :id");
+                var q = s.CreateQuery("delete from POGLAVLJE_UREDNICI where Id = :id");
                 q.SetParameter("id", uredikaId);
 
-                q.ExecuteUpdate();
-                tx.Commit();
-
-                status = true;
+                q.ExecuteUpdate();                status = true;
             }
             catch (Exception ex)
             {
@@ -3250,7 +3150,6 @@ namespace DigitalniRepozitorijum
         }
 
         #endregion
-
 
 
     }
