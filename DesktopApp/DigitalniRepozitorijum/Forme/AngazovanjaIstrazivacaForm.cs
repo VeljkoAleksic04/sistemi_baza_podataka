@@ -28,7 +28,7 @@ namespace DigitalniRepozitorijum.Forme
             List<AngazovanjePregled> podaci = DTOManager.vratiSveAngazovanjaIstrazivaca(_idIstrazivaca.Value);
 
             foreach (var p in podaci)
-                dataGridView.Rows.Add(p.IdInstitucije, p.NazivInstitucije, p.NazivPozicije, p.DatumPocetka.ToShortDateString());
+                dataGridView.Rows.Add(p.IdInstitucije, p.NazivInstitucije, p.OrganizacionaJedinica, p.TipAngazovanja, p.NazivPozicije, p.DatumPocetka.ToShortDateString(), p.DatumZavrsetka?.ToShortDateString() ?? "");
 
             dataGridView.Refresh();
         }
@@ -51,18 +51,18 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var idInstitucije = GetSelectedId(); if (idInstitucije == null) return;
-            using var form = new IzmeniAngazovanjeForm(_idIstrazivaca, idInstitucije);
+            var idAngazovanja = GetSelectedId(); if (idAngazovanja == null) return;
+            using var form = new IzmeniAngazovanjeForm(idAngazovanja);
             if (form.ShowDialog() == DialogResult.OK)
                 PopuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            var idInstitucije = GetSelectedId(); if (idInstitucije == null) return;
+            var idAngazovanja = GetSelectedId(); if (idAngazovanja == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                DTOManager.obrisiAngazovanje(idInstitucije.Value, _idIstrazivaca.Value);
+                DTOManager.obrisiAngazovanje(idAngazovanja.Value);
                 PopuniPodacima();
             }
         }

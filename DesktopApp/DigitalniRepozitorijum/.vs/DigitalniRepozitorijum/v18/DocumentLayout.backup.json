@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\",
   "Documents": [
     {
@@ -25,6 +26,29 @@
     {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+  "WorkspaceRootPath": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\vuk\\desktop\\sistemi baza\\projekat\\ii deo\\projekat\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\vuk\\desktop\\sistemi baza\\projekat\\ii deo\\projekat\\desktopapp\\digitalnirepozitorijum\\mapiranja\\povezansamap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:mapiranja\\povezansamap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\vuk\\desktop\\sistemi baza\\projekat\\ii deo\\projekat\\desktopapp\\digitalnirepozitorijum\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\users\\vuk\\desktop\\sistemi baza\\projekat\\ii deo\\projekat\\desktopapp\\digitalnirepozitorijum\\forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\povezanepublikacijeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
     }
   ],
   "DocumentGroupContainers": [
@@ -34,6 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 2,
           "Children": [
             {
@@ -103,10 +128,62 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-14T14:57:30.153Z",
               "EditorCaption": " [Design]"
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
+              "RelativeDocumentMoniker": "DataLayer.cs",
+              "ToolTip": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
+              "RelativeToolTip": "DataLayer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAwCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T11:43:31.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PovezanSaMap.cs",
+              "DocumentMoniker": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\Mapiranja\\PovezanSaMap.cs",
+              "RelativeDocumentMoniker": "Mapiranja\\PovezanSaMap.cs",
+              "ToolTip": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\Mapiranja\\PovezanSaMap.cs",
+              "RelativeToolTip": "Mapiranja\\PovezanSaMap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T10:47:44.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DTOManager.cs",
+              "DocumentMoniker": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
+              "RelativeDocumentMoniker": "DTOManager.cs",
+              "ToolTip": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
+              "RelativeToolTip": "DTOManager.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAAiwNwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T10:31:55.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PovezanePublikacijeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PovezanePublikacijeForm.cs",
+              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\..\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T10:31:31.086Z"
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+<<<<<<< HEAD
               "Title": "DodajPodrzanuPlatformuForm.cs",
               "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DodajPodrzanuPlatformuForm.cs",
               "RelativeDocumentMoniker": "Forme\\DodajPodrzanuPlatformuForm.cs",
@@ -116,6 +193,16 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-14T14:56:05.648Z",
               "EditorCaption": ""
+=======
+              "Title": "PovezanePublikacijeForm.cs",
+              "DocumentMoniker": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs",
+              "RelativeDocumentMoniker": "Forme\\PovezanePublikacijeForm.cs",
+              "ToolTip": "C:\\Users\\Vuk\\Desktop\\sistemi baza\\Projekat\\II deo\\projekat\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PovezanePublikacijeForm.cs",
+              "RelativeToolTip": "Forme\\PovezanePublikacijeForm.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAADwvzAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T10:30:11.437Z"
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
           ]
         }

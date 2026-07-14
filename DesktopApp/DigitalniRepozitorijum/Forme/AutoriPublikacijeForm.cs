@@ -25,7 +25,7 @@ namespace DigitalniRepozitorijum.Forme
             List<AutorstvoBasic> podaci = DTOManager.vratiSveAutorePublikacije(_idPublikacije.Value);
 
             foreach (var p in podaci)
-                dataGridView.Rows.Add(p.IdAutora, p.ImeAutora.Split(" ")[0], p.ImeAutora.Split(" ")[1], p.RedosledAutora, p.TipDoprinosa, p.Uloga);
+                dataGridView.Rows.Add(p.Id, p.ImeAutora.Split(" ")[0], p.ImeAutora.Split(" ")[1], p.RedosledAutora, p.TipDoprinosa, p.Uloga);
 
             dataGridView.Refresh();
         }
@@ -48,18 +48,18 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var idAutora = GetSelectedId(); if (idAutora == null) return;
-            using var form = new IzmeniAutoraPublikacijeForm(_idPublikacije, idAutora);
+            var idAutorstva = GetSelectedId(); if (idAutorstva == null) return;
+            using var form = new IzmeniAutoraPublikacijeForm(idAutorstva);
             if (form.ShowDialog() == DialogResult.OK)
                 PopuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            var idAutora = GetSelectedId(); if (idAutora == null) return;
+            var idAutorstva = GetSelectedId(); if (idAutorstva == null) return;
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                DTOManager.obrisiAutorstvo(_idPublikacije.Value, idAutora.Value);
+                DTOManager.obrisiAutorstvo(idAutorstva.Value);
                 PopuniPodacima();
             }
         }

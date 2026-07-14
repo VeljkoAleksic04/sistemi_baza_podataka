@@ -59,9 +59,9 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // colIdIstrazivaca
             // 
-            colIdIstrazivaca.DataPropertyName = "IdIstrazivaca";
-            colIdIstrazivaca.HeaderText = "IdIstrazivaca";
-            colIdIstrazivaca.Name = "colIdIstrazivaca";
+            colIdIstrazivaca.DataPropertyName = "Id";
+            colIdIstrazivaca.HeaderText = "Id";
+            colIdIstrazivaca.Name = "colId";
             colIdIstrazivaca.ReadOnly = true;
             // 
             // colIme

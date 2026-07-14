@@ -36,7 +36,7 @@ namespace DigitalniRepozitorijum
                 var cfg = OracleManagedDataClientConfiguration.Oracle10
                     .ShowSql()
                     .ConnectionString(c =>
-                        c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S19523;Password=")); // UNETI SVOJU SIFRU ZA RAD SA BAZOM
+                        c.Is("")); // UNETI SVOJU SIFRU ZA RAD SA BAZOM
 
                 return Fluently.Configure()
                     .Database(cfg)

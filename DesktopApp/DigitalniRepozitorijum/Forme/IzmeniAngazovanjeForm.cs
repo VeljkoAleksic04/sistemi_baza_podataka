@@ -4,21 +4,19 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class IzmeniAngazovanjeForm : Form
     {
-        private readonly int? _idIstrazivaca;
-        private readonly int? _idInstitucije;
+        private readonly int? _idAngazovanja;
 
-        public IzmeniAngazovanjeForm(int? idIstrazivaca = null, int? idInstitucije = null)
+        public IzmeniAngazovanjeForm(int? idAngazovanja = null)
         {
-            _idIstrazivaca = idIstrazivaca;
-            _idInstitucije = idInstitucije;
+            _idAngazovanja = idAngazovanja;
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
 
         private void IzmeniAngazovanjeForm_Load(object sender, EventArgs e)
         {
-            if (_idInstitucije == null || _idIstrazivaca == null) return;
-            var dto = DTOManager.vratiAngazovanje(_idInstitucije.Value, _idIstrazivaca.Value);
+            if (_idAngazovanja == null) return;
+            var dto = DTOManager.vratiAngazovanje(_idAngazovanja.Value);
             txtOrganizacionaJedinica.Text = dto.OrganizacionaJedinica;
             txtTipAngazovanja.Text = dto.TipAngazovanja;
             txtNazivPozicije.Text = dto.NazivPozicije;
@@ -28,12 +26,13 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            var postojeci = DTOManager.vratiAngazovanje(_idInstitucije.Value, _idIstrazivaca.Value);
+            var postojeci = DTOManager.vratiAngazovanje(_idAngazovanja.Value);
 
             var dto = new AngazovanjeBasic
             {
-                IdInstitucije = _idInstitucije.Value,
-                IdIstrazivaca = _idIstrazivaca.Value,
+                Id = _idAngazovanja.Value,
+                IdInstitucije = postojeci.IdInstitucije,
+                IdIstrazivaca = postojeci.IdIstrazivaca,
                 OrganizacionaJedinica = txtOrganizacionaJedinica.Text,
                 TipAngazovanja = txtTipAngazovanja.Text,
                 NazivPozicije = txtNazivPozicije.Text,
