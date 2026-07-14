@@ -20,8 +20,8 @@ namespace DigitalniRepozitorijum.Forme
             txtOrganizacionaJedinica.Text = dto.OrganizacionaJedinica;
             txtTipAngazovanja.Text = dto.TipAngazovanja;
             txtNazivPozicije.Text = dto.NazivPozicije;
-            txtDatumPocetka.Text = dto.DatumPocetka.ToShortDateString();
-            txtDatumZavrsetka.Text = dto.DatumZavrsetka?.ToShortDateString();
+            datePocetka.Value = dto.DatumPocetka;
+            dateZavrsetka.Value = dto.DatumZavrsetka == null ? dateZavrsetka.MinDate : dto.DatumZavrsetka.Value;
         }
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
@@ -36,11 +36,12 @@ namespace DigitalniRepozitorijum.Forme
                 OrganizacionaJedinica = txtOrganizacionaJedinica.Text,
                 TipAngazovanja = txtTipAngazovanja.Text,
                 NazivPozicije = txtNazivPozicije.Text,
-                DatumPocetka = DateTime.Parse(txtDatumPocetka.Text),
-                DatumZavrsetka = string.IsNullOrWhiteSpace(txtDatumZavrsetka.Text) ? (DateTime?)null : DateTime.Parse(txtDatumZavrsetka.Text)
+                DatumPocetka = datePocetka.Value,
+                DatumZavrsetka = (dateZavrsetka.Value < datePocetka.Value) ? null : dateZavrsetka.Value,
             };
 
             DTOManager.azurirajAngazovanje(dto);
+            MessageBox.Show("Uspesno je izmenjeno angazovanje!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
         }

@@ -23,9 +23,10 @@ namespace DigitalniRepozitorijum.Forme
                 CitatBasic novi = new CitatBasic
                 {
                     IdCitira = (int)_idPublikacije,
-                    IdCitirana = int.Parse(txtCitat.Text),
+                    IdCitirana = (int)cmbPublikacije.SelectedValue,
                     TipCitata = txtTipCitata.Text,
-                    MestoCitiranja = txtMestoCitiranja.Text
+                    MestoCitiranja = txtMestoCitiranja.Text,
+                    TekstualniKontekst = txtKontekst.Text
                 };
 
                 bool success = DTOManager.DodajCitat(novi);
@@ -55,7 +56,16 @@ namespace DigitalniRepozitorijum.Forme
 
         private void DodajCitatForm_Load(object sender, EventArgs e)
         {
+            UcitajPodatke();
+        }
 
+        private void UcitajPodatke()
+        {
+            var publikacije = DTOManager.vratiSvePublikacije();
+
+            cmbPublikacije.DataSource = publikacije;
+            cmbPublikacije.ValueMember = "Id";
+            cmbPublikacije.DisplayMember = "Naslov";
         }
     }
 }

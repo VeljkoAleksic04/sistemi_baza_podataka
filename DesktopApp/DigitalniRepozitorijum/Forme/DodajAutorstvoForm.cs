@@ -15,17 +15,11 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPublikacija.Text) || string.IsNullOrWhiteSpace(txtRedosled.Text))
-            {
-                MessageBox.Show("Popunite obavezna polja (ID publikacije i redosled).", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             var dto = new AutorstvoBasic
             {
-                IdPublikacije = int.Parse(txtPublikacija.Text),
+                IdPublikacije = (int)cmbPublikacije.SelectedValue,
                 IdAutora = _idAutora.Value,
-                RedosledAutora = int.Parse(txtRedosled.Text),
+                RedosledAutora = (int)numericUpDown1.Value,
                 TipDoprinosa = txtTipDoprinosa.Text,
                 Uloga = txtUloga.Text
             };
@@ -33,6 +27,23 @@ namespace DigitalniRepozitorijum.Forme
             DTOManager.dodajAutorstvo(dto);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void DodajAutorstvoForm_Load(object sender, EventArgs e)
+        {
+            UcitajPodatke();
+        }
+
+        private void UcitajPodatke()
+        {
+            var publikacije = DTOManager.vratiSvePublikacije();
+
+            cmbPublikacije.DataSource = publikacije;
+            cmbPublikacije.DisplayMember = "Naslov";
+            cmbPublikacije.ValueMember = "Id";
+
+            if (cmbPublikacije.Items.Count > 0)
+                cmbPublikacije.SelectedIndex = 0;
         }
     }
 }

@@ -9,8 +9,8 @@ namespace DigitalniRepozitorijum
     #region Publikacija
     public class PublikacijaPregled
     {
-        public int Id;
-        public string Naslov;
+        public int Id { get; set; }
+        public string Naslov { get; set; }
         public string Jezik;
         public string Status;
         public string Vidljivost;
@@ -324,8 +324,8 @@ namespace DigitalniRepozitorijum
 
     public class InstitucijaPregled
     {
-        public int Id;
-        public string Naziv;
+        public int Id { get; set; }
+        public string Naziv { get; set; }
         public string Adresa;
 
         public InstitucijaPregled() { }
@@ -445,7 +445,7 @@ namespace DigitalniRepozitorijum
 
     public class IstrazivacPregled
     {
-        public int Id;
+        public int Id { get; }
         public string Ime;
         public string Prezime;
         public DateTime DatumRodjenja;

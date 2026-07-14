@@ -15,26 +15,35 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtInstitucija.Text))
-            {
-                MessageBox.Show("Unesite ID institucije.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             var dto = new AngazovanjeBasic
             {
-                IdInstitucije = int.Parse(txtInstitucija.Text),
+                IdInstitucije = (int)cmbInstitucije.SelectedValue,
                 IdIstrazivaca = _idIstrazivaca.Value,
                 OrganizacionaJedinica = txtOrganizacionaJedinica.Text,
                 TipAngazovanja = txtTipAngazovanja.Text,
                 NazivPozicije = txtNazivPozicije.Text,
-                DatumPocetka = DateTime.Parse(txtDatumPocetka.Text),
-                DatumZavrsetka = string.IsNullOrWhiteSpace(txtDatumZavrsetka.Text) ? (DateTime?)null : DateTime.Parse(txtDatumZavrsetka.Text)
+                DatumPocetka = datePocetka.Value,
+                DatumZavrsetka = (dateZavrsetka.Value < datePocetka.Value) ? null : dateZavrsetka.Value,
             };
 
             DTOManager.dodajAngazovanje(dto);
+            MessageBox.Show("Uspesno je dodato angazovanje!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void DodajAngazovanjeForm_Load(object sender, EventArgs e)
+        {
+            UcitajPodatke();
+        }
+
+        private void UcitajPodatke()
+        {
+            var institucije = DTOManager.vratiSveInstitucije();
+
+            cmbInstitucije.DataSource = institucije;
+            cmbInstitucije.ValueMember = "Id";
+            cmbInstitucije.DisplayMember = "Naziv";
         }
     }
 }

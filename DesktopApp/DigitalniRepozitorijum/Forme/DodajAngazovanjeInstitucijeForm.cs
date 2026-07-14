@@ -15,24 +15,33 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtIstrazivac.Text))
-            {
-                MessageBox.Show("Unesite ID istrazivaca.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             var dto = new AngazovanjeBasic
             {
                 IdInstitucije = _idInstitucije.Value,
-                IdIstrazivaca = int.Parse(txtIstrazivac.Text),
+                IdIstrazivaca = (int)cmbIstrazivaci.SelectedValue,
                 TipAngazovanja = txtTipAngazovanja.Text,
                 NazivPozicije = txtNazivPozicije.Text,
-                DatumPocetka = DateTime.Parse(txtDatumPocetka.Text)
+                DatumPocetka = datePocetka.Value,
+                DatumZavrsetka = dateZavrsetka.Value < datePocetka.Value ? null : dateZavrsetka.Value,
             };
 
             DTOManager.dodajAngazovanje(dto);
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void DodajAngazovanjeInstitucijeForm_Load(object sender, EventArgs e)
+        {
+            UcitajPodatke();
+        }
+
+        private void UcitajPodatke()
+        {
+            var istrazivaci = DTOManager.vratiSveIstrazivace();
+
+            cmbIstrazivaci.DataSource = istrazivaci;
+            cmbIstrazivaci.DisplayMember = "PunoIme";
+            cmbIstrazivaci.ValueMember = "Id";
         }
     }
 }

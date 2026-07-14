@@ -19,6 +19,10 @@ namespace DigitalniRepozitorijum.Forme
         {
             groupBox = new GroupBox();
             dataGridView = new DataGridView();
+            btnDodaj = new Button();
+            btnIzmeni = new Button();
+            btnObrisi = new Button();
+            IdAngazovanja = new DataGridViewTextBoxColumn();
             colIdInstitucije = new DataGridViewTextBoxColumn();
             colNazivInstitucije = new DataGridViewTextBoxColumn();
             colOrganizacionaJedinica = new DataGridViewTextBoxColumn();
@@ -26,9 +30,6 @@ namespace DigitalniRepozitorijum.Forme
             colNazivPozicije = new DataGridViewTextBoxColumn();
             colDatumPocetka = new DataGridViewTextBoxColumn();
             colDatumZavrsetka = new DataGridViewTextBoxColumn();
-            btnDodaj = new Button();
-            btnIzmeni = new Button();
-            btnObrisi = new Button();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -48,7 +49,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colIdInstitucije, colNazivInstitucije, colOrganizacionaJedinica, colTipAngazovanja, colNazivPozicije, colDatumPocetka, colDatumZavrsetka });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { IdAngazovanja, colIdInstitucije, colNazivInstitucije, colOrganizacionaJedinica, colTipAngazovanja, colNazivPozicije, colDatumPocetka, colDatumZavrsetka });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(3, 19);
             dataGridView.MultiSelect = false;
@@ -57,6 +58,42 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
+            // 
+            // btnDodaj
+            // 
+            btnDodaj.Location = new Point(720, 12);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new Size(240, 32);
+            btnDodaj.TabIndex = 10;
+            btnDodaj.Text = "Dodaj";
+            btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click;
+            // 
+            // btnIzmeni
+            // 
+            btnIzmeni.Location = new Point(720, 50);
+            btnIzmeni.Name = "btnIzmeni";
+            btnIzmeni.Size = new Size(240, 32);
+            btnIzmeni.TabIndex = 10;
+            btnIzmeni.Text = "Izmeni";
+            btnIzmeni.UseVisualStyleBackColor = true;
+            btnIzmeni.Click += btnIzmeni_Click;
+            // 
+            // btnObrisi
+            // 
+            btnObrisi.Location = new Point(720, 88);
+            btnObrisi.Name = "btnObrisi";
+            btnObrisi.Size = new Size(240, 32);
+            btnObrisi.TabIndex = 10;
+            btnObrisi.Text = "Obrisi";
+            btnObrisi.UseVisualStyleBackColor = true;
+            btnObrisi.Click += btnObrisi_Click;
+            // 
+            // IdAngazovanja
+            // 
+            IdAngazovanja.HeaderText = "IdAngazovanja";
+            IdAngazovanja.Name = "IdAngazovanja";
+            IdAngazovanja.ReadOnly = true;
             // 
             // colIdInstitucije
             // 
@@ -107,36 +144,6 @@ namespace DigitalniRepozitorijum.Forme
             colDatumZavrsetka.Name = "colDatumZavrsetka";
             colDatumZavrsetka.ReadOnly = true;
             // 
-            // btnDodaj
-            // 
-            btnDodaj.Location = new Point(720, 12);
-            btnDodaj.Name = "btnDodaj";
-            btnDodaj.Size = new Size(240, 32);
-            btnDodaj.TabIndex = 10;
-            btnDodaj.Text = "Dodaj";
-            btnDodaj.UseVisualStyleBackColor = true;
-            btnDodaj.Click += btnDodaj_Click;
-            // 
-            // btnIzmeni
-            // 
-            btnIzmeni.Location = new Point(720, 50);
-            btnIzmeni.Name = "btnIzmeni";
-            btnIzmeni.Size = new Size(240, 32);
-            btnIzmeni.TabIndex = 10;
-            btnIzmeni.Text = "Izmeni";
-            btnIzmeni.UseVisualStyleBackColor = true;
-            btnIzmeni.Click += btnIzmeni_Click;
-            // 
-            // btnObrisi
-            // 
-            btnObrisi.Location = new Point(720, 88);
-            btnObrisi.Name = "btnObrisi";
-            btnObrisi.Size = new Size(240, 32);
-            btnObrisi.TabIndex = 10;
-            btnObrisi.Text = "Obrisi";
-            btnObrisi.UseVisualStyleBackColor = true;
-            btnObrisi.Click += btnObrisi_Click;
-            // 
             // AngazovanjaIstrazivacaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -159,15 +166,16 @@ namespace DigitalniRepozitorijum.Forme
 
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdInstitucije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNazivInstitucije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOrganizacionaJedinica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipAngazovanja;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNazivPozicije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDatumPocetka;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDatumZavrsetka;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
+        private DataGridViewTextBoxColumn IdAngazovanja;
+        private DataGridViewTextBoxColumn colIdInstitucije;
+        private DataGridViewTextBoxColumn colNazivInstitucije;
+        private DataGridViewTextBoxColumn colOrganizacionaJedinica;
+        private DataGridViewTextBoxColumn colTipAngazovanja;
+        private DataGridViewTextBoxColumn colNazivPozicije;
+        private DataGridViewTextBoxColumn colDatumPocetka;
+        private DataGridViewTextBoxColumn colDatumZavrsetka;
     }
 }

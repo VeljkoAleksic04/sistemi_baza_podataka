@@ -15,87 +15,116 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblRedosled = new System.Windows.Forms.Label();
-            this.lblRedosled.AutoSize = true;
-            this.lblRedosled.Location = new System.Drawing.Point(20, 20);
-            this.lblRedosled.Name = "lblRedosled";
-            this.lblRedosled.Size = new System.Drawing.Size(120, 15);
-            this.lblRedosled.TabIndex = 0;
-            this.lblRedosled.Text = "Redosled:";
-            this.txtRedosled = new System.Windows.Forms.TextBox();
-            this.txtRedosled.Location = new System.Drawing.Point(160, 17);
-            this.txtRedosled.Name = "txtRedosled";
-            this.txtRedosled.Size = new System.Drawing.Size(230, 23);
-            this.txtRedosled.TabIndex = 1;
-            this.lblTipDoprinosa = new System.Windows.Forms.Label();
-            this.lblTipDoprinosa.AutoSize = true;
-            this.lblTipDoprinosa.Location = new System.Drawing.Point(20, 55);
-            this.lblTipDoprinosa.Name = "lblTipDoprinosa";
-            this.lblTipDoprinosa.Size = new System.Drawing.Size(120, 15);
-            this.lblTipDoprinosa.TabIndex = 0;
-            this.lblTipDoprinosa.Text = "Tip doprinosa:";
-            this.txtTipDoprinosa = new System.Windows.Forms.TextBox();
-            this.txtTipDoprinosa.Location = new System.Drawing.Point(160, 52);
-            this.txtTipDoprinosa.Name = "txtTipDoprinosa";
-            this.txtTipDoprinosa.Size = new System.Drawing.Size(230, 23);
-            this.txtTipDoprinosa.TabIndex = 1;
-            this.lblUloga = new System.Windows.Forms.Label();
-            this.lblUloga.AutoSize = true;
-            this.lblUloga.Location = new System.Drawing.Point(20, 90);
-            this.lblUloga.Name = "lblUloga";
-            this.lblUloga.Size = new System.Drawing.Size(120, 15);
-            this.lblUloga.TabIndex = 0;
-            this.lblUloga.Text = "Uloga:";
-            this.txtUloga = new System.Windows.Forms.TextBox();
-            this.txtUloga.Location = new System.Drawing.Point(160, 87);
-            this.txtUloga.Name = "txtUloga";
-            this.txtUloga.Size = new System.Drawing.Size(230, 23);
-            this.txtUloga.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 135);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 135);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.Load += new System.EventHandler(this.IzmeniAutorstvoForm_Load);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 245);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblRedosled);
-            this.Controls.Add(this.txtRedosled);
-            this.Controls.Add(this.lblTipDoprinosa);
-            this.Controls.Add(this.txtTipDoprinosa);
-            this.Controls.Add(this.lblUloga);
-            this.Controls.Add(this.txtUloga);
-            this.Name = "IzmeniAutorstvoForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Izmeni autorstvo";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblRedosled = new Label();
+            lblTipDoprinosa = new Label();
+            txtTipDoprinosa = new TextBox();
+            lblUloga = new Label();
+            txtUloga = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            numRedosled = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numRedosled).BeginInit();
+            SuspendLayout();
+            // 
+            // lblRedosled
+            // 
+            lblRedosled.AutoSize = true;
+            lblRedosled.Location = new Point(20, 20);
+            lblRedosled.Name = "lblRedosled";
+            lblRedosled.Size = new Size(58, 15);
+            lblRedosled.TabIndex = 0;
+            lblRedosled.Text = "Redosled:";
+            // 
+            // lblTipDoprinosa
+            // 
+            lblTipDoprinosa.AutoSize = true;
+            lblTipDoprinosa.Location = new Point(20, 55);
+            lblTipDoprinosa.Name = "lblTipDoprinosa";
+            lblTipDoprinosa.Size = new Size(83, 15);
+            lblTipDoprinosa.TabIndex = 0;
+            lblTipDoprinosa.Text = "Tip doprinosa:";
+            // 
+            // txtTipDoprinosa
+            // 
+            txtTipDoprinosa.Location = new Point(160, 52);
+            txtTipDoprinosa.Name = "txtTipDoprinosa";
+            txtTipDoprinosa.Size = new Size(230, 23);
+            txtTipDoprinosa.TabIndex = 1;
+            // 
+            // lblUloga
+            // 
+            lblUloga.AutoSize = true;
+            lblUloga.Location = new Point(20, 90);
+            lblUloga.Name = "lblUloga";
+            lblUloga.Size = new Size(41, 15);
+            lblUloga.TabIndex = 0;
+            lblUloga.Text = "Uloga:";
+            // 
+            // txtUloga
+            // 
+            txtUloga.Location = new Point(160, 87);
+            txtUloga.Name = "txtUloga";
+            txtUloga.Size = new Size(230, 23);
+            txtUloga.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 135);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 135);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // numRedosled
+            // 
+            numRedosled.Location = new Point(160, 18);
+            numRedosled.Name = "numRedosled";
+            numRedosled.Size = new Size(230, 23);
+            numRedosled.TabIndex = 55;
+            // 
+            // IzmeniAutorstvoForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 245);
+            Controls.Add(numRedosled);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblRedosled);
+            Controls.Add(lblTipDoprinosa);
+            Controls.Add(txtTipDoprinosa);
+            Controls.Add(lblUloga);
+            Controls.Add(txtUloga);
+            Name = "IzmeniAutorstvoForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Izmeni autorstvo";
+            Load += IzmeniAutorstvoForm_Load;
+            ((System.ComponentModel.ISupportInitialize)numRedosled).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;
         private System.Windows.Forms.Button btnOdustani;
         private System.Windows.Forms.Label lblRedosled;
-        private System.Windows.Forms.TextBox txtRedosled;
         private System.Windows.Forms.Label lblTipDoprinosa;
         private System.Windows.Forms.TextBox txtTipDoprinosa;
         private System.Windows.Forms.Label lblUloga;
         private System.Windows.Forms.TextBox txtUloga;
+        private NumericUpDown numRedosled;
     }
 }

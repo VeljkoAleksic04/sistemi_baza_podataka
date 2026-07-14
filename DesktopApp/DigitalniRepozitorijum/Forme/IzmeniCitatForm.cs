@@ -9,11 +9,13 @@ namespace DigitalniRepozitorijum.Forme
     {
         private readonly int? _idPublikacije;
         private readonly int? _id;
+        private readonly int? _idCitata;
 
-        public IzmeniCitatForm(int? idPublikacije = null, int? id = null)
+        public IzmeniCitatForm(int? idPublikacije = null, int? id = null, int? idCitata = null)
         {
             _idPublikacije = idPublikacije;
             _id = id;
+            _idCitata = idCitata;
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
@@ -26,7 +28,7 @@ namespace DigitalniRepozitorijum.Forme
                 {
                     Id = (int)_id,
                     IdCitira = _idPublikacije.Value,
-                    IdCitirana = int.Parse(txtTipCitata.Text),
+                    IdCitirana = _idCitata.Value,
                     TipCitata = txtTipCitata.Text,
                     MestoCitiranja = txtMestoCitiranja.Text,
                     TekstualniKontekst = txtKontekst.Text

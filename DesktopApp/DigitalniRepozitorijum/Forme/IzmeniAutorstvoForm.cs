@@ -17,7 +17,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             if (_idAutorstva == null) return;
             var dto = DTOManager.vratiAutorstvo(_idAutorstva.Value);
-            txtRedosled.Text = dto.RedosledAutora.ToString();
+            numRedosled.Value = dto.RedosledAutora;
             txtTipDoprinosa.Text = dto.TipDoprinosa;
             txtUloga.Text = dto.Uloga;
         }
@@ -31,7 +31,7 @@ namespace DigitalniRepozitorijum.Forme
                 Id = _idAutorstva.Value,
                 IdPublikacije = postojeci.IdPublikacije,
                 IdAutora = postojeci.IdAutora,
-                RedosledAutora = int.Parse(txtRedosled.Text),
+                RedosledAutora = (int)numRedosled.Value,
                 TipDoprinosa = txtTipDoprinosa.Text,
                 Uloga = txtUloga.Text
             };

@@ -24,7 +24,7 @@ namespace DigitalniRepozitorijum.Forme
             return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
         }
 
-        private int? GetSelectedIdCitata()
+        private int? GetSelectedIdCitirane()
         {
             if (dataGridView.SelectedRows.Count == 0)
             {
@@ -45,7 +45,9 @@ namespace DigitalniRepozitorijum.Forme
         {
             var id = GetSelectedId();
             if (id == null) return;
-            using var form = new IzmeniCitatForm(_idPublikacije, id);
+            var idCitirane = GetSelectedIdCitirane();
+            if (idCitirane == null) return;
+            using var form = new IzmeniCitatForm(_idPublikacije, id, idCitirane);
             form.ShowDialog();
             popuniPodacima();
         }
@@ -80,7 +82,7 @@ namespace DigitalniRepozitorijum.Forme
 
             foreach (CitatBasic p in podaci)
             {
-                dataGridView.Rows.Add(p.Id, p.TekstualniKontekst, p.TipCitata, p.MestoCitiranja);
+                dataGridView.Rows.Add(p.Id, p.IdCitirana, p.TekstualniKontekst, p.TipCitata, p.MestoCitiranja);
             }
 
             dataGridView.Refresh();

@@ -1,10 +1,7 @@
-<<<<<<< HEAD
+
 ﻿using DigitalniRepozitorijum.Entiteti;
 using DigitalniRepozitorijum.Utils;
 using FluentNHibernate.Conventions;
-=======
-using DigitalniRepozitorijum.Entiteti;
->>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -1962,7 +1959,8 @@ s.Delete(o);
                 o.NazivPozicije = dto.NazivPozicije;
                 o.DatumPocetka = dto.DatumPocetka;
                 o.DatumZavrsetka = dto.DatumZavrsetka;
-s.SaveOrUpdate(o);
+
+                s.SaveOrUpdate(o);
                 s.Flush();
                 s.Close();
             }
@@ -2274,18 +2272,11 @@ LogError(ex);
             {
                 ISession s = DataLayer.GetSession();
 
-<<<<<<< HEAD
                 s.Delete(s.Load<NaucniRad>(radId));
                 s.Flush();
                 s.Close();
 
                 status = true;
-=======
-                var q = s.CreateQuery("delete from NAUCNI_RAD where ID = :id");
-                q.SetParameter("id", radId);
-
-                q.ExecuteUpdate();                status = true;
->>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -2487,18 +2478,11 @@ LogError(ex);
             {
                 ISession s = DataLayer.GetSession();
 
-<<<<<<< HEAD
                 s.Delete(s.Load<Dataset>(datasetId));
                 s.Flush();
                 s.Close();
 
                 status = true;
-=======
-                var q = s.CreateQuery("delete from DATASET where ID = :id");
-                q.SetParameter("id", datasetId);
-
-                q.ExecuteUpdate();                status = true;
->>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -2652,20 +2636,12 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
-<<<<<<< HEAD
                
                 s.Delete(s.Load<SoftverskiArtefakt>(artefaktId));
                 s.Flush();
                 s.Close();
 
                 status = true;
-=======
-
-                var q = s.CreateQuery("delete from SOFTVERSKI_ARTEFAKT where ID = :id");
-                q.SetParameter("id", artefaktId);
-
-                q.ExecuteUpdate();                status = true;
->>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -2716,7 +2692,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                LogError(ex);
             }
             return listaRundi;
         }
@@ -2916,13 +2892,8 @@ LogError(ex);
 
                 Citira novi = new Citira
                 {
-<<<<<<< HEAD
-                    PubCitira = s.Load<Publikacija>(citat.PubCitira.Id),
-                    PubCitirana = s.Load<Publikacija>(citat.PubCitirana.Id),
-=======
                     IdCitira = citat.IdCitira,
                     IdCitirana = citat.IdCitirana,
->>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
                     TipCitata = citat.TipCitata,
                     MestoCitiranja = citat.MestoCitiranja,
                     TekstualniKontekst = citat.TekstualniKontekst
@@ -2947,7 +2918,7 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
-                CitatBasic cnova = s.Get<CitatBasic>(citat.Id);
+                Citira cnova = s.Get<Citira>(citat.Id);
 
                 cnova.IdCitira = citat.IdCitira;
                 cnova.IdCitirana = citat.IdCitirana;
@@ -2975,20 +2946,12 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
-<<<<<<< HEAD
                 
                 s.Delete(s.Load<Citira>(citatId));
                 s.Flush();
                 s.Close();
 
                 status = true;
-=======
-
-                var q = s.CreateQuery("delete from CITIRA where ID = :id");
-                q.SetParameter("id", citatId);
-
-                q.ExecuteUpdate();                status = true;
->>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
