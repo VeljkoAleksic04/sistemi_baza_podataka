@@ -123,64 +123,52 @@ namespace DigitalniRepozitorijum.Forme
         private void btnPovezane_Click(object sender, EventArgs e)
         {
             var id = GetSelectedId(); if (id == null) return; using var form = new PovezanePublikacijeForm(id.Value);
-            bool ima = DTOManager.VratiPovezanePublikacije((int)id).Any();
-            if(ima)
-                form.ShowDialog();
-            else MessageBox.Show("Nema povezanih publikacija za izabranu publikaciju!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            form.ShowDialog();
         }
         private void btnNaucniRadovi_Click(object sender, EventArgs e)
         {
             using var form = new NaucniRadoviForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnKnjige_Click(object sender, EventArgs e)
         {
             using var form = new KnjigeForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnPoglavlja_Click(object sender, EventArgs e)
         {
             using var form = new PoglavljaUKnjiziForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnDoktorske_Click(object sender, EventArgs e)
         {
             using var form = new DoktorskeDisertacijeForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnDatasetovi_Click(object sender, EventArgs e)
         {
             using var form = new DatasetoviForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnSoftverski_Click(object sender, EventArgs e)
         {
             using var form = new SoftverskiArtefaktiForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnObrazovni_Click(object sender, EventArgs e)
         {
             using var form = new ObrazovniMaterijaliForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnPrezentacije_Click(object sender, EventArgs e)
         {
             using var form = new PrezentacijeForm();
             form.ShowDialog();
-            popuniPodacima();
         }
         private void btnTehnicki_Click(object sender, EventArgs e)
         {
             using var form = new TehnickiIzvestajiForm();
             form.ShowDialog();
-            popuniPodacima();
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -209,14 +197,8 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnRecenzije_Click(object sender, EventArgs e)
         {
-            bool ima = DTOManager.VratiRundeRecenzijeZaPrikaz((int)GetSelectedId()).Any();
-
-            if (ima)
-            {
-                using var form = new RundeRecenzijeForm((int)GetSelectedId());
-                form.ShowDialog();
-            }
-            else MessageBox.Show("Nema rundi recenzije za izabranu publikaciju!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using var form = new RundeRecenzijeForm();
+            form.ShowDialog();
         }
     }
 }

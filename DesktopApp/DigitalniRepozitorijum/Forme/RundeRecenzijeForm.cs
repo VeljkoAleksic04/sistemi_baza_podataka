@@ -1,19 +1,16 @@
-using NHibernate;
 using System;
 using System.Windows.Forms;
-using DigitalniRepozitorijum.Entiteti;
 
 namespace DigitalniRepozitorijum.Forme
 {
     public partial class RundeRecenzijeForm : Form
     {
-        private int _idPublikacije;
+        private int idPublikacije;
 
-        public RundeRecenzijeForm(int idPublikacije)
+        public RundeRecenzijeForm()
         {
             InitializeComponent();
             FormStilovi.PrimeniStilListe(this, groupBox, btnDodaj, btnIzmeni, btnObrisi, btnUrednik);
-            _idPublikacije = idPublikacije;
         }
 
         private int? GetSelectedId()
@@ -35,7 +32,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             dataGridView.Rows.Clear();
 
-            List<RundaRecenzijePregled> podaci = DTOManager.VratiRundeRecenzijeZaPrikaz(_idPublikacije);
+            List<RundaRecenzijePregled> podaci = DTOManager.VratiRundeRecenzijeZaPrikaz();
 
             foreach (RundaRecenzijePregled p in podaci)
             {
@@ -75,29 +72,12 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnRecenzenti_Click(object sender, EventArgs e)
         {
-            bool recenzentiPostoje = DTOManager.VratiIstrazivacaRundeRecenzije((int)GetSelectedId()).Any();
-            if(recenzentiPostoje)
-            {
-                int id = (int)GetSelectedId();
-                if (id == -1) throw new Exception("Nije izabrana runda recenzije.");
-                var forma = new RecenzentiForm(id);
-                forma.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Nema dodeljenih recenzenata za izabranu rundu recenzije.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            // TODO: Prikazati recenzente za odabranu rundu
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            ISession sesija = DataLayer.GetSession();
-            var publikacija = sesija.Get<Publikacija>(_idPublikacije);
-
-            var urednik = sesija.Query<RundaRecenzije>().Where(r => r.Publikacija.Id == publikacija.Id).Select(r => r.Urednik).FirstOrDefault();
-            if (urednik == null) MessageBox.Show("Nije uspelo dodavanje runde recenzije...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            using var form = new DodajRunduRecenzijeForm(publikacija.Id, urednik.Id);
+            using var form = new DodajRunduRecenzijeForm();
             form.ShowDialog();
             popuniPodacima();
         }
