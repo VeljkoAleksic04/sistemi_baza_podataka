@@ -21,7 +21,7 @@ namespace DigitalniRepozitorijum.Forme
                 MessageBox.Show("Izaberite red iz tabele.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
-            return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+            return Convert.ToInt32(dataGridView.Rows.IndexOf(dataGridView.SelectedRows[0]));
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

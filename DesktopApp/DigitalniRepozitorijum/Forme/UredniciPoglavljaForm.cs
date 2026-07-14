@@ -55,7 +55,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             if (dataGridViewUrednici.SelectedRows.Count > 0)
             {
-                return (int)dataGridViewUrednici.SelectedRows[0].Cells["colId"].Value;
+                return (int)dataGridViewUrednici.SelectedRows[0].Cells[0].Value;
             }
             return null;
         }

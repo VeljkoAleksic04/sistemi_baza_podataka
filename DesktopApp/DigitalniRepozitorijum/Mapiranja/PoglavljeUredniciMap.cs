@@ -8,8 +8,8 @@ public class PoglavljeUredniciMap : ClassMap<PoglavljeUrednici>
     {
         Table("POGLAVLJE_UREDNICI");
 
-        Id(x => x.Id, "Id_Poglavlje_Urednik");
-        
+        Id(x => x.Id, "Id_Poglavlje_Urednik").GeneratedBy.TriggerIdentity();
+
         Map(x => x.Urednik, "Urednik");
         
         References(x => x.PoglavljeUKnjizi, "Id_Publikacije")

@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+﻿using DigitalniRepozitorijum.Entiteti;
+using DigitalniRepozitorijum.Utils;
+using FluentNHibernate.Conventions;
+=======
 using DigitalniRepozitorijum.Entiteti;
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -2182,7 +2188,7 @@ LogError(ex);
                         DOI = naucniRad.DOI,
                         Stranice = naucniRad.Stranice,
                         TipRada = naucniRad.TipRada,
-                        Izvor = naucniRad.IdIzvora
+                        Izvor = naucniRad.Izvor?.Id ?? 0
                     };
                     listaNaucnihRadova.Add(obj);
                 }
@@ -2221,7 +2227,6 @@ LogError(ex);
                 NaucniRad nrnovi = s.Get<NaucniRad>(nr.Id);
 
                 nrnovi.DOI = nr.DOI;
-                nrnovi.IdIzvora = nr.IdIzvora;
                 nrnovi.Stranice = nr.Stranice;
                 nrnovi.TipRada = nr.TipRada;
                 nrnovi.Apstrakt = nr.Apstrakt;
@@ -2231,8 +2236,8 @@ LogError(ex);
                 nrnovi.Vidljivost = nr.Vidljivost;
                 nrnovi.Naslov = nr.Naslov;
                 nrnovi.Status = nr.Status;
-                
-                s.SaveOrUpdate(nrnovi);
+                nrnovi.Izvor = s.Load<Izvor>(nr.IdIzvora);
+
                 s.Flush();
                 s.Close();
             }
@@ -2269,10 +2274,18 @@ LogError(ex);
             {
                 ISession s = DataLayer.GetSession();
 
+<<<<<<< HEAD
+                s.Delete(s.Load<NaucniRad>(radId));
+                s.Flush();
+                s.Close();
+
+                status = true;
+=======
                 var q = s.CreateQuery("delete from NAUCNI_RAD where ID = :id");
                 q.SetParameter("id", radId);
 
                 q.ExecuteUpdate();                status = true;
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -2301,7 +2314,8 @@ LogError(ex);
                     DatumKreiranjaZapisa = nr.DatumKreiranjaZapisa,
                     DatumObjavljivanja = nr.DatumObjavljivanja,
                     Jezik = nr.Jezik,
-                    Naslov = nr.Naslov
+                    Naslov = nr.Naslov,
+                    Status = nr.Status ?? Konstante.StatusiPublikacije[0]
                 };
 
                 s.SaveOrUpdate(novi);
@@ -2312,7 +2326,15 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-                throw new Exception($"Greska pri dodavanjunaucnog rada...\n{ex.Message}");
+                var inner = ex.InnerException;
+                var innerInfo = inner != null
+                    ? $"INNER: {inner.GetType().FullName}\n{inner.Message}\n{inner.StackTrace}"
+                    : "(nema inner exception)";
+                throw new Exception(
+                    $"Greska pri dodavanju naucnog rada...\n" +
+                    $"EX: {ex.GetType().FullName}\n{ex.Message}\n" +
+                    innerInfo,
+                    ex);  // <-- prosleđuj originalni exception kao inner
             }
 
             return status;
@@ -2465,10 +2487,18 @@ LogError(ex);
             {
                 ISession s = DataLayer.GetSession();
 
+<<<<<<< HEAD
+                s.Delete(s.Load<Dataset>(datasetId));
+                s.Flush();
+                s.Close();
+
+                status = true;
+=======
                 var q = s.CreateQuery("delete from DATASET where ID = :id");
                 q.SetParameter("id", datasetId);
 
                 q.ExecuteUpdate();                status = true;
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -2622,11 +2652,20 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
+<<<<<<< HEAD
+               
+                s.Delete(s.Load<SoftverskiArtefakt>(artefaktId));
+                s.Flush();
+                s.Close();
+
+                status = true;
+=======
 
                 var q = s.CreateQuery("delete from SOFTVERSKI_ARTEFAKT where ID = :id");
                 q.SetParameter("id", artefaktId);
 
                 q.ExecuteUpdate();                status = true;
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -2635,10 +2674,30 @@ LogError(ex);
 
             return status;
         }
+        public static void DodajPodrzanuPlatformu(int idPublikacije, string nazivPlatforme)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
 
+                SoftverskiArtefaktPodrzanePlatforme sapp = new SoftverskiArtefaktPodrzanePlatforme
+                {
+                    IdPublikacije = idPublikacije,
+                    PodrzanaPlatforma = nazivPlatforme
+                };
+
+                session.SaveOrUpdate(sapp);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Dogodila se greska pri dodavanju nove platforme softverskog artefakta..." + ex.Message + "\n" + ex.InnerException);
+            }
+        }
         #endregion
 
-        
+
         #region RundeRecenzije
 
         public static List<RundaRecenzije> VratiRundeRecenzije()
@@ -2855,10 +2914,15 @@ LogError(ex);
             {
                 ISession s = DataLayer.GetSession();
 
-                CitatBasic novi = new CitatBasic
+                Citira novi = new Citira
                 {
+<<<<<<< HEAD
+                    PubCitira = s.Load<Publikacija>(citat.PubCitira.Id),
+                    PubCitirana = s.Load<Publikacija>(citat.PubCitirana.Id),
+=======
                     IdCitira = citat.IdCitira,
                     IdCitirana = citat.IdCitirana,
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
                     TipCitata = citat.TipCitata,
                     MestoCitiranja = citat.MestoCitiranja,
                     TekstualniKontekst = citat.TekstualniKontekst
@@ -2911,11 +2975,20 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
+<<<<<<< HEAD
+                
+                s.Delete(s.Load<Citira>(citatId));
+                s.Flush();
+                s.Close();
+
+                status = true;
+=======
 
                 var q = s.CreateQuery("delete from CITIRA where ID = :id");
                 q.SetParameter("id", citatId);
 
                 q.ExecuteUpdate();                status = true;
+>>>>>>> cf71d0d7b53a6a665f0e583c9a86dec7493d3d4b
             }
             catch (Exception ex)
             {
@@ -3148,6 +3221,8 @@ LogError(ex);
 
             return status;
         }
+
+        
 
         #endregion
 

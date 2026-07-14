@@ -8,7 +8,7 @@ public class RundaRecenzijeMap : ClassMap<RundaRecenzije>
     {
         Table("RUNDA_RECENZIJE");
 
-        Id(x => x.Id, "Id_Runde_Recenzije");
+        Id(x => x.Id, "Id_Runde_Recenzije").GeneratedBy.TriggerIdentity();
         
         Map(x => x.BrojRunde, "Broj_Runde");
         Map(x => x.Datum, "Datum");

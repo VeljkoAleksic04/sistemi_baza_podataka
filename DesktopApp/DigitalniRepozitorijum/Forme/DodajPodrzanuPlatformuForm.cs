@@ -1,3 +1,5 @@
+using DigitalniRepozitorijum.Entiteti;
+using NHibernate;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
@@ -15,14 +17,17 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
+
+            DTOManager.DodajPodrzanuPlatformu((int)_idPublikacije, txtPodrzanaPlatforma.Text);
+
+            MessageBox.Show("Uspesno je dodata podrzana platforma!!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             Close();
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

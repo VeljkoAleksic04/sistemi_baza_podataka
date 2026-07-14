@@ -30,7 +30,7 @@ namespace DigitalniRepozitorijum.Forme
                     Jezik = tbJezik.Text,
                     DatumKreiranjaZapisa = dateKreiranja.Value,
                     DatumObjavljivanja = dateObjave.Value,
-                    Status = cmbStatus.SelectedItem.ToString(),
+                    Status = cmbStatus.SelectedItem?.ToString() ?? Konstante.StatusiPublikacije[0],
                     Vidljivost = txtVidljivost.Text,
                     DOI = txtDOI.Text,
                     TipRada = txtTipRada.Text,
@@ -67,7 +67,7 @@ namespace DigitalniRepozitorijum.Forme
             txtDOI.Text = nadjen.DOI;
             txtTipRada.Text = nadjen.TipRada;
             txtStranice.Text = nadjen.Stranice;
-            txtIzvor.Text = nadjen.IdIzvora.ToString();
+            txtIzvor.Text = nadjen.Izvor?.Id.ToString() ?? "";
 
             
         }
