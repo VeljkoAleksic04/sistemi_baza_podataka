@@ -22,6 +22,7 @@ public static class DataProvider
             IEnumerable<Publikacija> svePublikacije = from o in s.Query<Publikacija>()
                                                       select o;
 
+
             foreach (Publikacija p in svePublikacije)
             {
                 publikacije.Add(new PublikacijaView(p));
@@ -1331,11 +1332,6 @@ public static class DataProvider
         {
             return "Nemoguće vratiti verziju sa zadatim ID-jem.".ToError(400);
         }
-        finally
-        {
-            s?.Close();
-            s?.Dispose();
-        }
 
         return verzijaView;
     }
@@ -1373,11 +1369,6 @@ public static class DataProvider
         {
             return "Nemoguće sačuvati verziju.".ToError(400);
         }
-        finally
-        {
-            s?.Close();
-            s?.Dispose();
-        }
 
         return id;
     }
@@ -1404,7 +1395,6 @@ public static class DataProvider
 
             s.Update(v);
             s.Flush();
-            s.Close();
         }
         catch (Exception)
         {
