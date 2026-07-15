@@ -327,8 +327,8 @@ namespace DigitalniRepozitorijum
 
     public class InstitucijaPregled
     {
-        public int Id;
-        public string Naziv;
+        public int Id { get; }
+        public string Naziv { get; }
         public string Adresa;
 
         public InstitucijaPregled() { }
