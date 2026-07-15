@@ -82,8 +82,6 @@ namespace DigitalniRepozitorijum.Forme
             if (idIzvora == null)
                 MessageBox.Show("Celija nije dobro selektovana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            MessageBox.Show(idIzvora.Value.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             var izvor = DTOManager.VratiIzvorPoId(idIzvora);
 
             string zapis = "";
@@ -108,31 +106,6 @@ namespace DigitalniRepozitorijum.Forme
 
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-        //    int? idIzvora = GetSelectedId();
-
-        //    if (idIzvora == null)
-        //        MessageBox.Show("Celija nije dobro selektovana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //    var izvor = DTOManager.VratiIzvorPoId(idIzvora);
-
-        //    string zapis = "";
-
-        //    if (izvor is Casopis)
-        //    {
-        //        zapis = $"[{izvor.Id}]\n" +
-        //            $"Naziv: ${(izvor as Casopis).Naziv}\n" +
-        //            $"Broj izdanja: {(izvor as Casopis).BrojIzdanja}\n" +
-        //            $"Broj sveske: {(izvor as Casopis).BrojSveske}\n" +
-        //            $"ISSN: {(izvor as Casopis).ISSN}\n";
-        //    }
-        //    else
-        //    {
-        //        zapis = $"[{izvor.Id}]\n" +
-        //                $"Naziv: ${(izvor as Konferencija).Naziv}\n" +
-        //                $"Broj izdanja: {(izvor as Konferencija).ISBN}\n";
-        //    }
-
-        //    richTextBox1.Text = zapis;
         }
     }
 }
