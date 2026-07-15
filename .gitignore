@@ -1,5 +1,12 @@
 #Misc
 ignore/
+# JetBrains Rider
+.idea/
+
+# VS Code AI agents
+.vtcode/
+vtcode.toml
+
 
 # Visual Studio
 .vs/
@@ -13,6 +20,9 @@ DocumentLayout.backup.json
 
 # VS Code / vtcode
 .vtcode/
+
+# Nested .vs 
+**/.vs/
 
 # Build outputs
 bin/
