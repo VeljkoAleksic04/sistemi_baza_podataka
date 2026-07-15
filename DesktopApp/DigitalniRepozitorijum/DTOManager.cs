@@ -2097,11 +2097,7 @@ namespace DigitalniRepozitorijum
             {
                 ISession s = DataLayer.GetSession();
 
-                AutorstvoId key = new AutorstvoId();
-                key.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
-                key.Autor = s.Load<Istrazivac>(dto.IdAutora);
-
-                Autorstvo o = s.Load<Autorstvo>(key);
+                Autorstvo o = s.Load<Autorstvo>(dto.Id);
                 o.RedosledAutora = dto.RedosledAutora;
                 o.TipDoprinosa = dto.TipDoprinosa;
                 o.Uloga = dto.Uloga;
