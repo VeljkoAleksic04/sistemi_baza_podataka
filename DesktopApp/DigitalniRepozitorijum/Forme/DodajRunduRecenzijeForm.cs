@@ -7,10 +7,15 @@ namespace DigitalniRepozitorijum.Forme
 {
     public partial class DodajRunduRecenzijeForm : Form
     {
-        public DodajRunduRecenzijeForm()
+        private int _idPublikacije;
+        private int _idUrednika;
+        public DodajRunduRecenzijeForm(int idPublikacije, int idUrednika)
         {
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
+
+            _idPublikacije = idPublikacije;
+            _idUrednika = idUrednika;
         }
 
         private void btnPotvrdi_Click(object sender, EventArgs e)
@@ -21,7 +26,9 @@ namespace DigitalniRepozitorijum.Forme
                 {
                     BrojRunde = (int)numBrojRunde.Value,
                     Datum = datumPost.Value,
-                    KonacnaOdluka = txtKonacnaOdluka.Text
+                    KonacnaOdluka = txtKonacnaOdluka.Text,
+                    IdPublikacije = _idPublikacije,
+                    IdUrednika = _idUrednika
                 };
 
                 bool success = DTOManager.DodajRunduRecenzije(nova);

@@ -28,7 +28,7 @@ namespace DigitalniRepozitorijum.Forme
             List<AngazovanjePregled> podaci = DTOManager.vratiSveAngazovanjaIstrazivaca(_idIstrazivaca.Value);
 
             foreach (var p in podaci)
-                dataGridView.Rows.Add(p.Id, p.IdInstitucije, p.NazivInstitucije, p.OrganizacionaJedinica, p.TipAngazovanja, p.NazivPozicije, p.DatumPocetka.ToShortDateString(), p.DatumZavrsetka?.ToShortDateString() ?? "");
+                dataGridView.Rows.Add(p.Id, p.IdInstitucije, p.NazivInstitucije, p.TipAngazovanja, p.NazivPozicije, p.DatumPocetka.ToShortDateString(), p.DatumZavrsetka.ToShortDateString() ?? "");
 
             dataGridView.Refresh();
         }

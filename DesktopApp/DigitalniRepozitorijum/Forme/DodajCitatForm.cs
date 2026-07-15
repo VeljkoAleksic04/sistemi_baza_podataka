@@ -8,10 +8,12 @@ namespace DigitalniRepozitorijum.Forme
     public partial class DodajCitatForm : Form
     {
         private readonly int? _idPublikacije;
+        private readonly int? _idPubCitat;
 
-        public DodajCitatForm(int? idPublikacije = null)
+        public DodajCitatForm(int? idPublikacije = null, int? idPubCitat = null)
         {
             _idPublikacije = idPublikacije;
+            _idPubCitat = idPubCitat;
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
         }
@@ -19,11 +21,14 @@ namespace DigitalniRepozitorijum.Forme
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
             try
-            {
+            { 
+                PublikacijaBasic pubCitira = DTOManager.vratiPublikaciju(_idPublikacije.Value);
+                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(int.Parse(cmbPublikacije.SelectedValue.ToString()));
+
                 CitatBasic novi = new CitatBasic
                 {
-                    IdCitira = (int)_idPublikacije,
-                    IdCitirana = (int)cmbPublikacije.SelectedValue,
+                    PubCitira = pubCitira,
+                    PubCitirana = pubCitirana,
                     TipCitata = txtTipCitata.Text,
                     MestoCitiranja = txtMestoCitiranja.Text,
                     TekstualniKontekst = txtKontekst.Text
@@ -56,16 +61,16 @@ namespace DigitalniRepozitorijum.Forme
 
         private void DodajCitatForm_Load(object sender, EventArgs e)
         {
-            UcitajPodatke();
+            UcitajPublikacije();
         }
 
-        private void UcitajPodatke()
+        private void UcitajPublikacije()
         {
             var publikacije = DTOManager.vratiSvePublikacije();
 
-            cmbPublikacije.DataSource = publikacije;
-            cmbPublikacije.ValueMember = "Id";
             cmbPublikacije.DisplayMember = "Naslov";
+            cmbPublikacije.ValueMember = "Id";
+            cmbPublikacije.DataSource = publikacije;
         }
     }
 }

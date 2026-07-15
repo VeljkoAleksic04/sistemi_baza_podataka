@@ -20,11 +20,11 @@ namespace DigitalniRepozitorijum.Forme
             lblNazivPozicije = new Label();
             txtNazivPozicije = new TextBox();
             lblDatumPocetka = new Label();
+            txtDatumPocetka = new TextBox();
             lblDatumZavrsetka = new Label();
+            txtDatumZavrsetka = new TextBox();
             btnPotvrdi = new Button();
             btnOdustani = new Button();
-            dateZavrsetka = new DateTimePicker();
-            datePocetka = new DateTimePicker();
             SuspendLayout();
             // 
             // lblTipAngazovanja
@@ -32,7 +32,7 @@ namespace DigitalniRepozitorijum.Forme
             lblTipAngazovanja.AutoSize = true;
             lblTipAngazovanja.Location = new Point(20, 20);
             lblTipAngazovanja.Name = "lblTipAngazovanja";
-            lblTipAngazovanja.Size = new Size(27, 15);
+            lblTipAngazovanja.Size = new Size(26, 15);
             lblTipAngazovanja.TabIndex = 0;
             lblTipAngazovanja.Text = "Tip:";
             // 
@@ -68,6 +68,13 @@ namespace DigitalniRepozitorijum.Forme
             lblDatumPocetka.TabIndex = 0;
             lblDatumPocetka.Text = "Datum pocetka:";
             // 
+            // txtDatumPocetka
+            // 
+            txtDatumPocetka.Location = new Point(160, 87);
+            txtDatumPocetka.Name = "txtDatumPocetka";
+            txtDatumPocetka.Size = new Size(230, 23);
+            txtDatumPocetka.TabIndex = 1;
+            // 
             // lblDatumZavrsetka
             // 
             lblDatumZavrsetka.AutoSize = true;
@@ -76,6 +83,13 @@ namespace DigitalniRepozitorijum.Forme
             lblDatumZavrsetka.Size = new Size(97, 15);
             lblDatumZavrsetka.TabIndex = 0;
             lblDatumZavrsetka.Text = "Datum zavrsetka:";
+            // 
+            // txtDatumZavrsetka
+            // 
+            txtDatumZavrsetka.Location = new Point(160, 122);
+            txtDatumZavrsetka.Name = "txtDatumZavrsetka";
+            txtDatumZavrsetka.Size = new Size(230, 23);
+            txtDatumZavrsetka.TabIndex = 1;
             // 
             // btnPotvrdi
             // 
@@ -97,21 +111,6 @@ namespace DigitalniRepozitorijum.Forme
             btnOdustani.Text = "Odustani";
             btnOdustani.UseVisualStyleBackColor = true;
             // 
-            // dateZavrsetka
-            // 
-            dateZavrsetka.Location = new Point(160, 125);
-            dateZavrsetka.Name = "dateZavrsetka";
-            dateZavrsetka.Size = new Size(230, 23);
-            dateZavrsetka.TabIndex = 52;
-            dateZavrsetka.ValueChanged += dateTimePicker1_ValueChanged;
-            // 
-            // datePocetka
-            // 
-            datePocetka.Location = new Point(160, 90);
-            datePocetka.Name = "datePocetka";
-            datePocetka.Size = new Size(230, 23);
-            datePocetka.TabIndex = 53;
-            // 
             // IzmeniAngazovanjeInstitucijeForm
             // 
             AcceptButton = btnPotvrdi;
@@ -119,8 +118,6 @@ namespace DigitalniRepozitorijum.Forme
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
             ClientSize = new Size(420, 280);
-            Controls.Add(datePocetka);
-            Controls.Add(dateZavrsetka);
             Controls.Add(btnOdustani);
             Controls.Add(btnPotvrdi);
             Controls.Add(lblTipAngazovanja);
@@ -128,7 +125,9 @@ namespace DigitalniRepozitorijum.Forme
             Controls.Add(lblNazivPozicije);
             Controls.Add(txtNazivPozicije);
             Controls.Add(lblDatumPocetka);
+            Controls.Add(txtDatumPocetka);
             Controls.Add(lblDatumZavrsetka);
+            Controls.Add(txtDatumZavrsetka);
             Name = "IzmeniAngazovanjeInstitucijeForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Izmeni angazovanje";
@@ -147,7 +146,5 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.TextBox txtDatumPocetka;
         private System.Windows.Forms.Label lblDatumZavrsetka;
         private System.Windows.Forms.TextBox txtDatumZavrsetka;
-        private DateTimePicker dateZavrsetka;
-        private DateTimePicker datePocetka;
     }
 }

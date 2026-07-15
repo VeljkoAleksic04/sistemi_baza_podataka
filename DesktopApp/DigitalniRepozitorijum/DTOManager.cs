@@ -1,4 +1,3 @@
-
 ﻿using DigitalniRepozitorijum.Entiteti;
 using DigitalniRepozitorijum.Utils;
 using FluentNHibernate.Conventions;
@@ -11,16 +10,6 @@ namespace DigitalniRepozitorijum
 {
     public class DTOManager
     {
-        public static bool SuppressDialogs = false;
-        public static readonly List<string> ErrorLog = new List<string>();
-
-        private static void LogError(Exception ex)
-        {
-            ErrorLog.Add(ex.Message);
-            if (!SuppressDialogs)
-                MessageBox.Show(ex.Message);
-        }
-
         #region Publikacija
         public static List<PublikacijaPregled> vratiSvePublikacije()
         {
@@ -40,7 +29,7 @@ namespace DigitalniRepozitorijum
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return publikacije;
@@ -66,7 +55,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static PublikacijaBasic azurirajPublikaciju(PublikacijaBasic p)
@@ -90,7 +79,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return p;
@@ -158,7 +147,7 @@ LogError(ex);
                             o.DatumObjavljivanja, o.DatumKreiranjaZapisa);
                         break;
                     default:
-                        LogError(new Exception("Nepoznata vrsta publikacije!"));
+                        MessageBox.Show("Nepoznata vrsta publikacije!");
                         break;
                 }
 
@@ -190,7 +179,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return pb;
@@ -209,7 +198,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -233,12 +222,13 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
             return povezanePublikacije;
         }
 
         #endregion
+
 
         #region Verzija
         public static List<VerzijaPregled> vratiSveVerzije()
@@ -259,7 +249,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return verzije;
@@ -283,7 +273,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static VerzijaBasic azurirajVerziju(VerzijaBasic vb)
@@ -305,7 +295,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return vb;
@@ -335,7 +325,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return vb;
@@ -354,11 +344,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region PublikacijaKljucnaRec
         public static List<PublikacijaKljucnaRecPregled> vratiSvePublikacijaKljucnaRec()
@@ -379,7 +370,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return publikacijaKljucneReci;
@@ -400,7 +391,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static PublikacijaKljucnaRecBasic azurirajPublikacijaKljucnaRec(PublikacijaKljucnaRecBasic pkrb)
@@ -419,7 +410,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return pkrb;
@@ -439,7 +430,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return pkrb;
@@ -458,11 +449,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region Knjiga
         public static List<KnjigaPregled> vratiSveKnjige()
@@ -483,7 +475,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return knjige;
@@ -511,7 +503,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static KnjigaBasic azurirajKnjigu(KnjigaBasic kb)
@@ -537,7 +529,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return kb;
@@ -556,7 +548,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return kb;
@@ -575,11 +567,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region PoglavljeUKnjizi
         public static List<PoglavljeUKnjiziPregled> vratiSvePoglavljaUKnjizi()
@@ -600,7 +593,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return poglavljaUKnjizi;
@@ -628,7 +621,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static PoglavljeUKnjiziBasic azurirajPoglavljeUKnjizi(PoglavljeUKnjiziBasic pb)
@@ -654,7 +647,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return pb;
@@ -673,7 +666,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return pb;
@@ -692,11 +685,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region DoktorskaDisertacija
         public static List<DoktorskaDisertacijaPregled> vratiSveDoktorskeDisertacije()
@@ -717,7 +711,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return doktorskeDisertacije;
@@ -743,7 +737,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static DoktorskaDisertacijaBasic azurirajDoktorskuDisertaciju(DoktorskaDisertacijaBasic db)
@@ -767,7 +761,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return db;
@@ -786,7 +780,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return db;
@@ -805,11 +799,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region ObrazovniMaterijal
         public static List<ObrazovniMaterijalPregled> vratiSveObrazovneMaterijale()
@@ -830,7 +825,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return obrazovniMaterijali;
@@ -856,7 +851,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static ObrazovniMaterijalBasic azurirajObrazovniMaterijal(ObrazovniMaterijalBasic ob)
@@ -880,7 +875,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return ob;
@@ -899,7 +894,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return ob;
@@ -918,11 +913,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region Prezentacija
         public static List<PrezentacijaPregled> vratiSvePrezentacije()
@@ -943,7 +939,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return prezentacije;
@@ -969,7 +965,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static PrezentacijaBasic azurirajPrezentaciju(PrezentacijaBasic p)
@@ -993,7 +989,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return p;
@@ -1012,7 +1008,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return pb;
@@ -1031,11 +1027,12 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
         #endregion
+
 
         #region TehnickiIzvestaj
         public static List<TehnickiIzvestajPregled> vratiSveTehnickeIzvestaje()
@@ -1056,7 +1053,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return tehnickiIzvestaji;
@@ -1082,7 +1079,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static TehnickiIzvestajBasic azurirajTehnickiIzvestaj(TehnickiIzvestajBasic tb)
@@ -1106,7 +1103,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return tb;
@@ -1125,7 +1122,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return tb;
@@ -1144,7 +1141,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -1170,7 +1167,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return fajlovi;
@@ -1192,7 +1189,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
         public static FajlBasic azurirajFajl(FajlBasic fb)
@@ -1212,7 +1209,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return fb;
@@ -1234,7 +1231,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
 
             return fb;
@@ -1253,7 +1250,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -1267,13 +1264,13 @@ LogError(ex);
                 Entiteti.Institucija o = new Entiteti.Institucija();
                 o.Naziv = dto.Naziv;
                 o.Adresa = dto.Adresa;
-s.SaveOrUpdate(o);
+                s.SaveOrUpdate(o);
                 s.Flush();
-s.Close();
+                s.Close();
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show("Greška pri dodavanju institucije: " + ex.Message);
             }
         }
 
@@ -1288,7 +1285,7 @@ LogError(ex);
                     lista.Add(new InstitucijaPregled(o.Id, o.Naziv, o.Adresa));
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1312,7 +1309,7 @@ LogError(ex);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1324,11 +1321,11 @@ LogError(ex);
                 Entiteti.Institucija o = s.Load<Entiteti.Institucija>(dto.Id);
                 o.Naziv = dto.Naziv;
                 o.Adresa = dto.Adresa;
-s.SaveOrUpdate(o);
+                s.SaveOrUpdate(o);
                 s.Flush();
-s.Close();
+                s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void obrisiInstituciju(int id)
@@ -1341,10 +1338,10 @@ s.Close();
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        
+
         #region InstitucijaKontaktMail
 
         public static List<InstitucijaKontaktMailPregled> vratiSveKontaktMailove(int idInstitucije)
@@ -1363,7 +1360,7 @@ s.Close();
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1372,14 +1369,14 @@ s.Close();
             try
             {
                 ISession s = DataLayer.GetSession();
-InstitucijaKontaktMail o = new InstitucijaKontaktMail();
+                InstitucijaKontaktMail o = new InstitucijaKontaktMail();
                 o.Institucija = s.Load<Institucija>(dto.Institucija.Id);
                 o.KontaktMail = dto.KontaktMail;
                 s.SaveOrUpdate(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajKontaktMail(InstitucijaKontaktMailBasic dto)
@@ -1393,7 +1390,7 @@ InstitucijaKontaktMail o = new InstitucijaKontaktMail();
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static InstitucijaKontaktMailBasic vratiKontaktMail(int id)
@@ -1407,7 +1404,7 @@ InstitucijaKontaktMail o = new InstitucijaKontaktMail();
                 dto = new InstitucijaKontaktMailBasic(o.Id, ib, o.KontaktMail);
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1417,14 +1414,15 @@ InstitucijaKontaktMail o = new InstitucijaKontaktMail();
             {
                 ISession s = DataLayer.GetSession();
                 InstitucijaKontaktMail o = s.Load<InstitucijaKontaktMail>(id);
-s.Delete(o);
+                s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
+
 
         #region InstitucijaKontaktTel
 
@@ -1444,7 +1442,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1460,7 +1458,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajKontaktTelefon(InstitucijaKontaktTelBasic dto)
@@ -1474,7 +1472,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static InstitucijaKontaktTelBasic vratiKontaktTelefon(int id)
@@ -1488,7 +1486,7 @@ s.Delete(o);
                 dto = new InstitucijaKontaktTelBasic(o.Id, ib, o.KontaktTel);
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1502,10 +1500,11 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
+
 
         #region InstitucijaNaucnaOblast
 
@@ -1525,7 +1524,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1541,7 +1540,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajNaucnuOblast(InstitucijaNaucnaOblastBasic dto)
@@ -1555,7 +1554,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static InstitucijaNaucnaOblastBasic vratiNaucnuOblast(int id)
@@ -1569,7 +1568,7 @@ s.Delete(o);
                 dto = new InstitucijaNaucnaOblastBasic(o.Id, ib, o.NaucnaOblast);
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1583,10 +1582,11 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
+
 
         #region Istrazivac
 
@@ -1604,7 +1604,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1635,7 +1635,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajIstrazivaca(IstrazivacBasic dto)
@@ -1665,7 +1665,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static IstrazivacBasic vratiIstrazivaca(int id)
@@ -1687,7 +1687,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1701,8 +1701,9 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
 
         public static Istrazivac VratiIstrazivacaPoId(int id)
         {
@@ -1717,11 +1718,12 @@ s.Delete(o);
             }
             catch (Exception ex)
             {
-                throw new Exception($"Greska u vracanju istra�ivaca...\n{ex.Message}");
+                throw new Exception($"Greska u vracanju istraživača...\n{ex.Message}");
             }
         }
 
         #endregion
+
 
         #region IstrazivacEmail
 
@@ -1741,7 +1743,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1757,7 +1759,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajEmailIstrazivaca(IstrazivacEmailBasic dto)
@@ -1771,7 +1773,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static IstrazivacEmailBasic vratiEmailIstrazivaca(int id)
@@ -1791,7 +1793,7 @@ s.Delete(o);
                 dto = new IstrazivacEmailBasic(o.Id, ib, o.Email);
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1805,10 +1807,11 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
+
 
         #region IstrazivacTelefon
 
@@ -1828,7 +1831,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1844,7 +1847,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajTelefonIstrazivaca(IstrazivacTelefonBasic dto)
@@ -1858,7 +1861,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static IstrazivacTelefonBasic vratiTelefonIstrazivaca(int id)
@@ -1878,7 +1881,7 @@ s.Delete(o);
                 dto = new IstrazivacTelefonBasic(o.Id, ib, o.Telefon);
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
@@ -1892,10 +1895,11 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
+
 
         #region Angazovanje
 
@@ -1911,14 +1915,13 @@ s.Delete(o);
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id,
-                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime,
-                        o.OrganizacionaJedinica, o.TipAngazovanja,
+                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id, o.Istrazivac.Id,
+                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, "",
                         o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1934,14 +1937,13 @@ s.Delete(o);
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id,
-                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime,
-                        o.OrganizacionaJedinica, o.TipAngazovanja,
+                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id, o.Istrazivac.Id,
+                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, o.TipAngazovanja,
                         o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -1964,7 +1966,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajAngazovanje(AngazovanjeBasic dto)
@@ -1974,8 +1976,6 @@ s.Delete(o);
                 ISession s = DataLayer.GetSession();
 
                 Angazovanje o = s.Load<Angazovanje>(dto.Id);
-                o.Institucija = s.Load<Institucija>(dto.IdInstitucije);
-                o.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
                 o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
                 o.TipAngazovanja = dto.TipAngazovanja;
                 o.NazivPozicije = dto.NazivPozicije;
@@ -1986,44 +1986,44 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public static AngazovanjeBasic vratiAngazovanje(int id)
+        public static AngazovanjeBasic vratiAngazovanje(int idAngazovanja)
         {
             AngazovanjeBasic dto = new AngazovanjeBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                Angazovanje o = s.Load<Angazovanje>(id);
-                dto = new AngazovanjeBasic(o.Id,
-                    o.Institucija.Id, o.Istrazivac.Id,
+                Angazovanje o = s.Load<Angazovanje>(idAngazovanja);
+                dto = new AngazovanjeBasic(o.Id, o.Institucija.Id, o.Istrazivac.Id,
                     o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime,
                     o.NazivPozicije, o.DatumPocetka,
                     o.OrganizacionaJedinica, o.TipAngazovanja, o.DatumZavrsetka);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
-        public static void obrisiAngazovanje(int id)
+        public static void obrisiAngazovanje(int idAngazovanja)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                Angazovanje o = s.Load<Angazovanje>(id);
+                Angazovanje o = s.Load<Angazovanje>(idAngazovanja);
                 s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
+
 
         #region Autorstvo
 
@@ -2045,7 +2045,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -2067,7 +2067,7 @@ s.Delete(o);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return lista;
         }
 
@@ -2088,7 +2088,7 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static void azurirajAutorstvo(AutorstvoBasic dto)
@@ -2097,9 +2097,11 @@ s.Delete(o);
             {
                 ISession s = DataLayer.GetSession();
 
-                Autorstvo o = s.Load<Autorstvo>(dto.Id);
-                o.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
-                o.Autor = s.Load<Istrazivac>(dto.IdAutora);
+                AutorstvoId key = new AutorstvoId();
+                key.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
+                key.Autor = s.Load<Istrazivac>(dto.IdAutora);
+
+                Autorstvo o = s.Load<Autorstvo>(key);
                 o.RedosledAutora = dto.RedosledAutora;
                 o.TipDoprinosa = dto.TipDoprinosa;
                 o.Uloga = dto.Uloga;
@@ -2108,39 +2110,39 @@ s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public static AutorstvoBasic vratiAutorstvo(int id)
+        public static AutorstvoBasic vratiAutorstvo(int idAutorstva)
         {
             AutorstvoBasic dto = new AutorstvoBasic();
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                Autorstvo o = s.Load<Autorstvo>(id);
+                Autorstvo o = s.Load<Autorstvo>(idAutorstva);
                 dto = new AutorstvoBasic(o.Id, o.Publikacija.Id, o.Autor.Id,
                     o.Publikacija.Naslov, o.Autor.Ime + " " + o.Autor.Prezime,
                     o.RedosledAutora, o.TipDoprinosa, o.Uloga);
 
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return dto;
         }
 
-        public static void obrisiAutorstvo(int id)
+        public static void obrisiAutorstvo(int idAutorstva)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                Autorstvo o = s.Load<Autorstvo>(id);
+                Autorstvo o = s.Load<Autorstvo>(idAutorstva);
                 s.Delete(o);
                 s.Flush();
                 s.Close();
             }
-            catch (Exception ex) { LogError(ex); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
@@ -2165,7 +2167,7 @@ s.Delete(o);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem naucnih radova iz baze...", MessageBoxButtons.OK,  MessageBoxIcon.Error);
             }
             return listaNaucnihRadova;
         }
@@ -2195,7 +2197,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem naucnih radova iz baze...", MessageBoxButtons.OK,  MessageBoxIcon.Error);
             }
             return listaNaucnihRadova;
         }
@@ -2351,7 +2353,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem dataseta iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaDatasetova;
         }
@@ -2380,7 +2382,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem dataseta iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaDatasetova;
         }
@@ -2474,6 +2476,7 @@ LogError(ex);
             {
                 return status;
             }
+           
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -2513,7 +2516,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem softverskih artefakata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaArtefakata;
         }
@@ -2541,7 +2544,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem softverskih artefakata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaArtefakata;
         }
@@ -2692,18 +2695,20 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-                LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem rundi recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaRundi;
         }
 
-        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz()
+        public static List<RundaRecenzijePregled> VratiRundeRecenzijeZaPrikaz(int idPublikacije)
         {
             List<RundaRecenzijePregled> listaRundi = new List<RundaRecenzijePregled>();
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var runde = sesija.Query<RundaRecenzije>().ToList();
+                var runde = sesija.Query<RundaRecenzije>()
+                    .Where(r => r.Publikacija.Id == idPublikacije)
+                    .ToList();
                 foreach (var runda in runde)
                 {
                     RundaRecenzijePregled obj = new RundaRecenzijePregled
@@ -2722,7 +2727,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem rundi recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaRundi;
         }
@@ -2759,6 +2764,13 @@ LogError(ex);
                     Datum = runda.Datum,
                     KonacnaOdluka = runda.KonacnaOdluka
                 };
+
+                if (runda.IdPublikacije != 0)
+                    nova.Publikacija = s.Load<Publikacija>(runda.IdPublikacije);
+
+                if (runda.IdUrednika != 0)
+                    nova.Urednik = s.Load<Istrazivac>(runda.IdUrednika);
+
 
                 s.SaveOrUpdate(nova);
                 s.Flush();
@@ -2807,23 +2819,64 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from RundaRecenzije where Id = :id");
-                q.SetParameter("id", rundaId);
+                var runda = s.Get<RundaRecenzije>(rundaId);
+                if (runda != null)
+                {
+                    // assuming runda.VrsteRecenziju is the collection of child entities
+                    foreach (var child in runda.Recenzije.ToList())
+                        s.Delete(child);
 
-                q.ExecuteUpdate();                status = true;
+                    s.Delete(runda);
+                }
+
+                tx.Commit();
+
+                status = true;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Poruka exceptiona: {ex.Message}");
+                throw new Exception($"Poruka exceptiona: {ex.Message}", ex);
             }
 
             return status;
         }
 
+        public static List<IstrazivacPregled> VratiIstrazivacaRundeRecenzije(int idRunde)
+        {
+            List<IstrazivacPregled> listaIstrazivaca = new List<IstrazivacPregled>();
+            try
+            {
+                ISession sesija = DataLayer.GetSession();
+                var recenzenti = sesija.Query<RundaRecenzije>().Where(rr => rr.Id == idRunde).ToList();
+                foreach (var recenzent in recenzenti)
+                {
+                    IstrazivacPregled ip = new IstrazivacPregled
+                    {
+                        Id = recenzent.IdUrednika,
+                        Ime = recenzent.Urednik!.Ime,
+                        Prezime = recenzent.Urednik.Prezime,
+                        DatumRodjenja = recenzent.Urednik.DatumRodjenja,
+                        Drzava = recenzent.Urednik.Drzava,
+                        NaucnaOblast = recenzent.Urednik.NaucnaOblast,
+                        NaucnoZvanje = recenzent.Urednik.NaucnoZvanje,
+                        StatusNaloga = recenzent.Urednik.StatusNaloga
+                    };
+                    listaIstrazivaca.Add(ip);
+                }
+                sesija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem istrazivaca runde recenzije iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return listaIstrazivaca;
+        }
+
         #endregion
 
-        
+
         #region Citati
 
         public static List<CitatBasic> VratiCitatePoPublikaciji(int idPublikacije)
@@ -2832,14 +2885,14 @@ LogError(ex);
             try
             {
                 ISession sesija = DataLayer.GetSession();
-                var citati = sesija.Query<Citira>().Where(c => c.IdCitira == idPublikacije).ToList();
+                var citati = sesija.Query<Citira>().Where(c => c.PubCitira.Id == idPublikacije).ToList();
                 foreach (var citat in citati)
                 {
                     CitatBasic cb = new CitatBasic
                     {
                         Id = citat.Id,
-                        IdCitira = citat.IdCitira,
-                        IdCitirana = citat.IdCitirana,
+                        PubCitira = new PublikacijaBasic(citat.PubCitira.Id, citat.PubCitira.Naslov, citat.PubCitira.Apstrakt, citat.PubCitira.Jezik, citat.PubCitira.Status, citat.PubCitira.Vidljivost, citat.PubCitira.DatumObjavljivanja, citat.PubCitira.DatumKreiranjaZapisa),
+                        PubCitirana = new PublikacijaBasic(citat.PubCitirana.Id, citat.PubCitirana.Naslov, citat.PubCitirana.Apstrakt, citat.PubCitirana.Jezik, citat.PubCitirana.Status, citat.PubCitirana.Vidljivost, citat.PubCitirana.DatumObjavljivanja, citat.PubCitirana.DatumKreiranjaZapisa),
                         MestoCitiranja = citat.MestoCitiranja,
                         TekstualniKontekst = citat.TekstualniKontekst,
                         TipCitata = citat.TipCitata
@@ -2851,7 +2904,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem citata iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaCitata;
         }
@@ -2868,8 +2921,8 @@ LogError(ex);
                 CitatBasic cb = new CitatBasic
                 {
                     Id = c.Id,
-                    IdCitira = c.IdCitira,
-                    IdCitirana = c.IdCitirana,
+                    PubCitira = new PublikacijaBasic(c.PubCitira.Id, c.PubCitira.Naslov, c.PubCitira.Apstrakt, c.PubCitira.Jezik, c.PubCitira.Status, c.PubCitira.Vidljivost, c.PubCitira.DatumObjavljivanja, c.PubCitira.DatumKreiranjaZapisa),
+                    PubCitirana = new PublikacijaBasic(c.PubCitirana.Id, c.PubCitirana.Naslov, c.PubCitirana.Apstrakt, c.PubCitirana.Jezik, c.PubCitirana.Status, c.PubCitirana.Vidljivost, c.PubCitirana.DatumObjavljivanja, c.PubCitirana.DatumKreiranjaZapisa),
                     MestoCitiranja = c.MestoCitiranja,
                     TekstualniKontekst = c.TekstualniKontekst,
                     TipCitata = c.TipCitata
@@ -2892,8 +2945,8 @@ LogError(ex);
 
                 Citira novi = new Citira
                 {
-                    IdCitira = citat.IdCitira,
-                    IdCitirana = citat.IdCitirana,
+                    PubCitira = s.Load<Publikacija>(citat.PubCitira.Id),
+                    PubCitirana = s.Load<Publikacija>(citat.PubCitirana.Id),
                     TipCitata = citat.TipCitata,
                     MestoCitiranja = citat.MestoCitiranja,
                     TekstualniKontekst = citat.TekstualniKontekst
@@ -2918,10 +2971,10 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
-                Citira cnova = s.Get<Citira>(citat.Id);
+                CitatBasic cnova = s.Get<CitatBasic>(citat.Id);
 
-                cnova.IdCitira = citat.IdCitira;
-                cnova.IdCitirana = citat.IdCitirana;
+                cnova.PubCitira = citat.PubCitira;
+                cnova.PubCitirana = citat.PubCitirana;
                 cnova.TipCitata = citat.TipCitata;
                 cnova.MestoCitiranja = citat.MestoCitiranja;
                 cnova.TekstualniKontekst = citat.TekstualniKontekst;
@@ -2981,7 +3034,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem urednika knjige iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaUrednika;
         }
@@ -3059,11 +3112,15 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from KNJIGA_UREDNICI where Id = :id");
+                var q = s.CreateQuery("delete from KnjigaUrednici where Id = :id");
                 q.SetParameter("id", uredikaId);
 
-                q.ExecuteUpdate();                status = true;
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
             }
             catch (Exception ex)
             {
@@ -3093,7 +3150,7 @@ LogError(ex);
             }
             catch (Exception ex)
             {
-LogError(ex);
+                MessageBox.Show($"Poruka greske: {ex.Message}", "Greska sa preuzimanjem urednika poglavlja iz baze...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listaUrednika;
         }
@@ -3171,11 +3228,15 @@ LogError(ex);
             try
             {
                 ISession s = DataLayer.GetSession();
+                using var tx = s.BeginTransaction();
 
-                var q = s.CreateQuery("delete from POGLAVLJE_UREDNICI where Id = :id");
+                var q = s.CreateQuery("delete from PoglavljeUrednici where Id = :id");
                 q.SetParameter("id", uredikaId);
 
-                q.ExecuteUpdate();                status = true;
+                q.ExecuteUpdate();
+                tx.Commit();
+
+                status = true;
             }
             catch (Exception ex)
             {
@@ -3188,6 +3249,7 @@ LogError(ex);
         
 
         #endregion
+
 
 
     }

@@ -19,8 +19,7 @@ namespace DigitalniRepozitorijum.Forme
             var dto = DTOManager.vratiAngazovanje(_idAngazovanja.Value);
             txtTipAngazovanja.Text = dto.TipAngazovanja;
             txtNazivPozicije.Text = dto.NazivPozicije;
-            datePocetka.Value = dto.DatumPocetka;
-            dateZavrsetka.Value = dto.DatumZavrsetka == null ? dateZavrsetka.MinDate : dto.DatumZavrsetka.Value;
+            txtDatumPocetka.Text = dto.DatumPocetka.ToShortDateString();
         }
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
@@ -34,18 +33,12 @@ namespace DigitalniRepozitorijum.Forme
                 IdIstrazivaca = postojeci.IdIstrazivaca,
                 TipAngazovanja = txtTipAngazovanja.Text,
                 NazivPozicije = txtNazivPozicije.Text,
-                DatumPocetka = datePocetka.Value,
-                DatumZavrsetka = dateZavrsetka.Value < datePocetka.Value ? null : dateZavrsetka.Value,
+                DatumPocetka = DateTime.Parse(txtDatumPocetka.Text)
             };
 
             DTOManager.azurirajAngazovanje(dto);
             DialogResult = DialogResult.OK;
             Close();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

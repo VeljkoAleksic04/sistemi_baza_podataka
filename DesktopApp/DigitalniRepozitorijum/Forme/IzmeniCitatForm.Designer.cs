@@ -75,7 +75,7 @@ namespace DigitalniRepozitorijum.Forme
             // 
             // btnPotvrdi
             // 
-            btnPotvrdi.Location = new Point(160, 135);
+            btnPotvrdi.Location = new Point(164, 135);
             btnPotvrdi.Name = "btnPotvrdi";
             btnPotvrdi.Size = new Size(110, 32);
             btnPotvrdi.TabIndex = 50;

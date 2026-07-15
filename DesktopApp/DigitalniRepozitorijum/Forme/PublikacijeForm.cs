@@ -197,7 +197,7 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnRecenzije_Click(object sender, EventArgs e)
         {
-            using var form = new RundeRecenzijeForm();
+            using var form = new RundeRecenzijeForm((int)GetSelectedId());
             form.ShowDialog();
         }
     }
