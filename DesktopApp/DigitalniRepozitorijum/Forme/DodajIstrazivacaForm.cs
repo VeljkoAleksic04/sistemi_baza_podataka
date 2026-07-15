@@ -26,7 +26,7 @@ namespace DigitalniRepozitorijum.Forme
             {
                 Ime = txtIme.Text,
                 Prezime = txtPrezime.Text,
-                DatumRodjenja = DateTime.Parse(txtDatumRodjenja.Text),
+                DatumRodjenja = dateRodj.Value,
                 Drzava = txtDrzava.Text,
                 StatusNaloga = txtStatusNaloga.Text,
                 NaucnoZvanje = txtNaucnoZvanje.Text,
