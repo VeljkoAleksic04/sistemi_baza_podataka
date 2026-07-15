@@ -1,5 +1,6 @@
 #Misc
 ignore/
+
 # Visual Studio
 .vs/
 *.suo
@@ -9,6 +10,9 @@ ignore/
 *.futdcache*
 DocumentLayout.json
 DocumentLayout.backup.json
+
+# VS Code / vtcode
+.vtcode/
 
 # Build outputs
 bin/
@@ -24,6 +28,7 @@ packages/
 # Test outputs
 **/Output/test-output.txt
 **/Output/dto-errors.txt
+**/Tests/Output/
 
 # OS
 .DS_Store

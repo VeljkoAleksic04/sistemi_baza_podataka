@@ -6,6 +6,9 @@ internal class DatasetMap : SubclassMap<Dataset>
 {
     public DatasetMap()
     {
+        Table("DATASET");
+        KeyColumn("ID_PUBLIKACIJE");
+
         Map(x => x.BrojZapisa, "Broj_Zapisa");
         Map(x => x.Velicina, "Velicina");
         Map(x => x.OpisStrukture, "Opis_Strukture");
