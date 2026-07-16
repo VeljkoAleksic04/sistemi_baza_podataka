@@ -33,7 +33,7 @@ namespace DigitalniRepozitorijum.Forme
                 Id = _id.Value,
                 Ime = txtIme.Text,
                 Prezime = txtPrezime.Text,
-                DatumRodjenja = DateTime.Parse(txtDatumRodjenja.Text),
+                DatumRodjenja = dateRodj.Value,
                 Drzava = txtDrzava.Text,
                 StatusNaloga = txtStatusNaloga.Text,
                 NaucnoZvanje = txtNaucnoZvanje.Text,
@@ -61,7 +61,7 @@ namespace DigitalniRepozitorijum.Forme
             var dto = DTOManager.vratiIstrazivaca(_id.Value);
             txtIme.Text = dto.Ime;
             txtPrezime.Text = dto.Prezime;
-            txtDatumRodjenja.Text = dto.DatumRodjenja.ToShortDateString();
+            dateRodj.Value = dto.DatumRodjenja;
             txtDrzava.Text = dto.Drzava;
             txtStatusNaloga.Text = dto.StatusNaloga;
             txtNaucnoZvanje.Text = dto.NaucnoZvanje;

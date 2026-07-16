@@ -6,11 +6,12 @@ internal class SoftverskiArtefaktPodrznePlatformeMap : ClassMap<SoftverskiArtefa
 {
     public SoftverskiArtefaktPodrznePlatformeMap()
     {
+        Table("SOFTVERSKI_ARTEFAKT_PLATFORME");
+
         Id(x => x.Id, "Id_SA_Platforma");
-        
-        Map(x => x.IdPublikacije, "Id_Publikacije");
+
         Map(x => x.PodrzanaPlatforma, "Podrzana_Platforma");
-        
+
         References(x => x.SoftverskiArtefakt, "Id_Publikacije")
             .Not.LazyLoad();
     }

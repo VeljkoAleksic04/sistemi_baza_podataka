@@ -15,37 +15,6 @@ Accept: application/json
 
 ###
 
-POST {{host}}/Publikacija/DodajPublikaciju
-Content-Type: application/json
-
-{
-  "naslov": "Uvod u vestacku inteligenciju",
-  "apstrakt": "Osnovni pojmovi AI.",
-  "jezik": "Srpski",
-  "datumObjavljivanja": "2025-06-15T00:00:00",
-  "datumKreiranjaZapisa": "2025-06-15T00:00:00",
-  "status": "Objavljena",
-  "vidljivost": "Javna"
-}
-
-###
-
-PUT {{host}}/Publikacija/PromeniPublikaciju
-Content-Type: application/json
-
-{
-  "id": 1,
-  "naslov": "Uvod u AI - drugo izdanje",
-  "apstrakt": "Azuriran apstrakt.",
-  "jezik": "Srpski",
-  "datumObjavljivanja": "2025-06-15T00:00:00",
-  "datumKreiranjaZapisa": "2025-06-15T00:00:00",
-  "status": "Objavljena",
-  "vidljivost": "Javna"
-}
-
-###
-
 DELETE {{host}}/Publikacija/IzbrisiPublikaciju/1
 
 ########################################################

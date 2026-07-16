@@ -58,6 +58,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
             dataGridView.CellContentClick += dataGridView_CellContentClick;
+            dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
             // colId
             // 

@@ -20,7 +20,6 @@ namespace DigitalniRepozitorijum.Forme
             lblPrezime = new Label();
             txtPrezime = new TextBox();
             lblDatumRodjenja = new Label();
-            txtDatumRodjenja = new TextBox();
             lblDrzava = new Label();
             txtDrzava = new TextBox();
             lblStatusNaloga = new Label();
@@ -33,6 +32,7 @@ namespace DigitalniRepozitorijum.Forme
             txtORCID = new TextBox();
             btnPotvrdi = new Button();
             btnOdustani = new Button();
+            dateRodj = new DateTimePicker();
             SuspendLayout();
             // 
             // lblIme
@@ -75,13 +75,6 @@ namespace DigitalniRepozitorijum.Forme
             lblDatumRodjenja.Size = new Size(92, 15);
             lblDatumRodjenja.TabIndex = 0;
             lblDatumRodjenja.Text = "Datum rodjenja:";
-            // 
-            // txtDatumRodjenja
-            // 
-            txtDatumRodjenja.Location = new Point(160, 87);
-            txtDatumRodjenja.Name = "txtDatumRodjenja";
-            txtDatumRodjenja.Size = new Size(230, 23);
-            txtDatumRodjenja.TabIndex = 1;
             // 
             // lblDrzava
             // 
@@ -183,6 +176,13 @@ namespace DigitalniRepozitorijum.Forme
             btnOdustani.Text = "Odustani";
             btnOdustani.UseVisualStyleBackColor = true;
             // 
+            // dateRodj
+            // 
+            dateRodj.Location = new Point(160, 88);
+            dateRodj.Name = "dateRodj";
+            dateRodj.Size = new Size(230, 23);
+            dateRodj.TabIndex = 62;
+            // 
             // IzmeniIstrazivacaForm
             // 
             AcceptButton = btnPotvrdi;
@@ -190,6 +190,7 @@ namespace DigitalniRepozitorijum.Forme
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnOdustani;
             ClientSize = new Size(420, 350);
+            Controls.Add(dateRodj);
             Controls.Add(btnOdustani);
             Controls.Add(btnPotvrdi);
             Controls.Add(lblIme);
@@ -197,7 +198,6 @@ namespace DigitalniRepozitorijum.Forme
             Controls.Add(lblPrezime);
             Controls.Add(txtPrezime);
             Controls.Add(lblDatumRodjenja);
-            Controls.Add(txtDatumRodjenja);
             Controls.Add(lblDrzava);
             Controls.Add(txtDrzava);
             Controls.Add(lblStatusNaloga);
@@ -223,7 +223,6 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Label lblPrezime;
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.Label lblDatumRodjenja;
-        private System.Windows.Forms.TextBox txtDatumRodjenja;
         private System.Windows.Forms.Label lblDrzava;
         private System.Windows.Forms.TextBox txtDrzava;
         private System.Windows.Forms.Label lblStatusNaloga;
@@ -234,5 +233,6 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.TextBox txtNaucnaOblast;
         private System.Windows.Forms.Label lblORCID;
         private System.Windows.Forms.TextBox txtORCID;
+        private DateTimePicker dateRodj;
     }
 }

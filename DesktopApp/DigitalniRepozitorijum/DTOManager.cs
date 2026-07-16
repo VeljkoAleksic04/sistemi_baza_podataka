@@ -2044,8 +2044,8 @@ namespace DigitalniRepozitorijum
 
                 foreach (var o in rezultati)
                     lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id, o.Istrazivac.Id,
-                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, o.TipAngazovanja,
-                        o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
+                          o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, o.OrganizacionaJedinica, o.TipAngazovanja,
+                          o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
             }
@@ -2065,9 +2065,9 @@ namespace DigitalniRepozitorijum
                     select o;
 
                 foreach (var o in rezultati)
-                    lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id, o.Istrazivac.Id,
-                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, o.TipAngazovanja,
-                        o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
+                 lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id, o.Istrazivac.Id,
+                          o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, o.OrganizacionaJedinica, o.TipAngazovanja,
+                          o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
             }
@@ -2104,6 +2104,8 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 Angazovanje o = s.Load<Angazovanje>(dto.Id);
+                o.Institucija = s.Load<Institucija>(dto.IdInstitucije);
+                o.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
                 o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
                 o.TipAngazovanja = dto.TipAngazovanja;
                 o.NazivPozicije = dto.NazivPozicije;
@@ -2226,6 +2228,8 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 Autorstvo o = s.Load<Autorstvo>(dto.Id);
+                o.Publikacija = s.Load<Publikacija>(dto.IdPublikacije);
+                o.Autor = s.Load<Istrazivac>(dto.IdAutora);
                 o.RedosledAutora = dto.RedosledAutora;
                 o.TipDoprinosa = dto.TipDoprinosa;
                 o.Uloga = dto.Uloga;

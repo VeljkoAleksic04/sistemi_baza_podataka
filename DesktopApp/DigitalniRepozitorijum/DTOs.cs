@@ -584,18 +584,22 @@ namespace DigitalniRepozitorijum
         public int IdIstrazivaca;
         public string NazivInstitucije;
         public string ImeIstrazivaca;
-        public string? TipAngazovanja;
+        public string OrganizacionaJedinica;
+        public string TipAngazovanja;
         public string NazivPozicije;
         public DateTime DatumPocetka;
-        public DateTime DatumZavrsetka;
+        public DateTime? DatumZavrsetka;
 
         public AngazovanjePregled() { }
         public AngazovanjePregled(int id, int idInstitucije, int idIstrazivaca, string nazivInstitucije,
-            string imeIstrazivaca, string tipAngazovanja, string nazivPozicije, DateTime datumPocetka, DateTime? datumZavrsetka)
+            string imeIstrazivaca, string organizacionaJedinica,
+            string tipAngazovanja, string nazivPozicije, DateTime datumPocetka, DateTime? datumZavrsetka)
         {
-            Id = id;  IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
+            Id = id; IdInstitucije = idInstitucije; IdIstrazivaca = idIstrazivaca;
             NazivInstitucije = nazivInstitucije; ImeIstrazivaca = imeIstrazivaca;
-            TipAngazovanja = tipAngazovanja;  NazivPozicije = nazivPozicije; DatumPocetka = datumPocetka; DatumZavrsetka = datumZavrsetka ?? DateTime.MinValue;
+            OrganizacionaJedinica = organizacionaJedinica;
+            TipAngazovanja = tipAngazovanja; NazivPozicije = nazivPozicije;
+            DatumPocetka = datumPocetka; DatumZavrsetka = datumZavrsetka;
         }
     }
 

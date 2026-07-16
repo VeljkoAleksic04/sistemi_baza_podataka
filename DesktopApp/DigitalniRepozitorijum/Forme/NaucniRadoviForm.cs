@@ -31,7 +31,7 @@ namespace DigitalniRepozitorijum.Forme
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = int.Parse(dataGridView.SelectedRows[0].Cells[0].Value.ToString()); if (id == null) return; 
+            var id = int.Parse(dataGridView.SelectedRows[0].Cells[0].Value.ToString()); if (id == null) return;
             using var form = new IzmeniNaucniRadForm(id);
             form.ShowDialog();
         }
@@ -97,6 +97,10 @@ namespace DigitalniRepozitorijum.Forme
             }
 
             richTextBox1.Text = zapis;
+        }
+
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
         }
     }
 }

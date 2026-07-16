@@ -45,42 +45,46 @@ namespace WebAplikacija.Controllers
             return Ok(publikacija);
         }
 
-        [HttpPost("DodajPublikaciju")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<IActionResult> AddPublikacija([FromBody] PublikacijaView p)
-        {
-            var data = await DataProvider.DodajPublikacijuAsync(p);
+        //
+        // DODAVANJE I IZMENA SE IZVRSAVAJU PREKO KONTROLERA ZA SPECIJALIZACIJE!!!
+        //
 
-            if (data.IsError)
-            {
-                return StatusCode(data.Error.StatusCode, data.Error.Message);
-            }
+        //[HttpPost("DodajPublikaciju")]
+        //[ProducesResponseType(StatusCodes.Status201Created)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status403Forbidden)]
+        //public async Task<IActionResult> AddPublikacija([FromBody] PublikacijaView p)
+        //{
+        //    var data = await DataProvider.DodajPublikacijuAsync(p);
 
-            return StatusCode(201, $"Uspešno dodata publikacija. Naslov: {p.Naslov}");
-        }
+        //    if (data.IsError)
+        //    {
+        //        return StatusCode(data.Error.StatusCode, data.Error.Message);
+        //    }
 
-        [HttpPut("PromeniPublikaciju")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public async Task<IActionResult> ChangePublikacija([FromBody] PublikacijaView p)
-        {
-            (bool isError, var publikacija, ErrorMessage? error) = await DataProvider.AzurirajPublikacijuAsync(p);
+        //    return StatusCode(201, $"Uspešno dodata publikacija. Naslov: {p.Naslov}");
+        //}
 
-            if (isError)
-            {
-                return StatusCode(error?.StatusCode ?? 400, error?.Message);
-            }
+        //[HttpPut("PromeniPublikaciju")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status403Forbidden)]
+        //public async Task<IActionResult> ChangePublikacija([FromBody] PublikacijaView p)
+        //{
+        //    (bool isError, var publikacija, ErrorMessage? error) = await DataProvider.AzurirajPublikacijuAsync(p);
 
-            if (publikacija == null)
-            {
-                return BadRequest("Publikacija nije validna.");
-            }
+        //    if (isError)
+        //    {
+        //        return StatusCode(error?.StatusCode ?? 400, error?.Message);
+        //    }
 
-            return Ok($"Uspešno ažurirana publikacija. Naslov: {publikacija.Naslov}");
-        }
+        //    if (publikacija == null)
+        //    {
+        //        return BadRequest("Publikacija nije validna.");
+        //    }
+
+        //    return Ok($"Uspešno ažurirana publikacija. Naslov: {publikacija.Naslov}");
+        //}
 
         [HttpDelete("IzbrisiPublikaciju/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

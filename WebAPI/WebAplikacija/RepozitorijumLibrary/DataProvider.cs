@@ -22,6 +22,7 @@ public static class DataProvider
             IEnumerable<Publikacija> svePublikacije = from o in s.Query<Publikacija>()
                                                       select o;
 
+
             foreach (Publikacija p in svePublikacije)
             {
                 publikacije.Add(new PublikacijaView(p));
@@ -1331,11 +1332,6 @@ public static class DataProvider
         {
             return "Nemoguće vratiti verziju sa zadatim ID-jem.".ToError(400);
         }
-        finally
-        {
-            s?.Close();
-            s?.Dispose();
-        }
 
         return verzijaView;
     }
@@ -1373,11 +1369,6 @@ public static class DataProvider
         {
             return "Nemoguće sačuvati verziju.".ToError(400);
         }
-        finally
-        {
-            s?.Close();
-            s?.Dispose();
-        }
 
         return id;
     }
@@ -1404,7 +1395,6 @@ public static class DataProvider
 
             s.Update(v);
             s.Flush();
-            s.Close();
         }
         catch (Exception)
         {
@@ -1795,5 +1785,1516 @@ public static class DataProvider
 
         return true;
     }
+    #endregion
+
+    #region Institucija
+
+    public static Result<List<InstitucijaView>, ErrorMessage> VratiSveInstitucije()
+    {
+        ISession? s = null;
+        List<InstitucijaView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<Institucija> items = from o in s.Query<Institucija>() select o;
+
+            foreach (Institucija i in items)
+                data.Add(new InstitucijaView(i));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve institucije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<InstitucijaView, ErrorMessage>> VratiInstitucijuAsync(int id)
+    {
+        ISession? s = null;
+        InstitucijaView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Institucija i = await s.LoadAsync<Institucija>(id);
+            view = new InstitucijaView(i);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti instituciju sa zadatim ID-jem.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> DodajInstitucijuAsync(InstitucijaView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Institucija o = new()
+            {
+                Naziv = dto.Naziv,
+                Adresa = dto.Adresa
+            };
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati instituciju.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<InstitucijaView, ErrorMessage>> AzurirajInstitucijuAsync(InstitucijaView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Institucija o = await s.LoadAsync<Institucija>(dto.Id);
+            o.Naziv = dto.Naziv;
+            o.Adresa = dto.Adresa;
+
+            await s.UpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati instituciju.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return dto;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiInstitucijuAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Institucija o = await s.LoadAsync<Institucija>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati instituciju.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region InstitucijaKontaktMail
+
+    public static Result<List<InstitucijaKontaktMailView>, ErrorMessage> VratiKontaktMailoveInstitucije(int idInstitucije)
+    {
+        ISession? s = null;
+        List<InstitucijaKontaktMailView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<InstitucijaKontaktMail> items = from o in s.Query<InstitucijaKontaktMail>()
+                                                         where o.Institucija.Id == idInstitucije
+                                                         select o;
+
+            foreach (InstitucijaKontaktMail o in items)
+                data.Add(new InstitucijaKontaktMailView(o));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti kontakt mailove institucije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<InstitucijaKontaktMailView, ErrorMessage>> VratiKontaktMailAsync(int id)
+    {
+        ISession? s = null;
+        InstitucijaKontaktMailView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktMail o = await s.LoadAsync<InstitucijaKontaktMail>(id);
+            view = new InstitucijaKontaktMailView(o);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti kontakt mail.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<int, ErrorMessage>> DodajKontaktMailAsync(InstitucijaKontaktMailView dto, int idInstitucije)
+    {
+        ISession? s = null;
+        int id = default;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktMail o = new()
+            {
+                Institucija = await s.LoadAsync<Institucija>(idInstitucije),
+                KontaktMail = dto.KontaktMail
+            };
+
+            id = (int)await s.SaveAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati kontakt mail.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return id;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajKontaktMailAsync(InstitucijaKontaktMailView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktMail o = await s.LoadAsync<InstitucijaKontaktMail>(dto.Id);
+            o.KontaktMail = dto.KontaktMail;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati kontakt mail.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiKontaktMailAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktMail o = await s.LoadAsync<InstitucijaKontaktMail>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati kontakt mail.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region InstitucijaKontaktTel
+
+    public static Result<List<InstitucijaKontaktTelView>, ErrorMessage> VratiKontaktTelefoneInstitucije(int idInstitucije)
+    {
+        ISession? s = null;
+        List<InstitucijaKontaktTelView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<InstitucijaKontaktTel> items = from o in s.Query<InstitucijaKontaktTel>()
+                                                        where o.Institucija.Id == idInstitucije
+                                                        select o;
+
+            foreach (InstitucijaKontaktTel o in items)
+                data.Add(new InstitucijaKontaktTelView(o));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti kontakt telefone institucije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<InstitucijaKontaktTelView, ErrorMessage>> VratiKontaktTelefonAsync(int id)
+    {
+        ISession? s = null;
+        InstitucijaKontaktTelView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktTel o = await s.LoadAsync<InstitucijaKontaktTel>(id);
+            view = new InstitucijaKontaktTelView(o);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti kontakt telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<int, ErrorMessage>> DodajKontaktTelefonAsync(InstitucijaKontaktTelView dto, int idInstitucije)
+    {
+        ISession? s = null;
+        int id = default;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktTel o = new()
+            {
+                Institucija = await s.LoadAsync<Institucija>(idInstitucije),
+                KontaktTel = dto.KontaktTel
+            };
+
+            id = (int)await s.SaveAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati kontakt telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return id;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajKontaktTelefonAsync(InstitucijaKontaktTelView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktTel o = await s.LoadAsync<InstitucijaKontaktTel>(dto.Id);
+            o.KontaktTel = dto.KontaktTel;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati kontakt telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiKontaktTelefonAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaKontaktTel o = await s.LoadAsync<InstitucijaKontaktTel>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati kontakt telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region InstitucijaNaucnaOblast
+
+    public static Result<List<InstitucijaNaucnaOblastView>, ErrorMessage> VratiNaucneOblastiInstitucije(int idInstitucije)
+    {
+        ISession? s = null;
+        List<InstitucijaNaucnaOblastView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<InstitucijaNaucnaOblast> items = from o in s.Query<InstitucijaNaucnaOblast>()
+                                                           where o.Institucija.Id == idInstitucije
+                                                           select o;
+
+            foreach (InstitucijaNaucnaOblast o in items)
+                data.Add(new InstitucijaNaucnaOblastView(o));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti naučne oblasti institucije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<InstitucijaNaucnaOblastView, ErrorMessage>> VratiNaucnuOblastAsync(int id)
+    {
+        ISession? s = null;
+        InstitucijaNaucnaOblastView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaNaucnaOblast o = await s.LoadAsync<InstitucijaNaucnaOblast>(id);
+            view = new InstitucijaNaucnaOblastView(o);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti naučnu oblast.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<int, ErrorMessage>> DodajNaucnuOblastAsync(InstitucijaNaucnaOblastView dto, int idInstitucije)
+    {
+        ISession? s = null;
+        int id = default;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaNaucnaOblast o = new()
+            {
+                Institucija = await s.LoadAsync<Institucija>(idInstitucije),
+                NaucnaOblast = dto.NaucnaOblast
+            };
+
+            id = (int)await s.SaveAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati naučnu oblast.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return id;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajNaucnuOblastAsync(InstitucijaNaucnaOblastView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaNaucnaOblast o = await s.LoadAsync<InstitucijaNaucnaOblast>(dto.Id);
+            o.NaucnaOblast = dto.NaucnaOblast;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati naučnu oblast.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiNaucnuOblastAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            InstitucijaNaucnaOblast o = await s.LoadAsync<InstitucijaNaucnaOblast>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati naučnu oblast.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region Istrazivac
+
+    public static Result<List<IstrazivacView>, ErrorMessage> VratiSveIstrazivace()
+    {
+        ISession? s = null;
+        List<IstrazivacView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<Istrazivac> items = from o in s.Query<Istrazivac>() select o;
+
+            foreach (Istrazivac i in items)
+                data.Add(new IstrazivacView(i));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti sve istraživače.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<IstrazivacView, ErrorMessage>> VratiIstrazivacaAsync(int id)
+    {
+        ISession? s = null;
+        IstrazivacView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Istrazivac i = await s.LoadAsync<Istrazivac>(id);
+            view = new IstrazivacView(i);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti istraživača sa zadatim ID-jem.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> DodajIstrazivacaAsync(IstrazivacView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Istrazivac o = new()
+            {
+                Ime = dto.Ime,
+                Prezime = dto.Prezime,
+                DatumRodjenja = dto.DatumRodjenja ?? default,
+                Drzava = dto.Drzava,
+                StatusNaloga = dto.StatusNaloga,
+                NaucnoZvanje = dto.NaucnoZvanje,
+                NaucnaOblast = dto.NaucnaOblast,
+                JeAutor = dto.JeAutor,
+                JeRecenzent = dto.JeRecenzent,
+                JeUrednik = dto.JeUrednik,
+                JeAdmin = dto.JeAdmin,
+                JeRukovodilacProjekta = dto.JeRukovodilacProjekta,
+                ORCID = dto.ORCID,
+                OblastEkspertize = dto.OblastEkspertize,
+                UredjivackaSekcija = dto.UredjivackaSekcija,
+                AdministratorskaOvlascenja = dto.AdministratorskaOvlascenja
+            };
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati istraživača.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<IstrazivacView, ErrorMessage>> AzurirajIstrazivacaAsync(IstrazivacView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Istrazivac o = await s.LoadAsync<Istrazivac>(dto.Id);
+
+            o.Ime = dto.Ime;
+            o.Prezime = dto.Prezime;
+            o.DatumRodjenja = dto.DatumRodjenja ?? default;
+            o.Drzava = dto.Drzava;
+            o.StatusNaloga = dto.StatusNaloga;
+            o.NaucnoZvanje = dto.NaucnoZvanje;
+            o.NaucnaOblast = dto.NaucnaOblast;
+            o.JeAutor = dto.JeAutor;
+            o.JeRecenzent = dto.JeRecenzent;
+            o.JeUrednik = dto.JeUrednik;
+            o.JeAdmin = dto.JeAdmin;
+            o.JeRukovodilacProjekta = dto.JeRukovodilacProjekta;
+            o.ORCID = dto.ORCID;
+            o.OblastEkspertize = dto.OblastEkspertize;
+            o.UredjivackaSekcija = dto.UredjivackaSekcija;
+            o.AdministratorskaOvlascenja = dto.AdministratorskaOvlascenja;
+
+            await s.UpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati istraživača.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return dto;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiIstrazivacaAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Istrazivac o = await s.LoadAsync<Istrazivac>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati istraživača.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region IstrazivacEmail
+
+    public static Result<List<IstrazivacEmailView>, ErrorMessage> VratiEmailoveIstrazivaca(int idIstrazivaca)
+    {
+        ISession? s = null;
+        List<IstrazivacEmailView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<IstrazivacEmail> items = from o in s.Query<IstrazivacEmail>()
+                                                  where o.Istrazivac.Id == idIstrazivaca
+                                                  select o;
+
+            foreach (IstrazivacEmail o in items)
+                data.Add(new IstrazivacEmailView(o));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti emailove istraživača.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<IstrazivacEmailView, ErrorMessage>> VratiEmailAsync(int id)
+    {
+        ISession? s = null;
+        IstrazivacEmailView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacEmail o = await s.LoadAsync<IstrazivacEmail>(id);
+            view = new IstrazivacEmailView(o);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti email.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<int, ErrorMessage>> DodajEmailAsync(IstrazivacEmailView dto, int idIstrazivaca)
+    {
+        ISession? s = null;
+        int id = default;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacEmail o = new()
+            {
+                Istrazivac = await s.LoadAsync<Istrazivac>(idIstrazivaca),
+                Email = dto.Email
+            };
+
+            id = (int)await s.SaveAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati email.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return id;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajEmailAsync(IstrazivacEmailView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacEmail o = await s.LoadAsync<IstrazivacEmail>(dto.Id);
+            o.Email = dto.Email;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati email.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiEmailAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacEmail o = await s.LoadAsync<IstrazivacEmail>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati email.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region IstrazivacTelefon
+
+    public static Result<List<IstrazivacTelefonView>, ErrorMessage> VratiTelefoneIstrazivaca(int idIstrazivaca)
+    {
+        ISession? s = null;
+        List<IstrazivacTelefonView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<IstrazivacTelefon> items = from o in s.Query<IstrazivacTelefon>()
+                                                    where o.Istrazivac.Id == idIstrazivaca
+                                                    select o;
+
+            foreach (IstrazivacTelefon o in items)
+                data.Add(new IstrazivacTelefonView(o));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti telefone istraživača.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<IstrazivacTelefonView, ErrorMessage>> VratiTelefonAsync(int id)
+    {
+        ISession? s = null;
+        IstrazivacTelefonView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacTelefon o = await s.LoadAsync<IstrazivacTelefon>(id);
+            view = new IstrazivacTelefonView(o);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<int, ErrorMessage>> DodajTelefonAsync(IstrazivacTelefonView dto, int idIstrazivaca)
+    {
+        ISession? s = null;
+        int id = default;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacTelefon o = new()
+            {
+                Istrazivac = await s.LoadAsync<Istrazivac>(idIstrazivaca),
+                Telefon = dto.Telefon
+            };
+
+            id = (int)await s.SaveAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return id;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajTelefonAsync(IstrazivacTelefonView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacTelefon o = await s.LoadAsync<IstrazivacTelefon>(dto.Id);
+            o.Telefon = dto.Telefon;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiTelefonAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IstrazivacTelefon o = await s.LoadAsync<IstrazivacTelefon>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati telefon.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region Angazovanje
+
+    public static Result<List<AngazovanjeView>, ErrorMessage> VratiAngazovanjaIstrazivaca(int idIstrazivaca)
+    {
+        ISession? s = null;
+        List<AngazovanjeView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<Angazovanje> items = from o in s.Query<Angazovanje>()
+                                              where o.Istrazivac.Id == idIstrazivaca
+                                              select o;
+
+            foreach (Angazovanje a in items)
+                data.Add(new AngazovanjeView(a));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti angažovanja istraživača.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public static Result<List<AngazovanjeView>, ErrorMessage> VratiAngazovanjaInstitucije(int idInstitucije)
+    {
+        ISession? s = null;
+        List<AngazovanjeView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<Angazovanje> items = from o in s.Query<Angazovanje>()
+                                              where o.Institucija.Id == idInstitucije
+                                              select o;
+
+            foreach (Angazovanje a in items)
+                data.Add(new AngazovanjeView(a));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti angažovanja institucije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<AngazovanjeView, ErrorMessage>> VratiAngazovanjeAsync(int id)
+    {
+        ISession? s = null;
+        AngazovanjeView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Angazovanje a = await s.LoadAsync<Angazovanje>(id);
+            view = new AngazovanjeView(a);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti angažovanje sa zadatim ID-jem.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> DodajAngazovanjeAsync(AngazovanjeView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Angazovanje o = new()
+            {
+                Institucija = await s.LoadAsync<Institucija>(dto.IdInstitucije),
+                Istrazivac = await s.LoadAsync<Istrazivac>(dto.IdIstrazivaca),
+                OrganizacionaJedinica = dto.OrganizacionaJedinica,
+                TipAngazovanja = dto.TipAngazovanja,
+                NazivPozicije = dto.NazivPozicije,
+                DatumPocetka = dto.DatumPocetka ?? default,
+                DatumZavrsetka = dto.DatumZavrsetka
+            };
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati angažovanje.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajAngazovanjeAsync(AngazovanjeView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Angazovanje o = await s.LoadAsync<Angazovanje>(dto.Id);
+
+            o.Institucija = await s.LoadAsync<Institucija>(dto.IdInstitucije);
+            o.Istrazivac = await s.LoadAsync<Istrazivac>(dto.IdIstrazivaca);
+            o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
+            o.TipAngazovanja = dto.TipAngazovanja;
+            o.NazivPozicije = dto.NazivPozicije;
+            o.DatumPocetka = dto.DatumPocetka ?? default;
+            o.DatumZavrsetka = dto.DatumZavrsetka;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati angažovanje.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiAngazovanjeAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Angazovanje o = await s.LoadAsync<Angazovanje>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati angažovanje.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    #endregion
+
+    #region Autorstvo
+
+    public static Result<List<AutorstvoView>, ErrorMessage> VratiAutorePublikacije(int idPublikacije)
+    {
+        ISession? s = null;
+        List<AutorstvoView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<Autorstvo> items = from o in s.Query<Autorstvo>()
+                                            where o.Publikacija.Id == idPublikacije
+                                            select o;
+
+            foreach (Autorstvo a in items)
+                data.Add(new AutorstvoView(a));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti autore publikacije.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public static Result<List<AutorstvoView>, ErrorMessage> VratiPublikacijeAutora(int idAutora)
+    {
+        ISession? s = null;
+        List<AutorstvoView> data = new();
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            IEnumerable<Autorstvo> items = from o in s.Query<Autorstvo>()
+                                            where o.Autor.Id == idAutora
+                                            select o;
+
+            foreach (Autorstvo a in items)
+                data.Add(new AutorstvoView(a));
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti publikacije autora.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return data;
+    }
+
+    public async static Task<Result<AutorstvoView, ErrorMessage>> VratiAutorstvoAsync(int id)
+    {
+        ISession? s = null;
+        AutorstvoView view = default!;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Autorstvo a = await s.LoadAsync<Autorstvo>(id);
+            view = new AutorstvoView(a);
+        }
+        catch (Exception)
+        {
+            return "Nemoguće vratiti autorstvo sa zadatim ID-jem.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return view;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> DodajAutorstvoAsync(AutorstvoView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Autorstvo o = new()
+            {
+                Publikacija = await s.LoadAsync<Publikacija>(dto.IdPublikacije),
+                Autor = await s.LoadAsync<Istrazivac>(dto.IdAutora),
+                RedosledAutora = dto.RedosledAutora,
+                TipDoprinosa = dto.TipDoprinosa,
+                Uloga = dto.Uloga
+            };
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće dodati autorstvo.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> AzurirajAutorstvoAsync(AutorstvoView dto)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Autorstvo o = await s.LoadAsync<Autorstvo>(dto.Id);
+
+            o.Publikacija = await s.LoadAsync<Publikacija>(dto.IdPublikacije);
+            o.Autor = await s.LoadAsync<Istrazivac>(dto.IdAutora);
+            o.RedosledAutora = dto.RedosledAutora;
+            o.TipDoprinosa = dto.TipDoprinosa;
+            o.Uloga = dto.Uloga;
+
+            await s.SaveOrUpdateAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće ažurirati autorstvo.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
+    public async static Task<Result<bool, ErrorMessage>> ObrisiAutorstvoAsync(int id)
+    {
+        ISession? s = null;
+
+        try
+        {
+            s = DataLayer.GetSession();
+
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+
+            Autorstvo o = await s.LoadAsync<Autorstvo>(id);
+            await s.DeleteAsync(o);
+            await s.FlushAsync();
+        }
+        catch (Exception)
+        {
+            return "Nemoguće obrisati autorstvo.".ToError(400);
+        }
+        finally
+        {
+            s?.Close();
+            s?.Dispose();
+        }
+
+        return true;
+    }
+
     #endregion
 }

@@ -1,4 +1,45 @@
+#Misc
+ignore/
+# JetBrains Rider
+.idea/
+
+# VS Code AI agents
+.vtcode/
+vtcode.toml
+
+
+# Visual Studio
 .vs/
+*.suo
+*.user
+*.DotSettings.user
+*.dtbcache*
+*.futdcache*
+DocumentLayout.json
+DocumentLayout.backup.json
+
+# VS Code / vtcode
+.vtcode/
+
+# Nested .vs 
+**/.vs/
+
+# Build outputs
 bin/
 obj/
-ignore/
+*.exe
+*.dll
+*.pdb
+
+# NuGet
+packages/
+*.nupkg
+
+# Test outputs
+**/Output/test-output.txt
+**/Output/dto-errors.txt
+**/Tests/Output/
+
+# OS
+.DS_Store
+Thumbs.db

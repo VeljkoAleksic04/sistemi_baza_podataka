@@ -46,6 +46,22 @@ namespace WebAplikacija.Controllers
             return Ok(verzija);
         }
 
+        [HttpPost("VratiVerzijePublikacije/{publikacijaId}")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        public IActionResult VratiVerzijePublikacije(int publikacijaId)
+        {
+            (bool isError, var verzije, ErrorMessage? error) = DataProvider.VratiVerzijePublikacije(publikacijaId);
+
+            if (isError)
+            {
+                return StatusCode(error?.StatusCode ?? 400, error?.Message);
+            }
+
+            return Ok(verzije);
+        }
+
         [HttpPost("DodajVerziju/{publikacijaId}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
