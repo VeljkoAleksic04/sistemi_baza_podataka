@@ -6,7 +6,7 @@ internal class NizOcenaMap : ClassMap<NizOcena>
 {
     public NizOcenaMap()
     {
-        Id(x => x.Id, "Id_Ocene");
+        Id(x => x.Id, "Id_Ocene").GeneratedBy.TriggerIdentity();
         
         Map(x => x.IdRundeRecenzije, "Id_Runde_Recenzije");
         Map(x => x.IdRecenzenta, "Id_recenzenta");

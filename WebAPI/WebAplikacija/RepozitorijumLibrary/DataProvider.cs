@@ -3297,4 +3297,1184 @@ public static class DataProvider
     }
 
     #endregion
+
+    #region NaucniRad
+
+    public static Result<List<NaucniRadView>, ErrorMessage> VratiSveNaucneRadove()
+    {
+        ISession? s = null;
+        List<NaucniRadView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<NaucniRad> items = from o in s.Query<NaucniRad>() select o;
+            foreach (var n in items)
+                data.Add(new NaucniRadView(n));
+        }
+        catch (Exception) { return "Nemoguće vratiti sve naučne radove.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<NaucniRadView, ErrorMessage> VratiNaucniRad(int id)
+    {
+        ISession? s = null;
+        NaucniRadView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NaucniRad n = s.Load<NaucniRad>(id);
+            view = new NaucniRadView(n);
+        }
+        catch (Exception) { return "Nemoguće vratiti naučni rad sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> SacuvajNaucniRad(NaucniRadView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NaucniRad n = new()
+            {
+                Naslov = dto.Naslov,
+                Apstrakt = dto.Apstrakt,
+                Jezik = dto.Jezik,
+                DatumObjavljivanja = dto.DatumObjavljivanja ?? default,
+                DatumKreiranjaZapisa = dto.DatumKreiranjaZapisa ?? default,
+                Status = dto.Status,
+                Vidljivost = dto.Vidljivost,
+                DOI = dto.DOI,
+                TipRada = dto.TipRada,
+                Stranice = dto.Stranice,
+                Izvor = dto.IdIzvora.HasValue ? s.Load<Izvor>(dto.IdIzvora.Value) : null
+            };
+            s.SaveOrUpdate(n);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće sačuvati naučni rad.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniNaucniRad(NaucniRadView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NaucniRad n = s.Load<NaucniRad>(dto.Id);
+            n.Naslov = dto.Naslov;
+            n.Apstrakt = dto.Apstrakt;
+            n.Jezik = dto.Jezik;
+            n.DatumObjavljivanja = dto.DatumObjavljivanja ?? default;
+            n.DatumKreiranjaZapisa = dto.DatumKreiranjaZapisa ?? default;
+            n.Status = dto.Status;
+            n.Vidljivost = dto.Vidljivost;
+            n.DOI = dto.DOI;
+            n.TipRada = dto.TipRada;
+            n.Stranice = dto.Stranice;
+            if (dto.IdIzvora.HasValue)
+                n.Izvor = s.Load<Izvor>(dto.IdIzvora.Value);
+            else
+                n.Izvor = null;
+            s.SaveOrUpdate(n);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti naučni rad.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiNaucniRad(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NaucniRad n = s.Load<NaucniRad>(id);
+            s.Delete(n);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati naučni rad.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region Dataset
+
+    public static Result<List<DatasetView>, ErrorMessage> VratiSveDatasetove()
+    {
+        ISession? s = null;
+        List<DatasetView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<Dataset> items = from o in s.Query<Dataset>() select o;
+            foreach (var d in items)
+                data.Add(new DatasetView(d));
+        }
+        catch (Exception) { return "Nemoguće vratiti sve datasetove.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<DatasetView, ErrorMessage> VratiDataset(int id)
+    {
+        ISession? s = null;
+        DatasetView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Dataset d = s.Load<Dataset>(id);
+            view = new DatasetView(d);
+        }
+        catch (Exception) { return "Nemoguće vratiti dataset sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> SacuvajDataset(DatasetView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Dataset d = new()
+            {
+                Naslov = dto.Naslov,
+                Apstrakt = dto.Apstrakt,
+                Jezik = dto.Jezik,
+                DatumObjavljivanja = dto.DatumObjavljivanja ?? default,
+                DatumKreiranjaZapisa = dto.DatumKreiranjaZapisa ?? default,
+                Status = dto.Status,
+                Vidljivost = dto.Vidljivost,
+                BrojZapisa = dto.BrojZapisa,
+                Velicina = dto.Velicina,
+                OpisStrukture = dto.OpisStrukture,
+                Format = dto.Format,
+                LicencaKoriscenja = dto.LicencaKoriscenja,
+                DatumOd = dto.DatumOd ?? default,
+                DatumDo = dto.DatumDo ?? default
+            };
+            s.SaveOrUpdate(d);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće sačuvati dataset.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniDataset(DatasetView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Dataset d = s.Load<Dataset>(dto.Id);
+            d.Naslov = dto.Naslov;
+            d.Apstrakt = dto.Apstrakt;
+            d.Jezik = dto.Jezik;
+            d.DatumObjavljivanja = dto.DatumObjavljivanja ?? default;
+            d.DatumKreiranjaZapisa = dto.DatumKreiranjaZapisa ?? default;
+            d.Status = dto.Status;
+            d.Vidljivost = dto.Vidljivost;
+            d.BrojZapisa = dto.BrojZapisa;
+            d.Velicina = dto.Velicina;
+            d.OpisStrukture = dto.OpisStrukture;
+            d.Format = dto.Format;
+            d.LicencaKoriscenja = dto.LicencaKoriscenja;
+            d.DatumOd = dto.DatumOd ?? default;
+            d.DatumDo = dto.DatumDo ?? default;
+            s.SaveOrUpdate(d);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti dataset.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiDataset(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Dataset d = s.Load<Dataset>(id);
+            s.Delete(d);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati dataset.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region SoftverskiArtefakt
+
+    public static Result<List<SoftverskiArtefaktView>, ErrorMessage> VratiSveSoftverskeArtefakte()
+    {
+        ISession? s = null;
+        List<SoftverskiArtefaktView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<SoftverskiArtefakt> items = from o in s.Query<SoftverskiArtefakt>() select o;
+            foreach (var a in items)
+                data.Add(new SoftverskiArtefaktView(a));
+        }
+        catch (Exception) { return "Nemoguće vratiti sve softverske artefakte.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<SoftverskiArtefaktView, ErrorMessage> VratiSoftverskiArtefakt(int id)
+    {
+        ISession? s = null;
+        SoftverskiArtefaktView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefakt a = s.Load<SoftverskiArtefakt>(id);
+            view = new SoftverskiArtefaktView(a);
+        }
+        catch (Exception) { return "Nemoguće vratiti softverski artefakt sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> SacuvajSoftverskiArtefakt(SoftverskiArtefaktView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefakt a = new()
+            {
+                Naslov = dto.Naslov,
+                Apstrakt = dto.Apstrakt,
+                Jezik = dto.Jezik,
+                DatumObjavljivanja = dto.DatumObjavljivanja ?? default,
+                DatumKreiranjaZapisa = dto.DatumKreiranjaZapisa ?? default,
+                Status = dto.Status,
+                Vidljivost = dto.Vidljivost,
+                IdArtefakta = dto.IdArtefakta ?? 0,
+                ProgramskiJezik = dto.ProgramskiJezik,
+                LinkKaRepozitorijumu = dto.LinkKaRepozitorijumu,
+                NacinLicenciranja = dto.NacinLicenciranja
+            };
+            s.SaveOrUpdate(a);
+            s.Flush();
+        }
+        catch (Exception ex) { return $"Nemoguće sačuvati softverski artefakt. \n{ex.Message}\n\n{ex.InnerException}".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniSoftverskiArtefakt(SoftverskiArtefaktView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefakt a = s.Load<SoftverskiArtefakt>(dto.Id);
+            a.Naslov = dto.Naslov;
+            a.Apstrakt = dto.Apstrakt;
+            a.Jezik = dto.Jezik;
+            a.DatumObjavljivanja = dto.DatumObjavljivanja ?? default;
+            a.DatumKreiranjaZapisa = dto.DatumKreiranjaZapisa ?? default;
+            a.Status = dto.Status;
+            a.Vidljivost = dto.Vidljivost;
+            a.IdArtefakta = dto.IdArtefakta ?? 0;
+            a.ProgramskiJezik = dto.ProgramskiJezik;
+            a.LinkKaRepozitorijumu = dto.LinkKaRepozitorijumu;
+            a.NacinLicenciranja = dto.NacinLicenciranja;
+            s.SaveOrUpdate(a);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti softverski artefakt.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiSoftverskiArtefakt(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefakt a = s.Load<SoftverskiArtefakt>(id);
+            s.Delete(a);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati softverski artefakt.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region Citira
+
+    public static Result<List<CitiraView>, ErrorMessage> VratiCitiranjaPublikacije(int publikacijaId)
+    {
+        ISession? s = null;
+        List<CitiraView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<Citira> items = from o in s.Query<Citira>()
+                                        where o.IdCitira == publikacijaId   // ova publikacija citira druge
+                                        select o;
+            foreach (var c in items)
+                data.Add(new CitiraView(c));
+        }
+        catch (Exception) { return "Nemoguće vratiti citiranja publikacije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<List<CitiraView>, ErrorMessage> VratiCitiranostiPublikacije(int publikacijaId)
+    {
+        ISession? s = null;
+        List<CitiraView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<Citira> items = from o in s.Query<Citira>()
+                                        where o.IdCitirana == publikacijaId   // ovu publikaciju citiraju drugi
+                                        select o;
+            foreach (var c in items)
+                data.Add(new CitiraView(c));
+        }
+        catch (Exception) { return "Nemoguće vratiti citiranosti publikacije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<CitiraView, ErrorMessage> VratiCitira(int id)
+    {
+        ISession? s = null;
+        CitiraView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Citira c = s.Load<Citira>(id);
+            view = new CitiraView(c);
+        }
+        catch (Exception) { return "Nemoguće vratiti citat sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajCitira(CitiraView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Citira c = new()
+            {
+                IdCitira = dto.IdCitira,
+                IdCitirana = dto.IdCitirana,
+                TipCitata = dto.TipCitata,
+                MestoCitiranja = dto.MestoCitiranja,
+                TekstualniKontekst = dto.TekstualniKontekst
+            };
+            s.SaveOrUpdate(c);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati citat.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniCitira(CitiraView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Citira c = s.Load<Citira>(dto.Id);
+            c.IdCitira = dto.IdCitira;
+            c.IdCitirana = dto.IdCitirana;
+            c.TipCitata = dto.TipCitata;
+            c.MestoCitiranja = dto.MestoCitiranja;
+            c.TekstualniKontekst = dto.TekstualniKontekst;
+            s.SaveOrUpdate(c);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti citat.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiCitira(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            Citira c = s.Load<Citira>(id);
+            s.Delete(c);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati citat.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region PovezanSa
+
+    public static Result<List<PovezanSaView>, ErrorMessage> VratiPovezanePublikacije(int publikacijaId)
+    {
+        ISession? s = null;
+        List<PovezanSaView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<PovezanSa> items = from o in s.Query<PovezanSa>()
+                                           where o.IdPublikacije1 == publikacijaId || o.IdPublikacije2 == publikacijaId
+                                           select o;
+            foreach (var p in items)
+                data.Add(new PovezanSaView(p));
+        }
+        catch (Exception) { return "Nemoguće vratiti povezane publikacije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<PovezanSaView, ErrorMessage> VratiPovezanSa(int id)
+    {
+        ISession? s = null;
+        PovezanSaView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PovezanSa p = s.Load<PovezanSa>(id);
+            view = new PovezanSaView(p);
+        }
+        catch (Exception) { return "Nemoguće vratiti vezu sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajPovezanSa(PovezanSaView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PovezanSa p = new()
+            {
+                IdPublikacije1 = dto.IdPublikacije1,
+                IdPublikacije2 = dto.IdPublikacije2,
+                TipPovezanosti = dto.TipPovezanosti
+            };
+            s.SaveOrUpdate(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati vezu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniPovezanSa(PovezanSaView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PovezanSa p = s.Load<PovezanSa>(dto.Id);
+            p.IdPublikacije1 = dto.IdPublikacije1;
+            p.IdPublikacije2 = dto.IdPublikacije2;
+            p.TipPovezanosti = dto.TipPovezanosti;
+            s.SaveOrUpdate(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti vezu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiPovezanSa(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PovezanSa p = s.Load<PovezanSa>(id);
+            s.Delete(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati vezu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region RundaRecenzije
+
+    public static Result<List<RundaRecenzijeView>, ErrorMessage> VratiRundeRecenzijePublikacije(int publikacijaId)
+    {
+        ISession? s = null;
+        List<RundaRecenzijeView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<RundaRecenzije> items = from o in s.Query<RundaRecenzije>()
+                                                where o.IdPublikacije == publikacijaId
+                                                select o;
+            foreach (var r in items)
+                data.Add(new RundaRecenzijeView(r));
+        }
+        catch (Exception) { return "Nemoguće vratiti runde recenzije publikacije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<RundaRecenzijeView, ErrorMessage> VratiRundaRecenzije(int id)
+    {
+        ISession? s = null;
+        RundaRecenzijeView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            RundaRecenzije r = s.Load<RundaRecenzije>(id);
+            view = new RundaRecenzijeView(r);
+        }
+        catch (Exception) { return "Nemoguće vratiti rundu recenzije sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajRundaRecenzije(RundaRecenzijeView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            RundaRecenzije r = new()
+            {
+                BrojRunde = dto.BrojRunde,
+                IdPublikacije = dto.IdPublikacije,
+                IdUrednika = dto.IdUrednika,
+                Datum = dto.Datum,
+                KonacnaOdluka = dto.KonacnaOdluka
+            };
+            s.SaveOrUpdate(r);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati rundu recenzije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniRundaRecenzije(RundaRecenzijeView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            RundaRecenzije r = s.Load<RundaRecenzije>(dto.Id);
+            r.BrojRunde = dto.BrojRunde;
+            r.IdPublikacije = dto.IdPublikacije;
+            r.IdUrednika = dto.IdUrednika;
+            r.Datum = dto.Datum;
+            r.KonacnaOdluka = dto.KonacnaOdluka;
+            s.SaveOrUpdate(r);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti rundu recenzije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiRundaRecenzije(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            RundaRecenzije r = s.Load<RundaRecenzije>(id);
+            s.Delete(r);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati rundu recenzije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region VrsiRecenziju
+
+    public static Result<List<VrsiRecenzijuView>, ErrorMessage> VratiRecenzijeRunde(int rundaId)
+    {
+        ISession? s = null;
+        List<VrsiRecenzijuView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<VrsiRecenziju> items = from o in s.Query<VrsiRecenziju>()
+                                               where o.IdRundeRecenzije == rundaId
+                                               select o;
+            foreach (var v in items)
+                data.Add(new VrsiRecenzijuView(v));
+        }
+        catch (Exception) { return "Nemoguće vratiti recenzije runde.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<VrsiRecenzijuView, ErrorMessage> VratiVrsiRecenziju(int id)
+    {
+        ISession? s = null;
+        VrsiRecenzijuView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            VrsiRecenziju v = s.Load<VrsiRecenziju>(id);
+            view = new VrsiRecenzijuView(v);
+        }
+        catch (Exception) { return "Nemoguće vratiti recenziju sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajVrsiRecenziju(VrsiRecenzijuView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            VrsiRecenziju v = new()
+            {
+                IdRundeRecenzije = dto.IdRundeRecenzije,
+                IdRecenzenta = dto.IdRecenzenta,
+                Preporuka = dto.Preporuka
+            };
+            s.SaveOrUpdate(v);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati recenziju.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniVrsiRecenziju(VrsiRecenzijuView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            VrsiRecenziju v = s.Load<VrsiRecenziju>(dto.Id);
+            v.IdRundeRecenzije = dto.IdRundeRecenzije;
+            v.IdRecenzenta = dto.IdRecenzenta;
+            v.Preporuka = dto.Preporuka;
+            s.SaveOrUpdate(v);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti recenziju.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiVrsiRecenziju(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            VrsiRecenziju v = s.Load<VrsiRecenziju>(id);
+            s.Delete(v);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati recenziju.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region NizOcena
+
+    public static Result<List<NizOcenaView>, ErrorMessage> VratiOceneRecenzije(int recenzijaId)  // recenzijaId = Id iz VrsiRecenziju
+    {
+        ISession? s = null;
+        List<NizOcenaView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            // Pretpostavljamo da NizOcena ima vezu ka VrsiRecenziju, pa tražimo po toj vezi.
+            // Ako nema direktne veze, možemo koristiti IdRundeRecenzije i IdRecenzenta da nađemo.
+            // Ovde koristimo vezu VrsiRecenziju.
+            IEnumerable<NizOcena> items = from o in s.Query<NizOcena>()
+                                          where o.VrsiRecenziju != null && o.VrsiRecenziju.Id == recenzijaId
+                                          select o;
+            foreach (var n in items)
+                data.Add(new NizOcenaView(n));
+        }
+        catch (Exception) { return "Nemoguće vratiti ocene recenzije.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<NizOcenaView, ErrorMessage> VratiNizOcena(int id)
+    {
+        ISession? s = null;
+        NizOcenaView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NizOcena n = s.Load<NizOcena>(id);
+            view = new NizOcenaView(n);
+        }
+        catch (Exception) { return "Nemoguće vratiti ocenu sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajNizOcena(NizOcenaView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NizOcena n = new()
+            {
+                IdRundeRecenzije = dto.IdRundeRecenzije,
+                IdRecenzenta = dto.IdRecenzenta,
+                Kriterijum = dto.Kriterijum,
+                Ocena = dto.Ocena,
+                VrsiRecenziju = dto.IdVrsiRecenziju.HasValue ? s.Load<VrsiRecenziju>(dto.IdVrsiRecenziju.Value) : null
+            };
+            s.SaveOrUpdate(n);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati ocenu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniNizOcena(NizOcenaView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NizOcena n = s.Load<NizOcena>(dto.Id);
+            n.IdRundeRecenzije = dto.IdRundeRecenzije;
+            n.IdRecenzenta = dto.IdRecenzenta;
+            n.Kriterijum = dto.Kriterijum;
+            n.Ocena = dto.Ocena;
+            n.VrsiRecenziju = dto.IdVrsiRecenziju.HasValue ? s.Load<VrsiRecenziju>(dto.IdVrsiRecenziju.Value) : null;
+            s.SaveOrUpdate(n);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti ocenu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiNizOcena(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            NizOcena n = s.Load<NizOcena>(id);
+            s.Delete(n);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati ocenu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region KnjigaUrednici
+
+    public static Result<List<KnjigaUredniciView>, ErrorMessage> VratiUrednikeKnjige(int knjigaId)
+    {
+        ISession? s = null;
+        List<KnjigaUredniciView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<KnjigaUrednici> items = from o in s.Query<KnjigaUrednici>()
+                                                where o.IdPublikacije == knjigaId
+                                                select o;
+            foreach (var k in items)
+                data.Add(new KnjigaUredniciView(k));
+        }
+        catch (Exception) { return "Nemoguće vratiti urednike knjige.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<KnjigaUredniciView, ErrorMessage> VratiKnjigaUrednici(int id)
+    {
+        ISession? s = null;
+        KnjigaUredniciView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            KnjigaUrednici k = s.Load<KnjigaUrednici>(id);
+            view = new KnjigaUredniciView(k);
+        }
+        catch (Exception) { return "Nemoguće vratiti urednika knjige sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajKnjigaUrednici(KnjigaUredniciView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            KnjigaUrednici k = new()
+            {
+                IdPublikacije = dto.IdPublikacije,
+                Urednik = dto.Urednik
+            };
+            s.SaveOrUpdate(k);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati urednika knjige.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniKnjigaUrednici(KnjigaUredniciView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            KnjigaUrednici k = s.Load<KnjigaUrednici>(dto.Id);
+            k.IdPublikacije = dto.IdPublikacije;
+            k.Urednik = dto.Urednik;
+            s.SaveOrUpdate(k);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti urednika knjige.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiKnjigaUrednici(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            KnjigaUrednici k = s.Load<KnjigaUrednici>(id);
+            s.Delete(k);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati urednika knjige.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region PoglavljeUrednici
+
+    public static Result<List<PoglavljeUredniciView>, ErrorMessage> VratiUrednikePoglavlja(int poglavljeId)
+    {
+        ISession? s = null;
+        List<PoglavljeUredniciView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<PoglavljeUrednici> items = from o in s.Query<PoglavljeUrednici>()
+                                                   where o.IdPublikacije == poglavljeId
+                                                   select o;
+            foreach (var p in items)
+                data.Add(new PoglavljeUredniciView(p));
+        }
+        catch (Exception) { return "Nemoguće vratiti urednike poglavlja.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<PoglavljeUredniciView, ErrorMessage> VratiPoglavljeUrednici(int id)
+    {
+        ISession? s = null;
+        PoglavljeUredniciView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PoglavljeUrednici p = s.Load<PoglavljeUrednici>(id);
+            view = new PoglavljeUredniciView(p);
+        }
+        catch (Exception) { return "Nemoguće vratiti urednika poglavlja sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajPoglavljeUrednici(PoglavljeUredniciView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PoglavljeUrednici p = new()
+            {
+                IdPublikacije = dto.IdPublikacije,
+                Urednik = dto.Urednik
+            };
+            s.SaveOrUpdate(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati urednika poglavlja.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniPoglavljeUrednici(PoglavljeUredniciView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PoglavljeUrednici p = s.Load<PoglavljeUrednici>(dto.Id);
+            p.IdPublikacije = dto.IdPublikacije;
+            p.Urednik = dto.Urednik;
+            s.SaveOrUpdate(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti urednika poglavlja.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiPoglavljeUrednici(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            PoglavljeUrednici p = s.Load<PoglavljeUrednici>(id);
+            s.Delete(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati urednika poglavlja.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
+
+    #region SoftverskiArtefaktPodrzanePlatforme
+
+    public static Result<List<SoftverskiArtefaktPodrzanePlatformeView>, ErrorMessage> VratiPlatformeArtefakta(int artefaktId)
+    {
+        ISession? s = null;
+        List<SoftverskiArtefaktPodrzanePlatformeView> data = new();
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            IEnumerable<SoftverskiArtefaktPodrzanePlatforme> items = from o in s.Query<SoftverskiArtefaktPodrzanePlatforme>()
+                                                                     where o.IdPublikacije == artefaktId
+                                                                     select o;
+            foreach (var p in items)
+                data.Add(new SoftverskiArtefaktPodrzanePlatformeView(p));
+        }
+        catch (Exception) { return "Nemoguće vratiti platforme artefakta.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return data;
+    }
+
+    public static Result<SoftverskiArtefaktPodrzanePlatformeView, ErrorMessage> VratiPlatformu(int id)
+    {
+        ISession? s = null;
+        SoftverskiArtefaktPodrzanePlatformeView view = default!;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefaktPodrzanePlatforme p = s.Load<SoftverskiArtefaktPodrzanePlatforme>(id);
+            view = new SoftverskiArtefaktPodrzanePlatformeView(p);
+        }
+        catch (Exception) { return "Nemoguće vratiti platformu sa zadatim ID-jem.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return view;
+    }
+
+    public static Result<bool, ErrorMessage> DodajPlatformu(SoftverskiArtefaktPodrzanePlatformeView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefaktPodrzanePlatforme p = new()
+            {
+                IdPublikacije = dto.IdPublikacije,
+                PodrzanaPlatforma = dto.PodrzanaPlatforma
+            };
+            s.SaveOrUpdate(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće dodati platformu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> IzmeniPlatformu(SoftverskiArtefaktPodrzanePlatformeView dto)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefaktPodrzanePlatforme p = s.Load<SoftverskiArtefaktPodrzanePlatforme>(dto.Id);
+            p.IdPublikacije = dto.IdPublikacije;
+            p.PodrzanaPlatforma = dto.PodrzanaPlatforma;
+            s.SaveOrUpdate(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće izmeniti platformu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    public static Result<bool, ErrorMessage> ObrisiPlatformu(int id)
+    {
+        ISession? s = null;
+        try
+        {
+            s = DataLayer.GetSession();
+            if (!(s?.IsConnected ?? false))
+                return "Nemoguće otvoriti sesiju.".ToError(403);
+            SoftverskiArtefaktPodrzanePlatforme p = s.Load<SoftverskiArtefaktPodrzanePlatforme>(id);
+            s.Delete(p);
+            s.Flush();
+        }
+        catch (Exception) { return "Nemoguće obrisati platformu.".ToError(400); }
+        finally { s?.Close(); s?.Dispose(); }
+        return true;
+    }
+
+    #endregion
 }

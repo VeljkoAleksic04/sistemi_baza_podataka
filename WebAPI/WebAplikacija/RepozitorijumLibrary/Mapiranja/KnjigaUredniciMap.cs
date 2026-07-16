@@ -8,7 +8,7 @@ internal class KnjigaUredniciMap : ClassMap<KnjigaUrednici>
     {
         Table("KNJIGA_UREDNICI");
 
-        Id(x => x.Id, "Id_Knjiga_Urednik");
+        Id(x => x.Id, "Id_Knjiga_Urednik").GeneratedBy.TriggerIdentity();
 
         Map(x => x.Urednik, "Urednik");
 

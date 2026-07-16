@@ -8,7 +8,7 @@ internal class SoftverskiArtefaktPodrznePlatformeMap : ClassMap<SoftverskiArtefa
     {
         Table("SOFTVERSKI_ARTEFAKT_PLATFORME");
 
-        Id(x => x.Id, "Id_SA_Platforma");
+        Id(x => x.Id, "Id_SA_Platforma").GeneratedBy.TriggerIdentity();
 
         Map(x => x.PodrzanaPlatforma, "Podrzana_Platforma");
 

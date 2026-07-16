@@ -11,7 +11,7 @@ internal class IzvorMap : ClassMap<Izvor>
 
         Id(x => x.Id)
             .Column("ID")
-            .GeneratedBy.Sequence("SEQ_IZVOR");
+            .GeneratedBy.TriggerIdentity();
 
         Map(x => x.Naziv)
             .Column("NAZIV")

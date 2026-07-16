@@ -8,7 +8,7 @@ internal class PovezanSaMap : ClassMap<PovezanSa>
     {
         Table("POVEZAN_SA");
 
-        Id(x => x.Id, "Id_povezan");
+        Id(x => x.Id, "Id_povezan").GeneratedBy.TriggerIdentity();
 
         Map(x => x.TipPovezanosti, "Tip_povezanosti");
 

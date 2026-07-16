@@ -8,7 +8,7 @@ internal class VrsiRecenzijuMap : ClassMap<VrsiRecenziju>
     {
         Table("VRSI_RECENZIJU");
 
-        Id(x => x.Id, "Id_Recenzije");
+        Id(x => x.Id, "Id_Recenzije").GeneratedBy.TriggerIdentity();
         Map(x => x.Preporuka, "Preporuka");
 
         References(x => x.RundaRecenzije, "Id_Runde_Recenzije")
