@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\podrzaneplatformeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\naucniradoviform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\dodajpodrzanuplatformuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\dodajpodrzanuplatformuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|c:\\sistemi baza podataka\\sistemi_baza_podataka\\desktopapp\\digitalnirepozitorijum\\forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{915843F9-6D8C-4A9F-1DE0-C5240AE4A2AB}|DigitalniRepozitorijum.csproj|solutionrelative:forme\\softverskiartefaktiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +26,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DTOManager.cs",
+              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
+              "RelativeDocumentMoniker": "DTOManager.cs",
+              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
+              "RelativeToolTip": "DTOManager.cs",
+              "ViewState": "AgIAADEJAAAAAAAAAAAUwEoJAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-16T14:34:20.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NaucniRadoviForm.cs [Design]",
+              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucniRadoviForm.cs",
+              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs [Design]",
+              "RelativeToolTip": "Forme\\NaucniRadoviForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-16T14:28:26.775Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataLayer.cs",
+              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
+              "RelativeDocumentMoniker": "DataLayer.cs",
+              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DataLayer.cs",
+              "RelativeToolTip": "DataLayer.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAjwCYAAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-16T14:23:24.723Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -43,78 +73,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PodrzanePlatformeForm.cs",
-              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs",
-              "RelativeDocumentMoniker": "Forme\\PodrzanePlatformeForm.cs",
-              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs",
-              "RelativeToolTip": "Forme\\PodrzanePlatformeForm.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwCIAAABAAAAAAAAAAA==",
+              "Title": "NaucniRadoviForm.cs",
+              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeDocumentMoniker": "Forme\\NaucniRadoviForm.cs",
+              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\NaucniRadoviForm.cs",
+              "RelativeToolTip": "Forme\\NaucniRadoviForm.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAiwEYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T14:06:07.397Z",
+              "WhenOpened": "2026-07-16T07:59:46.251Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PodrzanePlatformeForm.cs [Design]",
-              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs",
-              "RelativeDocumentMoniker": "Forme\\PodrzanePlatformeForm.cs",
-              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\PodrzanePlatformeForm.cs [Design]",
-              "RelativeToolTip": "Forme\\PodrzanePlatformeForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T14:06:05.627Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DTOManager.cs",
-              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
-              "RelativeDocumentMoniker": "DTOManager.cs",
-              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\DTOManager.cs",
-              "RelativeToolTip": "DTOManager.cs",
-              "ViewState": "AgIAAAoLAAAAAAAAAAAuwBYLAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T14:00:08.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DodajPodrzanuPlatformuForm.cs",
-              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DodajPodrzanuPlatformuForm.cs",
-              "RelativeDocumentMoniker": "Forme\\DodajPodrzanuPlatformuForm.cs",
-              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\DodajPodrzanuPlatformuForm.cs",
-              "RelativeToolTip": "Forme\\DodajPodrzanuPlatformuForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T07:59:46.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SoftverskiArtefaktiForm.cs",
-              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs",
-              "RelativeDocumentMoniker": "Forme\\SoftverskiArtefaktiForm.cs",
-              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs",
-              "RelativeToolTip": "Forme\\SoftverskiArtefaktiForm.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAIwEAAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T13:59:32.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SoftverskiArtefaktiForm.cs [Design]",
-              "DocumentMoniker": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs",
-              "RelativeDocumentMoniker": "Forme\\SoftverskiArtefaktiForm.cs",
-              "ToolTip": "C:\\Sistemi baza podataka\\sistemi_baza_podataka\\DesktopApp\\DigitalniRepozitorijum\\Forme\\SoftverskiArtefaktiForm.cs [Design]",
-              "RelativeToolTip": "Forme\\SoftverskiArtefaktiForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-16T13:59:30.178Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

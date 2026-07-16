@@ -2370,14 +2370,14 @@ namespace DigitalniRepozitorijum
                 throw new Exception($"Greska pri izmeni naucnog rada...\n{ex.Message}");
             }
         }
-        public static Izvor VratiIzvorPoId(int? idIzvora)
+        public static Izvor VratiIzvorPoId(int? IdNaucnogRada)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
-                if (idIzvora == null) throw new Exception("idIzvora nije pronadjen => null je");
-                var izvor = s.Get<Izvor>(idIzvora);
-                
+                if (IdNaucnogRada == null) throw new Exception("IdNaucnogRada nije pronadjen => null je");
+                var izvor = s.Query<NaucniRad>().Where(nr => nr.Id == IdNaucnogRada).Select(nr => nr.Izvor).FirstOrDefault();
+
                 return izvor;
             }
             catch (Exception e)

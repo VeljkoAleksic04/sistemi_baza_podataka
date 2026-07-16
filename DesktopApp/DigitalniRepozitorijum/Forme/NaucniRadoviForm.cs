@@ -21,7 +21,7 @@ namespace DigitalniRepozitorijum.Forme
                 MessageBox.Show("Izaberite red iz tabele.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
-            return Convert.ToInt32(dataGridView.Rows.IndexOf(dataGridView.SelectedRows[0]));
+            return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -70,19 +70,14 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.Refresh();
         }
 
-        private void btnIzvor_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Dodati prikaz podataka o izvoru preko messageboxa");
-        }
-
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int? idIzvora = GetSelectedId();
+            int? idPublikacije = GetSelectedId();
 
-            if (idIzvora == null)
+            if (idPublikacije == null)
                 MessageBox.Show("Celija nije dobro selektovana", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            var izvor = DTOManager.VratiIzvorPoId(idIzvora);
+            var izvor = DTOManager.VratiIzvorPoId(idPublikacije);
 
             string zapis = "";
 
