@@ -33,7 +33,7 @@ namespace DigitalniRepozitorijum.Forme
             int? id = GetSelectedId();
             if (id == null) return;
 
-            var pb = DTOManager.vratiPublikaciju((int)id);
+            var pb = DTOManager.vratiPublikacijuBasic((int)id);
    
             switch (pb)
             {

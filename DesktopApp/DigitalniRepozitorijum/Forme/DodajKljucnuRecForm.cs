@@ -17,7 +17,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             PublikacijaKljucnaRecBasic pb = new PublikacijaKljucnaRecBasic();
             pb.KljucnaRec = txtKljucnaRec.Text;
-            pb.Publikacija = DTOManager.vratiPublikaciju(_idPublikacije);
+            pb.Publikacija = DTOManager.vratiPublikacijuBasic(_idPublikacije);
 
             DTOManager.dodajPublikacijaKljucnaRec(pb);
 

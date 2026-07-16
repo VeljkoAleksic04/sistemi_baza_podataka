@@ -60,7 +60,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             dataGridView.Rows.Clear();
 
-            IList<PublikacijaKljucnaRecBasic> podaci = DTOManager.vratiPublikaciju(_idPublikacije).KljucneReci;
+            IList<PublikacijaKljucnaRecBasic> podaci = DTOManager.vratiPublikacijuBasic(_idPublikacije).KljucneReci;
 
             if (podaci != null)
             {

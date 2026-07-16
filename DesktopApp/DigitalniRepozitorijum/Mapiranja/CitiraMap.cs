@@ -9,7 +9,7 @@ public class CitiraMap : ClassMap<Citira>
     {
         Table("CITIRA");
 
-        Id(x => x.Id, "Id_citata").GeneratedBy.Sequence("seq_citira");
+        Id(x => x.Id, "Id_citata").GeneratedBy.TriggerIdentity();
 
 
         Map(x => x.TipCitata, "Tip_citata");

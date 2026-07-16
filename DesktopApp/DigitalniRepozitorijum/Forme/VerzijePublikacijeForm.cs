@@ -61,7 +61,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             dataGridView.Rows.Clear();
 
-            IList<VerzijaBasic> podaci = DTOManager.vratiPublikaciju(_idPublikacije).Verzije;
+            IList<VerzijaBasic> podaci = DTOManager.vratiPublikacijuBasic(_idPublikacije).Verzije;
 
             if (podaci != null)
             {

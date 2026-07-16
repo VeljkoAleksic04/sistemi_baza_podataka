@@ -33,12 +33,14 @@ namespace DigitalniRepozitorijum
     }
     public class PovezanSaPregled
     {
+        public int Id;
         public int IdPublikacije2;
         public string Naslov;
         public string TipPovezanosti;
         public PovezanSaPregled() { }
-        public PovezanSaPregled(int idPublikacije2, string naslov, string tipPovezanosti)
+        public PovezanSaPregled(int id,int idPublikacije2, string naslov, string tipPovezanosti)
         {
+            Id = id;
             IdPublikacije2 = idPublikacije2;
             Naslov = naslov;
             TipPovezanosti = tipPovezanosti;
@@ -327,9 +329,9 @@ namespace DigitalniRepozitorijum
 
     public class InstitucijaPregled
     {
-        public int Id;
-        public string Naziv;
-        public string Adresa;
+        public int Id { get; set; }
+        public string Naziv { get; set; }
+        public string Adresa { get; set; }
 
         public InstitucijaPregled() { }
         public InstitucijaPregled(int id, string naziv, string adresa)

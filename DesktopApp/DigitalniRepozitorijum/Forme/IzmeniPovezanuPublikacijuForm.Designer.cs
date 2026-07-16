@@ -15,49 +15,65 @@ namespace DigitalniRepozitorijum.Forme
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            this.lblTipPovezanosti = new System.Windows.Forms.Label();
-            this.lblTipPovezanosti.AutoSize = true;
-            this.lblTipPovezanosti.Location = new System.Drawing.Point(20, 20);
-            this.lblTipPovezanosti.Name = "lblTipPovezanosti";
-            this.lblTipPovezanosti.Size = new System.Drawing.Size(120, 15);
-            this.lblTipPovezanosti.TabIndex = 0;
-            this.lblTipPovezanosti.Text = "Tip povezanosti:";
-            this.txtTipPovezanosti = new System.Windows.Forms.TextBox();
-            this.txtTipPovezanosti.Location = new System.Drawing.Point(160, 17);
-            this.txtTipPovezanosti.Name = "txtTipPovezanosti";
-            this.txtTipPovezanosti.Size = new System.Drawing.Size(230, 23);
-            this.txtTipPovezanosti.TabIndex = 1;
-            this.btnPotvrdi = new System.Windows.Forms.Button();
-            this.btnPotvrdi.Location = new System.Drawing.Point(160, 65);
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.Size = new System.Drawing.Size(110, 32);
-            this.btnPotvrdi.TabIndex = 50;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseVisualStyleBackColor = true;
-            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
-            this.btnOdustani = new System.Windows.Forms.Button();
-            this.btnOdustani.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOdustani.Location = new System.Drawing.Point(280, 65);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(110, 32);
-            this.btnOdustani.TabIndex = 51;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.AcceptButton = this.btnPotvrdi;
-            this.CancelButton = this.btnOdustani;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 175);
-            this.Controls.Add(this.btnOdustani);
-            this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.lblTipPovezanosti);
-            this.Controls.Add(this.txtTipPovezanosti);
-            this.Name = "IzmeniPovezanuPublikacijuForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Izmeni povezanu publikaciju";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblTipPovezanosti = new Label();
+            txtTipPovezanosti = new TextBox();
+            btnPotvrdi = new Button();
+            btnOdustani = new Button();
+            SuspendLayout();
+            // 
+            // lblTipPovezanosti
+            // 
+            lblTipPovezanosti.AutoSize = true;
+            lblTipPovezanosti.Location = new Point(20, 20);
+            lblTipPovezanosti.Name = "lblTipPovezanosti";
+            lblTipPovezanosti.Size = new Size(92, 15);
+            lblTipPovezanosti.TabIndex = 0;
+            lblTipPovezanosti.Text = "Tip povezanosti:";
+            // 
+            // txtTipPovezanosti
+            // 
+            txtTipPovezanosti.Location = new Point(160, 17);
+            txtTipPovezanosti.Name = "txtTipPovezanosti";
+            txtTipPovezanosti.Size = new Size(230, 23);
+            txtTipPovezanosti.TabIndex = 1;
+            // 
+            // btnPotvrdi
+            // 
+            btnPotvrdi.Location = new Point(160, 65);
+            btnPotvrdi.Name = "btnPotvrdi";
+            btnPotvrdi.Size = new Size(110, 32);
+            btnPotvrdi.TabIndex = 50;
+            btnPotvrdi.Text = "Potvrdi";
+            btnPotvrdi.UseVisualStyleBackColor = true;
+            btnPotvrdi.Click += btnPotvrdi_Click;
+            // 
+            // btnOdustani
+            // 
+            btnOdustani.DialogResult = DialogResult.Cancel;
+            btnOdustani.Location = new Point(280, 65);
+            btnOdustani.Name = "btnOdustani";
+            btnOdustani.Size = new Size(110, 32);
+            btnOdustani.TabIndex = 51;
+            btnOdustani.Text = "Odustani";
+            btnOdustani.UseVisualStyleBackColor = true;
+            // 
+            // IzmeniPovezanuPublikacijuForm
+            // 
+            AcceptButton = btnPotvrdi;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnOdustani;
+            ClientSize = new Size(420, 175);
+            Controls.Add(btnOdustani);
+            Controls.Add(btnPotvrdi);
+            Controls.Add(lblTipPovezanosti);
+            Controls.Add(txtTipPovezanosti);
+            Name = "IzmeniPovezanuPublikacijuForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Izmeni povezanu publikaciju";
+            Load += IzmeniPovezanuPublikacijuForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPotvrdi;

@@ -20,7 +20,7 @@ namespace DigitalniRepozitorijum.Forme
             vb.DatumPostavljanja = dateTimePicker1.Value;
             vb.OpisIzmene = txtOpisIzmene.Text;
             vb.OdgovornaOsoba = txtOdgovornaOsoba.Text;
-            vb.Publikacija = DTOManager.vratiPublikaciju((int)_idPublikacije);
+            vb.Publikacija = DTOManager.vratiPublikacijuBasic((int)_idPublikacije);
 
             DTOManager.dodajVerziju(vb);
 

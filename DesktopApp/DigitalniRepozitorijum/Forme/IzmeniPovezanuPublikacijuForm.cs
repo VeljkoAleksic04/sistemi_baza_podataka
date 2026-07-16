@@ -1,15 +1,15 @@
+using DigitalniRepozitorijum.Entiteti;
+using NHibernate;
 using System.Windows.Forms;
 
 namespace DigitalniRepozitorijum.Forme
 {
     public partial class IzmeniPovezanuPublikacijuForm : Form
     {
-        private readonly int? _idPublikacije;
         private readonly int? _id;
 
-        public IzmeniPovezanuPublikacijuForm(int? idPublikacije = null, int? id = null)
+        public IzmeniPovezanuPublikacijuForm(int? id = null)
         {
-            _idPublikacije = idPublikacije;
             _id = id;
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
@@ -17,9 +17,23 @@ namespace DigitalniRepozitorijum.Forme
 
         private void btnPotvrdi_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Cuvanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
+            var status = DTOManager.IzmeniPovezanuPublikaciju(_id.Value, txtTipPovezanosti.Text);
+            if (status)
+            {
+                MessageBox.Show("Uspesno izmenjena povezana publikacija.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Doslo je do greske prilikom izmene povezane publikacije.", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             Close();
+        }
+
+        private void IzmeniPovezanuPublikacijuForm_Load(object sender, EventArgs e)
+        {
+            ISession session = DataLayer.GetSession();
+            string tipPovezanosti = session.Load<PovezanSa>(_id.Value).TipPovezanosti;
+            txtTipPovezanosti.Text = tipPovezanosti;
         }
     }
 }

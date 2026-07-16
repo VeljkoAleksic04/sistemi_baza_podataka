@@ -20,6 +20,7 @@ namespace DigitalniRepozitorijum.Forme
             groupBox = new GroupBox();
             dataGridView = new DataGridView();
             colIdCitata = new DataGridViewTextBoxColumn();
+            IdPubCitata = new DataGridViewTextBoxColumn();
             colTekst = new DataGridViewTextBoxColumn();
             colTipCitata = new DataGridViewTextBoxColumn();
             colMestoCitiranja = new DataGridViewTextBoxColumn();
@@ -45,7 +46,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colIdCitata, colTekst, colTipCitata, colMestoCitiranja });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colIdCitata, IdPubCitata, colTekst, colTipCitata, colMestoCitiranja });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(3, 19);
             dataGridView.MultiSelect = false;
@@ -54,6 +55,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
+            dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
             // colIdCitata
             // 
@@ -61,6 +63,12 @@ namespace DigitalniRepozitorijum.Forme
             colIdCitata.HeaderText = "IdCitata";
             colIdCitata.Name = "colIdCitata";
             colIdCitata.ReadOnly = true;
+            // 
+            // IdPubCitata
+            // 
+            IdPubCitata.HeaderText = "CitiranaPublikacija";
+            IdPubCitata.Name = "IdPubCitata";
+            IdPubCitata.ReadOnly = true;
             // 
             // colTekst
             // 
@@ -139,6 +147,7 @@ namespace DigitalniRepozitorijum.Forme
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
         private DataGridViewTextBoxColumn colIdCitata;
+        private DataGridViewTextBoxColumn IdPubCitata;
         private DataGridViewTextBoxColumn colTekst;
         private DataGridViewTextBoxColumn colTipCitata;
         private DataGridViewTextBoxColumn colMestoCitiranja;

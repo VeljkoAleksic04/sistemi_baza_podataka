@@ -8,14 +8,14 @@ namespace DigitalniRepozitorijum.Forme
     public partial class IzmeniCitatForm : Form
     {
         private readonly int? _idPublikacije;
-        private readonly int? _idPubCitat;
+        private readonly int? _idCitirana;
         private readonly int? _idCitata;
 
-        public IzmeniCitatForm(int? idPublikacije = null, int? idPubCitat = null, int? idCitata = null)
+        public IzmeniCitatForm(int? idPublikacije = null, int? idCitata = null, int? idCitirana = null)
         {
             _idPublikacije = idPublikacije;
-            _idPubCitat = idPubCitat;
             _idCitata = idCitata;
+            _idCitirana = idCitirana;
 
             InitializeComponent();
             FormStilovi.PrimeniStilUnosa(this, btnPotvrdi, btnOdustani);
@@ -25,9 +25,9 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                PublikacijaBasic pubCitira = DTOManager.vratiPublikaciju(_idPublikacije.Value);
-                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(_idPubCitat.Value);
-
+                PublikacijaBasic pubCitira = DTOManager.vratiPublikacijuBasic(_idPublikacije.Value);
+                PublikacijaBasic pubCitirana = DTOManager.vratiPublikacijuBasic(_idCitirana.Value);
+                
                 CitatBasic citat = new CitatBasic
                 {
                     Id = (int)_idCitata,
@@ -57,9 +57,9 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             {
-                if (_idPubCitat.HasValue)
+                if (_idCitirana.HasValue)
                 {
-                    CitatBasic nadjen = DTOManager.VratiCitatPoId(_idPubCitat.Value);
+                    CitatBasic nadjen = DTOManager.VratiCitatPoId(_idCitata.Value);
                     txtTipCitata.Text = nadjen.TipCitata;
                     txtMestoCitiranja.Text = nadjen.MestoCitiranja ?? "";
                     txtKontekst.Text = nadjen.TekstualniKontekst ?? "";

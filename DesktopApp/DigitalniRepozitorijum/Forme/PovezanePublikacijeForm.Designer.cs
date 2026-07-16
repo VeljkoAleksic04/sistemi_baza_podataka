@@ -19,12 +19,13 @@ namespace DigitalniRepozitorijum.Forme
         {
             groupBox = new GroupBox();
             dataGridView = new DataGridView();
-            colIdPublikacije2 = new DataGridViewTextBoxColumn();
-            colNaslov = new DataGridViewTextBoxColumn();
-            colTipPovezanosti = new DataGridViewTextBoxColumn();
             btnDodaj = new Button();
             btnIzmeni = new Button();
             btnObrisi = new Button();
+            Id = new DataGridViewTextBoxColumn();
+            colIdPublikacije2 = new DataGridViewTextBoxColumn();
+            colNaslov = new DataGridViewTextBoxColumn();
+            colTipPovezanosti = new DataGridViewTextBoxColumn();
             groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -44,7 +45,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Columns.AddRange(new DataGridViewColumn[] { colIdPublikacije2, colNaslov, colTipPovezanosti });
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, colIdPublikacije2, colNaslov, colTipPovezanosti });
             dataGridView.Dock = DockStyle.Fill;
             dataGridView.Location = new Point(3, 19);
             dataGridView.MultiSelect = false;
@@ -53,27 +54,7 @@ namespace DigitalniRepozitorijum.Forme
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(684, 534);
             dataGridView.TabIndex = 0;
-            // 
-            // colIdPublikacije2
-            // 
-            colIdPublikacije2.DataPropertyName = "IdPublikacije2";
-            colIdPublikacije2.HeaderText = "IdPublikacije2";
-            colIdPublikacije2.Name = "colIdPublikacije2";
-            colIdPublikacije2.ReadOnly = true;
-            // 
-            // colNaslov
-            // 
-            colNaslov.DataPropertyName = "Naslov";
-            colNaslov.HeaderText = "Naslov";
-            colNaslov.Name = "colNaslov";
-            colNaslov.ReadOnly = true;
-            // 
-            // colTipPovezanosti
-            // 
-            colTipPovezanosti.DataPropertyName = "TipPovezanosti";
-            colTipPovezanosti.HeaderText = "TipPovezanosti";
-            colTipPovezanosti.Name = "colTipPovezanosti";
-            colTipPovezanosti.ReadOnly = true;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
             // 
             // btnDodaj
             // 
@@ -105,6 +86,33 @@ namespace DigitalniRepozitorijum.Forme
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
             // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            // 
+            // colIdPublikacije2
+            // 
+            colIdPublikacije2.DataPropertyName = "IdPublikacije2";
+            colIdPublikacije2.HeaderText = "IdPublikacije2";
+            colIdPublikacije2.Name = "colIdPublikacije2";
+            colIdPublikacije2.ReadOnly = true;
+            // 
+            // colNaslov
+            // 
+            colNaslov.DataPropertyName = "Naslov";
+            colNaslov.HeaderText = "Naslov";
+            colNaslov.Name = "colNaslov";
+            colNaslov.ReadOnly = true;
+            // 
+            // colTipPovezanosti
+            // 
+            colTipPovezanosti.DataPropertyName = "TipPovezanosti";
+            colTipPovezanosti.HeaderText = "TipPovezanosti";
+            colTipPovezanosti.Name = "colTipPovezanosti";
+            colTipPovezanosti.ReadOnly = true;
+            // 
             // PovezanePublikacijeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -127,11 +135,12 @@ namespace DigitalniRepozitorijum.Forme
 
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdPublikacije2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNaslov;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipPovezanosti;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnIzmeni;
         private System.Windows.Forms.Button btnObrisi;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn colIdPublikacije2;
+        private DataGridViewTextBoxColumn colNaslov;
+        private DataGridViewTextBoxColumn colTipPovezanosti;
     }
 }

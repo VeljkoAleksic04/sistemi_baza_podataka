@@ -22,8 +22,15 @@ namespace DigitalniRepozitorijum.Forme
         {
             try
             { 
-                PublikacijaBasic pubCitira = DTOManager.vratiPublikaciju(_idPublikacije.Value);
-                PublikacijaBasic pubCitirana = DTOManager.vratiPublikaciju(int.Parse(cmbPublikacije.SelectedValue.ToString()));
+                PublikacijaBasic pubCitira = DTOManager.vratiPublikacijuBasic(_idPublikacije.Value);
+                PublikacijaBasic pubCitirana = DTOManager.vratiPublikacijuBasic(_idPubCitat.Value);
+
+                if (pubCitira == null || pubCitirana == null)
+                {
+                    MessageBox.Show("Greška: Nije pronađena publikacija!", "Nesto nije u redu",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 CitatBasic novi = new CitatBasic
                 {

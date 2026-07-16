@@ -1,3 +1,5 @@
+using DigitalniRepozitorijum.Entiteti;
+using NHibernate;
 using System;
 using System.Windows.Forms;
 
@@ -6,8 +8,9 @@ namespace DigitalniRepozitorijum.Forme
     public partial class CitatiPublikacijeForm : Form
     {
         private readonly int? _idPublikacije;
+        private int? _idPubCitat;
 
-        public CitatiPublikacijeForm(int? idPublikacije = null, int? idPubCitata = null)
+        public CitatiPublikacijeForm(int? idPublikacije = null)
         {
             _idPublikacije = idPublikacije;
             InitializeComponent();
@@ -16,27 +19,23 @@ namespace DigitalniRepozitorijum.Forme
 
         private int? GetSelectedId()
         {
-            if (dataGridView.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Izaberite red iz tabele.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null;
-            }
-            return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+            if (dataGridView.SelectedRows.Count != 0)
+                return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+
+            return null;
         }
 
         private int? GetSelectedIdCitata()
         {
-            if (dataGridView.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Izaberite red iz tabele.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return null;
-            }
-            return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[1].Value);
+            if (dataGridView.SelectedRows.Count != 0)
+                return Convert.ToInt32(dataGridView.SelectedRows[0].Cells[1].Value);
+
+            return null;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            using var form = new DodajCitatForm(_idPublikacije);
+            using var form = new DodajCitatForm(_idPublikacije, _idPubCitat); // Id Publikacije koja citira i Id citiranje publikacije
             form.ShowDialog();
             popuniPodacima();
         }
@@ -45,7 +44,7 @@ namespace DigitalniRepozitorijum.Forme
         {
             var id = GetSelectedId();
             if (id == null) return;
-            using var form = new IzmeniCitatForm(_idPublikacije, id);
+            using var form = new IzmeniCitatForm(_idPublikacije, id, GetSelectedIdCitata());
             form.ShowDialog();
             popuniPodacima();
         }
@@ -80,7 +79,7 @@ namespace DigitalniRepozitorijum.Forme
 
             foreach (CitatBasic p in podaci)
             {
-                dataGridView.Rows.Add(p.Id, p.TekstualniKontekst, p.TipCitata, p.MestoCitiranja);
+                dataGridView.Rows.Add(p.Id, p.PubCitirana.Id, p.TekstualniKontekst, p.TipCitata, p.MestoCitiranja);
             }
 
             dataGridView.Refresh();
@@ -88,6 +87,11 @@ namespace DigitalniRepozitorijum.Forme
         private void CitatiPublikacijeForm_Load(object sender, EventArgs e)
         {
             popuniPodacima();
+        }
+
+        private void dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            _idPubCitat = GetSelectedIdCitata();
         }
     }
 }

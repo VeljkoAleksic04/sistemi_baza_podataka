@@ -1,4 +1,5 @@
 ﻿using DigitalniRepozitorijum.Entiteti;
+using DigitalniRepozitorijum.Mapiranja;
 using DigitalniRepozitorijum.Utils;
 using FluentNHibernate.Conventions;
 using NHibernate;
@@ -84,7 +85,7 @@ namespace DigitalniRepozitorijum
 
             return p;
         }
-        public static PublikacijaBasic vratiPublikaciju(int id)
+        public static PublikacijaBasic vratiPublikacijuBasic(int id)
         {
             PublikacijaBasic pb = new PublikacijaBasic();
             try
@@ -213,8 +214,9 @@ namespace DigitalniRepozitorijum
                 {
                     povezanePublikacije.Add(new PovezanSaPregled
                     {
+                        Id = p.Id,
                         IdPublikacije2 = p.IdPublikacije2,
-                        Naslov = p.Publikacija1.Naslov,
+                        Naslov = p.Publikacija1!.Naslov,
                         TipPovezanosti = p.TipPovezanosti
                     });
                 }
@@ -225,6 +227,131 @@ namespace DigitalniRepozitorijum
                 MessageBox.Show(ex.Message);
             }
             return povezanePublikacije;
+        }
+
+        public static bool DodajPovezanuPublikaciju(int idPublikacije1, int idPublikacije2, string tipPovezanosti)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PovezanSa o = new PovezanSa
+                {
+                    IdPublikacije1 = idPublikacije1,
+                    IdPublikacije2 = idPublikacije2,
+                    TipPovezanosti = tipPovezanosti,
+                    Publikacija1 = s.Load<Publikacija>(idPublikacije1),
+                    Publikacija2 = s.Load<Publikacija>(idPublikacije2)
+                };
+                s.SaveOrUpdate(o);
+                s.Flush();
+                s.Close();
+
+                status = true;
+                return status;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return status;
+            }
+        }
+
+        public static bool IzmeniPovezanuPublikaciju(int idPovezanePublikacije, string tipPovezanosti)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PovezanSa o = s.Query<PovezanSa>().FirstOrDefault(p => p.Id == idPovezanePublikacije);
+                if (o != null)
+                {
+                    o.TipPovezanosti = tipPovezanosti;
+                    s.Update(o);
+                    s.Flush();
+                }
+                s.Close();
+                status = true;
+                return status;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return status;
+            }
+        }
+
+        public static List<Publikacija> VratiSveOsim(int idPublikacije)
+        {
+            List<Publikacija> publikacije = new List<Publikacija>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IEnumerable<Publikacija> svePublikacije = from o in s.Query<Publikacija>() where o.Id != idPublikacije select o;
+                foreach (Publikacija p in svePublikacije)
+                {
+                    publikacije.Add(p);
+                }
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return publikacije;
+        }
+
+        public static bool ObrisiPovezanuPublikaciju(int idPovezanePublikacije)
+        {
+            bool status = false;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PovezanSa o = s.Query<PovezanSa>().FirstOrDefault(p => p.Id == idPovezanePublikacije);
+                if (o != null)
+                {
+                    s.Delete(o);
+                    s.Flush();
+                }
+                s.Close();
+                status = true;
+                return status;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return status;
+            }
+        }
+
+        public static PublikacijaBasic vratiCitiranuPublikaciju(int idPublikacije)
+        {
+            PublikacijaBasic publikacija = null;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                PovezanSa o = s.Query<PovezanSa>().FirstOrDefault(p => p.IdPublikacije1 == idPublikacije);
+                if (o != null)
+                {
+                    publikacija = new PublikacijaBasic
+                    {
+                        Id = o.Publikacija2.Id,
+                        Naslov = o.Publikacija2.Naslov,
+                        Apstrakt = o.Publikacija2.Apstrakt,
+                        Jezik = o.Publikacija2.Jezik,
+                        Status = o.Publikacija2.Status,
+                        Vidljivost = o.Publikacija2.Vidljivost,
+                        DatumObjavljivanja = o.Publikacija2.DatumObjavljivanja,
+                        DatumKreiranjaZapisa = o.Publikacija2.DatumKreiranjaZapisa
+                    };
+                }
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return publikacija;
         }
 
         #endregion
@@ -1224,7 +1351,7 @@ namespace DigitalniRepozitorijum
 
                 Fajl f = s.Load<Fajl>(id);
 
-                VerzijaBasic vb = new VerzijaBasic(f.Verzija.Id, f.Verzija.BrojVerzije, vratiPublikaciju(f.Verzija.Publikacija.Id), f.Verzija.DatumPostavljanja, f.Verzija.OpisIzmene, f.Verzija.OdgovornaOsoba);
+                VerzijaBasic vb = new VerzijaBasic(f.Verzija.Id, f.Verzija.BrojVerzije, vratiPublikacijuBasic(f.Verzija.Publikacija.Id), f.Verzija.DatumPostavljanja, f.Verzija.OpisIzmene, f.Verzija.OdgovornaOsoba);
                 fb = new FajlBasic(f.Id, f.Putanja, vb);
 
                 s.Close();
@@ -1916,7 +2043,7 @@ namespace DigitalniRepozitorijum
 
                 foreach (var o in rezultati)
                     lista.Add(new AngazovanjePregled(o.Id, o.Institucija.Id, o.Istrazivac.Id,
-                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, "",
+                        o.Institucija.Naziv, o.Istrazivac.Ime + " " + o.Istrazivac.Prezime, o.TipAngazovanja,
                         o.NazivPozicije, o.DatumPocetka, o.DatumZavrsetka));
 
                 s.Close();
@@ -1954,8 +2081,8 @@ namespace DigitalniRepozitorijum
                 ISession s = DataLayer.GetSession();
 
                 Angazovanje o = new Angazovanje();
-                o.Institucija = s.Load<Institucija>(dto.IdInstitucije);
-                o.Istrazivac = s.Load<Istrazivac>(dto.IdIstrazivaca);
+                o.Institucija = s.Get<Institucija>(dto.IdInstitucije);
+                o.Istrazivac = s.Get<Istrazivac>(dto.IdIstrazivaca);
                 o.OrganizacionaJedinica = dto.OrganizacionaJedinica;
                 o.TipAngazovanja = dto.TipAngazovanja;
                 o.NazivPozicije = dto.NazivPozicije;
@@ -2967,13 +3094,14 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-                CitatBasic cnova = s.Get<CitatBasic>(citat.Id);
 
-                cnova.PubCitira = citat.PubCitira;
-                cnova.PubCitirana = citat.PubCitirana;
-                cnova.TipCitata = citat.TipCitata;
-                cnova.MestoCitiranja = citat.MestoCitiranja;
+                Citira cnova = s.Get<Citira>(citat.Id);
+
+                if(cnova == null) throw new Exception("Nije pronadjen citat za izmenu...");
+
                 cnova.TekstualniKontekst = citat.TekstualniKontekst;
+                cnova.MestoCitiranja = citat.MestoCitiranja;
+                cnova.TipCitata = citat.TipCitata;
 
                 s.SaveOrUpdate(cnova);
                 s.Flush();

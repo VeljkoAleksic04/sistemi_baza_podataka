@@ -40,10 +40,9 @@ namespace DigitalniRepozitorijum.Forme
         private void UcitajPodatke()
         {
             var institucije = DTOManager.vratiSveInstitucije();
-
             cmbInstitucije.DataSource = institucije;
-            cmbInstitucije.ValueMember = "Id";
             cmbInstitucije.DisplayMember = "Naziv";
+            cmbInstitucije.ValueMember = "Id";
         }
     }
 }
