@@ -1,3 +1,5 @@
+using DigitalniRepozitorijum.Entiteti;
+using NHibernate;
 using System;
 using System.Windows.Forms;
 
@@ -28,11 +30,13 @@ namespace DigitalniRepozitorijum.Forme
         {
             using var form = new DodajPodrzanuPlatformuForm(_idPublikacije);
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniPodrzanuPlatformuForm(_idPublikacije);
+            var id = GetSelectedId(); if (id == null) return; using var form = new IzmeniPodrzanuPlatformuForm((int)dataGridView.SelectedRows[0].Cells[0].Value);
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
@@ -40,7 +44,9 @@ namespace DigitalniRepozitorijum.Forme
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Brisanje ce biti implementirano kroz NHibernate.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.ObrisiPodrzanuPlatformu((int)GetSelectedId());
+                MessageBox.Show("Uspesno je obrisana podrzana platforma!!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                popuniPodacima();
             }
         }
 
@@ -53,7 +59,12 @@ namespace DigitalniRepozitorijum.Forme
         {
             dataGridView.Rows.Clear();
 
-                
+            ISession session = DataLayer.GetSession();
+            var sa = session.QueryOver<SoftverskiArtefaktPodrzanePlatforme>().List();
+            foreach(var sa1 in sa)
+            {
+                dataGridView.Rows.Add(sa1.Id, sa1.PodrzanaPlatforma);
+            }
 
             dataGridView.Refresh();
         }

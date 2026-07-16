@@ -1,4 +1,5 @@
-﻿using DigitalniRepozitorijum.Entiteti;
+﻿using Antlr.Runtime.Tree;
+using DigitalniRepozitorijum.Entiteti;
 using DigitalniRepozitorijum.Mapiranja;
 using DigitalniRepozitorijum.Utils;
 using FluentNHibernate.Conventions;
@@ -2784,8 +2785,8 @@ namespace DigitalniRepozitorijum
 
                 SoftverskiArtefaktPodrzanePlatforme sapp = new SoftverskiArtefaktPodrzanePlatforme
                 {
-                    IdPublikacije = idPublikacije,
-                    PodrzanaPlatforma = nazivPlatforme
+                    PodrzanaPlatforma = nazivPlatforme,
+                    SoftverskiArtefakt = session.Get<SoftverskiArtefakt>(idPublikacije)
                 };
 
                 session.SaveOrUpdate(sapp);
@@ -2795,6 +2796,51 @@ namespace DigitalniRepozitorijum
             catch (Exception ex)
             {
                 throw new Exception("Dogodila se greska pri dodavanju nove platforme softverskog artefakta..." + ex.Message + "\n" + ex.InnerException);
+            }
+        }
+        public static void IzmeniPodrzanuPlatformu(int idPlatforme, string nazivPlatforme)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                SoftverskiArtefaktPodrzanePlatforme sapp = session.Get<SoftverskiArtefaktPodrzanePlatforme>(idPlatforme);
+                sapp.PodrzanaPlatforma = nazivPlatforme;
+
+                session.SaveOrUpdate(sapp);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Dogodila se greska pri izmeni platforme softverskog artefakta..." + ex.Message + "\n" + ex.InnerException);
+            }
+        }
+        public static void ObrisiPodrzanuPlatformu(int idPlatforme)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                SoftverskiArtefaktPodrzanePlatforme sapp = session.Get<SoftverskiArtefaktPodrzanePlatforme>(idPlatforme);
+                session.Delete(sapp);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Dogodila se greska pri brisanju platforme softverskog artefakta..." + ex.Message + "\n" + ex.InnerException);
+            }
+        }
+        public static string GetPodrzanaPlatforma(int idPlatforme)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                SoftverskiArtefaktPodrzanePlatforme sapp = session.Get<SoftverskiArtefaktPodrzanePlatforme>(idPlatforme);
+                return sapp.PodrzanaPlatforma;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Dogodila se greska pri preuzimanju naziva platforme..." + ex.Message + "\n" + ex.InnerException);
             }
         }
         #endregion
