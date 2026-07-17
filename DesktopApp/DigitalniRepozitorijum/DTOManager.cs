@@ -2401,8 +2401,8 @@ namespace DigitalniRepozitorijum
             try
             {
                 ISession s = DataLayer.GetSession();
-
-                s.Delete(s.Load<NaucniRad>(radId));
+                var naucniRad = s.Load<NaucniRad>(radId);
+                s.Delete(naucniRad);
                 s.Flush();
                 s.Close();
 

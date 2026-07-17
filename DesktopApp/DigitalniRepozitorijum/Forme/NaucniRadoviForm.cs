@@ -28,12 +28,14 @@ namespace DigitalniRepozitorijum.Forme
         {
             using var form = new DodajNaucniRadForm();
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
             var id = int.Parse(dataGridView.SelectedRows[0].Cells[0].Value.ToString()); if (id == null) return;
             using var form = new IzmeniNaucniRadForm(id);
             form.ShowDialog();
+            popuniPodacima();
         }
         private void btnObrisi_Click(object sender, EventArgs e)
         {
@@ -42,7 +44,7 @@ namespace DigitalniRepozitorijum.Forme
             var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete izabrani zapis?", "Brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                var status = DTOManager.ObrisiNaucniRad(int.Parse(dataGridView.Rows[(int)id].Cells[0].Value.ToString()));
+                var status = DTOManager.ObrisiNaucniRad(id);
                 if (status)
                     MessageBox.Show("Uspesno je obrisan naucni rad!!!", "Success", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
